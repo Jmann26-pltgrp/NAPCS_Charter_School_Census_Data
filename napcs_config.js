@@ -1,4 +1,4 @@
-'use strict';
+// NAPCS Config — no strict mode (cross-script var scope required)
 /**
  * napcs_config.js — National Configuration & Summary Data
  * PLT Strategies Group, Inc. | NAPCS Unionization Research Project
@@ -9,7 +9,7 @@
  * Jurisdictions not yet included: KS, NH, WV, AK, IA, AR, VA
  */
 
-const NAPCS_CONFIG = {
+var NAPCS_CONFIG = {
   "national": {
     "universe": 5710,
     "confirmed": 365,
@@ -1266,7 +1266,7 @@ const NAPCS_CONFIG = {
  * NAPCS_REGISTRY_CONTENT
  * Drives the Registry tab panel in the dashboard.
  */
-const NAPCS_REGISTRY_CONTENT = {
+var NAPCS_REGISTRY_CONTENT = {
   "version": "v99",
   "lastUpdated": "June 5, 2026",
   "narrative": {
