@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NAPCS Charter School Unionization Dashboard | PLT Strategies Group</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="napcs_config.js"></script>
+<script src="napcs_label_config.js"></script>
+<script src="napcs_schools_ca.js"></script>
+<script src="napcs_schools_fl_south.js"></script>
+<script src="napcs_schools_az_west.js"></script>
+<script src="napcs_schools_northeast.js"></script>
+<script src="napcs_schools_great_lakes.js"></script>
+<script src="napcs_schools_midwest.js"></script>
+<script src="napcs_intel.js"></script>
+<script src="napcs_associations.js"></script>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0F1923;color:#E8EDF2;height:100vh;display:flex;flex-direction:column;overflow:hidden}
+
+/* TOP BAR */
+#topbar{background:#1A2535;border-bottom:2px solid #2E75B6;padding:7px 18px;display:flex;align-items:center;gap:14px;flex-shrink:0}
+#topbar h1{font-size:14px;font-weight:700;color:#fff;letter-spacing:.3px;white-space:nowrap}
+.tsub{font-size:11px;color:#8BA0B4;white-space:nowrap}
+
+/* STAT BAR */
+#statbar{display:flex;gap:1px;background:#0F1923;flex-shrink:0;border-bottom:2px solid #1E2D40}
+.stat{background:#111B27;padding:7px 12px;flex:1;min-width:0;cursor:pointer;transition:background .15s;border-right:1px solid #1E2D40;position:relative}
+.stat:hover{background:#1A2535}
+.stat.no-click{cursor:default}
+.stat:last-child{border-right:none}
+.stat-val{font-size:20px;font-weight:700;line-height:1;margin-bottom:2px}
+.sv-blue{color:#4A9FE0}.sv-green{color:#6CC04A}.sv-teal{color:#4ABFBF}
+.sv-lime{color:#A8D4A0}.sv-gold{color:#F5A623}.sv-orange{color:#E07A4A}.sv-red{color:#E05A4A}
+.stat-lbl{font-size:9px;color:#8BA0B4;text-transform:uppercase;letter-spacing:.5px;font-weight:700}
+.stat-sub{font-size:9px;color:#4A6A80;margin-top:2px}
+.stat-pct{font-size:10px;font-weight:600;margin-left:4px;opacity:0.8}
+
+/* MAIN */
+#main{display:flex;flex:1;overflow:hidden}
+#mapwrap{flex:1;position:relative}
+#map{width:100%;height:100%}
+#back-btn{position:absolute;top:10px;left:54px;z-index:1000;background:#1A2535;border:1px solid #2E75B6;color:#4A9FE0;padding:5px 12px;border-radius:5px;font-size:11px;cursor:pointer;display:none;font-family:inherit}
+#back-btn:hover{background:#2E75B6;color:#fff}
+
+/* DRAGGABLE FILTER BAR */
+#filter-bar{position:absolute;top:50%;left:10px;transform:translateY(-50%);z-index:1000;background:rgba(15,25,35,0.93);border:1px solid #1E2D40;border-radius:7px;padding:9px 12px;min-width:160px;cursor:grab;user-select:none}
+#filter-bar:active{cursor:grabbing}
+#filter-bar .fb-handle{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#2E75B6;margin-bottom:7px;display:flex;align-items:center;gap:5px}
+#filter-bar .fb-handle::before{content:'⠿';font-size:12px;color:#4A6A80}
+.fitem{display:flex;align-items:center;gap:6px;margin-bottom:5px;cursor:pointer;font-size:11px;color:#B0C0D0;user-select:none}
+.fitem:last-child{margin-bottom:0}
+.fitem input{width:12px;height:12px;cursor:pointer;accent-color:#2E75B6;flex-shrink:0}
+.fdot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+
+/* State detail popup from label */
+.state-popup .leaflet-popup-content-wrapper{background:#111B27;border:1px solid #2E75B6;border-radius:8px;box-shadow:0 4px 20px rgba(0,0,0,.7);min-width:260px;max-width:280px}
+.state-popup .leaflet-popup-content{margin:0;padding:0;min-width:260px}
+.state-popup .leaflet-popup-tip-container{display:none}
+.state-popup .leaflet-popup-close-button{color:#4A6A80!important;font-size:16px!important;top:6px!important;right:8px!important;z-index:10}
+.spo-hdr{padding:10px 14px 7px;border-bottom:1px solid #1E2D40;background:#1A2535;border-radius:8px 8px 0 0}
+.spo-title{font-size:13px;font-weight:700;color:#4A9FE0}
+.spo-sub{font-size:10px;color:#4A6A80;margin-top:1px}
+.spo-body{padding:8px 12px 10px;max-height:400px;overflow-y:auto}
+.spo-body::-webkit-scrollbar{width:3px}
+.spo-body::-webkit-scrollbar-thumb{background:#2A3D54;border-radius:2px}
+.spo-section{font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#2E75B6;margin:9px 0 5px;padding-bottom:3px;border-bottom:1px solid #1E2D40}
+.spo-section:first-child{margin-top:0}
+.spo-row{display:flex;justify-content:space-between;align-items:baseline;padding:2px 0;border-bottom:1px solid rgba(30,45,64,.4);font-size:10px}
+.spo-lbl{color:#8BA0B4}.spo-val{font-weight:700;color:#E8EDF2;text-align:right;max-width:150px;word-break:break-word}
+.spo-val.g{color:#6CC04A}.spo-val.t{color:#4ABFBF}.spo-val.b{color:#4A9FE0}.spo-val.gold{color:#F5A623}
+.spo-bar{height:4px;background:#0F1A25;border-radius:2px;overflow:hidden;margin:4px 0 7px}
+.spo-bar-fill{height:100%;background:linear-gradient(90deg,#2E75B6,#4ABFBF);border-radius:2px}
+.spo-assoc{background:#1A2535;border-radius:4px;padding:6px 8px;margin-bottom:5px}
+.spo-assoc-name{font-size:10px;font-weight:700;color:#E8EDF2;margin-bottom:2px}
+.spo-assoc-link a{font-size:9px;color:#4A9FE0;text-decoration:none}
+.spo-assoc-link a:hover{text-decoration:underline}
+.spo-report-btn{display:block;margin-top:8px;padding:6px 10px;background:#1A3550;border:1px solid #2E75B6;color:#4A9FE0;border-radius:4px;text-align:center;font-size:10px;font-weight:700;cursor:pointer;text-decoration:none;font-family:inherit}
+.spo-report-btn:hover{background:#2E75B6;color:#fff}
+.sso-assoc-card{background:#1A2535;border-radius:5px;padding:7px 9px;margin-bottom:5px}
+.sso-assoc-name{font-size:10px;font-weight:700;color:#E8EDF2;margin-bottom:3px}
+.sso-assoc-link a{font-size:9px;color:#4A9FE0;text-decoration:none}
+.sso-assoc-link a:hover{text-decoration:underline}
+
+/* SIDE PANEL */
+#sidepanel{width:290px;background:#0F1923;border-left:1px solid #1E2D40;display:flex;flex-direction:column;flex-shrink:0;overflow:hidden}
+#tab-folders{flex-shrink:0;background:#0A1520;border-bottom:2px solid #2E75B6}
+.tab-row-label{font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#2E75B6;padding:3px 8px;background:#0A1520;border-bottom:1px solid #1E2D40}
+.tab-row{display:flex;border-bottom:1px solid #1E2D40}
+.ftab{flex:1;padding:7px 2px;text-align:center;font-size:9.5px;font-weight:600;color:#4A6A80;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px;transition:all .15s;background:none;border-top:none;border-left:none;border-right:1px solid #1E2D40;font-family:inherit;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.2}
+.ftab:last-child{border-right:none}
+.ftab:hover{color:#8BA0B4;background:#111B27}
+.ftab.active{color:#4A9FE0;background:#111B27;border-bottom-color:#2E75B6;font-weight:700}
+#panel-hdr{padding:8px 12px 6px;border-bottom:1px solid #1E2D40;flex-shrink:0}
+#panel-title{font-size:13px;font-weight:700;color:#4A9FE0}
+#panel-sub{font-size:10px;color:#4A6A80;margin-top:2px;line-height:1.4}
+#panel-body{flex:1;overflow-y:auto;padding:10px 12px}
+#panel-body::-webkit-scrollbar{width:3px}
+#panel-body::-webkit-scrollbar-thumb{background:#2A3D54;border-radius:2px}
+
+/* PANEL CONTENT */
+.section-label{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#2E75B6;margin:12px 0 6px;padding-bottom:4px;border-bottom:1px solid #1E2D40}
+.section-label:first-child{margin-top:2px}
+.srow{display:flex;justify-content:space-between;align-items:baseline;padding:3px 0;border-bottom:1px solid rgba(30,45,64,.4)}
+.srow-lbl{font-size:10px;color:#8BA0B4;flex-shrink:0;max-width:140px}
+.srow-val{font-size:10px;font-weight:700;color:#E8EDF2;text-align:right;word-break:break-word}
+.sv-g{color:#6CC04A}.sv-t{color:#4ABFBF}.sv-gold{color:#F5A623}.sv-r{color:#E05A4A}.sv-b{color:#4A9FE0}
+.density-bar{height:5px;background:#0F1A25;border-radius:3px;overflow:hidden;margin-top:6px}
+.density-fill{height:100%;background:linear-gradient(90deg,#2E75B6,#4ABFBF);border-radius:3px}
+.oi-card{background:#1A2535;border-radius:5px;padding:7px 9px;margin-bottom:5px}
+.oi-lbl{font-size:9px;color:#4A6A80;font-weight:700;text-transform:uppercase;letter-spacing:.3px;margin-bottom:2px}
+.oi-val{font-size:10px;color:#E8EDF2;line-height:1.3}
+.intel-card{background:#111B27;border-radius:6px;padding:9px 10px;margin-bottom:8px;border-left:3px solid #2E75B6}
+.intel-prompt{font-size:9px;font-weight:700;color:#4A9FE0;text-transform:uppercase;letter-spacing:.3px;margin-bottom:5px}
+.intel-answer{font-size:10.5px;color:#C0D0E0;line-height:1.6}
+.pattern-card{background:#111B27;border-radius:5px;padding:8px 10px;margin-bottom:6px;border-left:3px solid #534AB7}
+.pattern-title{font-size:10px;font-weight:700;color:#b0a8e0;margin-bottom:4px}
+.pattern-body{font-size:10px;color:#8BA0B4;line-height:1.5}
+.mon-card{background:#1A2535;border-radius:5px;padding:7px 9px;margin-bottom:5px}
+.mon-card.HIGH{border-left:3px solid #F5A623}.mon-card.CRITICAL{border-left:3px solid #E05A4A}
+.mon-card.MEDIUM{border-left:3px solid #2E75B6}.mon-card.LOW{border-left:3px solid #4A6A80}
+.pri-badge{font-size:8px;font-weight:700;padding:1px 5px;border-radius:2px;display:inline-block;margin-bottom:3px}
+.pri-CRITICAL{background:#2A0A0A;color:#E05A4A;border:1px solid #4A1A1A}
+.pri-HIGH{background:#2A1A0A;color:#F5A623;border:1px solid #4A3010}
+.pri-MEDIUM{background:#0A1A2A;color:#4A9FE0;border:1px solid #1A3050}
+.pri-LOW{background:#0A1A0A;color:#4A6A80;border:1px solid #1A2A1A}
+.assoc-card{background:#111B27;border-radius:5px;padding:8px 10px;margin-bottom:6px;border:1px solid #1E2D40}
+.assoc-name{font-size:11px;font-weight:700;color:#fff;margin-bottom:3px}
+.assoc-contact{font-size:9px;color:#4A6A80;margin-bottom:3px}
+.assoc-links{display:flex;gap:6px;flex-wrap:wrap}
+.assoc-link{font-size:9px;color:#4A9FE0;text-decoration:none}
+.assoc-link:hover{color:#fff;text-decoration:underline}
+.static-section{margin-bottom:16px}
+.static-section h3{font-size:11px;font-weight:700;color:#4A9FE0;margin-bottom:6px;padding-bottom:4px;border-bottom:1px solid #1E2D40}
+.static-section p{font-size:10.5px;color:#B0C0D0;line-height:1.65;margin-bottom:6px}
+.static-section ul{padding-left:14px;margin-bottom:6px}
+.static-section li{font-size:10px;color:#8BA0B4;line-height:1.6;margin-bottom:2px}
+.stat-chip{display:inline-flex;justify-content:space-between;gap:8px;background:#1A2535;border-radius:4px;padding:4px 8px;margin-bottom:4px;width:100%}
+.stat-chip-lbl{font-size:9px;color:#8BA0B4}.stat-chip-val{font-size:9px;font-weight:700;color:#4A9FE0}
+.cba-card{background:#1A2535;border-radius:5px;padding:7px 9px;margin-bottom:5px}
+.cba-school{font-size:10px;font-weight:700;color:#E8EDF2;margin-bottom:2px}
+.cba-union{font-size:9px;color:#6CC04A;margin-bottom:2px}.cba-status{font-size:9px;color:#4A6A80}
+.media-item{font-size:10px;color:#B0C0D0;line-height:1.6;margin-bottom:6px;padding:6px 9px;background:#111B27;border-radius:4px}
+.actor-card{background:#1A2535;border-radius:5px;padding:6px 9px;margin-bottom:5px;display:flex;gap:8px;align-items:flex-start}
+.actor-name{font-size:10px;font-weight:700;color:#E8EDF2;flex-shrink:0;width:90px;line-height:1.3}
+.actor-align{font-size:8px;font-weight:700;padding:1px 4px;border-radius:2px;flex-shrink:0;margin-top:2px}
+.align-pro{background:#0A2A0A;color:#6CC04A;border:1px solid #1E4A1E}
+.align-res{background:#2A0A0A;color:#E05A4A;border:1px solid #4A1A1A}
+.align-anti{background:#2A0A0A;color:#E07A4A;border:1px solid #4A2010}
+.align-neu{background:#0A1A2A;color:#4A9FE0;border:1px solid #1A3050}
+.actor-pos{font-size:9.5px;color:#8BA0B4;line-height:1.4}
+.no-state{text-align:center;padding:30px 16px;color:#4A6A80;font-size:11px;line-height:1.6}
+.no-state .ns-icon{font-size:28px;margin-bottom:8px}
+.net-card{background:#1A2535;border-radius:5px;padding:8px 10px;margin-bottom:6px}
+.net-name{font-size:11px;font-weight:700;color:#E8EDF2;margin-bottom:3px}
+.net-union{font-size:9.5px;color:#6CC04A;margin-bottom:3px}.net-meta{font-size:9px;color:#4A6A80}
+
+/* DENSITY TABLE */
+#dtable{width:100%;border-collapse:collapse}
+#dtable th{background:#0A1520;color:#4A6A80;padding:5px 6px;text-align:left;font-weight:700;font-size:8px;text-transform:uppercase;letter-spacing:.3px;border-bottom:1px solid #1E2D40;position:sticky;top:0}
+#dtable td{padding:4px 6px;border-bottom:1px solid #0F1A25;font-size:10px;color:#B0C0D0}
+#dtable tr:hover td{background:#1A2535}
+#dtable .tot td{background:#0A1520;font-weight:700;color:#fff;border-top:2px solid #2E75B6}
+.dt-link{color:#4ABFBF;cursor:pointer;font-weight:600}
+.dt-link:hover{color:#fff;text-decoration:underline}
+.dt-bar{height:4px;background:#0F1A25;border-radius:2px;margin-top:3px;overflow:hidden}
+.dt-fill-conf{height:100%;background:#2E75B6;float:left}
+.dt-fill-dep{height:100%;background:#4ABFBF;float:left}
+
+/* POPUP */
+.leaflet-popup-content-wrapper{background:#1A2535;border:1px solid #2E75B6;border-radius:8px;color:#E8EDF2;box-shadow:0 4px 20px rgba(0,0,0,.6)}
+.leaflet-popup-content{margin:10px 13px;font-size:11px;min-width:200px;max-width:270px}
+.leaflet-popup-tip{background:#1A2535}
+.leaflet-popup-close-button{color:#6B88A2!important;font-size:16px!important;top:5px!important;right:8px!important}
+.pu-name{font-size:12px;font-weight:700;color:#fff;margin-bottom:8px;line-height:1.3;padding-right:16px}
+.pu-row{display:grid;grid-template-columns:80px 1fr;gap:3px;margin-bottom:4px;align-items:flex-start}
+.pu-lbl{font-size:9px;color:#4A6A80;font-weight:700;text-transform:uppercase;letter-spacing:.3px;padding-top:1px}
+.pu-val{font-size:10px;color:#D0D8E0;word-break:break-word;line-height:1.3}
+.pu-val.green{color:#6CC04A}.pu-val.teal{color:#4ABFBF}.pu-val.gold{color:#F5A623}
+.pu-badge{display:inline-block;font-size:9px;font-weight:700;padding:1px 6px;border-radius:3px}
+.pu-link{display:flex;align-items:center;gap:4px;margin-top:6px;padding-top:6px;border-top:1px solid #1E2D40}
+.pu-link a{color:#4A9FE0;font-size:10px;text-decoration:none}
+.pu-link a:hover{text-decoration:underline;color:#fff}
+.pu-warn{font-size:9px;color:#F5A623;margin-top:5px;padding:3px 6px;background:rgba(245,166,35,0.1);border-radius:3px;border:1px solid rgba(245,166,35,0.3)}
+.bc-CONFIRMED{background:#0A2A0A;color:#6CC04A;border:1px solid #1E4A1E}
+.bc-DEPENDENT{background:#0A2A2A;color:#4ABFBF;border:1px solid #1A4040}
+.bc-ORGANIZING{background:#2A1A0A;color:#F5A623;border:1px solid #4A3010}
+.bc-DECERTIFIED{background:#1A1A1A;color:#888;border:1px solid #333}
+.bc-CLOSED{background:#2A1010;color:#E07A4A;border:1px solid #4A2010}
+.bc-HISTORICAL{background:#1A0A2A;color:#9B59B6;border:1px solid #4A1A6A}
+.bc-UNVERIFIED{background:#0A1520;color:#4A6A80;border:1px solid #1E2D40}
+
+/* MODAL */
+#modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:3000;display:none;align-items:center;justify-content:center;padding:20px}
+#modal-overlay.open{display:flex}
+#modal-box{background:#1A2535;border:1px solid #2E75B6;border-radius:10px;width:100%;max-width:680px;max-height:80vh;display:flex;flex-direction:column}
+#modal-hdr{padding:13px 16px;border-bottom:1px solid #1E2D40;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+#modal-title{font-size:13px;font-weight:700;color:#fff}
+#modal-close{background:none;border:none;color:#4A6A80;font-size:22px;cursor:pointer;line-height:1;padding:0 4px;font-family:inherit}
+#modal-close:hover{color:#fff}
+#modal-body{overflow-y:auto;padding:12px 16px}
+#modal-body::-webkit-scrollbar{width:4px}
+#modal-body::-webkit-scrollbar-thumb{background:#2A3D54;border-radius:2px}
+.mrow{display:flex;gap:10px;align-items:flex-start;padding:7px 0;border-bottom:1px solid #0F1923;cursor:pointer;border-radius:3px;transition:background .12s}
+.mrow:hover{background:#1A2535;padding-left:4px}
+.mrow:last-child{border-bottom:none}
+.mbadge{font-size:9px;font-weight:700;padding:2px 7px;border-radius:3px;flex-shrink:0;margin-top:1px}
+.mrow-name{font-size:12px;font-weight:600;color:#fff}
+.mrow-meta{font-size:10px;color:#4A6A80;margin-top:2px;line-height:1.4}
+
+.leaflet-control-zoom{border:1px solid #2A3D54!important}
+.leaflet-control-zoom a{background:#1A2535!important;color:#4A9FE0!important;border-bottom:1px solid #2A3D54!important;font-family:inherit!important}
+.leaflet-control-zoom a:hover{background:#2E75B6!important;color:#fff!important}
+.leaflet-control-attribution{background:rgba(15,25,35,.8)!important;color:#4A6A80!important;font-size:9px!important}
+.leaflet-control-attribution a{color:#4A9FE0!important}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div id="topbar">
+  <h1>NAPCS Charter School Unionization Dashboard</h1>
+  <span class="tsub" id="topbar-sub"></span>
+</div>
+
+<!-- STAT BAR — order: Total Schools | Total Organized | Confirmed | Dependent | Organizing | Decertified | Closed -->
+<div id="statbar">
+  <div class="stat" id="stat-total" title="View density table">
+    <div class="stat-val sv-blue" id="sv-total">—</div>
+    <div class="stat-lbl">Census Total</div>
+    <div class="stat-sub" id="ss-total"></div>
+  </div>
+  <div class="stat no-click" title="Confirmed + Dependent combined">
+    <div class="stat-val sv-lime" id="sv-comb">—</div>
+    <div class="stat-lbl" style="color:#A8D4A0">Combined</div>
+    <div class="stat-sub" id="ss-comb"></div>
+  </div>
+  <div class="stat" id="stat-conf" title="View confirmed schools">
+    <div class="stat-val sv-green" id="sv-conf">—</div>
+    <div class="stat-lbl">Independently Organized</div>
+    <div class="stat-sub" id="ss-conf"></div>
+  </div>
+  <div class="stat" id="stat-dep" title="View dependent schools">
+    <div class="stat-val sv-teal" id="sv-dep">—</div>
+    <div class="stat-lbl">Structural Coverage</div>
+    <div class="stat-sub">Dependent</div>
+  </div>
+  <div class="stat" id="stat-org" title="View organizing schools">
+    <div class="stat-val sv-gold" id="sv-org">—</div>
+    <div class="stat-lbl">Documented Organizing</div>
+    <div class="stat-sub" id="ss-org"></div>
+  </div>
+  <div class="stat" id="stat-dec" title="View decertified">
+    <div class="stat-val sv-orange" id="sv-dec">—</div>
+    <div class="stat-lbl">No Longer Unionized</div>
+    <div class="stat-sub">Decertified</div>
+  </div>
+  <div class="stat" id="stat-clo" title="View closed (formerly org.)">
+    <div class="stat-val sv-red" id="sv-clo">—</div>
+    <div class="stat-lbl">Historically Organized</div>
+    <div class="stat-sub"></div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div id="main">
+  <div id="mapwrap">
+    <div id="map"></div>
+    <button id="back-btn">← All States</button>
+
+    <!-- DRAGGABLE FILTER BAR -->
+    <div id="filter-bar">
+      <div class="fb-handle">Filter by Status</div>
+      <label class="fitem"><input type="checkbox" checked data-status="CONFIRMED"><span class="fdot" style="background:#6CC04A"></span><span>Independently Organized (<span id="fc-0">0</span>)</span></label>
+      <label class="fitem"><input type="checkbox" checked data-status="DEPENDENT"><span class="fdot" style="background:#4ABFBF"></span><span>Structural Coverage (<span id="fc-1">0</span>)</span></label>
+      <label class="fitem"><input type="checkbox" checked data-status="ORGANIZING"><span class="fdot" style="background:#F5A623"></span><span>Doc. Organizing Activity (<span id="fc-2">0</span>)</span></label>
+      <label class="fitem"><input type="checkbox" checked data-status="DECERTIFIED"><span class="fdot" style="background:#888;border:1px solid #555"></span><span>No Longer Unionized (<span id="fc-3">0</span>)</span></label>
+      <label class="fitem"><input type="checkbox" data-status="CLOSED"><span class="fdot" style="background:#E07A4A"></span><span>Historically Organized (<span id="fc-4">0</span>)</span></label>
+      <label class="fitem"><input type="checkbox" data-status="UNVERIFIED"><span class="fdot" style="background:transparent;border:1.5px dashed #4A6A80"></span><span>No Organizing Activity Documented (<span id="fc-5">0</span>)</span></label>
+    </div>
+
+  </div>
+
+  <!-- SIDE PANEL -->
+  <div id="sidepanel">
+    <div id="tab-folders">
+      <div class="tab-row-label">&#9632; DATA</div>
+      <div class="tab-row">
+        <button class="ftab active" data-tab="overview">Overview</button>
+        <button class="ftab" data-tab="density">Census Table</button>
+        <button class="ftab" data-tab="jurisdiction">Jurisdiction</button>
+      </div>
+      <div class="tab-row-label">&#9632; PROJECT</div>
+      <div class="tab-row">
+        <button class="ftab" data-tab="registry">Registry</button>
+        <button class="ftab" data-tab="verification">Verification</button>
+        <button class="ftab" data-tab="" style="visibility:hidden;pointer-events:none"></button>
+      </div>
+      <div class="tab-row-label" style="background:#0A1520"></div>
+      <div class="tab-row">
+        <button class="ftab" data-tab="associations">Associations</button>
+        <button class="ftab" data-tab="" style="visibility:hidden;pointer-events:none"></button>
+        <button class="ftab" data-tab="" style="visibility:hidden;pointer-events:none"></button>
+      </div>
+      <div class="tab-row-label">&#9632; INTELLIGENCE <span style="font-size:7px;color:#4A6A80;font-weight:400;margin-left:4px">— select a state</span></div>
+      <div class="tab-row">
+        <button class="ftab" data-tab="political">Political</button>
+        <button class="ftab" data-tab="organizing">Organizing</button>
+        <button class="ftab" data-tab="trends">Trends</button>
+      </div>
+      <div class="tab-row-label" style="background:#0A1520"></div>
+      <div class="tab-row">
+        <button class="ftab" data-tab="patterns">Patterns</button>
+        <button class="ftab" data-tab="media">Media</button>
+        <button class="ftab" data-tab="networks">Networks</button>
+      </div>
+      <div class="tab-row-label" style="background:#0A1520"></div>
+      <div class="tab-row">
+        <button class="ftab" data-tab="cba">CBA Registry</button>
+        <button class="ftab" data-tab="monitoring">Monitoring</button>
+        <button class="ftab" data-tab="openitems">Open Items</button>
+      </div>
+    </div>
+    <div id="panel-hdr">
+      <div id="panel-title">National Overview</div>
+      <div id="panel-sub">Click any state label to view state detail</div>
+    </div>
+    <div id="panel-body"></div>
+  </div>
+</div>
+
+<!-- MODAL -->
+<div id="modal-overlay">
+  <div id="modal-box">
+    <div id="modal-hdr"><div id="modal-title"></div><button id="modal-close">&times;</button></div>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+<script>
+var NAT = NAPCS_CONFIG.national;
+var SD = NAPCS_CONFIG.state_data;
+var NAPCS_SCHOOLS = [].concat(NAPCS_SCHOOLS_CA, NAPCS_SCHOOLS_FL_SOUTH, NAPCS_SCHOOLS_AZ_WEST, NAPCS_SCHOOLS_NORTHEAST, NAPCS_SCHOOLS_GREAT_LAKES, NAPCS_SCHOOLS_MIDWEST);
+var SCHOOLS = NAPCS_SCHOOLS;
+var INTEL = NAPCS_INTEL;
+var ASSOC = NAPCS_ASSOCIATIONS;
+var JDATA = NAPCS_CONFIG.jurisdiction_data || {};
+var RC = NAPCS_REGISTRY_CONTENT;
+var SR = NAPCS_CONFIG.stateReports || {};
+
+var STATE_NAMES = {
+  AZ:'Arizona',CA:'California',CO:'Colorado',CT:'Connecticut',DC:'Washington DC',
+  DE:'Delaware',FL:'Florida',GA:'Georgia',HI:'Hawaii',IL:'Illinois',
+  LA:'Louisiana',MA:'Massachusetts',MD:'Maryland',ME:'Maine',MI:'Michigan',
+  MN:'Minnesota',MO:'Missouri',NJ:'New Jersey',NM:'New Mexico',NY:'New York',
+  OH:'Ohio',OR:'Oregon',PA:'Pennsylvania',RI:'Rhode Island',
+  WA:'Washington',WI:'Wisconsin'
+};
+
+var STATUS_CFG = {
+  CONFIRMED:  {color:'#6CC04A',r:7,opacity:0.88},   // Independently Organized
+  DEPENDENT:  {color:'#4ABFBF',r:6,opacity:0.80},   // Structural Coverage (Dependent)
+  ORGANIZING: {color:'#F5A623',r:9,opacity:0.95},   // Documented Organizing Activity
+  DECERTIFIED:{color:'#888888',r:5,opacity:0.70},   // No Longer Unionized
+  CLOSED:     {color:'#E07A4A',r:5,opacity:0.70},   // Historically Organized / Closed
+  UNVERIFIED: {color:'rgba(0,0,0,0)',r:5,opacity:1.0, dashed:true}, // No Organizing Activity Documented — dashed circle
+};
+
+// Low-precision schools (geocoder fallback coordinates)
+var LOW_PRECISION = {'C0614021':true,'C0616026':false,'C0614022':false}; // Taylor Exemplar MI, ACE Leadership NM, Innovative Horizons CA, SOTA WI
+var LOW_PRECISION_IDS = new Set(['MI-TaylorExemplar','NM-ACELeadership','CA-InnovativeHorizons','WI-SOTA']);
+// Match by name since we have name-based lookup
+function isLowPrecision(s) {
+  if (!s) return false;
+  var n = (s.name||'').toLowerCase();
+  return n.includes('taylor exemplar') || n.includes('ace leadership high') ||
+         n.includes('innovative horizons charter') || (n.includes('school of technology and arts') && s.state==='WI');
+}
+
+// ── HEADER ─────────────────────────────────────────────────────────────────
+document.getElementById('topbar-sub').textContent =
+  'Working Data \u00B7 Last Updated June 5, 2026 \u00B7 CONFIDENTIAL';
+
+// Stat bar population
+var combPct = NAT.density;
+var confPct = NAT.confirmed_density;
+var depPct  = NAT.dependent ? (NAT.dependent/NAT.universe*100).toFixed(1)+'%' : '0%';
+
+document.getElementById('sv-total').textContent = NAT.universe.toLocaleString();
+document.getElementById('ss-total').textContent = NAT.jurisdictions+' Jurisdictions \u00B7 June 5, 2026';
+document.getElementById('sv-comb').textContent  = NAT.combined.toLocaleString();
+document.getElementById('ss-comb').textContent  = combPct+' of universe';
+document.getElementById('sv-conf').textContent  = NAT.confirmed.toLocaleString();
+document.getElementById('ss-conf').textContent  = confPct+' of universe';
+document.getElementById('sv-dep').textContent   = NAT.dependent.toLocaleString();
+document.getElementById('sv-org').textContent   = NAT.organizing;
+document.getElementById('ss-org').textContent   = NAT.organizing > 0 ? NAT.organizing+' active campaign'+(NAT.organizing>1?'s':'') : 'No active campaigns';
+document.getElementById('sv-dec').textContent   = NAT.decertified;
+document.getElementById('sv-clo').textContent   = NAT.closed;
+
+// Filter counts
+var sc={CONFIRMED:0,DEPENDENT:0,ORGANIZING:0,DECERTIFIED:0,CLOSED:0,UNVERIFIED:0};
+SCHOOLS.forEach(function(s){ if(sc[s.status]!==undefined) sc[s.status]++; });
+document.getElementById('fc-0').textContent=sc.CONFIRMED;
+document.getElementById('fc-1').textContent=sc.DEPENDENT;
+document.getElementById('fc-2').textContent=sc.ORGANIZING;
+document.getElementById('fc-3').textContent=sc.DECERTIFIED;
+document.getElementById('fc-4').textContent=sc.CLOSED;
+document.getElementById('fc-5').textContent=sc.UNVERIFIED;
+
+// Stat bar clicks
+document.getElementById('stat-total').onclick=function(){ switchTab('density'); };
+document.getElementById('stat-conf').onclick=function(){ openModal('CONFIRMED'); };
+document.getElementById('stat-dep').onclick=function(){ openModal('DEPENDENT'); };
+document.getElementById('stat-org').onclick=function(){ openModal('ORGANIZING'); };
+document.getElementById('stat-dec').onclick=function(){ openModal('DECERTIFIED'); };
+document.getElementById('stat-clo').onclick=function(){ openModal('CLOSED'); };
+
+// ── MAP ─────────────────────────────────────────────────────────────────────
+var map = L.map('map',{center:[38,-96],zoom:4,zoomControl:true,preferCanvas:true});
+L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{
+  attribution:'&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com">CartoDB</a>',
+  subdomains:'abcd',maxZoom:19
+}).addTo(map);
+
+var layers={};
+var HIDDEN_BY_DEFAULT = new Set(['CLOSED','UNVERIFIED']);
+Object.keys(STATUS_CFG).forEach(function(s){
+  layers[s] = L.layerGroup();
+  if(!HIDDEN_BY_DEFAULT.has(s)) layers[s].addTo(map);
+});
+map.createPane('labelPane');
+map.getPane('labelPane').style.zIndex=650;
+
+// ── UNION URL ───────────────────────────────────────────────────────────────
+function unionUrl(u){
+  if(!u) return null;
+  var s=u.toUpperCase();
+  if(s.includes('UTLA')) return 'https://www.utla.net';
+  if(s.includes('UFT')) return 'https://www.uft.org';
+  if(s.includes('CTU')||s.includes('CHICAGO TEACHERS UNION')) return 'https://www.ctulocal1.com';
+  if(s.includes('CHIACTS')) return 'https://www.chiacts.org';
+  if(s.includes('DC ACTS')) return 'https://www.dcacts.org';
+  if(s.includes('MICHIGAN ACTS')||s.includes('MICHIGAN ALLIANCE')) return 'https://www.michiganacts.org';
+  if(s.includes('AZ-ACTS')||s.includes('AACTS')||s.includes('ARIZONA ALLIANCE')) return 'https://www.az-acts.org';
+  if(s.includes('UTNO')) return 'https://www.utno.org';
+  if(s.includes('RIFT')||s.includes('RHODE ISLAND FEDERATION')) return 'https://www.rifthp.org';
+  if(s.includes('IBEW LOCAL 2323')) return 'https://www.ibewlocal2323.org';
+  if(s.includes('IBEW')) return 'https://www.ibew.org';
+  if(s.includes('UAW')) return 'https://uaw.org';
+  if(s.includes('IWW')||s.includes('INDUSTRIAL WORKERS')||s.includes('CALIBER WORKERS')) return 'https://www.iww.org';
+  if(s.includes('PROVIDENCE TEACHERS UNION')) return 'https://www.ptu.org';
+  if(s.includes('CRANSTON TEACHERS ALLIANCE')) return 'https://www.cranstonta.org';
+  if(s.includes('BOSTON TEACHERS UNION')) return 'https://www.btu.org';
+  if(s.includes('UESF')) return 'https://www.uesf.org';
+  if(s.includes('HSTA')) return 'https://www.hsta.org';
+  if(s.includes('NYSUT')) return 'https://www.nysut.org';
+  if(s.includes('NJEA')) return 'https://www.njea.org';
+  if(s.includes('PSEA')) return 'https://www.psea.org';
+  if(s.includes('IFT')) return 'https://www.ift-aft.org';
+  if(s.includes('IEA')||s.includes('ILLINOIS EDUCATION ASSOCIATION')) return 'https://www.ieanea.org';
+  if(s.includes('OEA')||s.includes('OREGON EDUCATION ASSOCIATION')) return 'https://www.oregoned.org';
+  if(s.includes('WTU')||s.includes('WASHINGTON TEACHERS UNION')) return 'https://www.wtulocal6.net';
+  if(s.includes('EDUCATION MINNESOTA')) return 'https://www.educationminnesota.org';
+  if(s.includes('OFT')||s.includes('OHIO FEDERATION')) return 'https://www.ohiofederation.org';
+  if(s.includes('CTA')||s.includes('CALIFORNIA TEACHERS ASSOCIATION')) return 'https://www.cta.org';
+  if(s.includes('CFT')||s.includes('CALIFORNIA FEDERATION')) return 'https://www.cft.org';
+  if(s.includes('FEA')||s.includes('FLORIDA EDUCATION')) return 'https://feaweb.org';
+  if(s.includes('DSEA')) return 'https://www.dsea.org';
+  if(s.includes('CEA')||s.includes('CONNECTICUT EDUCATION')) return 'https://www.cea.org';
+  if(s.includes('NEA-NM')) return 'https://nea-nm.org';
+  if(s.includes('MEA')||s.includes('MAINE EDUCATION')) return 'https://www.maineea.org';
+  if(s.includes('AFT')) return 'https://www.aft.org';
+  if(s.includes('NEA')) return 'https://www.nea.org';
+  return null;
+}
+
+// ── POPUP ───────────────────────────────────────────────────────────────────
+function buildPopup(s){
+  var stLbl={CONFIRMED:'Independently Organized',DEPENDENT:'Structural Coverage (Dependent)',ORGANIZING:'Documented Organizing Activity',DECERTIFIED:'No Longer Unionized',CLOSED:'Historically Organized / Closed',UNVERIFIED:'No Organizing Activity Documented'}[s.status]||s.status;
+  var lowPrec=isLowPrecision(s);
+  var h='<div class="pu-name">'+esc(s.name)+'</div>';
+  h+=purow('Status','<span class="pu-badge bc-'+s.status+'">'+stLbl+'</span>');
+  if(s.authorizer) h+=purow('Authorizer',esc(s.authorizer));
+  h+=purow('Jurisdiction',esc((s.lb_abbrev||s.lb||'')+(s.jnotes?' \u2014 '+s.jnotes.slice(0,60):'')));
+  if(s.status==='CONFIRMED'||s.status==='ORGANIZING'){
+    var uUrl=unionUrl(s.union);
+    h+=purow('Union',uUrl?'<a href="'+esc(uUrl)+'" target="_blank" rel="noopener" style="color:#6CC04A;text-decoration:underline">'+esc(s.union||'\u2014')+'</a>':'<span class="pu-val green">'+esc(s.union||'\u2014')+'</span>');
+    if(s.date) h+=purow('Certified',esc(s.date.slice(0,50)));
+    if(s.cba) h+=purow('CBA',esc(s.cba.slice(0,80)));
+  }
+  if(s.status==='DEPENDENT'){
+    var uUrl2=unionUrl(s.union);
+    h+=purow('Union',uUrl2?'<a href="'+esc(uUrl2)+'" target="_blank" rel="noopener" style="color:#4ABFBF;text-decoration:underline">'+esc(s.union||'District CBA')+'</a>':'<span class="pu-val teal">'+esc(s.union||'District CBA')+'</span>');
+  }
+  h+=purow('City',esc(s.city+', '+s.state));
+  if(s.address) h+=purow('Address',esc(s.address+(s.zip?' '+s.zip:'')));
+  if(s.enrollment_2425) h+=purow('Enrollment',s.enrollment_2425.toLocaleString()+' students (2024\u201325)');
+  if(s.cmo) h+=purow('Network',esc(s.cmo));
+  if(s.website) h+='<div class="pu-link"><span>&#127760;</span><a href="'+esc(s.website)+'" target="_blank" rel="noopener">School Website &#8599;</a></div>';
+  if(s.id) h+=purow('ID','<span style="font-family:monospace;font-size:9px;color:#4A6A80">'+esc(s.id)+'</span>');
+  if(lowPrec) h+='<div class="pu-warn">&#9888; Coordinates are approximate (\u00B11\u20132 km). Verify against address above.</div>';
+  return h;
+}
+function purow(l,v){ return '<div class="pu-row"><span class="pu-lbl">'+l+'</span><span class="pu-val">'+v+'</span></div>'; }
+
+// ── PLOT SCHOOLS ─────────────────────────────────────────────────────────────
+// markerIndex: napcsId (or fallback key) → {marker, school} for programmatic popup access
+var markerIndex = {};
+SCHOOLS.forEach(function(s){
+  if(!s.lat||!s.lng) return;
+  var cfg=STATUS_CFG[s.status]||STATUS_CFG.UNVERIFIED;
+  var isUnv=s.status==='UNVERIFIED';
+  var mk=L.circleMarker([s.lat,s.lng],{
+    radius:cfg.r,
+    fillColor:cfg.color,
+    color:isUnv?'#4A6A80':'rgba(0,0,0,0.3)',
+    weight:isUnv?1.2:1,
+    fillOpacity:isUnv?0:cfg.opacity,
+    dashArray:isUnv?'2,3':null,
+  });
+  mk.bindPopup(buildPopup(s),{maxWidth:300});
+  mk.addTo(layers[s.status]);
+  // Index marker for modal click-through
+  var key=s.napcsId||(s.name+'|'+s.state);
+  markerIndex[key]={marker:mk, school:s};
+});
+
+// openSchoolDetail: close modal, pan to school, open its popup
+function openSchoolDetail(napcsId, name, state, lat, lng){
+  document.getElementById('modal-overlay').classList.remove('open');
+  var key=napcsId||(name+'|'+state);
+  var entry=markerIndex[key];
+  if(entry && lat && lng){
+    map.setView([lat,lng],14,{animate:true});
+    setTimeout(function(){ entry.marker.openPopup(); },350);
+  } else if(lat && lng){
+    map.setView([lat,lng],13,{animate:true});
+  } else if(state){
+    // No geo — fall back to state zoom
+    openStateSlideout(state, null);
+  }
+}
+
+// ── FILTER ──────────────────────────────────────────────────────────────────
+document.querySelectorAll('#filter-bar input[type=checkbox]').forEach(function(cb){
+  cb.addEventListener('change',function(){
+    var st=this.getAttribute('data-status');
+    if(this.checked) map.addLayer(layers[st]); else map.removeLayer(layers[st]);
+  });
+});
+
+// ── DRAGGABLE FILTER BAR ─────────────────────────────────────────────────────
+(function(){
+  var fb=document.getElementById('filter-bar');
+  var dragging=false, ox=0, oy=0;
+  fb.addEventListener('mousedown',function(e){
+    if(e.target.tagName==='INPUT'||e.target.tagName==='LABEL'||e.target.tagName==='SPAN') return;
+    dragging=true;
+    var rect=fb.getBoundingClientRect();
+    ox=e.clientX-rect.left; oy=e.clientY-rect.top;
+    fb.style.transform='none';
+    fb.style.top=rect.top+'px';
+    fb.style.left=rect.left+'px';
+    e.preventDefault();
+  });
+  document.addEventListener('mousemove',function(e){
+    if(!dragging) return;
+    fb.style.top=(e.clientY-oy)+'px';
+    fb.style.left=(e.clientX-ox)+'px';
+  });
+  document.addEventListener('mouseup',function(){ dragging=false; });
+})();
+
+// ── STATE LABEL MARKERS ───────────────────────────────────────────────────────
+var stateLabelGroup=L.layerGroup().addTo(map);
+Object.entries(NAPCS_CONFIG.state_centers).forEach(function(entry){
+  var code=entry[0],coords=entry[1];
+  var sd=SD[code];
+  if(!sd) return;
+  var combined=(sd.conf||0)+(sd.dep||0);
+  var pct=sd.universe>0?((combined/sd.universe)*100).toFixed(1):'0.0';
+  var icon=L.divIcon({
+    className:'',
+    html:'<div style="background:rgba(15,25,35,0.85);border:1px solid rgba(46,117,182,0.55);border-radius:4px;padding:2px 6px;text-align:center;pointer-events:none;white-space:nowrap">'+
+         '<div style="font-size:10px;font-weight:700;color:#E8EDF2;line-height:1.3">'+code+'</div>'+
+         '<div style="font-size:9px;color:#4ABFBF;line-height:1.2">'+pct+'%</div></div>',
+    iconAnchor:[22,12],iconSize:[44,24],
+  });
+  var mk=L.marker(coords,{icon:icon,zIndexOffset:1000,pane:'labelPane',interactive:true});
+  mk.on('click',function(){ openStateSlideout(code, coords); });
+  mk.addTo(stateLabelGroup);
+});
+
+// ── STATE SLIDE-OUT ───────────────────────────────────────────────────────────
+// ── STATE DETAIL POPUP from label ─────────────────────────────────────────────
+var _statePopup = null;
+
+function openStateSlideout(code, coords){
+  var sd=SD[code]||{}, jd=JDATA[code]||{}, assocs=ASSOC[code]||[];
+  var name=STATE_NAMES[code]||code;
+  var combined=(sd.conf||0)+(sd.dep||0);
+  var pct=sd.universe>0?(combined/sd.universe*100).toFixed(1):'0.0';
+  var confPctSt=sd.universe>0?((sd.conf||0)/sd.universe*100).toFixed(1):'0.0';
+  var depPctSt=sd.universe>0?((sd.dep||0)/sd.universe*100).toFixed(1):'0.0';
+  var barW=Math.min(100,parseFloat(pct));
+  var rpt=SR[code];
+
+  // Charter enrollment stats
+  var enrData = NAPCS_CONFIG.stateK12Enrollment || {};
+  var stateSchools = SCHOOLS.filter(function(s){ return s.state===code; });
+  var charterEnroll = stateSchools.reduce(function(sum,s){ return sum+(s.enrollment_2425||0); },0);
+  var totalK12 = enrData[code] || 0;
+  var charterSharePct = totalK12>0 ? (charterEnroll/totalK12*100).toFixed(1) : null;
+
+  var h='<div class="spo-hdr"><div class="spo-title">'+esc(name)+'</div>';
+  h+='<div class="spo-sub">'+esc(jd.lb_abbrev||sd.lb_abbrev||sd.lb||'')+'</div></div>';
+  h+='<div class="spo-body">';
+
+  // Density
+  h+='<div class="spo-section">Density Statistics</div>';
+  h+=spoRow('Total Charter Schools',(sd.universe||0).toLocaleString(),'');
+  h+=spoRow('Independently Organized',(sd.conf||0)+' ('+confPctSt+'%)','g');
+  if(sd.dep) h+=spoRow('Structural Coverage (Dep.)',sd.dep+' ('+depPctSt+'%)','t');
+  if(sd.watch||sd.org) h+=spoRow('Documented Org. Activity',(sd.watch||sd.org),'gold');
+  h+=spoRow('Combined Density',pct+'%',combined>0?'g':'');
+  h+='<div class="spo-bar"><div class="spo-bar-fill" style="width:'+barW+'%"></div></div>';
+
+  // Enrollment
+  if(charterEnroll>0){
+    h+='<div class="spo-section">State Enrollment (2024\u201325)</div>';
+    h+=spoRow('Total Public K\u201312',totalK12>0?totalK12.toLocaleString():'N/A','');
+    h+=spoRow('Charter Enrollment',charterEnroll.toLocaleString(),'b');
+    if(charterSharePct) h+=spoRow('Charter Share',charterSharePct+'% of public K\u201312','');
+  }
+
+  // Jurisdiction
+  if(jd.lb_full||jd.statute){
+    h+='<div class="spo-section">Jurisdiction</div>';
+    if(jd.lb_full) h+=spoRow('Board',jd.lb_full.slice(0,45)+(jd.lb_full.length>45?'\u2026':''),'b');
+    if(jd.statute) h+=spoRow('Statute',jd.statute,'');
+    if(jd.nlrb) h+=spoRow('NLRB',jd.nlrb,'');
+    if(jd.card_check) h+=spoRow('Card-Check',jd.card_check,jd.card_check==='Yes'?'g':'');
+    if(jd.note) h+='<div style="font-size:9px;color:#6A7A8A;line-height:1.4;margin-top:4px;padding:4px 6px;background:#1A2535;border-radius:3px">'+esc(jd.note.slice(0,120))+'</div>';
+  }
+
+  // Associations
+  if(assocs.length){
+    h+='<div class="spo-section">Charter Association'+(assocs.length>1?'s':'')+'</div>';
+    assocs.forEach(function(a){
+      h+='<div class="spo-assoc"><div class="spo-assoc-name">'+esc(a.name)+'</div>';
+      if(a.website) h+='<div class="spo-assoc-link"><a href="'+esc(a.website)+'" target="_blank" rel="noopener">'+esc(a.website.replace(/^https?:\/\//,''))+'</a></div>';
+      h+='</div>';
+    });
+  }
+
+  // Report button
+  if(rpt && rpt.boxUrl){
+    h+='<a class="spo-report-btn" href="'+esc(rpt.boxUrl)+'" target="_blank" rel="noopener">&#8595; Download State Research Report</a>';
+  } else if(rpt && rpt.netlifyUrl){
+    h+='<a class="spo-report-btn" href="'+esc(rpt.netlifyUrl)+'" target="_blank" rel="noopener">&#8595; Download State Research Report</a>';
+  } else {
+    h+='<div class="spo-report-btn" style="opacity:0.4;cursor:default">&#8595; Report Coming Soon</div>';
+  }
+
+  h+='</div>'; // close spo-body
+
+  // Position popup — anchor to map center vertically to prevent rendering too high
+  var popCoords = coords || NAPCS_CONFIG.state_centers[code] || [38,-96];
+  var mapBounds = map.getBounds();
+  var mapCenter = map.getCenter();
+  // Clamp popup latitude to map center to keep it vertically centered on screen
+  var clampedLat = Math.min(popCoords[0], mapCenter.lat + (mapBounds.getNorth()-mapBounds.getSouth())*0.15);
+  var clampedCoords = [clampedLat, popCoords[1]];
+
+  if(_statePopup) { map.closePopup(_statePopup); }
+  _statePopup = L.popup({
+    className:'state-popup',
+    maxWidth:300,
+    closeButton:true,
+    autoClose:true,
+    closeOnClick:false,
+    keepInView:true,
+  })
+  .setLatLng(clampedCoords)
+  .setContent(h)
+  .openOn(map);
+
+  // Also update right panel and zoom map
+  zoomToState(code);
+}
+
+function spoRow(l,v,cls){
+  return '<div class="spo-row"><span class="spo-lbl">'+esc(String(l))+'</span><span class="spo-val'+(cls?' '+cls:'')+'">'+(typeof v==='number'?v.toLocaleString():v)+'</span></div>';
+}
+
+// ── STATE ZOOM ───────────────────────────────────────────────────────────────
+var _curState=null, _curTab='overview';
+function zoomToState(code){
+  var schs=SCHOOLS.filter(function(s){ return s.state===code&&s.lat; });
+  if(!schs.length) return;
+  var lats=schs.map(function(s){return s.lat;}),lngs=schs.map(function(s){return s.lng;});
+  map.fitBounds([[Math.min.apply(null,lats)-.4,Math.min.apply(null,lngs)-.4],[Math.max.apply(null,lats)+.4,Math.max.apply(null,lngs)+.4]],{maxZoom:10});
+  _curState=code;
+  document.getElementById('back-btn').style.display='block';
+  if(_curTab==='overview') showStatePanel(code);
+  else if(isIntelTab(_curTab)) renderIntelTab(_curTab,code);
+}
+
+document.getElementById('back-btn').addEventListener('click',function(){
+  map.setView([38,-96],4);
+  _curState=null;
+  this.style.display='none';
+  if(_statePopup){ map.closePopup(_statePopup); _statePopup=null; }
+  if(_curTab==='overview') showNationalPanel();
+  else if(isIntelTab(_curTab)) renderIntelTab(_curTab,null);
+});
+
+// ── FILE FOLDER TABS ──────────────────────────────────────────────────────────
+var INTEL_TABS=['political','organizing','trends','patterns','media','networks','cba','monitoring','openitems'];
+function isIntelTab(t){ return INTEL_TABS.indexOf(t)>=0; }
+
+document.getElementById('tab-folders').addEventListener('click',function(e){
+  var btn=e.target.closest('.ftab');
+  if(!btn) return;
+  switchTab(btn.getAttribute('data-tab'));
+});
+
+function switchTab(tab){
+  _curTab=tab;
+  document.querySelectorAll('.ftab').forEach(function(b){ b.classList.toggle('active',b.getAttribute('data-tab')===tab); });
+  if(tab==='overview'){ if(_curState) showStatePanel(_curState); else showNationalPanel(); }
+  else if(tab==='density') buildDensityTable();
+  else if(tab==='jurisdiction') buildJurisdictionPanel();
+  else if(tab==='registry') buildRegistryPanel();
+  else if(tab==='associations') buildAssociationsPanel();
+  else if(tab==='verification') buildVerificationPanel();
+  else if(isIntelTab(tab)) renderIntelTab(tab,_curState);
+}
+
+function setPanelHdr(t,s){ document.getElementById('panel-title').textContent=t; document.getElementById('panel-sub').textContent=s||''; }
+function setPanelBody(h){ document.getElementById('panel-body').innerHTML=h; }
+function noStateMsg(n){ return '<div class="no-state"><div class="ns-icon">&#128506;</div>Click a state label on the map to view '+n+' intelligence for that state.</div>'; }
+
+// ── OVERVIEW ─────────────────────────────────────────────────────────────────
+function showNationalPanel(){
+  setPanelHdr('National Overview','Click any state label on the map to zoom in');
+  var h='';
+  h+='<div class="section-label">National Census \u2014 June 5, 2026 Data Currency Date</div>';
+  h+=srow('Census Total (Charter Schools)',NAT.universe.toLocaleString(),'');
+  h+=srow('Combined',NAT.combined+' ('+NAT.density+')','sv-g');
+  h+=srow('Independently Organized',NAT.confirmed+' ('+NAT.confirmed_density+')','sv-g');
+  h+=srow('Structural Coverage (Dependent)',NAT.dependent+' ('+depPct+')','sv-t');
+  h+=srow('Documented Organizing Activity',NAT.organizing,NAT.organizing>0?'sv-gold':'');
+  h+=srow('Decertified',NAT.decertified,'');
+  h+=srow('Historically Organized / Closed (ref.)',NAT.closed,'sv-r');
+  h+=srow('Jurisdictions',NAT.jurisdictions+' (26 states + DC)','');
+  h+='<div class="section-label">Data Currency</div>';
+h+='<div class="oi-card" style="border-left:3px solid #2E75B6"><div class="oi-lbl">Working Data</div><div class="oi-val">Last Updated June 5, 2026</div></div>';
+h+='<div class="oi-card" style="border-left:3px solid #4A6A80"><div class="oi-lbl">Not Yet Included</div><div class="oi-val" style="font-size:9px;color:#6A7A8A">KS, NH, WV, AK, IA, AR, VA — known to have organized charter schools</div></div>';
+h+='<div class="section-label">\u26a0 Open Items</div>';
+  h+='<div class="oi-card" style="border-left:3px solid #4A9FE0"><div class="oi-lbl">Biannual refresh</div><div class="oi-val sv-b">October 2026 target</div></div>';
+  h+='<div class="section-label">Data Source</div>';
+  h+=srow('School coordinates','Charter School Registry v99','sv-b');
+  h+=srow('Union status','PLT Research \u00B7 June 5, 2026','');
+  setPanelBody(h);
+}
+
+function showStatePanel(code){
+  var sd=SD[code]||{}, name=STATE_NAMES[code]||code;
+  setPanelHdr(name,(sd.lb_abbrev||sd.lb||'')+(sd.note?' \u00B7 '+sd.note.slice(0,60):''));
+  var combined=(sd.conf||0)+(sd.dep||0);
+  var pct=sd.universe>0?(combined/sd.universe*100).toFixed(1):'0.0';
+  var h='';
+  h+='<div class="section-label">'+name+'</div>';
+  h+=srow('Census Total',(sd.universe||0).toLocaleString(),'');
+  h+=srow('Independently Organized',sd.conf||0,'sv-g');
+  h+=srow('Structural Coverage (Dep.)',sd.dep||'\u2014',sd.dep?'sv-t':'');
+  if(sd.org||sd.watch) h+=srow('Documented Organizing Activity',(sd.watch||sd.org)||'\u2014',(sd.watch||sd.org)?'sv-gold':'');
+  if(sd.dec) h+=srow('Decertified',sd.dec,'');
+  h+=srow('Combined Density',pct+'%',combined>0?'sv-g':'');
+  h+='<div class="density-bar"><div class="density-fill" style="width:'+Math.min(100,parseFloat(pct))+'%"></div></div>';
+  h+='<div class="section-label">Jurisdiction</div>';
+  h+=srow('Labor Board',(sd.lb_abbrev||sd.lb||'\u2014'),'sv-b');
+  if(sd.note) h+=srow('Note',sd.note.slice(0,100),'');
+  var stSch=SCHOOLS.filter(function(s){return s.state===code;});
+  h+='<div class="section-label">Registry Data ('+stSch.length+' schools)</div>';
+  h+=srow('Confirmed on map',stSch.filter(function(s){return s.status==='CONFIRMED';}).length,'sv-g');
+  var depCt=stSch.filter(function(s){return s.status==='DEPENDENT';}).length;
+  if(depCt) h+=srow('Dependent on map',depCt,'sv-t');
+  h+=srow('Unverified on map',stSch.filter(function(s){return s.status==='UNVERIFIED';}).length,'');
+  setPanelBody(h);
+}
+
+function srow(l,v,cls){
+  return '<div class="srow"><span class="srow-lbl">'+esc(String(l))+'</span><span class="srow-val'+(cls?' '+cls:'')+'">'+(typeof v==='number'?v.toLocaleString():v)+'</span></div>';
+}
+
+// ── DENSITY TABLE ─────────────────────────────────────────────────────────────
+function buildDensityTable(){
+  setPanelHdr('Census Table','All '+NAT.jurisdictions+' jurisdictions by combined rate');
+  var rows=NAPCS_CONFIG.density_table, maxPct=rows.length>0?parseFloat(rows[0].density):100;
+  var trs=rows.map(function(row){
+    var pct=parseFloat(row.density)||0,univ=row.universe||1;
+    var cW=maxPct>0?Math.round(row.confirmed/univ*100/maxPct*100):0;
+    var dW=maxPct>0?Math.round((row.dependent||0)/univ*100/maxPct*100):0;
+    return '<tr><td><span class="dt-link" onclick="openStateSlideout(\''+row.st+'\',null)">'+esc(row.name)+'</span></td>'+
+      '<td>'+row.universe.toLocaleString()+'</td>'+
+      '<td style="color:#6CC04A;font-weight:700">'+row.confirmed+'</td>'+
+      '<td style="color:#4ABFBF">'+(row.dependent||'\u2014')+'</td>'+
+      '<td style="font-weight:700">'+row.density+'<div class="dt-bar"><div class="dt-fill-conf" style="width:'+cW+'%"></div><div class="dt-fill-dep" style="width:'+dW+'%"></div></div></td></tr>';
+  }).join('');
+  var totRow='<tr class="tot"><td><strong>ALL '+NAT.jurisdictions+'</strong></td><td><strong>'+NAT.universe.toLocaleString()+'</strong></td><td style="color:#6CC04A"><strong>'+NAT.confirmed+'</strong></td><td style="color:#4ABFBF"><strong>'+NAT.dependent+'</strong></td><td><strong>'+NAT.density+'</strong></td></tr>';
+  setPanelBody('<table id="dtable"><thead><tr><th>State</th><th>Census Total</th><th>Indep. Org.</th><th>Structural Coverage</th><th>Combined %</th></tr></thead><tbody>'+trs+totRow+'</tbody></table>');
+}
+
+// ── JURISDICTION ──────────────────────────────────────────────────────────────
+function buildJurisdictionPanel(){
+  setPanelHdr('Legal Jurisdiction','Labor board & governing law by jurisdiction');
+  var codes=Object.keys(JDATA).sort(function(a,b){return (STATE_NAMES[a]||a).localeCompare(STATE_NAMES[b]||b);});
+  var h='<div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;padding:5px 7px;background:#0A1520;border-radius:4px;font-size:8px">'+
+    '<span style="color:#4A9FE0;font-weight:700">&#9679; NLRB: Yes</span><span style="color:#6CC04A;font-weight:700">&#9679; State Board</span>'+
+    '<span style="color:#F5A623;font-weight:700">&#9679; Partial</span><span style="color:#4A6A80;margin-left:4px">&#9632; Card-check = easier organizing</span></div>';
+  codes.forEach(function(code){
+    var j=JDATA[code];
+    var nlrbColor=j.nlrb==='Yes'?'#4A9FE0':j.nlrb==='No'?'#6CC04A':'#F5A623';
+    var ccColor=j.card_check==='Yes'?'#6CC04A':j.card_check==='No'?'#888':'#F5A623';
+    h+='<div style="background:#1A2535;border-radius:5px;padding:8px 10px;margin-bottom:6px;border-left:3px solid #2E75B6;cursor:pointer" onclick="openStateSlideout(\''+code+'\')">'+
+      '<div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:3px">'+
+        '<span style="font-size:11px;font-weight:700;color:#E8EDF2">'+esc(STATE_NAMES[code]||code)+'</span>'+
+        '<span style="font-size:9px;font-weight:700;color:#4A9FE0;margin-left:4px">'+esc(j.lb_abbrev)+'</span></div>'+
+      '<div style="font-size:8.5px;color:#4A6A80;margin-bottom:3px">'+esc(j.lb_full)+'</div>'+
+      '<div style="font-size:8.5px;color:#8BA0B4;margin-bottom:4px;font-style:italic">'+esc(j.statute)+'</div>'+
+      '<div style="display:flex;gap:4px;flex-wrap:wrap;margin-bottom:3px">'+
+        '<span style="font-size:8px;font-weight:700;padding:1px 5px;border-radius:3px;background:rgba(0,0,0,.3);color:'+nlrbColor+'">NLRB: '+esc(j.nlrb)+'</span>'+
+        '<span style="font-size:8px;font-weight:700;padding:1px 5px;border-radius:3px;background:rgba(0,0,0,.3);color:'+ccColor+'">Card-Check: '+esc(j.card_check)+'</span></div>'+
+      '<div style="font-size:8.5px;color:#8BA0B4;margin-bottom:2px"><span style="color:#4A6A80;font-weight:700">Union: </span>'+esc(j.dominant)+'</div>'+
+      '<div style="font-size:8.5px;color:#6A7A8A;line-height:1.3;border-top:1px solid rgba(255,255,255,.05);padding-top:3px;margin-top:3px">'+esc(j.note)+'</div></div>';
+  });
+  setPanelBody(h);
+}
+
+// ── REGISTRY & DISCOVERY ──────────────────────────────────────────────────────
+function buildRegistryPanel(){
+  setPanelHdr('Charter School Registry','Registry '+(RC?RC.version:'v69')+' \u00B7 '+(RC?RC.lastUpdated:'May 2026'));
+  if(!RC){ setPanelBody('<div class="no-state">Registry content not available.</div>'); return; }
+  var h='';
+  // Executive narrative first
+  if(RC.narrative){
+    var sections=['projectOverview','scope','methodology','dataSources','challenges','architecture'];
+    sections.forEach(function(key){
+      var sec=RC.narrative[key];
+      if(!sec) return;
+      h+='<div class="static-section"><h3>'+esc(sec.title)+'</h3><p>'+esc(sec.body)+'</p></div>';
+    });
+  }
+  // Then key stats
+  h+='<div class="section-label">Registry Statistics</div>';
+  (RC.about.keyStats||[]).filter(function(s){ return !s.label.includes('NAPCS research'); }).forEach(function(s){ var val = (s.label.includes('registry refresh')||s.label.includes('Last registry')) ? 'v69 · '+s.value : s.value; h+='<div class="stat-chip"><span class="stat-chip-lbl">'+esc(s.label)+'</span><span class="stat-chip-val">'+esc(val)+'</span></div>'; });
+  setPanelBody(h);
+}
+
+// ── VERIFICATION PROCESS ──────────────────────────────────────────────────────
+function buildVerificationPanel(){
+  setPanelHdr('Verification Process','How we determine union status for every charter school');
+
+  var steps = [
+    {
+      n:1, title:'Identify Governing Labor Board',
+      body:'Before any search begins, we determine which labor board has jurisdiction over the school. This depends on state law, charter type, and incorporation structure. A California EERA school goes to PERB(CA). A Pennsylvania charter goes to NLRB. An Illinois school requires a school-by-school determination \u2014 NLRB for private nonprofits, IELRB for ISBE-authorized. Expansion states follow their own rules: Maryland charters are all DEPENDENT (MSDE/LEA \u2014 no separate labor board search required); Wisconsin uses a two-track system (WERC for instrumentality charters, NLRB R18 for non-instrumentality); Hawaii charters are all DEPENDENT (HLRB \u2014 structurally covered under HRS Ch. 89); Colorado and Washington research sessions have not yet been conducted. Getting jurisdiction wrong invalidates the search.'
+    },
+    {
+      n:2, title:'Confirm School Operational Status',
+      body:'We verify the school is currently open using the Charter School Registry (NCES CCD data + authorizer verification). Closed schools trigger the 3-year lookback protocol — they receive full research treatment with closure flagged. Schools listed as "Future" or "Inactive" are noted but not searched.'
+    },
+    {
+      n:3, title:'Search by Employer Name — Exact & Variants',
+      body:'We search the labor board portal by the school\'s legal employer name. Charter schools often operate under a different legal entity than their common name (e.g., "Aspire Public Schools" operates "Aspire Centennial College Prep Academy"). We check NAPCS_ID, NCES ID, and all known name variants. For NLRB, this means searching both the eCase system and the NLRB FLRA public case search.'
+    },
+    {
+      n:4, title:'Search by CMO / Network Name',
+      body:'If a school belongs to a charter management organization, we also search by the CMO name. Green Dot, KIPP, Uncommon Schools, Alliance, High Tech High — each may have labor board cases filed under the network name rather than the individual campus. This step catches schools that were organized as part of a network-wide campaign.'
+    },
+    {
+      n:5, title:'Review All Case Types — RC, CD, RM, UC, ULP',
+      body:'We review all labor board case types: RC (representation/election petition), CD (contract bar), RM (employer petition), UC (unit clarification), and ULP (unfair labor practice charges). ULP charges without an RC petition may indicate organizing activity. A closed RC case with a "Certification of Representative" result confirms union status.'
+    },
+    {
+      n:6, title:'Verify Certification Date & Unit Description',
+      body:'When a case confirms organization, we record the Labor Board Certified date (project-wide date convention). We also note the bargaining unit description — certificated staff only, all employees, or classified/support staff only — as this affects how the school is categorized. The unit description tells us which employees are covered.'
+    },
+    {
+      n:7, title:'Check CBA Status & Contract Access',
+      body:'A certified union does not automatically mean an active contract. We check whether a Collective Bargaining Agreement is in place. Some schools have been certified for years with no CBA executed (Certified/Dormant category). We check school websites, union websites, and labor board contracts portals (e.g., NJ PERC contracts database, PERB(CA) ePERB). Direct PDF links sometimes return 403 errors \u2014 in those cases we file an OPRA or FOIA request. Where a CBA link is found and publicly accessible, it is recorded in the registry and displayed in the school popup on the dashboard.'
+    },
+    {
+      n:8, title:'Check for Decertification or Jurisdiction Stripping',
+      body:'We review for decertification petitions (RD cases at NLRB), employer petitions (RM), and jurisdiction-stripping activity \u2014 particularly filings that argue a state-board-certified school is actually a private employer under NLRB jurisdiction. Any such finding triggers a HIGH priority monitoring flag. The dashboard Active Monitoring Queue is the authoritative source for open jurisdiction-stripping cases.'
+    },
+    {
+      n:9, title:'Secondary Source Cross-Verification',
+      body:'For confirmed schools, we cross-reference against: union websites (some locals post charter school CBA lists), local news archives (organizing campaigns generate press coverage), FOIA/OPRA responses, school board meeting minutes, and educator social media. For voluntary recognition cases with no labor board record, secondary sources are often the only evidence. Monte del Sol (NM) is a documented example.'
+    },
+    {
+      n:10, title:'Classify & Apply Date Convention',
+      body:'We assign one of seven statuses: Independently Organized (active certification), Structural Coverage / Dependent (district/state/municipal CBA by law), Documented Organizing Activity (active petition or credible evidence pending confirmation), No Longer Unionized (certification removed), Historically Organized / Closed (organized at time of closure \u2014 5-year lookback), or No Organizing Activity Documented (full research protocol complete, no evidence found). The Labor Board Certified date is recorded as the canonical date for all CONFIRMED schools.'
+    },
+    {
+      n:11, title:'Review & Data Entry Gate',
+      body:'No finding enters the master workbook without passing through the research review gate. Research staff present findings for approval before data entry. Discovery schools \u2014 non-NAPCS schools found organized during research sweeps \u2014 require explicit approval and a NAPCS-ADD ID assignment before entering the dataset. This gate prevents premature or incorrect entries from contaminating the research record.'
+    },
+    {
+      n:12, title:'Monitoring Queue & Refresh Protocol',
+      body:'Schools with pending petitions, active ULPs, CBA gaps, or NRtW risk factors are placed on the Active Monitoring Queue with a review frequency (Monthly / Quarterly). The full research cycle repeats on a biannual basis — next cycle: October 2026. State research sessions are documented in state-level research reports archived in Box.'
+    },
+  ];
+
+  var h = '<div style="font-size:10px;color:#4A6A80;margin-bottom:12px;line-height:1.5;padding:7px 9px;background:#0A1520;border-radius:4px">This 12-step process is applied to every charter school in the NAPCS research universe. Steps 1\u20139 are repeated for each school. Steps 10\u201312 govern classification, quality control, and ongoing monitoring. Schools are assigned one of seven statuses: CONFIRMED, DEPENDENT, ORGANIZING, DECERTIFIED, CLOSED, HISTORICAL, or UNVERIFIED.</div>';
+
+  steps.forEach(function(s){
+    h += '<div style="background:#111B27;border-radius:5px;padding:8px 10px;margin-bottom:7px;border-left:3px solid #2E75B6">' +
+      '<div style="display:flex;align-items:baseline;gap:8px;margin-bottom:4px">' +
+        '<span style="font-size:9px;font-weight:700;color:#2E75B6;background:#0A1520;padding:1px 6px;border-radius:10px;flex-shrink:0">Step '+s.n+'</span>' +
+        '<span style="font-size:10px;font-weight:700;color:#E8EDF2">'+esc(s.title)+'</span>' +
+      '</div>' +
+      '<div style="font-size:10px;color:#8BA0B4;line-height:1.6">'+esc(s.body)+'</div>' +
+    '</div>';
+  });
+
+  setPanelBody(h);
+}
+
+// ── ASSOCIATIONS ──────────────────────────────────────────────────────────────
+function buildAssociationsPanel(){
+  setPanelHdr('Charter Support Organizations','State charter associations \u00B7 May 2026');
+  var codes=Object.keys(ASSOC).sort(function(a,b){return (STATE_NAMES[a]||a).localeCompare(STATE_NAMES[b]||b);});
+  var h='';
+  codes.forEach(function(code){
+    var orgs=ASSOC[code]||[];
+    h+='<div class="section-label">'+esc(STATE_NAMES[code]||code)+'</div>';
+    orgs.forEach(function(o){
+      h+='<div class="assoc-card"><div class="assoc-name">'+esc(o.name)+'</div>';
+      if(o.contact) h+='<div class="assoc-contact">'+esc(o.contact)+(o.city?' \u00B7 '+esc(o.city):'')+'</div>';
+      h+='<div class="assoc-links">';
+      if(o.website) h+='<a class="assoc-link" href="'+esc(o.website)+'" target="_blank" rel="noopener">&#127760; Website</a>';
+      if(o.email) h+='<a class="assoc-link" href="mailto:'+esc(o.email)+'">&#9993; Email</a>';
+      h+='</div></div>';
+    });
+  });
+  setPanelBody(h);
+}
+
+// ── INTELLIGENCE TABS ─────────────────────────────────────────────────────────
+var TAB_META={
+  political:{title:'Political & Legal',sub:'Environment shaping charter labor',prompts:[0,1]},
+  organizing:{title:'Organizing Intel',sub:'How organizers approach schools \u00B7 What leaders should do',prompts:[2,3]},
+  trends:{title:'Trends & Watch',sub:'3\u20135 year developments to watch',prompts:[4,5,6,7,8,9,10]},
+  patterns:{title:'Cross-State Patterns',sub:'Findings visible across multiple states',prompts:null},
+  media:{title:'Media & Stakeholders',sub:'Press coverage \u00B7 stakeholder positions',prompts:null},
+  networks:{title:'Networks & CMOs',sub:'Organized charter management organizations',prompts:null},
+  cba:{title:'CBA Registry',sub:'Contract status by school/network',prompts:null},
+  monitoring:{title:'Monitoring Queue',sub:'Active monitoring items',prompts:null},
+  openitems:{title:'Open Items',sub:'Decisions required \u00B7 notable findings',prompts:null},
+};
+
+function renderIntelTab(tab,code){
+  var meta=TAB_META[tab]||{title:tab,sub:''};
+  setPanelHdr(meta.title,code?(STATE_NAMES[code]||code)+' \u00B7 '+meta.sub:meta.sub);
+  if(!code){ setPanelBody(noStateMsg(meta.title.toLowerCase())); return; }
+  var st=INTEL[code];
+  if(!st){ setPanelBody('<div class="no-state">Intelligence data not yet available for '+esc(STATE_NAMES[code]||code)+'.</div>'); return; }
+  var h='';
+  if(tab==='political'||tab==='organizing'||tab==='trends'){
+    var intel=st.intelligence||[];
+    var toShow=meta.prompts?intel.filter(function(_,i){return meta.prompts.indexOf(i)>=0;}):intel;
+    if(!toShow.length) h='<div class="no-state">No intelligence data for this category.</div>';
+    toShow.forEach(function(q){
+      if(!q||!q.prompt) return;
+      h+='<div class="intel-card"><div class="intel-prompt">'+esc(q.prompt.slice(0,80))+'</div><div class="intel-answer">'+esc(q.answer||'')+'</div></div>';
+    });
+  } else if(tab==='patterns'){
+    var pats=st.patterns||[];
+    if(!pats.length) h='<div class="no-state">No cross-state patterns documented for this state.</div>';
+    pats.forEach(function(p){ h+='<div class="pattern-card"><div class="pattern-title">'+esc(p.title)+'</div><div class="pattern-body">'+esc(p.body)+'</div></div>'; });
+  } else if(tab==='media'){
+    var med=st.media||{};
+    if(med.coverageProfile&&med.coverageProfile.volume){
+      h+='<div class="section-label">Coverage Profile</div>';
+      h+='<div class="media-item"><strong>Volume:</strong> '+esc(med.coverageProfile.volume||'')+'</div>';
+    }
+    if(med.dominantFraming){ h+='<div class="section-label">Dominant Framing</div><div class="media-item">'+esc(med.dominantFraming)+'</div>'; }
+    if(med.stakeholderPositions&&med.stakeholderPositions.length){
+      h+='<div class="section-label">Stakeholder Positions</div>';
+      med.stakeholderPositions.forEach(function(s){
+        var ac=s.alignment==='Pro-organizing'?'align-pro':s.alignment==='Resistant'?'align-res':s.alignment==='Anti-union'?'align-anti':'align-neu';
+        h+='<div class="actor-card"><div class="actor-name">'+esc(s.actor)+'</div><div><span class="actor-align '+ac+'">'+esc((s.alignment||'').slice(0,12))+'</span><div class="actor-pos" style="margin-top:3px">'+esc(s.position)+'</div></div></div>';
+      });
+    }
+    if(med.sentimentTrajectory){ h+='<div class="section-label">Sentiment Trajectory</div><div class="media-item">'+esc(med.sentimentTrajectory)+'</div>'; }
+    if(!h) h='<div class="no-state">No media data available for this state.</div>';
+  } else if(tab==='networks'){
+    var nets=st.networks||[];
+    if(!nets.length) h='<div class="no-state">No networks documented for this state.</div>';
+    nets.forEach(function(n){
+      h+='<div class="net-card"><div class="net-name">'+esc(n.name)+(n.schoolCount?' <span style="color:#4A6A80;font-size:9px">('+n.schoolCount+' schools)</span>':'')+'</div>'+
+        (n.union?'<div class="net-union">'+esc(n.union)+(n.natlAff?' / '+esc(n.natlAff):'')+'</div>':'')+
+        (n.cbaStatus?'<div class="net-meta">'+esc(n.cbaStatus.slice(0,100))+'</div>':'')+
+        (n.keyFindings?'<div class="net-meta" style="margin-top:3px;color:#8BA0B4">'+esc(n.keyFindings.slice(0,200))+'</div>':'')+'</div>';
+    });
+  } else if(tab==='cba'){
+    var cba=st.cbaRegistry||[];
+    if(!cba.length) h='<div class="no-state">No CBA registry data for this state.</div>';
+    cba.forEach(function(c){
+      h+='<div class="cba-card"><div class="cba-school">'+esc(c.school||(c.network?c.network+' (network)':''))+'</div>'+
+        (c.union?'<div class="cba-union">'+esc(c.union)+'</div>':'')+
+        '<div class="cba-status">'+esc(c.status||'')+(c.period?' \u00B7 '+esc(c.period.slice(0,60)):'')+'</div>'+
+        (c.notes?'<div class="cba-status" style="margin-top:2px;color:#6A7A8A">'+esc(c.notes.slice(0,120))+'</div>':'')+'</div>';
+    });
+  } else if(tab==='monitoring'){
+    var mon=st.monitoring||[];
+    if(!mon.length) h='<div class="no-state">No monitoring items for this state.</div>';
+    mon.forEach(function(m){
+      var pri=(m.priority||'MEDIUM').toUpperCase();
+      h+='<div class="mon-card '+pri+'"><span class="pri-badge pri-'+pri+'">'+pri+'</span>'+
+        '<div style="font-size:10px;font-weight:700;color:#E8EDF2;margin-bottom:3px">'+esc(m.target)+'</div>'+
+        '<div style="font-size:9.5px;color:#8BA0B4;line-height:1.5">'+esc(m.issue)+'</div></div>';
+    });
+  } else if(tab==='openitems'){
+    var oi=st.openItems||[];
+    if(!oi.length) h='<div class="no-state">No open items for this state.</div>';
+    oi.forEach(function(o){
+      var pri=(o.priority||'MEDIUM').toUpperCase();
+      h+='<div class="mon-card '+pri+'"><span class="pri-badge pri-'+pri+'">'+pri+'</span>'+
+        '<div style="font-size:9.5px;color:#C0D0E0;margin:3px 0;line-height:1.5">'+esc(o.description)+'</div>'+
+        (o.resolution?'<div style="font-size:9px;color:#4A6A80;margin-top:2px"><strong>Resolution:</strong> '+esc(o.resolution)+'</div>':'')+
+        (o.who?'<div style="font-size:9px;color:#4A6A80"><strong>Who:</strong> '+esc(o.who)+'</div>':'')+'</div>';
+    });
+  }
+  setPanelBody(h);
+}
+
+// ── MODAL ─────────────────────────────────────────────────────────────────────
+function openModal(status){
+  // Build list dynamically from SCHOOLS — sorted by state then name
+  var list=SCHOOLS.filter(function(s){ return s.status===status; })
+    .sort(function(a,b){
+      var sc=a.state.localeCompare(b.state);
+      return sc!==0?sc:a.name.localeCompare(b.name);
+    });
+  var labels={CONFIRMED:'Independently Organized',DEPENDENT:'Structural Coverage (Dependent)',ORGANIZING:'Documented Organizing Activity',DECERTIFIED:'No Longer Unionized',CLOSED:'Historically Organized / Closed'};
+  document.getElementById('modal-title').innerHTML=
+    '<span class="mbadge bc-'+status+'" style="font-size:10px;margin-right:8px">'+esc(labels[status]||status)+'</span>'+
+    (labels[status]||status)+' \u2014 '+list.length+' school'+(list.length===1?'':'s');
+
+  var rows=list.map(function(s){
+    var hasGeo=!!(s.lat&&s.lng);
+    // Encode args for inline onclick — use data attributes to avoid escaping issues
+    var napcsId=esc(s.napcsId||'');
+    var name=esc(s.name||'');
+    var state=esc(s.state||'');
+    var lat=s.lat||0;
+    var lng=s.lng||0;
+    var geoTip=hasGeo?'':'<span style="font-size:8px;color:#4A6A80;margin-left:4px">&#9675; no map pin</span>';
+    return '<div class="mrow" style="cursor:'+(hasGeo?'pointer':'default')+'" '+
+      'onclick="openSchoolDetail(\''+napcsId+'\',\''+name+'\',\''+state+'\','+lat+','+lng+')">'+
+      '<span class="mbadge bc-'+status+'">'+esc(s.state)+'</span>'+
+      '<div style="min-width:0;flex:1">'+
+        '<div class="mrow-name">'+esc(s.name)+geoTip+'</div>'+
+        '<div class="mrow-meta">'+
+          esc(s.city+', '+s.state)+
+          (s.union?' \u00B7 '+esc(s.union.slice(0,45)):'')+
+          (s.dateUnionized&&s.dateUnionized!=='N/A'?' \u00B7 '+esc(String(s.dateUnionized).slice(0,20)):'')+
+        '</div>'+
+      '</div>'+
+    '</div>';
+  }).join('');
+
+  document.getElementById('modal-body').innerHTML=
+    rows||'<div style="text-align:center;color:#4A6A80;padding:30px">No schools in this category</div>';
+  document.getElementById('modal-overlay').classList.add('open');
+}
+document.getElementById('modal-close').onclick=function(){ document.getElementById('modal-overlay').classList.remove('open'); };
+document.getElementById('modal-overlay').addEventListener('click',function(e){ if(e.target===this) this.classList.remove('open'); });
+
+// ── UTILITY ───────────────────────────────────────────────────────────────────
+function esc(s){ if(!s) return ''; return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+// ── INIT ──────────────────────────────────────────────────────────────────────
+showNationalPanel();
+</script>
+</body>
+</html>
