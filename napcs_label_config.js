@@ -26,7 +26,7 @@
  * ─────────────────────────────────────────────────────────────────────────────
  */
 
-'use strict';
+
 
 // ═══════════════════════════════════════════════════════════════════════════
 // STATUS LABELS
@@ -34,7 +34,7 @@
 // For codes with no Level 3 (e.g. STRUCTURAL_STATE), use 'LEVEL1/LEVEL2'
 // ═══════════════════════════════════════════════════════════════════════════
 
-const STATUS_LABELS = {
+var STATUS_LABELS = {
 
   // ── UNIONIZED / INDEPENDENT ───────────────────────────────────────────────
   'UNIONIZED/INDEPENDENT/ELECTION':    'Voluntarily — Election',
@@ -89,7 +89,7 @@ const STATUS_LABELS = {
 // METRIC CARD LABELS (dashboard stat bar)
 // ═══════════════════════════════════════════════════════════════════════════
 
-const METRIC_CARD_LABELS = {
+var METRIC_CARD_LABELS = {
   totalOrganized:       'Total Unionized',
   independentOrganized: 'Unionized — Voluntarily',
   dependentSchools:     'Unionized — Required',
@@ -102,7 +102,7 @@ const METRIC_CARD_LABELS = {
 // FILTER LABELS (dashboard filter buttons)
 // ═══════════════════════════════════════════════════════════════════════════
 
-const FILTER_LABELS = {
+var FILTER_LABELS = {
   confirmed:    'Unionized',
   dependent:    'Unionized — Required',
   organizing:   'Organizing',
@@ -136,7 +136,7 @@ function getLabel(level1, level2, level3) {
 // Remove after all documents rebuilt under napcsStatus taxonomy.
 // ═══════════════════════════════════════════════════════════════════════════
 
-const LEGACY_STATUS_LABELS = {
+var LEGACY_STATUS_LABELS = {
   'CONFIRMED':           'Unionized — Voluntarily',
   'CONFIRMED (CLOSED)':  'Closed — Unionized Voluntarily',
   'DEPENDENT':           'Unionized — Required',
@@ -148,14 +148,3 @@ const LEGACY_STATUS_LABELS = {
   'CERTIFIED/DORMANT':   'Unionized — No Contract',
 };
 
-// ═══════════════════════════════════════════════════════════════════════════
-// EXPORTS
-// ═══════════════════════════════════════════════════════════════════════════
-
-module.exports = {
-  STATUS_LABELS,
-  METRIC_CARD_LABELS,
-  FILTER_LABELS,
-  LEGACY_STATUS_LABELS,
-  getLabel,
-};
