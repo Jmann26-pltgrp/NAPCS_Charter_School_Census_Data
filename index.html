@@ -2152,15 +2152,6 @@ function setPanelHdr(t,s){ document.getElementById('panel-title').textContent=t;
 function setPanelBody(h){ document.getElementById('panel-body').innerHTML=h; }
 function noStateMsg(n){ return '<div class="no-state"><div class="ns-icon">&#128506;</div>Click a state label on the map to view '+n+' for that state.<br><br><span style="font-size:9px;color:#4A6A80">State-level information data is populated through dedicated state research sessions. Data for all 26 jurisdictions is in development.</span></div>'; }
 
-function renderIntelTab(tab,code){
-  var tabLabels={political:'Political',organizing:'Organizing Activity',trends:'Trends',patterns:'Patterns',media:'Media Coverage',networks:'Networks',cba:'CBA Registry',monitoring:'Monitoring Queue',openitems:'Open Items'};
-  var label=tabLabels[tab]||tab;
-  setPanelHdr(label,code?STATE_NAMES[code]||code:'Select a state');
-  if(!code){ setPanelBody(noStateMsg(label)); return; }
-  var st=(INTEL&&INTEL[code])||null;
-  if(!st){ setPanelBody('<div class="no-state"><div class="ns-icon">&#128202;</div>No '+label+' data available for '+esc(STATE_NAMES[code]||code)+' yet.<br><br><span style="font-size:9px;color:#4A6A80">State information data is added through dedicated state research sessions. Check back as research progresses.</span></div>'); return; }
-  var h='';
-
 // ── OVERVIEW ─────────────────────────────────────────────────────────────────
 function showNationalPanel(){
   setPanelHdr('National Overview','Click any state label on the map to zoom in');
