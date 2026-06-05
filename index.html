@@ -1405,11 +1405,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 #filter-bar .fb-handle .drag-dots span{display:block;width:14px;height:2px;background:#2E75B6;border-radius:1px;opacity:0.7}
 .fitem{display:flex;align-items:center;gap:6px;margin-bottom:5px;cursor:pointer;font-size:11px;color:#B0C0D0;user-select:none}
 .fitem:last-child{margin-bottom:0}
-.fitem input{position:absolute;opacity:0;width:0;height:0;pointer-events:none}
-.fcheck{width:13px;height:13px;border-radius:3px;border:1.5px solid #2E75B6;background:#0A1520;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:background .15s,border-color .15s}
-.fitem input:checked ~ .fcheck{background:#2E75B6;border-color:#2E75B6}
-.fitem input:checked ~ .fcheck::after{content:'✓';font-size:9px;color:#fff;line-height:1;font-weight:700}
-.fitem input:not(:checked) ~ .fcheck{background:#111B27;border-color:#2A3D54}
+.fitem input{width:12px;height:12px;cursor:pointer;accent-color:#2E75B6;flex-shrink:0}
 .fdot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
 
 /* State detail popup from label */
@@ -1633,12 +1629,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
         <div class="drag-dots"><span></span><span></span><span></span></div>
         &#8801; Filter by Status <span style="font-size:7px;color:#4A6A80;margin-left:2px">(drag)</span>
       </div>
-      <label class="fitem"><input type="checkbox" checked data-status="CONFIRMED"><span class="fcheck"></span><span class="fdot" style="background:#6CC04A"></span><span>Independently Organized (<span id="fc-0">0</span>)</span></label>
-      <label class="fitem"><input type="checkbox" checked data-status="DEPENDENT"><span class="fcheck"></span><span class="fdot" style="background:#4ABFBF"></span><span>Structural Coverage (<span id="fc-1">0</span>)</span></label>
-      <label class="fitem"><input type="checkbox" checked data-status="ORGANIZING"><span class="fcheck"></span><span class="fdot" style="background:#F5A623"></span><span>Organizing Presence / Intent (<span id="fc-2">0</span>)</span></label>
-      <label class="fitem" title="Schools that were certified but had their certification removed (decertified). Currently no active union."><input type="checkbox" data-status="DECERTIFIED"><span class="fcheck"></span><span class="fdot" style="background:#888;border:1px solid #555;opacity:0.5"></span><span style="opacity:0.6">Decertified — School Open (<span id="fc-3">0</span>)</span></label>
-      <label class="fitem" title="Schools that were organized when they closed. Shown for historical reference only (5-year lookback)."><input type="checkbox" data-status="CLOSED"><span class="fcheck"></span><span class="fdot" style="background:#E07A4A"></span><span>Closed — Was Organized (<span id="fc-4">0</span>)</span></label>
-      <label class="fitem" title="Schools fully researched with no evidence of union activity found."><input type="checkbox" data-status="UNVERIFIED"><span class="fcheck"></span><span class="fdot" style="background:transparent;border:1.5px dashed #4A6A80"></span><span>No Organizing Activity Documented (<span id="fc-5">0</span>)</span></label>
+      <label class="fitem"><input type="checkbox" checked data-status="CONFIRMED"><span class="fdot" style="background:#6CC04A"></span><span>Independently Organized (<span id="fc-0">0</span>)</span></label>
+      <label class="fitem"><input type="checkbox" checked data-status="DEPENDENT"><span class="fdot" style="background:#4ABFBF"></span><span>Structural Coverage (<span id="fc-1">0</span>)</span></label>
+      <label class="fitem"><input type="checkbox" checked data-status="ORGANIZING"><span class="fdot" style="background:#F5A623"></span><span>Organizing Presence / Intent (<span id="fc-2">0</span>)</span></label>
+      <label class="fitem" title="Schools that were certified but had their certification removed (decertified). Currently no active union."><input type="checkbox" data-status="DECERTIFIED"><span class="fdot" style="background:#888;border:1px solid #555;opacity:0.5"></span><span style="opacity:0.6">Decertified — School Open (<span id="fc-3">0</span>)</span></label>
+      <label class="fitem" title="Schools that were organized when they closed. Shown for historical reference only (5-year lookback)."><input type="checkbox" data-status="CLOSED"><span class="fdot" style="background:#E07A4A"></span><span>Closed — Was Organized (<span id="fc-4">0</span>)</span></label>
+      <label class="fitem" title="Schools fully researched with no evidence of union activity found."><input type="checkbox" data-status="UNVERIFIED"><span class="fdot" style="background:transparent;border:1.5px dashed #4A6A80"></span><span>No Organizing Activity Documented (<span id="fc-5">0</span>)</span></label>
       <div style="border-top:1px solid #1E2D40;margin-top:6px;padding-top:5px;font-size:8px;color:#4A6A80;line-height:1.4"><strong style="color:#888">Decertified — School Open</strong> = cert removed<br><strong style="color:#E07A4A">Closed — Was Organized</strong> = closed while organized</div>
     </div>
 
@@ -1928,29 +1924,68 @@ SCHOOLS.forEach(function(s){
 // openSchoolDetail: close modal, pan to school, open its popup centered on map
 function openSchoolDetail(napcsId, name, state, lat, lng){
   document.getElementById('modal-overlay').classList.remove('open');
-  var key=napcsId||(name+'|'+state);
-  var entry=markerIndex[key];
-  if(entry && lat && lng){
-    // Ensure the layer is visible so the popup can open
+  // null/undefined lat or lng means no geo — don't treat 0 as valid coord
+  var hasGeo = (lat !== null && lat !== undefined && lat !== 0 &&
+                lng !== null && lng !== undefined && lng !== 0);
+  var key = napcsId || (name+'|'+state);
+  var entry = markerIndex[key];
+  if(hasGeo && entry){
+    // Ensure the layer is visible
     var s=entry.school;
     if(s&&s.status&&!map.hasLayer(layers[s.status])){
       map.addLayer(layers[s.status]);
-      // Sync checkbox
       var cb=document.querySelector('#filter-bar input[data-status="'+s.status+'"]');
       if(cb) cb.checked=true;
     }
-    // Pan with offset to center popup away from filter bar
     map.setView([lat,lng],14,{animate:true});
     setTimeout(function(){
       entry.marker.openPopup();
-      // Pan slightly right to clear filter bar
       map.panBy([-80,0],{animate:false});
     },400);
-  } else if(lat && lng){
+  } else if(hasGeo){
+    // Geo exists but no marker (layer hidden etc) — just pan
     map.setView([lat,lng],13,{animate:true});
-  } else if(state){
+  } else {
+    // No geo — zoom to state
     openStateSlideout(state, null);
   }
+}
+
+function printDensityTable(){
+  var rows = NAPCS_CONFIG.density_table;
+  var w = window.open('','_blank');
+  // Build clean HTML table without the bar chart divs
+  var trs = rows.map(function(row){
+    return '<tr><td>'+row.name+'</td><td>'+row.universe.toLocaleString()+'</td>'+
+      '<td style="color:#1a5276;font-weight:700">'+row.confirmed+'</td>'+
+      '<td style="color:#148f77">'+(row.dependent||'\u2014')+'</td>'+
+      '<td style="font-weight:700">'+row.density+'</td></tr>';
+  }).join('');
+  var totRow = '<tr style="background:#1E3A5F;color:#fff;font-weight:700">'+
+    '<td>ALL '+NAT.jurisdictions+' Jurisdictions</td>'+
+    '<td>'+NAT.universe.toLocaleString()+'</td>'+
+    '<td>'+NAT.confirmed+'</td>'+
+    '<td>'+NAT.dependent+'</td>'+
+    '<td>'+NAT.density+'</td></tr>';
+  w.document.write('<html><head><title>NAPCS Census Table \u2014 June 5, 2026</title>'+
+    '<style>body{font-family:Arial,sans-serif;margin:20px;color:#000}'+
+    'h2{font-size:14px;margin-bottom:4px}p{font-size:10px;color:#666;margin-bottom:12px}'+
+    'table{border-collapse:collapse;width:100%;font-size:11px}'+
+    'th{background:#1E3A5F;color:#fff;padding:6px 8px;text-align:left;font-size:10px}'+
+    'td{padding:5px 8px;border-bottom:1px solid #ddd}'+
+    'tr:nth-child(even) td{background:#f5f8fc}'+
+    '@media print{button{display:none}}</style></head><body>');
+  w.document.write('<h2>NAPCS Charter School Unionization Census Table</h2>'+
+    '<p>PLT Strategies Group, Inc. \u00B7 Working Data \u00B7 Data Currency: June 5, 2026</p>');
+  w.document.write('<table><thead><tr>'+
+    '<th>State</th><th>Census Total</th><th>Indep. Organized</th>'+
+    '<th>Structural Coverage</th><th>Combined %</th>'+
+    '</tr></thead><tbody>'+trs+totRow+'</tbody></table>');
+  w.document.write('<p style="margin-top:10px;font-size:9px;color:#999">'+
+    'Source: NAPCS Unionization Research Project \u00B7 '+NAT.jurisdictions+' jurisdictions \u00B7 Census total: '+NAT.universe.toLocaleString()+' schools</p>');
+  w.document.write('</body></html>');
+  w.document.close();
+  setTimeout(function(){ w.print(); }, 300);
 }
 
 // ── FILTER ──────────────────────────────────────────────────────────────────
@@ -2255,20 +2290,7 @@ function buildDensityTable(){
   var printBtn='<div style="text-align:right;margin-bottom:6px"><button onclick="printDensityTable()" style="font-size:9px;background:#1A2535;border:1px solid #2E75B6;color:#4A9FE0;padding:3px 10px;border-radius:4px;cursor:pointer;font-family:inherit">&#128438; Print / Save PDF</button></div>';
   setPanelBody(printBtn+'<table id="dtable"><thead><tr><th>State</th><th>Census Total</th><th>Indep. Org.</th><th>Structural Coverage</th><th>Combined %</th></tr></thead><tbody>'+trs+totRow+'</tbody></table>');
 }
-function printDensityTable(){
-  var tbl=document.getElementById('dtable');
-  if(!tbl) return;
-  var w=window.open('','_blank');
-  w.document.write('<html><head><title>NAPCS Census Table \u2014 June 5, 2026</title><style>body{font-family:Arial,sans-serif;margin:20px;color:#000}h2{font-size:14px;margin-bottom:4px}p{font-size:10px;color:#666;margin-bottom:12px}table{border-collapse:collapse;width:100%;font-size:11px}th{background:#1E3A5F;color:#fff;padding:6px 8px;text-align:left;font-size:10px}td{padding:5px 8px;border-bottom:1px solid #ddd}tr:nth-child(even)td{background:#f5f8fc}tr:last-child td{background:#1E3A5F;color:#fff;font-weight:700}@media print{button{display:none}}</style></head><body>');
-  w.document.write('<h2>NAPCS Charter School Unionization Census Table</h2><p>PLT Strategies Group, Inc. \u00B7 Working Data \u00B7 Data Currency Date: June 5, 2026 \u00B7 </p>');
-  w.document.write(tbl.outerHTML);
-  w.document.write('<p style="margin-top:10px;font-size:9px;color:#999">Source: NAPCS Unionization Research Project \u00B7 26 jurisdictions \u00B7 Census total: '+NAT.universe.toLocaleString()+' schools</p>');
-  w.document.write('</body></html>');
-  w.document.close();
-  w.print();
-}
 
-// ── JURISDICTION ──────────────────────────────────────────────────────────────
 function buildJurisdictionPanel(){
   setPanelHdr('Legal Jurisdiction','Labor board & governing law by jurisdiction');
   var codes=Object.keys(JDATA).sort(function(a,b){return (STATE_NAMES[a]||a).localeCompare(STATE_NAMES[b]||b);});
@@ -2531,21 +2553,16 @@ function openModal(status){
       return sc!==0?sc:a.name.localeCompare(b.name);
     });
   var labels={CONFIRMED:'Independently Organized',DEPENDENT:'Structural Coverage (Dependent)',ORGANIZING:'Organizing Presence / Intent',DECERTIFIED:'Decertified — School Open',CLOSED:'Closed — Was Organized'};
+  _modalList = list;
   document.getElementById('modal-title').innerHTML=
     '<span class="mbadge bc-'+status+'" style="font-size:10px;margin-right:8px">'+esc(labels[status]||status)+'</span>'+
     (labels[status]||status)+' \u2014 '+list.length+' school'+(list.length===1?'':'s');
 
-  var rows=list.map(function(s){
+  var rows=list.map(function(s,idx){
     var hasGeo=!!(s.lat&&s.lng);
-    // Encode args for inline onclick — use data attributes to avoid escaping issues
-    var napcsId=esc(s.napcsId||'');
-    var name=esc(s.name||'');
-    var state=esc(s.state||'');
-    var lat=s.lat||0;
-    var lng=s.lng||0;
     var geoTip=hasGeo?'':'<span style="font-size:8px;color:#4A6A80;margin-left:4px">&#9675; no map pin</span>';
     return '<div class="mrow" style="cursor:'+(hasGeo?'pointer':'default')+'" '+
-      'onclick="openSchoolDetail(\''+napcsId+'\',\''+name+'\',\''+state+'\','+lat+','+lng+')">'+
+      'data-idx="'+idx+'" onclick="handleModalClick(this)">'+
       '<span class="mbadge bc-'+status+'">'+esc(s.state)+'</span>'+
       '<div style="min-width:0;flex:1">'+
         '<div class="mrow-name">'+esc(s.name)+geoTip+'</div>'+
@@ -2561,6 +2578,13 @@ function openModal(status){
   document.getElementById('modal-body').innerHTML=
     rows||'<div style="text-align:center;color:#4A6A80;padding:30px">No schools in this category</div>';
   document.getElementById('modal-overlay').classList.add('open');
+}
+var _modalList = [];
+function handleModalClick(el){
+  var idx = parseInt(el.getAttribute('data-idx'));
+  var s = _modalList[idx];
+  if(!s) return;
+  openSchoolDetail(s.napcsId||'', s.name||'', s.state||'', s.lat||null, s.lng||null);
 }
 document.getElementById('modal-close').onclick=function(){ document.getElementById('modal-overlay').classList.remove('open'); };
 document.getElementById('modal-overlay').addEventListener('click',function(e){ if(e.target===this) this.classList.remove('open'); });
