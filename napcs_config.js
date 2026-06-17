@@ -1209,7 +1209,8 @@ var NAPCS_CONFIG = {
       "watch": 0,
       "dec": 0,
       "clo": 0,
-      "lb": ""
+      "lb": "",
+      "deferred": false
     },
     {
       "st": "HI",
@@ -1223,7 +1224,8 @@ var NAPCS_CONFIG = {
       "watch": 0,
       "dec": 0,
       "clo": 1,
-      "lb": ""
+      "lb": "",
+      "deferred": false
     },
     {
       "st": "KS",
@@ -1237,7 +1239,8 @@ var NAPCS_CONFIG = {
       "watch": 0,
       "dec": 0,
       "clo": 0,
-      "lb": ""
+      "lb": "",
+      "deferred": false
     },
     {
       "st": "MD",
@@ -1251,7 +1254,8 @@ var NAPCS_CONFIG = {
       "watch": 0,
       "dec": 0,
       "clo": 2,
-      "lb": ""
+      "lb": "",
+      "deferred": false
     },
     {
       "st": "OR",
@@ -1265,7 +1269,8 @@ var NAPCS_CONFIG = {
       "watch": 0,
       "dec": 2,
       "clo": 0,
-      "lb": ""
+      "lb": "",
+      "deferred": false
     },
     {
       "st": "WI",
@@ -1279,7 +1284,8 @@ var NAPCS_CONFIG = {
       "watch": 0,
       "dec": 0,
       "clo": 0,
-      "lb": ""
+      "lb": "",
+      "deferred": false
     },
     {
       "st": "IA",
@@ -1293,7 +1299,8 @@ var NAPCS_CONFIG = {
       "watch": 0,
       "dec": 0,
       "clo": 0,
-      "lb": ""
+      "lb": "",
+      "deferred": false
     },
     {
       "st": "VA",
@@ -1307,7 +1314,8 @@ var NAPCS_CONFIG = {
       "watch": 0,
       "dec": 0,
       "clo": 0,
-      "lb": ""
+      "lb": "",
+      "deferred": false
     },
     {
       "st": "CA",
@@ -1321,7 +1329,8 @@ var NAPCS_CONFIG = {
       "watch": 2,
       "dec": 4,
       "clo": 9,
-      "lb": ""
+      "lb": "",
+      "deferred": false
     },
     {
       "st": "CT",
@@ -1335,7 +1344,8 @@ var NAPCS_CONFIG = {
       "watch": 0,
       "dec": 0,
       "clo": 0,
-      "lb": ""
+      "lb": "",
+      "deferred": false
     },
     {
       "st": "IL",
@@ -1349,7 +1359,8 @@ var NAPCS_CONFIG = {
       "watch": 0,
       "dec": 0,
       "clo": 6,
-      "lb": ""
+      "lb": "",
+      "deferred": false
     },
     {
       "st": "NJ",
@@ -1363,7 +1374,8 @@ var NAPCS_CONFIG = {
       "watch": 0,
       "dec": 0,
       "clo": 1,
-      "lb": ""
+      "lb": "",
+      "deferred": false
     },
     {
       "st": "MA",
@@ -1377,7 +1389,8 @@ var NAPCS_CONFIG = {
       "watch": 0,
       "dec": 1,
       "clo": 1,
-      "lb": ""
+      "lb": "",
+      "deferred": false
     },
     {
       "st": "DE",
@@ -1391,7 +1404,8 @@ var NAPCS_CONFIG = {
       "watch": 0,
       "dec": 0,
       "clo": 0,
-      "lb": ""
+      "lb": "",
+      "deferred": false
     },
     {
       "st": "RI",
@@ -1405,7 +1419,8 @@ var NAPCS_CONFIG = {
       "watch": 0,
       "dec": 0,
       "clo": 1,
-      "lb": ""
+      "lb": "",
+      "deferred": false
     },
     {
       "st": "PA",
@@ -1419,7 +1434,8 @@ var NAPCS_CONFIG = {
       "watch": 0,
       "dec": 0,
       "clo": 2,
-      "lb": ""
+      "lb": "",
+      "deferred": false
     },
     {
       "st": "ME",
@@ -1433,7 +1449,8 @@ var NAPCS_CONFIG = {
       "watch": 0,
       "dec": 0,
       "clo": 0,
-      "lb": ""
+      "lb": "",
+      "deferred": false
     },
     {
       "st": "OH",
@@ -1447,7 +1464,8 @@ var NAPCS_CONFIG = {
       "watch": 0,
       "dec": 0,
       "clo": 0,
-      "lb": ""
+      "lb": "",
+      "deferred": false
     },
     {
       "st": "NY",
@@ -1461,7 +1479,8 @@ var NAPCS_CONFIG = {
       "watch": 0,
       "dec": 2,
       "clo": 0,
-      "lb": ""
+      "lb": "",
+      "deferred": false
     },
     {
       "st": "WA",
@@ -1475,7 +1494,8 @@ var NAPCS_CONFIG = {
       "watch": 6,
       "dec": 0,
       "clo": 0,
-      "lb": ""
+      "lb": "",
+      "deferred": false
     },
     {
       "st": "DC",
@@ -1489,7 +1509,8 @@ var NAPCS_CONFIG = {
       "watch": 0,
       "dec": 0,
       "clo": 1,
-      "lb": ""
+      "lb": "",
+      "deferred": false
     },
     {
       "st": "NM",
@@ -1503,7 +1524,8 @@ var NAPCS_CONFIG = {
       "watch": 0,
       "dec": 0,
       "clo": 0,
-      "lb": ""
+      "lb": "",
+      "deferred": false
     },
     {
       "st": "LA",
@@ -1517,7 +1539,8 @@ var NAPCS_CONFIG = {
       "watch": 0,
       "dec": 1,
       "clo": 1,
-      "lb": ""
+      "lb": "",
+      "deferred": false
     },
     {
       "st": "MI",
@@ -1531,7 +1554,8 @@ var NAPCS_CONFIG = {
       "watch": 1,
       "dec": 0,
       "clo": 0,
-      "lb": ""
+      "lb": "",
+      "deferred": false
     },
     {
       "st": "MN",
@@ -1545,7 +1569,8 @@ var NAPCS_CONFIG = {
       "watch": 0,
       "dec": 0,
       "clo": 1,
-      "lb": ""
+      "lb": "",
+      "deferred": false
     },
     {
       "st": "FL",
@@ -1559,7 +1584,8 @@ var NAPCS_CONFIG = {
       "watch": 0,
       "dec": 0,
       "clo": 0,
-      "lb": ""
+      "lb": "",
+      "deferred": false
     },
     {
       "st": "AZ",
@@ -1573,7 +1599,8 @@ var NAPCS_CONFIG = {
       "watch": 0,
       "dec": 0,
       "clo": 0,
-      "lb": ""
+      "lb": "",
+      "deferred": false
     },
     {
       "st": "AR",
@@ -1587,7 +1614,8 @@ var NAPCS_CONFIG = {
       "watch": 0,
       "dec": 0,
       "clo": 0,
-      "lb": ""
+      "lb": "",
+      "deferred": false
     },
     {
       "st": "CO",
@@ -1601,7 +1629,8 @@ var NAPCS_CONFIG = {
       "watch": 9,
       "dec": 0,
       "clo": 0,
-      "lb": ""
+      "lb": "",
+      "deferred": false
     },
     {
       "st": "GA",
@@ -1615,7 +1644,8 @@ var NAPCS_CONFIG = {
       "watch": 0,
       "dec": 0,
       "clo": 0,
-      "lb": ""
+      "lb": "",
+      "deferred": false
     },
     {
       "st": "MO",
@@ -1629,7 +1659,8 @@ var NAPCS_CONFIG = {
       "watch": 0,
       "dec": 1,
       "clo": 0,
-      "lb": ""
+      "lb": "",
+      "deferred": false
     },
     {
       "st": "NH",
@@ -1643,7 +1674,8 @@ var NAPCS_CONFIG = {
       "watch": 0,
       "dec": 0,
       "clo": 0,
-      "lb": ""
+      "lb": "",
+      "deferred": false
     },
     {
       "st": "WV",
@@ -1657,7 +1689,188 @@ var NAPCS_CONFIG = {
       "watch": 0,
       "dec": 0,
       "clo": 0,
-      "lb": ""
+      "lb": "",
+      "deferred": false
+    },
+    {
+      "st": "AL",
+      "name": "Alabama",
+      "universe": 23,
+      "confirmed": 0,
+      "dependent": 0,
+      "combined": 0,
+      "density": "0.0%",
+      "indepPct": "0.0%",
+      "watch": 0,
+      "dec": 0,
+      "clo": 0,
+      "lb": "",
+      "deferred": true
+    },
+    {
+      "st": "ID",
+      "name": "Idaho",
+      "universe": 84,
+      "confirmed": 0,
+      "dependent": 0,
+      "combined": 0,
+      "density": "0.0%",
+      "indepPct": "0.0%",
+      "watch": 0,
+      "dec": 0,
+      "clo": 0,
+      "lb": "",
+      "deferred": true
+    },
+    {
+      "st": "IN",
+      "name": "Indiana",
+      "universe": 132,
+      "confirmed": 0,
+      "dependent": 0,
+      "combined": 0,
+      "density": "0.0%",
+      "indepPct": "0.0%",
+      "watch": 0,
+      "dec": 0,
+      "clo": 0,
+      "lb": "",
+      "deferred": true
+    },
+    {
+      "st": "MS",
+      "name": "Mississippi",
+      "universe": 10,
+      "confirmed": 0,
+      "dependent": 0,
+      "combined": 0,
+      "density": "0.0%",
+      "indepPct": "0.0%",
+      "watch": 0,
+      "dec": 0,
+      "clo": 0,
+      "lb": "",
+      "deferred": true
+    },
+    {
+      "st": "NV",
+      "name": "Nevada",
+      "universe": 104,
+      "confirmed": 0,
+      "dependent": 0,
+      "combined": 0,
+      "density": "0.0%",
+      "indepPct": "0.0%",
+      "watch": 0,
+      "dec": 0,
+      "clo": 0,
+      "lb": "",
+      "deferred": true
+    },
+    {
+      "st": "NC",
+      "name": "North Carolina",
+      "universe": 213,
+      "confirmed": 0,
+      "dependent": 0,
+      "combined": 0,
+      "density": "0.0%",
+      "indepPct": "0.0%",
+      "watch": 0,
+      "dec": 0,
+      "clo": 0,
+      "lb": "",
+      "deferred": true
+    },
+    {
+      "st": "OK",
+      "name": "Oklahoma",
+      "universe": 73,
+      "confirmed": 0,
+      "dependent": 0,
+      "combined": 0,
+      "density": "0.0%",
+      "indepPct": "0.0%",
+      "watch": 0,
+      "dec": 0,
+      "clo": 0,
+      "lb": "",
+      "deferred": true
+    },
+    {
+      "st": "SC",
+      "name": "South Carolina",
+      "universe": 104,
+      "confirmed": 0,
+      "dependent": 0,
+      "combined": 0,
+      "density": "0.0%",
+      "indepPct": "0.0%",
+      "watch": 0,
+      "dec": 0,
+      "clo": 0,
+      "lb": "",
+      "deferred": true
+    },
+    {
+      "st": "TN",
+      "name": "Tennessee",
+      "universe": 112,
+      "confirmed": 0,
+      "dependent": 0,
+      "combined": 0,
+      "density": "0.0%",
+      "indepPct": "0.0%",
+      "watch": 0,
+      "dec": 0,
+      "clo": 0,
+      "lb": "",
+      "deferred": true
+    },
+    {
+      "st": "TX",
+      "name": "Texas",
+      "universe": 1056,
+      "confirmed": 0,
+      "dependent": 0,
+      "combined": 0,
+      "density": "0.0%",
+      "indepPct": "0.0%",
+      "watch": 0,
+      "dec": 0,
+      "clo": 0,
+      "lb": "",
+      "deferred": true
+    },
+    {
+      "st": "UT",
+      "name": "Utah",
+      "universe": 141,
+      "confirmed": 0,
+      "dependent": 0,
+      "combined": 0,
+      "density": "0.0%",
+      "indepPct": "0.0%",
+      "watch": 0,
+      "dec": 0,
+      "clo": 0,
+      "lb": "",
+      "deferred": true
+    },
+    {
+      "st": "WY",
+      "name": "Wyoming",
+      "universe": 8,
+      "confirmed": 0,
+      "dependent": 0,
+      "combined": 0,
+      "density": "0.0%",
+      "indepPct": "0.0%",
+      "watch": 0,
+      "dec": 0,
+      "clo": 0,
+      "lb": "",
+      "deferred": true
     }
   ],
   "jurisdiction_data": {},
