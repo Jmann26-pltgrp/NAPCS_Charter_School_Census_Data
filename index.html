@@ -871,7 +871,8 @@ function openStateSlideout(code, coords){
     }
     h+='<div class="spo-section">'+(sEmos.length>0?'CMO Networks':'CMO / Networks')+'</div>';
     sCmos.slice(0,8).forEach(function(c){h+=spoNetworkRow(c);});
-    if(sCmos.length>8) h+='<div style="font-size:8px;color:#4A6A80;padding:2px 0">+ '+(sCmos.length-8)+' more</div>';
+    if(sCmos.length>8) h+='<div style="font-size:8px;padding:2px 0"><a href="javascript:void(0)" onclick="openCmoTab(\''+code+'\',true)" style="color:#4A9FE0;text-decoration:none">+ '+(sCmos.length-8)+' more → View all</a></div>';
+    else h+='<div style="font-size:8px;padding:2px 0"><a href="javascript:void(0)" onclick="openCmoTab(\''+code+'\',true)" style="color:#4A9FE0;text-decoration:none">View full network detail →</a></div>';
   }
 
   // Associations
@@ -1132,7 +1133,8 @@ function showStatePanel(code){
     // Show top 10 CMOs, with a "show more" note if there are more
     var showCmos = cmos.slice(0,10);
     showCmos.forEach(function(c){ h+=renderCmoRow(c); });
-    if(cmos.length>10) h+='<div style="font-size:9px;color:#4A6A80;padding:4px 0">+ '+(cmos.length-10)+' more networks</div>';
+    if(cmos.length>10) h+='<div style="font-size:9px;padding:4px 0"><a href="javascript:void(0)" onclick="openCmoTab(\''+code+'\',false)" style="color:#4A9FE0;text-decoration:none">+ '+(cmos.length-10)+' more → View all networks</a></div>';
+    else if(cmos.length>0) h+='<div style="font-size:9px;padding:4px 0"><a href="javascript:void(0)" onclick="openCmoTab(\''+code+'\',false)" style="color:#4A9FE0;text-decoration:none">View full network detail →</a></div>';
   }
 
   // Charter Association(s)
@@ -1168,6 +1170,135 @@ function showStatePanel(code){
 
 function srow(l,v,cls){
   return '<div class="srow"><span class="srow-lbl">'+esc(String(l))+'</span><span class="srow-val'+(cls?' '+cls:'')+'">'+(typeof v==='number'?v.toLocaleString():v)+'</span></div>';
+}
+
+// ── CMO / EMO DETAIL TAB ──────────────────────────────────────────────────────
+function openCmoTab(code, fromSlideout){
+  // Close slideout if open
+  if(fromSlideout && _statePopup){ map.closePopup(_statePopup); }
+  // Switch to overview panel and show CMO detail
+  switchTab('overview');
+  showCmoDetailPanel(code);
+}
+
+function showCmoDetailPanel(code){
+  var name = STATE_NAMES[code]||code;
+  var sd = SD[code]||{};
+  var stateSchools = SCHOOLS.filter(function(s){ return s.state===code; });
+  var charterEnr = stateSchools.reduce(function(sum,s){ return sum+(Number(s.enrollment_2425)||0); },0);
+
+  // Build CMO map with full detail
+  var cmoMap={};
+  stateSchools.forEach(function(s){
+    var n=s.cmoName;
+    if(!n||n==='Independent'||n==='None'||!n.trim()) return;
+    if(!cmoMap[n]) cmoMap[n]={
+      name:n, type:s.cmoType||null, website:s.cmoWebsite||null,
+      schools:0, enr:0, orgSchools:0, orgEnr:0, depSchools:0, depEnr:0,
+      confSchools:0, confEnr:0, orgActSchools:0, orgActEnr:0
+    };
+    var e=Number(s.enrollment_2425)||0;
+    cmoMap[n].schools++;
+    cmoMap[n].enr+=e;
+    if(s.status==='CONFIRMED'){ cmoMap[n].orgSchools++; cmoMap[n].orgEnr+=e; cmoMap[n].confSchools++; cmoMap[n].confEnr+=e; }
+    else if(s.status==='DEPENDENT'){ cmoMap[n].orgSchools++; cmoMap[n].orgEnr+=e; cmoMap[n].depSchools++; cmoMap[n].depEnr+=e; }
+    else if(s.status==='ORGANIZING'){ cmoMap[n].orgActSchools++; cmoMap[n].orgActEnr+=e; }
+  });
+
+  var cmoList=Object.values(cmoMap).sort(function(a,b){ return b.enr-a.enr; });
+  var emos=cmoList.filter(function(c){ return c.type==='For-Profit'; });
+  var cmos=cmoList.filter(function(c){ return c.type!=='For-Profit'; });
+
+  setPanelHdr(name+' — Network Operators', cmoList.length+' networks · click state label to return');
+
+  var h='';
+
+  // Summary stat
+  var networkedSchools = cmoList.reduce(function(s,c){return s+c.schools;},0);
+  var networkedEnr     = cmoList.reduce(function(s,c){return s+c.enr;},0);
+  var networkedOrgEnr  = cmoList.reduce(function(s,c){return s+c.orgEnr;},0);
+  h+='<div style="background:#0A1520;border-radius:4px;padding:8px 10px;margin-bottom:10px;font-size:10px;color:#8AA8C0;line-height:1.8">';
+  h+='<strong style="color:#E8EDF2">'+cmoList.length+'</strong> networks operating in '+name;
+  if(emos.length>0) h+=' · <strong style="color:#FF6B9D">'+emos.length+' EMO'+(emos.length>1?'s':'')+'</strong>';
+  if(networkedEnr>0) h+=' · '+networkedEnr.toLocaleString()+' students in network schools';
+  if(networkedOrgEnr>0&&networkedEnr>0) h+=' · <span style="color:#6CC04A">'+( networkedOrgEnr/networkedEnr*100).toFixed(1)+'% of network enrollment organized</span>';
+  h+='</div>';
+
+  function renderDetailRow(c){
+    var typeBadge = c.type==='For-Profit'
+      ? '<span style="font-size:8px;background:#2A1010;color:#FF6B9D;border:1px solid #4A1A1A;border-radius:2px;padding:1px 5px;margin-left:5px">EMO</span>'
+      : (c.type==='Nonprofit'
+        ? '<span style="font-size:8px;background:#0A1A0A;color:#6CC04A;border:1px solid #1A3A1A;border-radius:2px;padding:1px 5px;margin-left:5px">CMO</span>'
+        : '');
+    var nameDisplay = c.website
+      ? '<a href="'+esc(c.website)+'" target="_blank" rel="noopener" style="color:#4A9FE0;font-weight:700;text-decoration:none;font-size:11px">'+esc(c.name)+'</a>'
+      : '<span style="font-weight:700;font-size:11px;color:#E8EDF2">'+esc(c.name)+'</span>';
+
+    var orgPct  = c.enr>0&&c.orgEnr>0   ? (c.orgEnr/c.enr*100).toFixed(1)   : null;
+    var orgActPct= c.enr>0&&c.orgActEnr>0? (c.orgActEnr/c.enr*100).toFixed(1): null;
+
+    var row='<div style="background:#111B27;border-radius:5px;padding:9px 11px;margin-bottom:6px;border-left:3px solid '+(c.type==='For-Profit'?'#FF6B9D':'#2E75B6')+'">';
+    row+='<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">';
+    row+='<div>'+nameDisplay+typeBadge+'</div>';
+    if(c.website) row+='<a href="'+esc(c.website)+'" target="_blank" rel="noopener" style="font-size:9px;color:#4A9FE0;white-space:nowrap">Website ↗</a>';
+    row+='</div>';
+
+    // Stats grid
+    row+='<div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;font-size:9px;color:#8AA8C0">';
+    row+='<div>Schools: <strong style="color:#E8EDF2">'+c.schools+'</strong></div>';
+    row+='<div>Enrollment: <strong style="color:#E8EDF2">'+(c.enr>0?c.enr.toLocaleString():'N/A')+'</strong></div>';
+
+    if(c.orgSchools>0){
+      row+='<div>Organized: <strong style="color:#6CC04A">'+c.orgSchools+' schools</strong></div>';
+      row+='<div>Org. enrollment: <strong style="color:#6CC04A">'+(c.orgEnr>0?c.orgEnr.toLocaleString():'N/A')+(orgPct?' ('+orgPct+'%)':'')+'</strong></div>';
+      if(c.confSchools>0) row+='<div>Indep. Organized: <strong style="color:#6CC04A">'+c.confSchools+'</strong></div>';
+      if(c.depSchools>0)  row+='<div>Structural Cov.: <strong style="color:#4ABFBF">'+c.depSchools+'</strong></div>';
+    } else {
+      row+='<div style="color:#3A5A70">No organized schools</div>';
+      row+='<div></div>';
+    }
+    if(c.orgActSchools>0){
+      row+='<div>Organizing: <strong style="color:#FF6B9D">'+c.orgActSchools+' schools</strong></div>';
+      row+='<div>Students affected: <strong style="color:#FF6B9D">'+(c.orgActEnr>0?c.orgActEnr.toLocaleString():'N/A')+(orgActPct?' ('+orgActPct+'%)':'')+'</strong></div>';
+    }
+    row+='</div></div>';
+    return row;
+  }
+
+  // EMOs first if any
+  if(emos.length>0){
+    h+='<div class="section-label">EMO Operators (For-Profit)</div>';
+    emos.forEach(function(c){ h+=renderDetailRow(c); });
+  }
+
+  // CMOs / nonprofits
+  var cmoSectionLabel = emos.length>0 ? 'CMO Networks (Nonprofit / Other)' : 'CMO / Network Operators';
+  h+='<div class="section-label">'+cmoSectionLabel+'</div>';
+  cmos.forEach(function(c){ h+=renderDetailRow(c); });
+
+  // Enrollment union share by network summary
+  var networksWithOrg = cmos.concat(emos).filter(function(c){ return c.orgEnr>0; });
+  if(networksWithOrg.length>0 && charterEnr>0){
+    h+='<div class="section-label">Union Enrollment Share by Network</div>';
+    h+='<div style="font-size:9px;color:#6A8A9A;margin-bottom:6px">Share of total '+name+' charter enrollment ('+charterEnr.toLocaleString()+' students)</div>';
+    var sortedByOrg = networksWithOrg.sort(function(a,b){ return b.orgEnr-a.orgEnr; });
+    sortedByOrg.forEach(function(c){
+      var sharePct = (c.orgEnr/charterEnr*100).toFixed(1);
+      var barW = Math.min(100, parseFloat(sharePct));
+      h+='<div style="margin-bottom:5px">';
+      h+='<div style="display:flex;justify-content:space-between;font-size:9px;margin-bottom:2px">';
+      h+='<span style="color:#E8EDF2">'+(c.website?'<a href="'+esc(c.website)+'" target="_blank" rel="noopener" style="color:#4A9FE0;text-decoration:none">'+esc(c.name)+'</a>':esc(c.name))+'</span>';
+      h+='<span style="color:#6CC04A">'+c.orgEnr.toLocaleString()+' students ('+sharePct+'% of charter enr.)</span>';
+      h+='</div>';
+      h+='<div style="background:#0A1520;border-radius:2px;height:4px"><div style="background:#6CC04A;width:'+barW+'%;height:4px;border-radius:2px"></div></div>';
+      h+='</div>';
+    });
+  }
+
+  // Back link
+  h+='<div style="margin-top:12px"><a href="javascript:void(0)" onclick="showStatePanel(\''+code+'\');" style="font-size:9px;color:#4A9FE0">← Back to '+esc(name)+' state card</a></div>';
+
+  setPanelBody(h);
 }
 
 // ── DENSITY TABLE ─────────────────────────────────────────────────────────────
