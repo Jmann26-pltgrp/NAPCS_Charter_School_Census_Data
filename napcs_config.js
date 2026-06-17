@@ -1975,6 +1975,138 @@ var NAPCS_CONFIG = {
       "netlifyUrl": "https://napcs-charter-school-census-dashboard.netlify.app/WV_State_Research_Report.pdf"
     }
   },
+  "emoByState": {
+    "AZ": {
+      "permitted": "Yes",
+      "statute": "ARS §15-183",
+      "notes": "Unique: AZ allows for-profit entities as charter holders. All other states require nonprofit holders."
+    },
+    "CT": {
+      "permitted": "Yes",
+      "statute": "(no explicit statute)",
+      "notes": "No state law explicitly prohibits for-profit management contracts. Charter holder must be nonprofit. Sector is highly regulated and small (22 schools)."
+    },
+    "DC": {
+      "permitted": "Yes",
+      "statute": "(statute TBD)",
+      "notes": "For-profit management permitted."
+    },
+    "DE": {
+      "permitted": "Yes",
+      "statute": "(no explicit statute)",
+      "notes": "No state law explicitly prohibits for-profit management contracts. Charter holder must be nonprofit. Small sector."
+    },
+    "FL": {
+      "permitted": "Yes",
+      "statute": "§1002.33",
+      "notes": "For-profit management permitted."
+    },
+    "IL": {
+      "permitted": "Yes",
+      "statute": "(statute TBD)",
+      "notes": "For-profit management permitted."
+    },
+    "LA": {
+      "permitted": "Yes",
+      "statute": "(no explicit statute)",
+      "notes": "No state law explicitly prohibits for-profit management contracts. Charter holder must be nonprofit. Significant EMO/CMO presence post-Katrina in New Orleans."
+    },
+    "MA": {
+      "permitted": "Restricted",
+      "statute": "603 CMR §1.02",
+      "notes": "For-profit entities prohibited from holding charter. For-profit management contracts are a gray area — charter holder must be nonprofit."
+    },
+    "ME": {
+      "permitted": "Yes",
+      "statute": "(no explicit statute)",
+      "notes": "No state law explicitly prohibits for-profit management contracts. Charter holder must be nonprofit. Very small sector (12 schools)."
+    },
+    "MI": {
+      "permitted": "Yes",
+      "statute": "(statute TBD)",
+      "notes": "MI explicitly permits for-profit management."
+    },
+    "MN": {
+      "permitted": "Yes",
+      "statute": "Minn. Stat. §124E.16",
+      "notes": "For-profit management (EMO) is permitted but heavily regulated. §124E.16 requires detailed contract terms, conflict-of-interest prohibitions, and annual assurances. EMOs may not provide teachers (§124E.12 subd. 1, 2024 amendment) or loan funds to schools."
+    },
+    "NJ": {
+      "permitted": "Yes",
+      "statute": "(no explicit statute)",
+      "notes": "No state law explicitly prohibits for-profit management contracts. Charter holder must be nonprofit. PERC has full jurisdiction. Small-medium sector."
+    },
+    "NM": {
+      "permitted": "Yes",
+      "statute": "(no explicit statute)",
+      "notes": "No state law explicitly prohibits for-profit management contracts. Charter holder must be nonprofit. PELRB has no charter jurisdiction (NLRB applies). Connections Academy (for-profit) operates in state."
+    },
+    "NY": {
+      "permitted": "Restricted",
+      "statute": "Ed. Law §2851",
+      "notes": "2010 law bars new charters from having for-profit managers. Six legacy charters (pre-2010) grandfathered."
+    },
+    "OH": {
+      "permitted": "Yes",
+      "statute": "ORC §3314",
+      "notes": "Permitted. OH had significant for-profit EMO presence historically (White Hat Management)."
+    },
+    "OR": {
+      "permitted": "Yes",
+      "statute": "(no explicit statute)",
+      "notes": "No state law explicitly prohibits for-profit management contracts. Charter holder must be nonprofit. ERB has jurisdiction over district-authorized charters."
+    },
+    "PA": {
+      "permitted": "Yes",
+      "statute": "(no explicit statute)",
+      "notes": "No state law explicitly prohibits for-profit management contracts. Charter holder must be nonprofit. Edison Learning and other EMOs have historically operated in state. NLRB R4 exclusive jurisdiction."
+    },
+    "CA": {
+      "permitted": "Yes",
+      "statute": "Ed. Code §47620",
+      "notes": "For-profit management permitted. Charter holder must be nonprofit."
+    },
+    "RI": {
+      "permitted": "Yes",
+      "statute": "(no explicit statute)",
+      "notes": "No state law explicitly prohibits for-profit management contracts. Charter holder must be nonprofit. Very small sector (42 schools)."
+    },
+    "HI": {
+      "permitted": "No",
+      "statute": "HRS §302D",
+      "notes": "Not applicable: all HI charter school employees are state employees under HRS Ch. 89. No private management contracts exist — charters are state-sponsored with state employment. For-profit management is structurally excluded."
+    },
+    "WI": {
+      "permitted": "Yes",
+      "statute": "(statute TBD)",
+      "notes": "For-profit management permitted."
+    },
+    "MD": {
+      "permitted": "Yes",
+      "statute": "(no explicit statute)",
+      "notes": "No state law explicitly prohibits for-profit management contracts. Charter holder must be a nonprofit or the LEA. In practice, all MD charters are district-authorized LEA schools — EMO contracts theoretically possible but no known examples."
+    },
+    "CO": {
+      "permitted": "Yes",
+      "statute": "(no explicit statute)",
+      "notes": "No state law explicitly prohibits for-profit management contracts. Charter holder must be nonprofit. SB23-111 (2023) expanded organizing rights but did not address EMO status."
+    },
+    "WA": {
+      "permitted": "Yes",
+      "statute": "RCW 28A.710",
+      "notes": "No explicit EMO management prohibition. Charter holder must be nonprofit. PERC (WA) has full jurisdiction. Very small sector (18 schools)."
+    },
+    "GA": {
+      "permitted": "Yes",
+      "statute": "(no explicit statute)",
+      "notes": "No state law explicitly prohibits for-profit management contracts. Charter holder must be nonprofit 501(c)(3). CSUSA and other for-profit managers have operated in state."
+    },
+    "MO": {
+      "permitted": "Yes",
+      "statute": "(no explicit statute)",
+      "notes": "No state law explicitly prohibits for-profit management contracts. Charter holder must be nonprofit. KIPP St. Louis and other networks operate in state."
+    }
+  },
   "stateK12Enrollment": {
     "AK": 126000,
     "AL": 726000,

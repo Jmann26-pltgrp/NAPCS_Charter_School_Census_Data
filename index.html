@@ -388,7 +388,8 @@ var STATE_ASSOC = {
 };
 // Merge: STATE_ASSOC fills gaps for states not in verified NAPCS_ASSOCIATIONS
 Object.keys(STATE_ASSOC).forEach(function(st){ if(!ASSOC[st]) ASSOC[st] = STATE_ASSOC[st]; });
-var JDATA = NAPCS_CONFIG.jurisdiction_data || {};
+var JDATA   = NAPCS_CONFIG.jurisdiction_data || {};
+var EMO_ST  = NAPCS_CONFIG.emoByState || {};
 var RC = NAPCS_REGISTRY_CONTENT;
 var SR = NAPCS_CONFIG.stateReports || {};
 
@@ -839,6 +840,15 @@ function openStateSlideout(code, coords){
   if(jd.statute) h+=spoRow('Statute',jd.statute,'');
   if(jd.nlrb) h+=spoRow('NLRB',jd.nlrb,'');
   if(jd.card_check) h+=spoRow('Card-Check',jd.card_check,jd.card_check==='Yes'?'g':'');
+  var sEmoData=EMO_ST[code];
+  if(sEmoData){
+    var sEmoDisplay=sEmoData.permitted==='Yes'
+      ?'<span style="color:#6CC04A;font-weight:700">Permitted</span>'
+      :(sEmoData.permitted==='Restricted'
+        ?'<span style="color:#E07A4A;font-weight:700">Restricted</span>'
+        :'<span style="color:#C084FC;font-weight:700">N/A</span>');
+    h+=spoRow('For-Profit Mgmt',sEmoDisplay,'');
+  }
   if(!sd.deferred && jd.note) h+='<div style="font-size:9px;color:#6A7A8A;line-height:1.4;margin-top:4px;padding:4px 6px;background:#1A2535;border-radius:3px">'+esc(jd.note.slice(0,120))+'</div>';
 
   // CMO / EMO section in slideout (compact)
@@ -1066,6 +1076,17 @@ function showStatePanel(code){
   if(jd.statute) h+=srow('Statute',jd.statute,'');
   if(jd.nlrb) h+=srow('NLRB',jd.nlrb,'');
   if(jd.card_check) h+=srow('Card-Check',jd.card_check,jd.card_check==='Yes'?'sv-g':'');
+  var emoData=EMO_ST[code];
+  if(emoData){
+    var emoDisplay=emoData.permitted==='Yes'
+      ?'<span style="color:#6CC04A;font-weight:700">Permitted</span>'
+      :(emoData.permitted==='Restricted'
+        ?'<span style="color:#E07A4A;font-weight:700">Restricted</span>'
+        :'<span style="color:#C084FC;font-weight:700">Not Applicable</span>');
+    h+=srow('For-Profit Mgmt (EMO)',emoDisplay,'');
+    if(emoData.statute&&emoData.statute!=='(statute TBD)'&&emoData.statute!=='(no explicit statute)') h+=srow('EMO Statute',emoData.statute,'');
+    if(emoData.notes&&emoData.permitted!=='Yes') h+='<div style="font-size:9px;color:#6A7A8A;line-height:1.4;margin-top:2px;padding:3px 6px;background:#1A2535;border-radius:3px">'+esc(emoData.notes)+'</div>';
+  }
   if(!sd.deferred && sd.note) h+='<div style="font-size:9px;color:#6A7A8A;line-height:1.4;margin-top:4px;padding:4px 6px;background:#1A2535;border-radius:3px">'+esc(sd.note.slice(0,150))+'</div>';
 
   // Associations
