@@ -1950,12 +1950,12 @@ var NAPCS_CONFIG = {
  * Drives the Registry tab panel in the dashboard.
  */
 var NAPCS_REGISTRY_CONTENT = {
-  "version": "v99",
-  "lastUpdated": "June 5, 2026",
+  "version": "v130",
+  "lastUpdated": "June 16, 2026",
   "narrative": {
     "projectOverview": {
       "title": "Project Overview",
-      "body": "The Charter School Registry is the foundational infrastructure for the NAPCS Unionization Research Project. It provides a complete, authoritative directory of charter schools across all research states — now at Registry v69, covering 5,760 schools across 24 states plus the District of Columbia. The registry is enriched with authorizer data, labor board jurisdiction assignments, geographic coordinates, school enrollment data from NCES CCD 2024–25, and union status findings from the research program. Colorado and Washington are now included in the registry; research sessions for those states have not yet been conducted."
+      "body": "The Charter School Registry is the foundational infrastructure for the NAPCS Unionization Research Project. It provides a complete, authoritative directory of charter schools across all research states — now at Registry v130, covering 7,888 verified open charter schools across 45 jurisdictions. The registry is enriched with authorizer data, labor board jurisdiction assignments, NCES ID crosswalk, geographic coordinates, school enrollment data from NCES CCD 2024–25, and union status findings from the research program. All jurisdictions with open charter schools are now included in the research universe."
     },
     "scope": {
       "title": "Scope",
@@ -1982,27 +1982,27 @@ var NAPCS_REGISTRY_CONTENT = {
     "keyStats": [
       {
         "label": "Total census schools",
-        "value": "5,710"
+        "value": "7,888"
       },
       {
         "label": "Jurisdictions covered",
-        "value": "26 states + DC"
+        "value": "45 jurisdictions (all charter states + DC, excl. KY)"
       },
       {
         "label": "Data currency date",
-        "value": "June 5, 2026"
+        "value": "June 16, 2026"
       },
       {
         "label": "Registry version",
-        "value": "v99"
+        "value": "v130"
       },
       {
         "label": "Data vintage",
         "value": "NCES CCD 2024–25"
       },
       {
-        "label": "Jurisdictions not yet included",
-        "value": "KS, NH, WV, AK, IA, AR, VA"
+        "label": "Deferred jurisdictions",
+        "value": "12 states deferred — PDR-018: AL, ID, IN, MS, NC, NV, OK, SC, TN, TX, UT, WY"
       }
     ]
   },

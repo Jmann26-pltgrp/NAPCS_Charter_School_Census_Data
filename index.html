@@ -419,7 +419,7 @@ function isLowPrecision(s) {
 
 // ── HEADER ─────────────────────────────────────────────────────────────────
 document.getElementById('topbar-sub').textContent =
-  'Working Data \u00B7 Last Updated June 5, 2026 \u00B7 ';
+  'Working Data \u00B7 Last Updated June 16, 2026 \u00B7 ';
 
 // Stat bar population
 var combPct = NAT.density;
@@ -427,7 +427,7 @@ var confPct = NAT.confirmed_density;
 var depPct  = NAT.dependent ? (NAT.dependent/NAT.universe*100).toFixed(1)+'%' : '0%';
 
 document.getElementById('sv-total').textContent = NAT.universe.toLocaleString();
-document.getElementById('ss-total').textContent = NAT.jurisdictions+' Jurisdictions \u00B7 June 5, 2026';
+document.getElementById('ss-total').textContent = NAT.jurisdictions+' Jurisdictions \u00B7 June 16, 2026';
 document.getElementById('sv-comb').textContent  = NAT.combined.toLocaleString();
 document.getElementById('ss-comb').textContent  = combPct+' of universe';
 document.getElementById('sv-conf').textContent  = NAT.confirmed.toLocaleString();
@@ -619,7 +619,7 @@ function printDensityTable(){
     '<td>'+NAT.confirmed+'</td>'+
     '<td>'+NAT.dependent+'</td>'+
     '<td>'+NAT.density+'</td></tr>';
-  w.document.write('<html><head><title>NAPCS Census Table \u2014 June 5, 2026</title>'+
+  w.document.write('<html><head><title>NAPCS Census Table \u2014 June 16, 2026</title>'+
     '<style>body{font-family:Arial,sans-serif;margin:20px;color:#000}'+
     'h2{font-size:14px;margin-bottom:4px}p{font-size:10px;color:#666;margin-bottom:12px}'+
     'table{border-collapse:collapse;width:100%;font-size:11px}'+
@@ -628,7 +628,7 @@ function printDensityTable(){
     'tr:nth-child(even) td{background:#f5f8fc}'+
     '@media print{button{display:none}}</style></head><body>');
   w.document.write('<h2>NAPCS Charter School Unionization Census Table</h2>'+
-    '<p>PLT Strategies Group, Inc. \u00B7 Working Data \u00B7 Data Currency: June 5, 2026</p>');
+    '<p>PLT Strategies Group, Inc. \u00B7 Working Data \u00B7 Data Currency: June 16, 2026</p>');
   w.document.write('<table><thead><tr>'+
     '<th>State</th><th>Census Total</th><th>Indep. Organized</th>'+
     '<th>Structural Coverage</th><th>Combined %</th>'+
@@ -847,7 +847,7 @@ function noStateMsg(n){ return '<div class="no-state"><div class="ns-icon">&#128
 function showNationalPanel(){
   setPanelHdr('National Overview','Click any state label on the map to zoom in');
   var h='';
-  h+='<div class="section-label">National Census \u2014 June 5, 2026 Data Currency Date</div>';
+  h+='<div class="section-label">National Census \u2014 June 16, 2026 Data Currency Date</div>';
   h+=srow('Census Total (Charter Schools)',NAT.universe.toLocaleString(),'');
   h+=srow('Combined',NAT.combined+' ('+NAT.density+')','sv-g');
   h+=srow('Independently Organized',NAT.confirmed+' ('+NAT.confirmed_density+')','sv-g');
@@ -855,15 +855,14 @@ function showNationalPanel(){
   h+=srow('Organizing Presence / Intent',NAT.organizing,NAT.organizing>0?'sv-gold':'');
   h+=srow('Decertified',NAT.decertified,'');
   h+=srow('Closed — Was Organized (ref.)',NAT.closed,'sv-r');
-  h+=srow('Jurisdictions',NAT.jurisdictions+' (26 states + DC)','');
+  h+=srow('Jurisdictions',NAT.jurisdictions+' states + DC (all jurisdictions except KY)','');
   h+='<div class="section-label">Data Currency</div>';
-h+='<div class="oi-card" style="border-left:3px solid #2E75B6"><div class="oi-lbl">Working Data</div><div class="oi-val">Last Updated June 5, 2026</div></div>';
-h+='<div class="oi-card" style="border-left:3px solid #4A6A80"><div class="oi-lbl">Not Yet Included</div><div class="oi-val" style="font-size:9px;color:#6A7A8A">KS, NH, WV, AK, IA, AR, VA — known to have organized charter schools</div></div>';
+h+='<div class="oi-card" style="border-left:3px solid #2E75B6"><div class="oi-lbl">Working Data</div><div class="oi-val">Last Updated June 16, 2026</div></div>';
 h+='<div class="section-label">\u26a0 Open Items</div>';
   h+='<div class="oi-card" style="border-left:3px solid #4A9FE0"><div class="oi-lbl">Biannual refresh</div><div class="oi-val sv-b">October 2026 target</div></div>';
   h+='<div class="section-label">Data Source</div>';
-  h+=srow('Charter School Registry','v99 \u00B7 NCES CCD 2024\u201325','sv-b');
-  h+=srow('Research','PLT Strategies Group \u00B7 June 5, 2026','');
+  h+=srow('Charter School Registry','v130 \u00B7 NCES CCD 2024\u201325','sv-b');
+  h+=srow('Research','PLT Strategies Group \u00B7 June 16, 2026','');
   setPanelBody(h);
 }
 
@@ -925,9 +924,35 @@ function srow(l,v,cls){
 }
 
 // ── DENSITY TABLE ─────────────────────────────────────────────────────────────
+var dtSortCol = 'density', dtSortDir = -1; // default: density descending
+
 function buildDensityTable(){
-  setPanelHdr('Census Table','All '+NAT.jurisdictions+' jurisdictions by combined rate');
-  var rows=NAPCS_CONFIG.density_table, maxPct=rows.length>0?parseFloat(rows[0].density):100;
+  setPanelHdr('Census Table','All '+NAT.jurisdictions+' jurisdictions \u00B7 click column header to sort');
+  renderDensityTable();
+}
+
+function renderDensityTable(){
+  var rows = NAPCS_CONFIG.density_table.slice(); // copy
+  // Sort
+  rows.sort(function(a,b){
+    var av, bv;
+    if(dtSortCol==='name')     { av=a.name||''; bv=b.name||''; return dtSortDir*(av.localeCompare(bv)); }
+    if(dtSortCol==='universe') { av=a.universe||0; bv=b.universe||0; }
+    else if(dtSortCol==='confirmed') { av=a.confirmed||0; bv=b.confirmed||0; }
+    else if(dtSortCol==='dependent') { av=a.dependent||0; bv=b.dependent||0; }
+    else if(dtSortCol==='density')   { av=parseFloat(a.density)||0; bv=parseFloat(b.density)||0; }
+    else { av=parseFloat(a.density)||0; bv=parseFloat(b.density)||0; }
+    return dtSortDir*(av-bv);
+  });
+  var maxPct=rows.length>0?parseFloat(rows[0].density):100;
+  if(dtSortCol!=='density') maxPct=Math.max.apply(null,rows.map(function(r){return parseFloat(r.density)||0;}));
+
+  function thArrow(col, label){
+    var active = dtSortCol===col;
+    var arrow = active ? (dtSortDir>0 ? ' &#9650;' : ' &#9660;') : ' <span style="color:#2A3A50">&#9650;&#9660;</span>';
+    return '<th style="cursor:pointer;'+(active?'color:#4A9FE0':'')+'" onclick="dtSort(\''+col+'\')">'+label+arrow+'</th>';
+  }
+
   var trs=rows.map(function(row){
     var pct=parseFloat(row.density)||0,univ=row.universe||1;
     var cW=maxPct>0?Math.round(row.confirmed/univ*100/maxPct*100):0;
@@ -940,7 +965,16 @@ function buildDensityTable(){
   }).join('');
   var totRow='<tr class="tot"><td><strong>ALL '+NAT.jurisdictions+'</strong></td><td><strong>'+NAT.universe.toLocaleString()+'</strong></td><td style="color:#6CC04A"><strong>'+NAT.confirmed+'</strong></td><td style="color:#4ABFBF"><strong>'+NAT.dependent+'</strong></td><td><strong>'+NAT.density+'</strong></td></tr>';
   var printBtn='<div style="text-align:right;margin-bottom:6px"><button onclick="printDensityTable()" style="font-size:9px;background:#1A2535;border:1px solid #2E75B6;color:#4A9FE0;padding:3px 10px;border-radius:4px;cursor:pointer;font-family:inherit">&#128438; Print / Save PDF</button></div>';
-  setPanelBody(printBtn+'<table id="dtable"><thead><tr><th>State</th><th>Census Total</th><th>Indep. Org.</th><th>Structural Coverage</th><th>Combined %</th></tr></thead><tbody>'+trs+totRow+'</tbody></table>');
+  setPanelBody(printBtn+'<table id="dtable"><thead><tr>'+
+    thArrow('name','State')+thArrow('universe','Census Total')+
+    thArrow('confirmed','Indep. Org.')+thArrow('dependent','Structural Coverage')+
+    thArrow('density','Combined %')+
+    '</tr></thead><tbody>'+trs+totRow+'</tbody></table>');
+}
+
+function dtSort(col){
+  if(dtSortCol===col){ dtSortDir*=-1; } else { dtSortCol=col; dtSortDir=(col==='name'?1:-1); }
+  renderDensityTable();
 }
 
 function buildJurisdictionPanel(){
@@ -984,7 +1018,7 @@ function buildRegistryPanel(){
   }
   // Then key stats
   h+='<div class="section-label">Registry Statistics</div>';
-  (RC.about.keyStats||[]).filter(function(s){ return !s.label.includes('NAPCS research'); }).forEach(function(s){ var val = (s.label.includes('registry refresh')||s.label.includes('Last registry')) ? 'v69 · '+s.value : s.value; h+='<div class="stat-chip"><span class="stat-chip-lbl">'+esc(s.label)+'</span><span class="stat-chip-val">'+esc(val)+'</span></div>'; });
+  (RC.about.keyStats||[]).filter(function(s){ return !s.label.includes('NAPCS research'); }).forEach(function(s){ var val = (s.label.includes('registry refresh')||s.label.includes('Last registry')) ? 'v130 · '+s.value : s.value; h+='<div class="stat-chip"><span class="stat-chip-lbl">'+esc(s.label)+'</span><span class="stat-chip-val">'+esc(val)+'</span></div>'; });
   setPanelBody(h);
 }
 
@@ -1084,7 +1118,7 @@ function buildDataQualityPanel(){
   setPanelHdr('Data Quality','Census methodology and known data challenges');
   var h='';
   h+='<div class="static-section"><h3>Census Methodology</h3>';
-  h+='<p>The NAPCS Unionization Census applies a primary-source verification protocol to every charter school in the research universe across 26 jurisdictions. Unlike survey-based approaches, this project derives union status directly from labor board records, school board minutes, court filings, and regulatory databases — not from self-reported school data. Every record carries a research trail: the specific case number, board docket, or authoritative source that supports the classification. The census denominator is drawn from NCES CCD data (2024\u201325 vintage), supplemented by authorizer-verified additions through the NAPCS Charter School Registry (v99).</p>';
+  h+='<p>The NAPCS Unionization Census applies a primary-source verification protocol to every charter school in the research universe across 45 jurisdictions (all U.S. states with active charter sectors, plus DC — excluding Kentucky which has no open charter schools). Unlike survey-based approaches, this project derives union status directly from labor board records, school board minutes, court filings, and regulatory databases — not from self-reported school data. Every record carries a research trail: the specific case number, board docket, or authoritative source that supports the classification. The census denominator is drawn from the NAPCS Charter School Registry (v130), cross-referenced against NCES CCD data (2024\u201325 vintage). The national denominator is 7,888 Registry-verified open charter schools as of June 2026 (PDR-020, locked June 11, 2026).</p>';
   h+='<p>Six status categories are used. Three are active-coverage categories counted in the combined census total: Independently Organized (schools with their own certified bargaining unit), Structural Coverage (schools covered by a district, state, or municipal CBA by operation of law without a school-specific organizing campaign), and Organizing Presence / Intent (schools with a pending petition, credible organizing evidence, or recent election activity not yet resolved). Three are reference categories not counted in the combined total: Decertified — School Open (schools where certification was formally removed), Closed — Was Organized (schools that were organized at time of closure, within the 5-year lookback window), and No Organizing Activity Documented (schools where the full 8-step research protocol was completed with no evidence of union activity found).</p></div>';
   h+='<div class="static-section"><h3>Known Data Quality Challenges</h3>';
   var challenges=[
@@ -1094,8 +1128,8 @@ function buildDataQualityPanel(){
     {title:'CMO Network vs Campus Attribution',body:'When a charter management organization achieves network-wide certification, labor board cases are often filed under the CMO name rather than individual campus names. This creates attribution challenges when populating per-campus records. The research protocol requires reviewing all cases filed by the network employer and attributing them to the correct campuses via the CMO/NCES cross-reference in the registry.'},
     {title:'Structural Coverage Verification Depth',body:'Schools coded as Structural Coverage (Dependent) are covered by district or state CBAs by operation of law. While the legal basis for coverage is well-established in states like Hawaii (HRS \u00a789-10.55), Maryland (Ed. Article \u00a79-108), Oregon (ORS Ch. 338), and Wisconsin (Wis. Stat. \u00a7118.40(7)), individual campus-level verification of CBA terms is not always possible from public sources. Some Dependent records carry a "verification needed" flag pending coordinator outreach.'},
     {title:'Closed School Lookback Window',body:'The 5-year lookback window for historically organized closed schools is applied uniformly, but closure dates are not always publicly documented with precision. Some schools close gradually (declining enrollment, authorizer non-renewal) rather than on a specific date. Closure year is used as the operative date when a specific closure date is unavailable.'},
-    {title:'Enrollment Data Completeness',body:'Enrollment figures in the dashboard are sourced from the NAPCS Charter School Registry (v99), which draws from NCES CCD 2024\u201325 data. Approximately 80% of schools in the registry have enrollment data. Schools with NAPCS-ADD IDs (discovered through research, not in NCES universe) may not have enrollment figures until the Registry Project completes an enrichment pass.'},
-    {title:'Geographic Coordinate Precision',body:'School map coordinates are sourced from the Charter School Registry geocoder. Approximately 20% of schools lack precise coordinates due to missing or unverifiable addresses, NAPCS-ADD status, or virtual/online-only operation. Schools without coordinates appear in count totals and filter results but do not display as map pins. A small number of schools are flagged as low-precision (\u00b11\u20132 km) due to geocoder fallback to city centroid.'},
+    {title:'Enrollment Data Completeness',body:'Enrollment figures in the dashboard are sourced from the NCES CCD 2024\u201325 universe file, joined to school records via NCES ID. Approximately 97% of schools in the registry have enrollment data following the June 2026 enrichment pass across all three data tiers. Schools with NAPCS-ADD IDs (discovered through research, not in NCES universe) or suppressed NCES enrollment values (small n) may not have enrollment figures.'},
+    {title:'Geographic Coordinate Precision',body:'School map coordinates are sourced from the NCES CCD 2024\u201325 universe file via NCES ID join, supplemented by name-based ELSI matching for Tier 2 nonunion records. Approximately 97% of schools in the dashboard have geo coordinates as of June 2026. Schools without coordinates are primarily those lacking NCES IDs (NAPCS-ADD records pending coordinator enrichment) or virtual/online-only schools where a physical address is not available. These schools appear in count totals and filter results but do not display as map pins.'},
   ];
   challenges.forEach(function(c){
     h+='<div style="background:#111B27;border-radius:5px;padding:8px 10px;margin-bottom:7px;border-left:3px solid #2E75B6">'+
