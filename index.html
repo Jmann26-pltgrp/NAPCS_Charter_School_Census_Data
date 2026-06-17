@@ -405,13 +405,13 @@ var STATE_NAMES = {
 };
 
 var STATUS_CFG = {
-  CONFIRMED:  {color:'#6CC04A',r:7,opacity:0.88},   // Independently Organized
-  DEPENDENT:  {color:'#4ABFBF',r:6,opacity:0.80},   // Structural Coverage (Dependent)
-  ORGANIZING: {color:'#F5A623',r:9,opacity:0.95},   // Organizing Presence / Intent
-  DECERTIFIED:{color:'#C084FC',r:5,opacity:0.85},   // Decertified — School Open (purple)
-  CLOSED:     {color:'#E07A4A',r:5,opacity:0.85},   // Closed — Was Organized (burnt orange)
-  UNVERIFIED: {color:'rgba(0,0,0,0)',r:5,opacity:1.0, dashed:true}, // No Organizing Activity Documented — dashed circle
-  DEFERRED:   {color:'#4A7A9B',r:4,opacity:0.55},   // No Known Organizing Activity — deferred jurisdictions
+  CONFIRMED:  {color:'#6CC04A',r:5,opacity:0.88},   // Independently Organized
+  DEPENDENT:  {color:'#4ABFBF',r:5,opacity:0.80},   // Structural Coverage (Dependent)
+  ORGANIZING: {color:'#F5A623',r:7,opacity:0.95},   // Organizing Presence / Intent
+  DECERTIFIED:{color:'#C084FC',r:4,opacity:0.85},   // Decertified — School Open (purple)
+  CLOSED:     {color:'#E07A4A',r:4,opacity:0.85},   // Closed — Was Organized (burnt orange)
+  UNVERIFIED: {color:'rgba(0,0,0,0)',r:3,opacity:1.0, dashed:true}, // No Organizing Activity Documented — dashed circle
+  DEFERRED:   {color:'#4A7A9B',r:3,opacity:0.55},   // No Known Organizing Activity — deferred jurisdictions
 };
 
 // isLowPrecision: returns true if school uses city centroid or legacy approximate coords
@@ -444,7 +444,7 @@ document.getElementById('sv-dep').textContent   = NAT.dependent.toLocaleString()
 document.getElementById('sv-org').textContent   = NAT.organizing;
 document.getElementById('ss-org').textContent   = NAT.organizing > 0 ? NAT.organizing+' active campaign'+(NAT.organizing>1?'s':'') : 'No active campaigns';
 document.getElementById('sv-dec').textContent   = NAT.decertified;
-document.getElementById('sv-clo').textContent   = NAT.closed;
+document.getElementById('sv-clo').textContent   = NAT.closed; // overridden below after sc computed
 
 // Filter counts
 var sc={CONFIRMED:0,DEPENDENT:0,ORGANIZING:0,DECERTIFIED:0,CLOSED:0,UNVERIFIED:0,DEFERRED:0};
@@ -458,6 +458,7 @@ document.getElementById('fc-1').textContent=sc.DEPENDENT;
 document.getElementById('fc-2').textContent=sc.ORGANIZING;
 document.getElementById('fc-3').textContent=sc.DECERTIFIED;
 document.getElementById('fc-4').textContent=sc.CLOSED;
+document.getElementById('sv-clo').textContent=sc.CLOSED; // sync stat bar with actual data
 document.getElementById('fc-5').textContent=sc.UNVERIFIED;
 document.getElementById('fc-6').textContent=sc.DEFERRED;
 
@@ -813,10 +814,9 @@ function openStateSlideout(code, coords){
   }
 
   // Report button
-  if(rpt && rpt.boxUrl){
-    h+='<a class="spo-report-btn" href="'+esc(rpt.boxUrl)+'" target="_blank" rel="noopener">&#8595; Download State Research Report</a>';
-  } else if(rpt && rpt.netlifyUrl){
-    h+='<a class="spo-report-btn" href="'+esc(rpt.netlifyUrl)+'" target="_blank" rel="noopener">&#8595; Download State Research Report</a>';
+  var rptUrl = (rpt && rpt.netlifyUrl) ? rpt.netlifyUrl : (rpt && rpt.boxUrl ? rpt.boxUrl : null);
+  if(rptUrl){
+    h+='<a class="spo-report-btn" href="'+esc(rptUrl)+'" target="_blank" rel="noopener">&#8595; Download State Research Report (PDF)</a>';
   } else {
     h+='<div class="spo-report-btn" style="opacity:0.4;cursor:default">&#8595; Report Coming Soon</div>';
   }
@@ -912,8 +912,20 @@ function showNationalPanel(){
   h+=srow('Structural Coverage (Dependent)',NAT.dependent+' ('+depPct+')','sv-t');
   h+=srow('Organizing Presence / Intent',NAT.organizing,NAT.organizing>0?'sv-gold':'');
   h+=srow('Decertified',NAT.decertified,'');
-  h+=srow('Closed — Was Organized (ref.)',NAT.closed,'sv-r');
+  h+=srow('Closed — Was Organized (ref.)',sc.CLOSED,'sv-r');
   h+=srow('Jurisdictions',NAT.jurisdictions+' states + DC (all jurisdictions except KY)','');
+  // Enrollment intelligence section
+  var CE = NAPCS_CONFIG.charterEnrollment || {};
+  if (CE.combinedEnrollment) {
+    h+='<div class="section-label">Enrollment Intelligence</div>';
+    h+=srow('Students in Organized Schools',CE.combinedEnrollment.toLocaleString(),'sv-g');
+    h+=srow('Independently Organized',CE.confirmedEnrollment.toLocaleString(),'sv-g');
+    h+=srow('Structural Coverage',CE.dependentEnrollment.toLocaleString(),'sv-t');
+    h+=srow('Organizing — Students Affected',CE.organizingEnrollment.toLocaleString(),'sv-gold');
+    h+=srow('Total Tracked Charter Enrollment',CE.totalTrackedEnrollment.toLocaleString(),'');
+    h+=srow('Union Enrollment Share',CE.enrollmentDensity,'sv-g');
+    h+='<div style="font-size:9px;color:#6A8A9A;padding:2px 0 6px">Enrollment share reflects schools with available 2024–25 data only ('+CE.schoolsWithEnrollment.toLocaleString()+' of '+NAT.universe.toLocaleString()+' schools).</div>';
+  }
   h+='<div class="section-label">Data Currency</div>';
 h+='<div class="oi-card" style="border-left:3px solid #2E75B6"><div class="oi-lbl">Working Data</div><div class="oi-val">Last Updated June 16, 2026</div></div>';
 h+='<div class="oi-card" style="border-left:3px solid #4A7A9B;cursor:pointer" onclick="switchTab(\'dataquality\')" title="Click for full methodology note">';
