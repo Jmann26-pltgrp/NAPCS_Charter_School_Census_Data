@@ -1876,103 +1876,103 @@ var NAPCS_CONFIG = {
   "jurisdiction_data": {},
   "stateReports": {
     "AK": {
-      "netlifyUrl": "https://napcs-charter-school-census-dashboard.netlify.app/reports/AK_State_Research_Report.pdf"
+      "netlifyUrl": "https://napcs-charter-school-census-dashboard.netlify.app/AK_State_Research_Report.pdf"
     },
     "AR": {
-      "netlifyUrl": "https://napcs-charter-school-census-dashboard.netlify.app/reports/AR_State_Research_Report.pdf"
+      "netlifyUrl": "https://napcs-charter-school-census-dashboard.netlify.app/AR_State_Research_Report.pdf"
     },
     "AZ": {
-      "netlifyUrl": "https://napcs-charter-school-census-dashboard.netlify.app/reports/AZ_State_Research_Report.pdf"
+      "netlifyUrl": "https://napcs-charter-school-census-dashboard.netlify.app/AZ_State_Research_Report.pdf"
     },
     "CA": {
-      "netlifyUrl": "https://napcs-charter-school-census-dashboard.netlify.app/reports/CA_State_Research_Report.pdf"
+      "netlifyUrl": "https://napcs-charter-school-census-dashboard.netlify.app/CA_State_Research_Report.pdf"
     },
     "CO": {
-      "netlifyUrl": "https://napcs-charter-school-census-dashboard.netlify.app/reports/CO_State_Research_Report.pdf"
+      "netlifyUrl": "https://napcs-charter-school-census-dashboard.netlify.app/CO_State_Research_Report.pdf"
     },
     "CT": {
-      "netlifyUrl": "https://napcs-charter-school-census-dashboard.netlify.app/reports/CT_State_Research_Report.pdf"
+      "netlifyUrl": "https://napcs-charter-school-census-dashboard.netlify.app/CT_State_Research_Report.pdf"
     },
     "DC": {
-      "netlifyUrl": "https://napcs-charter-school-census-dashboard.netlify.app/reports/DC_State_Research_Report.pdf"
+      "netlifyUrl": "https://napcs-charter-school-census-dashboard.netlify.app/DC_State_Research_Report.pdf"
     },
     "DE": {
-      "netlifyUrl": "https://napcs-charter-school-census-dashboard.netlify.app/reports/DE_State_Research_Report.pdf"
+      "netlifyUrl": "https://napcs-charter-school-census-dashboard.netlify.app/DE_State_Research_Report.pdf"
     },
     "FL": {
-      "netlifyUrl": "https://napcs-charter-school-census-dashboard.netlify.app/reports/FL_State_Research_Report.pdf"
+      "netlifyUrl": "https://napcs-charter-school-census-dashboard.netlify.app/FL_State_Research_Report.pdf"
     },
     "GA": {
-      "netlifyUrl": "https://napcs-charter-school-census-dashboard.netlify.app/reports/GA_State_Research_Report.pdf"
+      "netlifyUrl": "https://napcs-charter-school-census-dashboard.netlify.app/GA_State_Research_Report.pdf"
     },
     "HI": {
-      "netlifyUrl": "https://napcs-charter-school-census-dashboard.netlify.app/reports/HI_State_Research_Report.pdf"
+      "netlifyUrl": "https://napcs-charter-school-census-dashboard.netlify.app/HI_State_Research_Report.pdf"
     },
     "IA": {
-      "netlifyUrl": "https://napcs-charter-school-census-dashboard.netlify.app/reports/IA_State_Research_Report.pdf"
+      "netlifyUrl": "https://napcs-charter-school-census-dashboard.netlify.app/IA_State_Research_Report.pdf"
     },
     "IL": {
-      "netlifyUrl": "https://napcs-charter-school-census-dashboard.netlify.app/reports/IL_State_Research_Report.pdf"
+      "netlifyUrl": "https://napcs-charter-school-census-dashboard.netlify.app/IL_State_Research_Report.pdf"
     },
     "KS": {
-      "netlifyUrl": "https://napcs-charter-school-census-dashboard.netlify.app/reports/KS_State_Research_Report.pdf"
+      "netlifyUrl": "https://napcs-charter-school-census-dashboard.netlify.app/KS_State_Research_Report.pdf"
     },
     "LA": {
-      "netlifyUrl": "https://napcs-charter-school-census-dashboard.netlify.app/reports/LA_State_Research_Report.pdf"
+      "netlifyUrl": "https://napcs-charter-school-census-dashboard.netlify.app/LA_State_Research_Report.pdf"
     },
     "MA": {
-      "netlifyUrl": "https://napcs-charter-school-census-dashboard.netlify.app/reports/MA_State_Research_Report.pdf"
+      "netlifyUrl": "https://napcs-charter-school-census-dashboard.netlify.app/MA_State_Research_Report.pdf"
     },
     "MD": {
-      "netlifyUrl": "https://napcs-charter-school-census-dashboard.netlify.app/reports/MD_State_Research_Report.pdf"
+      "netlifyUrl": "https://napcs-charter-school-census-dashboard.netlify.app/MD_State_Research_Report.pdf"
     },
     "ME": {
-      "netlifyUrl": "https://napcs-charter-school-census-dashboard.netlify.app/reports/ME_State_Research_Report.pdf"
+      "netlifyUrl": "https://napcs-charter-school-census-dashboard.netlify.app/ME_State_Research_Report.pdf"
     },
     "MI": {
-      "netlifyUrl": "https://napcs-charter-school-census-dashboard.netlify.app/reports/MI_State_Research_Report.pdf"
+      "netlifyUrl": "https://napcs-charter-school-census-dashboard.netlify.app/MI_State_Research_Report.pdf"
     },
     "MN": {
-      "netlifyUrl": "https://napcs-charter-school-census-dashboard.netlify.app/reports/MN_State_Research_Report.pdf"
+      "netlifyUrl": "https://napcs-charter-school-census-dashboard.netlify.app/MN_State_Research_Report.pdf"
     },
     "MO": {
-      "netlifyUrl": "https://napcs-charter-school-census-dashboard.netlify.app/reports/MO_State_Research_Report.pdf"
+      "netlifyUrl": "https://napcs-charter-school-census-dashboard.netlify.app/MO_State_Research_Report.pdf"
     },
     "NH": {
-      "netlifyUrl": "https://napcs-charter-school-census-dashboard.netlify.app/reports/NH_State_Research_Report.pdf"
+      "netlifyUrl": "https://napcs-charter-school-census-dashboard.netlify.app/NH_State_Research_Report.pdf"
     },
     "NJ": {
-      "netlifyUrl": "https://napcs-charter-school-census-dashboard.netlify.app/reports/NJ_State_Research_Report.pdf"
+      "netlifyUrl": "https://napcs-charter-school-census-dashboard.netlify.app/NJ_State_Research_Report.pdf"
     },
     "NM": {
-      "netlifyUrl": "https://napcs-charter-school-census-dashboard.netlify.app/reports/NM_State_Research_Report.pdf"
+      "netlifyUrl": "https://napcs-charter-school-census-dashboard.netlify.app/NM_State_Research_Report.pdf"
     },
     "NY": {
-      "netlifyUrl": "https://napcs-charter-school-census-dashboard.netlify.app/reports/NY_State_Research_Report.pdf"
+      "netlifyUrl": "https://napcs-charter-school-census-dashboard.netlify.app/NY_State_Research_Report.pdf"
     },
     "OH": {
-      "netlifyUrl": "https://napcs-charter-school-census-dashboard.netlify.app/reports/OH_State_Research_Report.pdf"
+      "netlifyUrl": "https://napcs-charter-school-census-dashboard.netlify.app/OH_State_Research_Report.pdf"
     },
     "OR": {
-      "netlifyUrl": "https://napcs-charter-school-census-dashboard.netlify.app/reports/OR_State_Research_Report.pdf"
+      "netlifyUrl": "https://napcs-charter-school-census-dashboard.netlify.app/OR_State_Research_Report.pdf"
     },
     "PA": {
-      "netlifyUrl": "https://napcs-charter-school-census-dashboard.netlify.app/reports/PA_State_Research_Report.pdf"
+      "netlifyUrl": "https://napcs-charter-school-census-dashboard.netlify.app/PA_State_Research_Report.pdf"
     },
     "RI": {
-      "netlifyUrl": "https://napcs-charter-school-census-dashboard.netlify.app/reports/RI_State_Research_Report.pdf"
+      "netlifyUrl": "https://napcs-charter-school-census-dashboard.netlify.app/RI_State_Research_Report.pdf"
     },
     "VA": {
-      "netlifyUrl": "https://napcs-charter-school-census-dashboard.netlify.app/reports/VA_State_Research_Report.pdf"
+      "netlifyUrl": "https://napcs-charter-school-census-dashboard.netlify.app/VA_State_Research_Report.pdf"
     },
     "WA": {
-      "netlifyUrl": "https://napcs-charter-school-census-dashboard.netlify.app/reports/WA_State_Research_Report.pdf"
+      "netlifyUrl": "https://napcs-charter-school-census-dashboard.netlify.app/WA_State_Research_Report.pdf"
     },
     "WI": {
-      "netlifyUrl": "https://napcs-charter-school-census-dashboard.netlify.app/reports/WI_State_Research_Report.pdf"
+      "netlifyUrl": "https://napcs-charter-school-census-dashboard.netlify.app/WI_State_Research_Report.pdf"
     },
     "WV": {
-      "netlifyUrl": "https://napcs-charter-school-census-dashboard.netlify.app/reports/WV_State_Research_Report.pdf"
+      "netlifyUrl": "https://napcs-charter-school-census-dashboard.netlify.app/WV_State_Research_Report.pdf"
     }
   },
   "stateK12Enrollment": {
