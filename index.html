@@ -539,9 +539,19 @@ function buildPopup(s){
   // Location
   h+=purow('Location',esc(s.city+', '+s.state));
   if(s.address) h+=purow('Address',esc(s.address+(s.zip?' '+s.zip:'')));
-  // Authorizer & network
+  // Address
+  if(s.address) h+=purow('Address',esc(s.address+(s.zip?' '+s.zip:'')));
+  // Authorizer
   if(s.authorizer) h+=purow('Authorizer',esc(s.authorizer));
-  if(s.cmo) h+=purow('Network',esc(s.cmo));
+  // CMO / EMO
+  if(s.cmoName && s.cmoName !== 'Independent' && s.cmoName !== 'None'){
+    var cmoLabel = s.cmoType==='For-Profit' ? 'EMO (For-Profit)' : (s.cmoType==='Nonprofit' ? 'CMO' : 'Network');
+    var cmoColor = s.cmoType==='For-Profit' ? '#F5A623' : '#4A9FE0';
+    var cmoDisplay = s.cmoWebsite
+      ? '<a href="'+esc(s.cmoWebsite)+'" target="_blank" rel="noopener" style="color:'+cmoColor+';text-decoration:underline">'+esc(s.cmoName)+'</a>'
+      : '<span style="color:'+cmoColor+'">'+esc(s.cmoName)+'</span>';
+    h+=purow(cmoLabel, cmoDisplay);
+  }
   // Enrollment
   var enr = s.enrollment_2425 || s.enrollmentTotal || 0;
   if(enr) h+=purow('Enrollment',Number(enr).toLocaleString()+' students (2024\u201325)');
@@ -795,9 +805,8 @@ function openStateSlideout(code, coords){
   // Enrollment
   h+='<div class="spo-section">State Enrollment (2024\u201325)</div>';
   h+=spoRow('Total Public K\u201312',totalK12>0?totalK12.toLocaleString():'N/A','');
-  h+=spoRow('Charter Enrollment',charterEnroll>0?charterEnroll.toLocaleString():'N/A','b');
-  if(charterSharePct) h+=spoRow('Charter Share',charterSharePct+'% of public K\u201312','');
-  else h+=spoRow('Charter Share','0.0% of public K\u201312','');
+  var sEnrDisplay=charterEnroll>0?charterEnroll.toLocaleString()+(charterSharePct?' ('+charterSharePct+'% of K\u201312)':''):'N/A';
+  h+=spoRow('Charter Enrollment',sEnrDisplay,'b');
 
   // Union enrollment breakdown
   var enrConf=0, enrDep=0, enrOrg2=0;
@@ -812,10 +821,14 @@ function openStateSlideout(code, coords){
   var enrShare=charterEnroll>0&&enrOrganized>0?(enrOrganized/charterEnroll*100).toFixed(1):null;
   if(enrOrganized>0||enrOrg2>0){
     h+='<div class="spo-section">Enrollment \u2014 Union Breakdown</div>';
-    h+=spoRow('Students in Organized Schools',enrOrganized.toLocaleString(),'g');
-    if(enrConf>0) h+=spoRow('Independently Organized',enrConf.toLocaleString(),'g');
-    if(enrDep>0)  h+=spoRow('Structural Coverage',enrDep.toLocaleString(),'t');
-    if(enrOrg2>0) h+=spoRow('Organizing \u2014 Students Affected',enrOrg2.toLocaleString(),'gold');
+    var sOrgPct=charterEnroll>0&&enrOrganized>0?(enrOrganized/charterEnroll*100).toFixed(1):null;
+    h+=spoRow('Students in Organized Schools',enrOrganized.toLocaleString()+(sOrgPct?' ('+sOrgPct+'% of charter)':''),'g');
+    var sConfPct=charterEnroll>0&&enrConf>0?(enrConf/charterEnroll*100).toFixed(1):null;
+    if(enrConf>0) h+=spoRow('Independently Organized',enrConf.toLocaleString()+(sConfPct?' ('+sConfPct+'%)':''),'g');
+    var sDepPct=charterEnroll>0&&enrDep>0?(enrDep/charterEnroll*100).toFixed(1):null;
+    if(enrDep>0)  h+=spoRow('Structural Coverage',enrDep.toLocaleString()+(sDepPct?' ('+sDepPct+'%)':''),'t');
+    var sOrgAPct=charterEnroll>0&&enrOrg2>0?(enrOrg2/charterEnroll*100).toFixed(1):null;
+    if(enrOrg2>0) h+=spoRow('Organizing \u2014 Students Affected',enrOrg2.toLocaleString()+(sOrgAPct?' ('+sOrgAPct+'%)':''),'gold');
     if(enrShare)  h+=spoRow('Union Enrollment Share',enrShare+'%','g');
   }
 
@@ -1003,9 +1016,8 @@ function showStatePanel(code){
   var charterPct = (totalK12>0&&charterEnr>0)?(charterEnr/totalK12*100).toFixed(1):null;
   h+='<div class="section-label">State Enrollment (2024\u201325)</div>';
   h+=srow('Total Public K\u201312',totalK12>0?totalK12.toLocaleString():'N/A','');
-  h+=srow('Charter Enrollment',charterEnr>0?charterEnr.toLocaleString():'N/A','sv-b');
-  if(charterPct) h+=srow('Charter Share',charterPct+'% of public K\u201312','');
-  else h+=srow('Charter Share','0.0% of public K\u201312','');
+  var enrDisplay = charterEnr>0 ? charterEnr.toLocaleString()+(charterPct?' ('+charterPct+'% of public K\u201312)':'') : 'N/A';
+  h+=srow('Charter Enrollment',enrDisplay,'sv-b');
 
   // Jurisdiction — RTW first
   h+='<div class="section-label">Jurisdiction</div>';
@@ -1033,10 +1045,14 @@ function showStatePanel(code){
   var enrShare = (charterEnr>0&&enrOrganized>0)?(enrOrganized/charterEnr*100).toFixed(1):null;
   if(enrOrganized>0||enrOrg>0){
     h+='<div class="section-label">Enrollment — Union Breakdown</div>';
-    h+=srow('Students in Organized Schools',enrOrganized.toLocaleString(),'sv-g');
-    if(enrConf>0) h+=srow('Independently Organized',enrConf.toLocaleString(),'sv-g');
-    if(enrDep>0)  h+=srow('Structural Coverage',enrDep.toLocaleString(),'sv-t');
-    if(enrOrg>0)  h+=srow('Organizing — Students Affected',enrOrg.toLocaleString(),'sv-gold');
+    var orgPct=charterEnr>0&&enrOrganized>0?(enrOrganized/charterEnr*100).toFixed(1):null;
+    h+=srow('Students in Organized Schools',enrOrganized.toLocaleString()+(orgPct?' ('+orgPct+'% of charter)':''),'sv-g');
+    var confPct=charterEnr>0&&enrConf>0?(enrConf/charterEnr*100).toFixed(1):null;
+    if(enrConf>0) h+=srow('Independently Organized',enrConf.toLocaleString()+(confPct?' ('+confPct+'%)':''),'sv-g');
+    var depPct=charterEnr>0&&enrDep>0?(enrDep/charterEnr*100).toFixed(1):null;
+    if(enrDep>0)  h+=srow('Structural Coverage',enrDep.toLocaleString()+(depPct?' ('+depPct+'%)':''),'sv-t');
+    var orgAPct=charterEnr>0&&enrOrg>0?(enrOrg/charterEnr*100).toFixed(1):null;
+    if(enrOrg>0)  h+=srow('Organizing — Students Affected',enrOrg.toLocaleString()+(orgAPct?' ('+orgAPct+'%)':''),'sv-gold');
     if(enrShare)  h+=srow('Union Enrollment Share',enrShare+'%','sv-g');
   }
 
