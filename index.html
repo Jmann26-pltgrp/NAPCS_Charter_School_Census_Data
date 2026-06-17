@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NAPCS Charter School Unionization Census | PLT Strategies Group</title>
+<title>NAPCS Charter School Unionization Census | PLT Strategies Group | v2.1</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script src="napcs_config.js"></script>
@@ -57,7 +57,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 #filter-bar .fb-handle .drag-dots span{display:block;width:14px;height:2px;background:#2E75B6;border-radius:1px;opacity:0.7}
 .fitem{display:flex;align-items:center;gap:6px;margin-bottom:5px;cursor:pointer;font-size:11px;color:#B0C0D0;user-select:none}
 .fitem:last-child{margin-bottom:0}
-.fitem input{width:12px;height:12px;cursor:pointer;accent-color:#2E75B6;flex-shrink:0}
+.fitem input{width:12px;height:12px;cursor:pointer;accent-color:#2E75B6;flex-shrink:0;appearance:auto;-webkit-appearance:auto;background:transparent}
+.fitem input:not(:checked){opacity:0.7}
 .fdot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
 
 /* State detail popup from label */
@@ -192,7 +193,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .bc-CONFIRMED{background:#0A2A0A;color:#6CC04A;border:1px solid #1E4A1E}
 .bc-DEPENDENT{background:#0A2A2A;color:#4ABFBF;border:1px solid #1A4040}
 .bc-ORGANIZING{background:#2A1A0A;color:#F5A623;border:1px solid #4A3010}
-.bc-DECERTIFIED{background:#1A1A1A;color:#888;border:1px solid #333}
+.bc-DECERTIFIED{background:#1A1030;color:#C084FC;border:1px solid #5A2D9A}
+.bc-DEFERRED{background:#0A1A2A;color:#4A9FBF;border:1px solid #1E4A6A}
 .bc-CLOSED{background:#2A1010;color:#E07A4A;border:1px solid #4A2010}
 .bc-HISTORICAL{background:#1A0A2A;color:#9B59B6;border:1px solid #4A1A6A}
 .bc-UNVERIFIED{background:#0A1520;color:#4A6A80;border:1px solid #1E2D40}
@@ -279,14 +281,15 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     <div id="filter-bar">
       <div class="fb-handle" id="fb-drag-handle">
         <div class="drag-dots"><span></span><span></span><span></span></div>
-        &#8801; Filter by Status <span style="font-size:7px;color:#4A6A80;margin-left:2px">(drag)</span>
+        &#8801; Filter by Status <span style="font-size:8px;color:#4A9FE0;margin-left:auto;font-weight:700;letter-spacing:.3px;padding-left:8px">DRAG &#8597;</span>
       </div>
       <label class="fitem"><input type="checkbox" checked data-status="CONFIRMED"><span class="fdot" style="background:#6CC04A"></span><span>Independently Organized (<span id="fc-0">0</span>)</span></label>
       <label class="fitem"><input type="checkbox" checked data-status="DEPENDENT"><span class="fdot" style="background:#4ABFBF"></span><span>Structural Coverage (<span id="fc-1">0</span>)</span></label>
       <label class="fitem"><input type="checkbox" checked data-status="ORGANIZING"><span class="fdot" style="background:#F5A623"></span><span>Organizing Presence / Intent (<span id="fc-2">0</span>)</span></label>
-      <label class="fitem" title="Schools that were certified but had their certification removed (decertified). Currently no active union."><input type="checkbox" data-status="DECERTIFIED"><span class="fdot" style="background:#888;border:1px solid #555;opacity:0.5"></span><span style="opacity:0.6">Decertified — School Open (<span id="fc-3">0</span>)</span></label>
-      <label class="fitem" title="Schools that were organized when they closed. Shown for historical reference only (5-year lookback)."><input type="checkbox" data-status="CLOSED"><span class="fdot" style="background:#E07A4A"></span><span>Closed — Was Organized (<span id="fc-4">0</span>)</span></label>
+      <label class="fitem" title="Schools that were certified but had their certification removed (decertified). Currently no active union."><input type="checkbox" checked data-status="DECERTIFIED"><span class="fdot" style="background:#C084FC"></span><span>Decertified — School Open (<span id="fc-3">0</span>)</span></label>
+      <label class="fitem" title="Schools that were organized when they closed. Shown for historical reference only."><input type="checkbox" checked data-status="CLOSED"><span class="fdot" style="background:#E07A4A"></span><span>Closed — Was Organized (<span id="fc-4">0</span>)</span></label>
       <label class="fitem" title="Schools fully researched with no evidence of union activity found."><input type="checkbox" data-status="UNVERIFIED"><span class="fdot" style="background:transparent;border:1.5px dashed #4A6A80"></span><span>No Organizing Activity Documented (<span id="fc-5">0</span>)</span></label>
+      <label class="fitem" title="12 states where research was deferred by Executive Sponsor direction. No organized charter schools known to exist. Sector assumed unorganized as of June 2026."><input type="checkbox" data-status="DEFERRED"><span class="fdot" style="background:#4A7A9B;border:1px solid #2A5A7B"></span><span style="color:#8BA0B4">No Known Organizing Activity (<span id="fc-6">0</span>)</span></label>
       <div style="border-top:1px solid #1E2D40;margin-top:6px;padding-top:5px;font-size:8px;color:#4A6A80;line-height:1.4"><strong style="color:#888">Decertified — School Open</strong> = cert removed<br><strong style="color:#E07A4A">Closed — Was Organized</strong> = closed while organized</div>
     </div>
 
@@ -389,29 +392,34 @@ var RC = NAPCS_REGISTRY_CONTENT;
 var SR = NAPCS_CONFIG.stateReports || {};
 
 var STATE_NAMES = {
-  AZ:'Arizona',CA:'California',CO:'Colorado',CT:'Connecticut',DC:'Washington DC',
-  DE:'Delaware',FL:'Florida',GA:'Georgia',HI:'Hawaii',IL:'Illinois',
-  LA:'Louisiana',MA:'Massachusetts',MD:'Maryland',ME:'Maine',MI:'Michigan',
-  MN:'Minnesota',MO:'Missouri',NJ:'New Jersey',NM:'New Mexico',NY:'New York',
-  OH:'Ohio',OR:'Oregon',PA:'Pennsylvania',RI:'Rhode Island',
-  WA:'Washington',WI:'Wisconsin'
+  AK:'Alaska',AL:'Alabama',AR:'Arkansas',AZ:'Arizona',CA:'California',
+  CO:'Colorado',CT:'Connecticut',DC:'Washington DC',DE:'Delaware',FL:'Florida',
+  GA:'Georgia',HI:'Hawaii',IA:'Iowa',ID:'Idaho',IL:'Illinois',
+  IN:'Indiana',KS:'Kansas',LA:'Louisiana',MA:'Massachusetts',MD:'Maryland',
+  ME:'Maine',MI:'Michigan',MN:'Minnesota',MO:'Missouri',MS:'Mississippi',
+  NC:'North Carolina',NH:'New Hampshire',NJ:'New Jersey',NM:'New Mexico',
+  NV:'Nevada',NY:'New York',OH:'Ohio',OK:'Oklahoma',OR:'Oregon',
+  PA:'Pennsylvania',RI:'Rhode Island',SC:'South Carolina',TN:'Tennessee',
+  TX:'Texas',UT:'Utah',VA:'Virginia',WA:'Washington',WI:'Wisconsin',
+  WV:'West Virginia',WY:'Wyoming'
 };
 
 var STATUS_CFG = {
   CONFIRMED:  {color:'#6CC04A',r:7,opacity:0.88},   // Independently Organized
   DEPENDENT:  {color:'#4ABFBF',r:6,opacity:0.80},   // Structural Coverage (Dependent)
   ORGANIZING: {color:'#F5A623',r:9,opacity:0.95},   // Organizing Presence / Intent
-  DECERTIFIED:{color:'#888888',r:5,opacity:0.70},   // Decertified — School Open
-  CLOSED:     {color:'#E07A4A',r:5,opacity:0.70},   // Closed — Was Organized
+  DECERTIFIED:{color:'#C084FC',r:5,opacity:0.85},   // Decertified — School Open (purple)
+  CLOSED:     {color:'#E07A4A',r:5,opacity:0.85},   // Closed — Was Organized (burnt orange)
   UNVERIFIED: {color:'rgba(0,0,0,0)',r:5,opacity:1.0, dashed:true}, // No Organizing Activity Documented — dashed circle
+  DEFERRED:   {color:'#4A7A9B',r:4,opacity:0.55},   // No Known Organizing Activity — deferred jurisdictions
 };
 
-// Low-precision schools (geocoder fallback coordinates)
-var LOW_PRECISION = {'C0614021':true,'C0616026':false,'C0614022':false}; // Taylor Exemplar MI, ACE Leadership NM, Innovative Horizons CA, SOTA WI
-var LOW_PRECISION_IDS = new Set(['MI-TaylorExemplar','NM-ACELeadership','CA-InnovativeHorizons','WI-SOTA']);
-// Match by name since we have name-based lookup
+// isLowPrecision: returns true if school uses city centroid or legacy approximate coords
 function isLowPrecision(s) {
   if (!s) return false;
+  // New: lowPrecision flag set by builder when city centroid used
+  if (s.lowPrecision) return true;
+  // Legacy name-based checks for pre-flag records
   var n = (s.name||'').toLowerCase();
   return n.includes('taylor exemplar') || n.includes('ace leadership high') ||
          n.includes('innovative horizons charter') || (n.includes('school of technology and arts') && s.state==='WI');
@@ -419,7 +427,7 @@ function isLowPrecision(s) {
 
 // ── HEADER ─────────────────────────────────────────────────────────────────
 document.getElementById('topbar-sub').textContent =
-  'Working Data \u00B7 Last Updated June 16, 2026 \u00B7 ';
+  'Working Data \u00B7 Last Updated June 16, 2026 \u00B7 v2.1';
 
 // Stat bar population
 var combPct = NAT.density;
@@ -439,14 +447,19 @@ document.getElementById('sv-dec').textContent   = NAT.decertified;
 document.getElementById('sv-clo').textContent   = NAT.closed;
 
 // Filter counts
-var sc={CONFIRMED:0,DEPENDENT:0,ORGANIZING:0,DECERTIFIED:0,CLOSED:0,UNVERIFIED:0};
-SCHOOLS.forEach(function(s){ if(sc[s.status]!==undefined) sc[s.status]++; });
+var sc={CONFIRMED:0,DEPENDENT:0,ORGANIZING:0,DECERTIFIED:0,CLOSED:0,UNVERIFIED:0,DEFERRED:0};
+SCHOOLS.forEach(function(s){
+  // Reclassify tier2d UNVERIFIED records as DEFERRED for display
+  if(s.tier2d && s.status==='UNVERIFIED') s.status='DEFERRED';
+  if(sc[s.status]!==undefined) sc[s.status]++;
+});
 document.getElementById('fc-0').textContent=sc.CONFIRMED;
 document.getElementById('fc-1').textContent=sc.DEPENDENT;
 document.getElementById('fc-2').textContent=sc.ORGANIZING;
 document.getElementById('fc-3').textContent=sc.DECERTIFIED;
 document.getElementById('fc-4').textContent=sc.CLOSED;
 document.getElementById('fc-5').textContent=sc.UNVERIFIED;
+document.getElementById('fc-6').textContent=sc.DEFERRED;
 
 // Stat bar clicks
 document.getElementById('stat-total').onclick=function(){ switchTab('density'); };
@@ -464,7 +477,7 @@ L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{
 }).addTo(map);
 
 var layers={};
-var HIDDEN_BY_DEFAULT = new Set(['CLOSED','UNVERIFIED','DECERTIFIED']);
+var HIDDEN_BY_DEFAULT = new Set(['UNVERIFIED','DEFERRED']);
 Object.keys(STATUS_CFG).forEach(function(s){
   layers[s] = L.layerGroup();
   if(!HIDDEN_BY_DEFAULT.has(s)) layers[s].addTo(map);
@@ -517,7 +530,7 @@ function unionUrl(u){
 
 // ── POPUP ───────────────────────────────────────────────────────────────────
 function buildPopup(s){
-  var stLbl={CONFIRMED:'Independently Organized',DEPENDENT:'Structural Coverage (Dependent)',ORGANIZING:'Organizing Presence / Intent',DECERTIFIED:'Decertified — School Open',CLOSED:'Closed — Was Organized',UNVERIFIED:'No Organizing Activity Documented'}[s.status]||s.status;
+  var stLbl={CONFIRMED:'Independently Organized',DEPENDENT:'Structural Coverage (Dependent)',ORGANIZING:'Organizing Presence / Intent',DECERTIFIED:'Decertified — School Open',CLOSED:'Closed — Was Organized',UNVERIFIED:'No Organizing Activity Documented',DEFERRED:'No Known Organizing Activity'}[s.status]||s.status;
   var lowPrec=isLowPrecision(s);
   var h='<div class="pu-name">'+esc(s.name)+'</div>';
   h+=purow('Status','<span class="pu-badge bc-'+s.status+'">'+stLbl+'</span>');
@@ -533,20 +546,48 @@ function buildPopup(s){
   // Jurisdiction
   var jLabel = s.lb_abbrev||s.lb||'';
   if(jLabel) h+=purow('Jurisdiction',esc(jLabel+(s.jnotes?' \u2014 '+s.jnotes.slice(0,50):'')));
-  // Union info
+  // Union info — CONFIRMED / ORGANIZING
   if(s.status==='CONFIRMED'||s.status==='ORGANIZING'){
     var uUrl=unionUrl(s.union);
     h+=purow('Union',uUrl?'<a href="'+esc(uUrl)+'" target="_blank" rel="noopener" style="color:#6CC04A;text-decoration:underline">'+esc(s.union||'\u2014')+'</a>':'<span class="pu-val green">'+esc(s.union||'\u2014')+'</span>');
     if(s.dateUnionized&&s.dateUnionized!=='N/A') h+=purow('Certified',esc(String(s.dateUnionized).slice(0,50)));
     if(s.cbaStatus&&s.cbaStatus!=='N/A') h+=purow('CBA',esc(s.cbaStatus.slice(0,80)));
   }
+  // Union info — DEPENDENT
   if(s.status==='DEPENDENT'){
     var uUrl2=unionUrl(s.union);
     h+=purow('Union',uUrl2?'<a href="'+esc(uUrl2)+'" target="_blank" rel="noopener" style="color:#4ABFBF;text-decoration:underline">'+esc(s.union||'District CBA')+'</a>':'<span class="pu-val teal">'+esc(s.union||'District CBA')+'</span>');
   }
-  if(s.website) h+='<div class="pu-link"><span>&#127760;</span><a href="'+esc(s.website)+'" target="_blank" rel="noopener">School Website &#8599;</a></div>';
-  if(s.napcsId) h+=purow('ID','<span style="font-family:monospace;font-size:9px;color:#4A6A80">'+esc(s.napcsId)+'</span>');
-  if(lowPrec) h+='<div class="pu-warn">&#9888; Coordinates are approximate (\u00B11\u20132 km). Verify against address above.</div>';
+  // CLOSED — show closure date, union, and registry detail link
+  if(s.status==='CLOSED'){
+    var uUrlC=unionUrl(s.union);
+    if(s.union) h+=purow('Was Union',uUrlC?'<a href="'+esc(uUrlC)+'" target="_blank" rel="noopener" style="color:#E07A4A;text-decoration:underline">'+esc(s.union)+'</a>':'<span style="color:#E07A4A">'+esc(s.union)+'</span>');
+    if(s.dateUnionized&&s.dateUnionized!=='N/A') h+=purow('Certified',esc(String(s.dateUnionized).slice(0,50)));
+    var closeDt = s.closureDate||s.dateClose||s.closureYear||'';
+    if(closeDt) h+=purow('Closed',esc(String(closeDt)));
+    if(s.cbaStatus&&s.cbaStatus!=='N/A') h+=purow('Note',esc(s.cbaStatus.slice(0,100)));
+    if(s.napcsId) h+='<div class="pu-link"><span>&#128196;</span><a href="javascript:openSchoolDetail(\''+esc(s.napcsId)+'\',\''+esc(s.name)+'\',\''+esc(s.state)+'\','+s.lat+','+s.lng+')" style="color:#E07A4A">View Closure Record &#8599;</a></div>';
+  }
+  // DECERTIFIED — show decert details and link
+  if(s.status==='DECERTIFIED'){
+    var uUrlD=unionUrl(s.union);
+    if(s.union) h+=purow('Was Union',uUrlD?'<a href="'+esc(uUrlD)+'" target="_blank" rel="noopener" style="color:#C084FC;text-decoration:underline">'+esc(s.union)+'</a>':'<span style="color:#C084FC">'+esc(s.union)+'</span>');
+    if(s.dateUnionized&&s.dateUnionized!=='N/A') h+=purow('Was Certified',esc(String(s.dateUnionized).slice(0,50)));
+    if(s.cbaStatus&&s.cbaStatus!=='N/A') h+=purow('Note',esc(s.cbaStatus.slice(0,100)));
+    if(s.napcsId) h+='<div class="pu-link"><span>&#128196;</span><a href="javascript:openSchoolDetail(\''+esc(s.napcsId)+'\',\''+esc(s.name)+'\',\''+esc(s.state)+'\','+s.lat+','+s.lng+')" style="color:#C084FC">View Decertification Record &#8599;</a></div>';
+  }
+  // Website — use cbaUrl as fallback if school website not present
+  var siteUrl = s.website || s.cbaUrl || null;
+  if(siteUrl) h+='<div class="pu-link"><span>&#127760;</span><a href="'+esc(siteUrl)+'" target="_blank" rel="noopener">School Website &#8599;</a></div>';
+  // IDs — NCES and State, with "Not available" fallback
+  var nces = s.ncesId||s.nces||null;
+  var stid = s.stateId||null;
+  var idText = '';
+  if(nces) idText += 'NCES: '+nces;
+  if(stid) idText += (idText?' \u00B7 ':'')+'State: '+stid;
+  if(!idText) idText = 'Not available';
+  h+=purow('IDs','<span style="font-family:monospace;font-size:9px;color:#4A6A80">'+esc(idText)+'</span>');
+  if(lowPrec) h+='<div class="pu-warn">&#128506; '+(s.lowPrecision?'Location approximate \u2014 city center used. Exact address not yet available in data.':'Coordinates are approximate (\u00B11\u20132 km). Verify against address above.')+'</div>';
   return h;
 }
 function purow(l,v){ return '<div class="pu-row"><span class="pu-lbl">'+l+'</span><span class="pu-val">'+v+'</span></div>'; }
@@ -558,13 +599,15 @@ SCHOOLS.forEach(function(s){
   if(!s.lat||!s.lng) return;
   var cfg=STATUS_CFG[s.status]||STATUS_CFG.UNVERIFIED;
   var isUnv=s.status==='UNVERIFIED';
+  var isDec=s.status==='DECERTIFIED';
+  var isDef=s.status==='DEFERRED';
   var mk=L.circleMarker([s.lat,s.lng],{
     radius:cfg.r,
     fillColor:cfg.color,
-    color:isUnv?'#4A6A80':'rgba(0,0,0,0.3)',
-    weight:isUnv?1.2:1,
+    color:isUnv?'#4A6A80':isDec?'#9B5CF0':isDef?'#2A5A7B':'rgba(0,0,0,0.3)',
+    weight:isUnv?1.2:isDec?1.5:isDef?1:1,
     fillOpacity:isUnv?0:cfg.opacity,
-    dashArray:isUnv?'2,3':null,
+    dashArray:isUnv?'2,3':isDef?'3,4':null,
   });
   mk.bindPopup(buildPopup(s),{maxWidth:300});
   mk.addTo(layers[s.status]);
@@ -598,8 +641,23 @@ function openSchoolDetail(napcsId, name, state, lat, lng){
     // Geo exists but no marker (layer hidden etc) — just pan
     map.setView([lat,lng],13,{animate:true});
   } else {
-    // No geo — zoom to state
-    openStateSlideout(state, null);
+    // No geo — show school detail panel with location unavailable note
+    // Find the school record from SCHOOLS array
+    var school = SCHOOLS.find(function(sc){ return (sc.napcsId===napcsId) || (sc.name===name&&sc.state===state); });
+    if(school){
+      // Build a temporary popup with no-location note
+      var stLbl = {CONFIRMED:'Independently Organized',DEPENDENT:'Structural Coverage (Dependent)',
+        ORGANIZING:'Organizing Presence / Intent',DECERTIFIED:'Decertified — School Open',
+        CLOSED:'Closed — Was Organized',UNVERIFIED:'No Organizing Activity Documented',
+        DEFERRED:'No Known Organizing Activity'}[school.status]||school.status;
+      var popup = buildPopup(school);
+      // Show in side panel
+      setPanelHdr(school.name, stLbl);
+      setPanelBody(popup + '<div class="pu-warn" style="margin-top:8px">&#128506; No geographic coordinates available for this school. Map location cannot be displayed.</div>');
+      switchTab('overview');
+    } else {
+      openStateSlideout(state, null);
+    }
   }
 }
 
@@ -841,7 +899,7 @@ function switchTab(tab){
 
 function setPanelHdr(t,s){ document.getElementById('panel-title').textContent=t; document.getElementById('panel-sub').textContent=s||''; }
 function setPanelBody(h){ document.getElementById('panel-body').innerHTML=h; }
-function noStateMsg(n){ return '<div class="no-state"><div class="ns-icon">&#128506;</div>Click a state label on the map to view '+n+' for that state.<br><br><span style="font-size:9px;color:#4A6A80">State-level information data is populated through dedicated state research sessions. Data for all 26 jurisdictions is in development.</span></div>'; }
+function noStateMsg(n){ return '<div class="no-state"><div class="ns-icon">&#128506;</div>Click a state label on the map to view '+n+' for that state.<br><br><span style="font-size:9px;color:#4A6A80">State-level data is available for all 45 jurisdictions in the research universe.</span></div>'; }
 
 // ── OVERVIEW ─────────────────────────────────────────────────────────────────
 function showNationalPanel(){
@@ -858,6 +916,9 @@ function showNationalPanel(){
   h+=srow('Jurisdictions',NAT.jurisdictions+' states + DC (all jurisdictions except KY)','');
   h+='<div class="section-label">Data Currency</div>';
 h+='<div class="oi-card" style="border-left:3px solid #2E75B6"><div class="oi-lbl">Working Data</div><div class="oi-val">Last Updated June 16, 2026</div></div>';
+h+='<div class="oi-card" style="border-left:3px solid #4A7A9B;cursor:pointer" onclick="switchTab(\'dataquality\')" title="Click for full methodology note">';
+h+='<div class="oi-lbl">Deferred Jurisdictions (12)</div>';
+h+='<div class="oi-val" style="font-size:9px;color:#6A8A9A">AL, ID, IN, MS, NC, NV, OK, SC, TN, TX, UT, WY \u2014 No organized charter schools known to exist. Classified as No Known Organizing Activity. <span style="color:#4A9FE0">See Data Quality \u2192</span></div></div>';
 h+='<div class="section-label">\u26a0 Open Items</div>';
   h+='<div class="oi-card" style="border-left:3px solid #4A9FE0"><div class="oi-lbl">Biannual refresh</div><div class="oi-val sv-b">October 2026 target</div></div>';
   h+='<div class="section-label">Data Source</div>';
@@ -897,13 +958,15 @@ function showStatePanel(code){
 
   // Jurisdiction — RTW first
   h+='<div class="section-label">Jurisdiction</div>';
-  var rtwVal = (jd.rtw!==undefined?jd.rtw:sd.rtw);
+  var rtwVal = (jd.rtw!==undefined?jd.rtw:(sd.rtw!==undefined?sd.rtw:undefined));
   if(rtwVal!==undefined) h+=srow('Right to Work',rtwVal?'<span style="color:#E05A4A;font-weight:700">Yes</span>':'<span style="color:#6CC04A;font-weight:700">No</span>','');
-  h+=srow('Board',jd.lb_full||(sd.lb_abbrev||sd.lb||'\u2014'),'sv-b');
+  var lbDisplay = jd.lb_full||(sd.lb_abbrev||sd.lb||'\u2014');
+  h+=srow('Board',lbDisplay,'sv-b');
   if(jd.statute) h+=srow('Statute',jd.statute,'');
   if(jd.nlrb) h+=srow('NLRB',jd.nlrb,'');
   if(jd.card_check) h+=srow('Card-Check',jd.card_check,jd.card_check==='Yes'?'sv-g':'');
-  if(sd.note) h+='<div style="font-size:9px;color:#6A7A8A;line-height:1.4;margin-top:4px;padding:4px 6px;background:#1A2535;border-radius:3px">'+esc(sd.note.slice(0,150))+'</div>';
+  if(sd.deferred) h+='<div style="font-size:9px;color:#E07A4A;line-height:1.4;margin-top:4px;padding:4px 6px;background:#1A1010;border-radius:3px">Research deferred — Executive Sponsor direction. Sector assumed unorganized as of June 7, 2026 (PDR-018).</div>';
+  else if(sd.note) h+='<div style="font-size:9px;color:#6A7A8A;line-height:1.4;margin-top:4px;padding:4px 6px;background:#1A2535;border-radius:3px">'+esc(sd.note.slice(0,150))+'</div>';
 
   // Associations
   var assocs=(ASSOC[code]||STATE_ASSOC[code]||[]);
@@ -1029,55 +1092,55 @@ function buildVerificationPanel(){
   var steps = [
     {
       n:1, title:'Identify Governing Labor Board',
-      body:'Before any search begins, we determine which labor board has jurisdiction over the school. This depends on state law, charter type, and incorporation structure. A California EERA school goes to PERB(CA). A Pennsylvania charter goes to NLRB. An Illinois school requires a school-by-school determination \u2014 NLRB for private nonprofits, IELRB for ISBE-authorized. Expansion states follow their own rules: Maryland charters are all DEPENDENT (MSDE/LEA \u2014 no separate labor board search required); Wisconsin uses a two-track system (WERC for instrumentality charters, NLRB R18 for non-instrumentality); Hawaii charters are all DEPENDENT (HLRB \u2014 structurally covered under HRS Ch. 89); Colorado and Washington research sessions have not yet been conducted. Getting jurisdiction wrong invalidates the search.'
+      body:'Before any search begins, we determine which labor board has jurisdiction over the school. This depends on state law, charter type, and incorporation structure. A California EERA school goes to PERB(CA). A Pennsylvania charter goes to NLRB. An Illinois school requires a school-by-school determination \u2014 NLRB for private nonprofits, IELRB for ISBE-authorized. State-specific rules apply throughout: Maryland charters are all Structural Coverage (MSDE/LEA \u2014 no separate labor board search required); Wisconsin uses a two-track system (WERC for instrumentality charters, NLRB R18 for non-instrumentality); Hawaii charters are all Structural Coverage (HLRB \u2014 structurally covered under HRS Ch. 89); New Hampshire charters are public employers under PELRB \u2014 standard NLRB searches return zero results by design. Alaska charters are presumptively covered by district agreements under AS 14.03.270(b) pending waiver verification. Colorado charters are independent nonprofits subject to NLRB jurisdiction. Getting jurisdiction wrong invalidates the search.'
     },
     {
       n:2, title:'Confirm School Operational Status',
-      body:'We verify the school is currently open using the Charter School Registry (NCES CCD data + authorizer verification). Closed schools trigger the 3-year lookback protocol — they receive full research treatment with closure flagged. Schools listed as "Future" or "Inactive" are noted but not searched.'
+      body:'We verify the school is currently open using the Charter School Registry (NCES CCD data + authorizer verification). Closed schools trigger the 5-year lookback protocol \u2014 they receive full research treatment with closure flagged. Schools listed as "Future" or "Inactive" are noted but not searched. Schools that closed more than five years prior to the research window are noted as historical and excluded from active counts.'
     },
     {
-      n:3, title:'Search by Employer Name — Exact & Variants',
-      body:'We search the labor board portal by the school\'s legal employer name. Charter schools often operate under a different legal entity than their common name (e.g., "Aspire Public Schools" operates "Aspire Centennial College Prep Academy"). We check NAPCS_ID, NCES ID, and all known name variants. For NLRB, this means searching both the eCase system and the NLRB FLRA public case search.'
+      n:3, title:'Search by Employer Name \u2014 Exact & Variants',
+      body:'We search the labor board portal by the school\'s legal employer name. Charter schools often operate under a different legal entity than their common name (e.g., "Aspire Public Schools" operates "Aspire Centennial College Prep Academy"). We cross-reference NAPCS ID, NCES ID, and all known name variants. For NLRB, this means searching both the eCase system and the NLRB public case search. For state boards (PERB, PELRB, MERC, WERC, etc.), we use the applicable portal for that jurisdiction.'
     },
     {
       n:4, title:'Search by CMO / Network Name',
-      body:'If a school belongs to a charter management organization, we also search by the CMO name. Green Dot, KIPP, Uncommon Schools, Alliance, High Tech High — each may have labor board cases filed under the network name rather than the individual campus. This step catches schools that were organized as part of a network-wide campaign.'
+      body:'If a school belongs to a charter management organization, we also search by the CMO name. Green Dot, KIPP, Uncommon Schools, Alliance, High Tech High, IDEA, Rocketship \u2014 each may have labor board cases filed under the network name rather than the individual campus. This step catches schools that were organized as part of a network-wide campaign. Network-level certifications are then attributed to individual campuses via the CMO/NCES cross-reference in the registry.'
     },
     {
-      n:5, title:'Review All Case Types — RC, CD, RM, UC, ULP',
-      body:'We review all labor board case types: RC (representation/election petition), CD (contract bar), RM (employer petition), UC (unit clarification), and ULP (unfair labor practice charges). ULP charges without an RC petition may indicate organizing activity. A closed RC case with a "Certification of Representative" result confirms union status.'
+      n:5, title:'Review All Case Types \u2014 RC, CD, RM, UC, ULP',
+      body:'We review all labor board case types: RC (representation/election petition), CD (contract bar), RM (employer petition), UC (unit clarification), and ULP (unfair labor practice charges). ULP charges without an RC petition may indicate organizing activity or an existing certification not captured in the election docket. A closed RC case with a "Certification of Representative" result confirms union status. A withdrawn RC petition may indicate a failed campaign or voluntary recognition outside the labor board process.'
     },
     {
       n:6, title:'Verify Certification Date & Unit Description',
-      body:'When a case confirms organization, we record the Labor Board Certified date (project-wide date convention). We also note the bargaining unit description — certificated staff only, all employees, or classified/support staff only — as this affects how the school is categorized. The unit description tells us which employees are covered.'
+      body:'When a case confirms organization, we record the Labor Board Certified date as the project-wide canonical date. We also note the bargaining unit description \u2014 certificated staff only, all employees, or classified/support staff only \u2014 as this affects how the school is categorized. The unit description tells us which employees are covered and informs the school\'s CBA status assessment.'
     },
     {
       n:7, title:'Check CBA Status & Contract Access',
-      body:'A certified union does not automatically mean an active contract. We check whether a Collective Bargaining Agreement is in place. Some schools have been certified for years with no CBA executed (Certified/Dormant category). We check school websites, union websites, and labor board contracts portals (e.g., NJ PERC contracts database, PERB(CA) ePERB). Direct PDF links sometimes return 403 errors \u2014 in those cases we file an OPRA or FOIA request. Where a CBA link is found and publicly accessible, it is recorded in the registry and displayed in the school popup on the dashboard.'
+      body:'A certified union does not automatically mean an active contract. We check whether a Collective Bargaining Agreement is in place. Some schools have been certified for years with no CBA executed. We check school websites, union websites, and labor board contracts portals (e.g., NJ PERC contracts database, PERB(CA) ePERB, MERC contracts portal). Direct PDF links sometimes return 403 errors \u2014 in those cases we submit a public records request (OPRA, FOIA, or equivalent). Where a CBA link is found and publicly accessible, it is recorded in the registry and displayed in the school popup on the dashboard.'
     },
     {
       n:8, title:'Check for Decertification or Jurisdiction Stripping',
-      body:'We review for decertification petitions (RD cases at NLRB), employer petitions (RM), and jurisdiction-stripping activity \u2014 particularly filings that argue a state-board-certified school is actually a private employer under NLRB jurisdiction. Any such finding triggers a HIGH priority monitoring flag. The dashboard Active Monitoring Queue is the authoritative source for open jurisdiction-stripping cases.'
+      body:'We review for decertification petitions (RD cases at NLRB), employer petitions (RM), and jurisdiction-stripping activity \u2014 particularly filings that argue a state-board-certified school is actually a private employer under NLRB jurisdiction, or vice versa. Louisiana\'s Act 172 (2024) is a documented example of legislative jurisdiction stripping that retroactively invalidated at least one existing certification. Any such finding triggers a HIGH priority monitoring flag.'
     },
     {
       n:9, title:'Secondary Source Cross-Verification',
-      body:'For confirmed schools, we cross-reference against: union websites (some locals post charter school CBA lists), local news archives (organizing campaigns generate press coverage), FOIA/OPRA responses, school board meeting minutes, and educator social media. For voluntary recognition cases with no labor board record, secondary sources are often the only evidence. Monte del Sol (NM) is a documented example.'
+      body:'For confirmed schools, we cross-reference against: union websites (some locals post charter school CBA lists), local news archives (organizing campaigns generate press coverage), public records request responses, school board meeting minutes, and educator social media. For voluntary recognition cases with no labor board record, secondary sources are often the only evidence. Monte del Sol Charter School (NM) is a documented example where board meeting minutes were the sole confirming source. School board minutes are accessed via BoardOnTrack and authorizer public document portals where available.'
     },
     {
       n:10, title:'Classify & Apply Date Convention',
-      body:'We assign one of seven statuses: Independently Organized (active certification), Structural Coverage / Dependent (district/state/municipal CBA by law), Organizing Presence / Intent (active petition or credible evidence pending confirmation), Decertified — School Open (certification removed), Closed — Was Organized (organized at time of closure \u2014 5-year lookback), or No Organizing Activity Documented (full research protocol complete, no evidence found). The Labor Board Certified date is recorded as the canonical date for all CONFIRMED schools.'
+      body:'We assign one of six research statuses: Independently Organized (active certification with a school-specific bargaining unit), Structural Coverage (district, state, or municipal CBA applies by operation of law), Organizing Presence / Intent (active petition or credible evidence pending primary-source confirmation), Decertified \u2014 School Open (certification formally removed, school remains open), Closed \u2014 Was Organized (school was organized at time of closure, within the 5-year lookback window), or No Organizing Activity Documented (full research protocol complete, no evidence of union activity found). A seventh classification \u2014 No Known Organizing Activity \u2014 applies to the 12 deferred jurisdictions assessed at the sector level without school-by-school research. The Labor Board Certified date is the canonical date for all Independently Organized schools.'
     },
     {
       n:11, title:'Review & Data Entry Gate',
-      body:'No finding enters the master workbook without passing through the research review gate. Research staff present findings for approval before data entry. Discovery schools \u2014 non-NAPCS schools found organized during research sweeps \u2014 require explicit approval and a NAPCS-ADD ID assignment before entering the dataset. This gate prevents premature or incorrect entries from contaminating the research record.'
+      body:'No finding enters the dataset without passing through the research review gate. The Project Director approves all findings before data entry. Discovery schools \u2014 schools found organized during research sweeps that were not in the original NAPCS universe \u2014 require explicit approval and a NAPCS-ADD ID assignment before entering the dataset. This gate prevents premature or incorrect entries from contaminating the research record. All classification decisions are documented with the source that supports them.'
     },
     {
       n:12, title:'Monitoring Queue & Refresh Protocol',
-      body:'Schools with pending petitions, active ULPs, CBA gaps, or NRtW risk factors are placed on the Active Monitoring Queue with a review frequency (Monthly / Quarterly). The full research cycle repeats on a biannual basis — next cycle: October 2026. State research sessions are documented in state-level research reports archived in Box.'
+      body:'Schools with pending petitions, active unfair labor practice charges, CBA gaps, or right-to-work risk factors are placed on the Active Monitoring Queue with a designated review frequency (Monthly or Quarterly). The full research cycle completed its first national pass in June 2026, covering 33 jurisdictions with school-by-school research. The next full refresh is targeted for October 2026. State research sessions are documented in state-level research reports. The 12 deferred jurisdictions remain on the research agenda pending authorization.'
     },
   ];
 
-  var h = '<div style="font-size:10px;color:#4A6A80;margin-bottom:12px;line-height:1.5;padding:7px 9px;background:#0A1520;border-radius:4px">This 12-step process is applied to every charter school in the NAPCS research universe. Steps 1\u20139 are repeated for each school. Steps 10\u201312 govern classification, quality control, and ongoing monitoring. Schools are assigned one of seven statuses: CONFIRMED, DEPENDENT, ORGANIZING, DECERTIFIED, CLOSED, HISTORICAL, or UNVERIFIED.</div>';
+  var h = '<div style="font-size:10px;color:#4A6A80;margin-bottom:12px;line-height:1.5;padding:7px 9px;background:#0A1520;border-radius:4px">This 12-step protocol is applied to every charter school in the researched universe. Steps 1\u20139 are executed for each individual school. Steps 10\u201312 govern classification, quality control, and ongoing monitoring. Six research statuses are used for researched schools; a seventh \u2014 No Known Organizing Activity \u2014 applies to the 12 deferred jurisdictions assessed at the sector level.</div>';
 
   steps.forEach(function(s){
     h += '<div style="background:#111B27;border-radius:5px;padding:8px 10px;margin-bottom:7px;border-left:3px solid #2E75B6">' +
@@ -1117,19 +1180,26 @@ function buildAssociationsPanel(){
 function buildDataQualityPanel(){
   setPanelHdr('Data Quality','Census methodology and known data challenges');
   var h='';
+
   h+='<div class="static-section"><h3>Census Methodology</h3>';
-  h+='<p>The NAPCS Unionization Census applies a primary-source verification protocol to every charter school in the research universe across 45 jurisdictions (all U.S. states with active charter sectors, plus DC — excluding Kentucky which has no open charter schools). Unlike survey-based approaches, this project derives union status directly from labor board records, school board minutes, court filings, and regulatory databases — not from self-reported school data. Every record carries a research trail: the specific case number, board docket, or authoritative source that supports the classification. The census denominator is drawn from the NAPCS Charter School Registry (v130), cross-referenced against NCES CCD data (2024\u201325 vintage). The national denominator is 7,888 Registry-verified open charter schools as of June 2026 (PDR-020, locked June 11, 2026).</p>';
-  h+='<p>Six status categories are used. Three are active-coverage categories counted in the combined census total: Independently Organized (schools with their own certified bargaining unit), Structural Coverage (schools covered by a district, state, or municipal CBA by operation of law without a school-specific organizing campaign), and Organizing Presence / Intent (schools with a pending petition, credible organizing evidence, or recent election activity not yet resolved). Three are reference categories not counted in the combined total: Decertified — School Open (schools where certification was formally removed), Closed — Was Organized (schools that were organized at time of closure, within the 5-year lookback window), and No Organizing Activity Documented (schools where the full 8-step research protocol was completed with no evidence of union activity found).</p></div>';
+  h+='<p>The NAPCS Unionization Census applies a primary-source verification protocol to every charter school in the research universe across 45 jurisdictions (all U.S. states with active charter sectors, plus DC — excluding Kentucky, which has no open charter schools). Unlike survey-based approaches, this project derives union status directly from labor board records, school board minutes, court filings, and regulatory databases — not from self-reported school data. Every record carries a research trail: the specific case number, board docket, or authoritative source that supports the classification. The census denominator of 7,888 is drawn from the NAPCS Charter School Registry (v130), cross-referenced against NCES CCD data (2024–25 vintage), and reflects Registry-verified open schools only as of June 2026.</p>';
+  h+='<p>Six research statuses are used for schools in researched jurisdictions. Three are active-coverage categories counted in the combined census total: Independently Organized (schools with their own certified bargaining unit), Structural Coverage (schools covered by a district, state, or municipal CBA by operation of law), and Organizing Presence / Intent (schools with a pending petition or credible organizing evidence not yet resolved). Three are reference categories not counted in the combined total: Decertified — School Open (certification formally removed), Closed — Was Organized (organized at time of closure, within the 5-year lookback window), and No Organizing Activity Documented (full 8-step protocol completed with no evidence found). A seventh classification — No Known Organizing Activity — applies to the 12 deferred jurisdictions described below.</p></div>';
+
+  h+='<div class="static-section"><h3>Research Scope — Deferred Jurisdictions</h3>';
+  h+='<p>Twelve states — Alabama, Idaho, Indiana, Mississippi, North Carolina, Nevada, Oklahoma, South Carolina, Tennessee, Texas, Utah, and Wyoming — are classified as deferred jurisdictions in this census. Research was not conducted at the school level in these states. An Executive Sponsor assessment concluded that no organized charter schools are known to exist in these sectors and no current organizing pathway has been identified. These states are present in the census denominator and visible on the dashboard map, but individual schools carry the classification <em>No Known Organizing Activity</em> rather than the researched classification <em>No Organizing Activity Documented</em>.</p>';
+  h+='<p>The distinction is meaningful. <em>No Organizing Activity Documented</em> reflects completed primary-source research at the individual school level — a labor board search, secondary source cross-verification, and a confirmed finding of no evidence. <em>No Known Organizing Activity</em> reflects a sector-level judgment: no organized schools have been identified through any available intelligence source, and individual school research is not warranted at this time.</p>';
+  h+='<p>Texas warrants specific note. With more than 1,050 open charter schools across four distinct metro regions — Houston, Dallas-Fort Worth, San Antonio/Austin, and the rest of the state — Texas presents an exceptionally complex research environment. Charter school jurisdiction in Texas spans multiple NLRB regions, with significant CMO concentration across KIPP Texas, IDEA Public Schools, Harmony, Responsive Education Solutions, and Uplift Education. The scope and jurisdictional complexity of Texas were additional factors in the deferral decision. Should research be authorized in any deferred state, all schools would move through the standard Gate 0 and 8-step verification protocol before any classification change.</p></div>';
+
   h+='<div class="static-section"><h3>Known Data Quality Challenges</h3>';
   var challenges=[
-    {title:'Name Variant Mismatch',body:'Charter schools frequently operate under a legal entity name that differs from their common name. A labor board case filed by "Aspire Public Schools" covers a school known as "Aspire Centennial College Prep." The research protocol requires searching all known name variants, CMO parent names, and NAPCS/NCES ID cross-references. Mismatches are the most common source of false negatives in this type of research.'},
-    {title:'NCES Data Lag',body:'The NCES CCD universe lags reality by 12\u201318 months. Schools that opened after the NCES data vintage may not appear in the census denominator even if they are actively organizing. Conversely, schools that have closed may still appear in the NCES data. The NAPCS Registry applies continuous discovery additions and closure verification to reduce this gap, but some lag is unavoidable.'},
-    {title:'Jurisdictional Ambiguity',body:'The boundary between NLRB and state board jurisdiction is unsettled in several states. Colorado and New Mexico have active jurisdictional disputes that affect research approach. Louisiana\'s Act 172 (2024) stripped NLRB jurisdiction over BESE-authorized schools retroactively, invalidating at least one existing certification (Lyc\u00e9e Fran\u00e7ais). Any state that modifies its charter law may shift the applicable labor board, requiring retroactive reclassification of existing records.'},
-    {title:'CMO Network vs Campus Attribution',body:'When a charter management organization achieves network-wide certification, labor board cases are often filed under the CMO name rather than individual campus names. This creates attribution challenges when populating per-campus records. The research protocol requires reviewing all cases filed by the network employer and attributing them to the correct campuses via the CMO/NCES cross-reference in the registry.'},
-    {title:'Structural Coverage Verification Depth',body:'Schools coded as Structural Coverage (Dependent) are covered by district or state CBAs by operation of law. While the legal basis for coverage is well-established in states like Hawaii (HRS \u00a789-10.55), Maryland (Ed. Article \u00a79-108), Oregon (ORS Ch. 338), and Wisconsin (Wis. Stat. \u00a7118.40(7)), individual campus-level verification of CBA terms is not always possible from public sources. Some Dependent records carry a "verification needed" flag pending coordinator outreach.'},
-    {title:'Closed School Lookback Window',body:'The 5-year lookback window for historically organized closed schools is applied uniformly, but closure dates are not always publicly documented with precision. Some schools close gradually (declining enrollment, authorizer non-renewal) rather than on a specific date. Closure year is used as the operative date when a specific closure date is unavailable.'},
-    {title:'Enrollment Data Completeness',body:'Enrollment figures in the dashboard are sourced from the NCES CCD 2024\u201325 universe file, joined to school records via NCES ID. Approximately 97% of schools in the registry have enrollment data following the June 2026 enrichment pass across all three data tiers. Schools with NAPCS-ADD IDs (discovered through research, not in NCES universe) or suppressed NCES enrollment values (small n) may not have enrollment figures.'},
-    {title:'Geographic Coordinate Precision',body:'School map coordinates are sourced from the NCES CCD 2024\u201325 universe file via NCES ID join, supplemented by name-based ELSI matching for Tier 2 nonunion records. Approximately 97% of schools in the dashboard have geo coordinates as of June 2026. Schools without coordinates are primarily those lacking NCES IDs (NAPCS-ADD records pending coordinator enrichment) or virtual/online-only schools where a physical address is not available. These schools appear in count totals and filter results but do not display as map pins.'},
+    {title:'Name Variant Mismatch',body:'Charter schools frequently operate under a legal entity name that differs from their common name. A labor board case filed by "Aspire Public Schools" covers a school known as "Aspire Centennial College Prep." The research protocol requires searching all known name variants, CMO parent names, and NAPCS/NCES ID cross-references. Mismatches are the most common source of false negatives in this type of research. The NCES ID join key now embedded in all Tier 1 records reduces this risk for future research passes.'},
+    {title:'NCES Data Lag',body:'The NCES CCD universe lags reality by 12–18 months. Schools that opened after the NCES data vintage may not appear in the census denominator even if they are actively organizing. Conversely, schools that have closed may still appear in NCES data. The NAPCS Registry applies continuous discovery additions and closure verification to reduce this gap, but some lag is unavoidable. Schools discovered through research that are not in the NCES universe receive NAPCS-ADD IDs and are included in the census.'},
+    {title:'Jurisdictional Ambiguity',body:'The boundary between NLRB and state board jurisdiction is unsettled in several states. New Mexico has active jurisdictional questions that have affected research approach — two schools remain under WATCH status pending labor board document confirmation. Louisiana's Act 172 (2024) stripped NLRB jurisdiction over BESE-authorized schools retroactively, invalidating at least one existing certification (Lycée Français de la Nouvelle-Orléans). West Virginia presents a dual-track structure where charter school employees are private employers under NLRB jurisdiction despite district employees having no statutory bargaining rights. Any state that modifies its charter law may shift the applicable labor board, requiring retroactive reclassification.'},
+    {title:'CMO Network vs Campus Attribution',body:'When a charter management organization achieves network-wide certification, labor board cases are filed under the CMO name rather than individual campus names. This creates attribution challenges when populating per-campus records. The research protocol requires reviewing all cases filed by the network employer and attributing them to the correct campuses via the CMO/NCES cross-reference in the registry. California network certifications — Green Dot, Alliance, CAVA, CWC, Summit — are the most complex examples in the current dataset.'},
+    {title:'Structural Coverage Verification Depth',body:'Schools coded as Structural Coverage (Dependent) are covered by district or state CBAs by operation of law. While the legal basis for coverage is well-established in states like Hawaii (HRS §89-10.55), Maryland (Ed. Article §9-108), Oregon (ORS Ch. 338), and Wisconsin (Wis. Stat. §118.40(7)), individual campus-level verification of CBA terms is not always possible from public sources. Alaska presents the most complex structural coverage question in the dataset: AS 14.03.270(b) requires joint consent from both the district and the employee group to waive coverage, making all 32 Alaska charter schools presumptively covered pending waiver verification through individual charter contracts.'},
+    {title:'Closed School Lookback Window',body:'The 5-year lookback window for historically organized closed schools is applied uniformly, but closure dates are not always publicly documented with precision. Some schools close gradually — declining enrollment, authorizer non-renewal — rather than on a specific date. Closure year is used as the operative date when a specific closure date is unavailable. Schools that closed more than five years before the research window are excluded from active counts but noted in state research records.'},
+    {title:'Enrollment Data Completeness',body:'Enrollment figures are sourced from the NCES CCD 2024–25 universe file, joined to school records via NCES ID. Approximately 97% of schools in the dashboard have enrollment data following the June 2026 enrichment pass across all three data tiers. Schools with NAPCS-ADD IDs (discovered through research, not in the NCES universe) or suppressed NCES enrollment values (small-n suppression) may not have enrollment figures available.'},
+    {title:'Geographic Coordinate Precision',body:'School map coordinates are sourced from the NCES CCD 2024–25 universe file via NCES ID join, supplemented by name-based matching for Tier 2 nonunion records where NCES IDs were not available in the original file build. Approximately 97% of schools in the dashboard have geo coordinates as of June 2026. Schools without coordinates are primarily NAPCS-ADD records pending NCES ID assignment, or virtual/online-only schools without a fixed physical address. These schools appear in count totals and filter results but do not display as map pins.'},
   ];
   challenges.forEach(function(c){
     h+='<div style="background:#111B27;border-radius:5px;padding:8px 10px;margin-bottom:7px;border-left:3px solid #2E75B6">'+
@@ -1137,9 +1207,10 @@ function buildDataQualityPanel(){
       '<div style="font-size:10px;color:#8BA0B4;line-height:1.6">'+esc(c.body)+'</div></div>';
   });
   h+='</div>';
-  h+='<div class="static-section"><h3>Confidence Hierarchy</h3><p style="font-size:10px;color:#8BA0B4;line-height:1.6">Labor board records (highest) \u2192 Court filings and regulatory orders \u2192 Board meeting minutes (primary source) \u2192 Union website / CBA documents \u2192 Verified press coverage \u2192 FOIA/OPRA responses \u2192 Secondary source cross-verification (lowest). Schools coded CONFIRMED require evidence at tier 1\u20133. Schools coded ORGANIZING may rely on tier 4\u20136 evidence pending primary-source confirmation.</p></div>';
+  h+='<div class="static-section"><h3>Confidence Hierarchy</h3><p style="font-size:10px;color:#8BA0B4;line-height:1.6">Labor board records (highest) → Court filings and regulatory orders → Board meeting minutes (primary source) → Union website / CBA documents → Verified press coverage → Public records request responses → Secondary source cross-verification (lowest). Schools coded Independently Organized require evidence at tier 1–3. Schools coded Organizing Presence / Intent may rely on tier 4–6 evidence pending primary-source confirmation.</p></div>';
   setPanelBody(h);
 }
+
 
 // ── INTELLIGENCE TABS ─────────────────────────────────────────────────────────
 var TAB_META={
@@ -1238,7 +1309,7 @@ function openModal(status){
       var sc=a.state.localeCompare(b.state);
       return sc!==0?sc:a.name.localeCompare(b.name);
     });
-  var labels={CONFIRMED:'Independently Organized',DEPENDENT:'Structural Coverage (Dependent)',ORGANIZING:'Organizing Presence / Intent',DECERTIFIED:'Decertified — School Open',CLOSED:'Closed — Was Organized'};
+  var labels={CONFIRMED:'Independently Organized',DEPENDENT:'Structural Coverage (Dependent)',ORGANIZING:'Organizing Presence / Intent',DECERTIFIED:'Decertified — School Open',CLOSED:'Closed — Was Organized',DEFERRED:'No Known Organizing Activity'};
   _modalList = list;
   document.getElementById('modal-title').innerHTML=
     '<span class="mbadge bc-'+status+'" style="font-size:10px;margin-right:8px">'+esc(labels[status]||status)+'</span>'+

@@ -99,11 +99,16 @@ var NAPCS_CONFIG = {
       "clo": 0,
       "watch": 0,
       "density": "0.7%",
-      "lb": "National Labor Relations Board",
-      "lb_abbrev": "NLRB R28",
-      "lb_full": "NLRB Region 28 (Phoenix)",
-      "rtw": true,
-      "note": "NLRB R28 jurisdiction. BASIS Tucson North + CITY Center (3 campuses) confirmed. Election pathway only.",
+      "lb": "NLRB Region 28 (Phoenix)",
+      "lb_abbrev": "",
+      "lb_full": "",
+      "rtw": {
+        "status": "YES",
+        "basis": "A.R.S. §23-1302",
+        "effectiveDate": "1947",
+        "notes": "Right-to-work state. Applies to private-sector workers under NLRA."
+      },
+      "note": "",
       "deferred": false
     },
     "CA": {
@@ -116,11 +121,16 @@ var NAPCS_CONFIG = {
       "clo": 9,
       "watch": 2,
       "density": "24.2%",
-      "lb": "Public Employment Relations Board",
-      "lb_abbrev": "PERB(CA)/EERA",
-      "lb_full": "California PERB",
-      "rtw": false,
-      "note": "Card-check dominant. 193 Independently Organized + 113 Structural Coverage (LAUSD/district). Documented Organizing Activity: Journey School + COIL.",
+      "lb": "PERB(CA) — California Public Employment Relations Board",
+      "lb_abbrev": "",
+      "lb_full": "",
+      "rtw": {
+        "status": "NO",
+        "basis": "Gov. Code §3540 et seq. (EERA)",
+        "effectiveDate": "",
+        "notes": "Not a right-to-work state. EERA governs public-sector charter employers."
+      },
+      "note": "",
       "deferred": false
     },
     "CO": {
@@ -133,11 +143,16 @@ var NAPCS_CONFIG = {
       "clo": 0,
       "watch": 9,
       "density": "0.0%",
-      "lb": "National Labor Relations Board",
-      "lb_abbrev": "NLRB R27",
-      "lb_full": "NLRB Region 27 (Denver)",
-      "rtw": false,
-      "note": "0 organized. 9 Documented Organizing Activity — Summit Public Schools network (CMO_PRECEDENT).",
+      "lb": "NLRB R27",
+      "lb_abbrev": "",
+      "lb_full": "",
+      "rtw": {
+        "status": "NO",
+        "basis": "Colorado has no right-to-work statute. The Colorado Labor Peace Act (CRS §§ 8-3-101 et seq.) governs private-sector labor relations but does not include right-to-work provisions. Union security provisions are available in collective bargaining agreements for private-sector employers.",
+        "effectiveDate": "N/A",
+        "notes": "CO charter schools are private employers under the NLRA. Union security clauses are permissible."
+      },
+      "note": "",
       "deferred": false
     },
     "CT": {
@@ -150,11 +165,16 @@ var NAPCS_CONFIG = {
       "clo": 0,
       "watch": 0,
       "density": "23.8%",
-      "lb": "CT State Board of Labor Relations",
-      "lb_abbrev": "SBLR/NLRB R34",
-      "lb_full": "CT SBLR / NLRB R34",
-      "rtw": false,
-      "note": "4 Independently Organized + 1 Structural Coverage (Elm City Montessori).",
+      "lb": "SBLR (CT)",
+      "lb_abbrev": "",
+      "lb_full": "",
+      "rtw": {
+        "status": "NO",
+        "basis": "Connecticut has no right-to-work statute. Conn. Gen. Stat. §31-101 et seq. (Connecticut Labor Relations Act) and TNA (§10-153a et seq.) permit union security provisions.",
+        "effectiveDate": "N/A",
+        "notes": "Agency fee and union security clauses are available in both TNA and NLRB-governed CBAs in Connecticut."
+      },
+      "note": "",
       "deferred": false
     },
     "DC": {
@@ -167,11 +187,16 @@ var NAPCS_CONFIG = {
       "clo": 1,
       "watch": 0,
       "density": "5.6%",
-      "lb": "National Labor Relations Board",
-      "lb_abbrev": "NLRB R5",
-      "lb_full": "NLRB Region 5 (Baltimore)",
-      "rtw": false,
-      "note": "7 Independently Organized. DC ACTS/AFT dominant. 1 Closed (Cesar Chavez PCS, 2019).",
+      "lb": "NLRB",
+      "lb_abbrev": "",
+      "lb_full": "",
+      "rtw": {
+        "status": "NO",
+        "basis": "Washington DC is not a right-to-work jurisdiction. DC charter schools are private employers under the NLRA; no DC right-to-work statute exists and the NLRA preempts any such provision.",
+        "effectiveDate": "N/A",
+        "notes": "Union security provisions are available in CBA negotiations for DC charter school unions."
+      },
+      "note": "",
       "deferred": false
     },
     "DE": {
@@ -184,11 +209,16 @@ var NAPCS_CONFIG = {
       "clo": 0,
       "watch": 0,
       "density": "17.4%",
-      "lb": "Delaware Public Employment Relations Board",
-      "lb_abbrev": "PERB(DE)",
-      "lb_full": "Delaware PERB",
-      "rtw": false,
-      "note": "100% NAPCS density. Card-check dominant. All 4 schools DSEA/NEA.",
+      "lb": "PERB(DE)",
+      "lb_abbrev": "",
+      "lb_full": "",
+      "rtw": {
+        "status": "NO",
+        "basis": "Delaware has no right-to-work statute. DE charter school employees are public employees under 14 Del.C. Chapter 40; PERB(DE) has jurisdiction. Union security provisions are standard in public-sector CBAs.",
+        "effectiveDate": "N/A",
+        "notes": "No right-to-work statute applies. All DE charter schools are public employers — NLRA and any RTW provisions are inapplicable."
+      },
+      "note": "",
       "deferred": false
     },
     "FL": {
@@ -201,11 +231,16 @@ var NAPCS_CONFIG = {
       "clo": 0,
       "watch": 0,
       "density": "1.1%",
-      "lb": "Public Employees Relations Commission",
-      "lb_abbrev": "PERC(FL)",
-      "lb_full": "Florida PERC",
-      "rtw": true,
-      "note": "5 Independently Organized + 3 Structural Coverage. SB256 annual recertification requirement.",
+      "lb": "PERC (FL)",
+      "lb_abbrev": "",
+      "lb_full": "",
+      "rtw": {
+        "status": "YES",
+        "basis": "Art. X §12, Florida Constitution",
+        "effectiveDate": null,
+        "notes": "Florida is a right-to-work state by constitutional provision. Union security clauses (mandatory dues/fees) are not available for FL charter school unions. SB256 (2023) added annual recertification requirements for public-sector unions falling below 60% dues-paying membership. Right-to-work applies to PERC(FL)-jurisdiction charter schools as public employers and to any NLRB-jurisdiction charter schools as private employers."
+      },
+      "note": "",
       "deferred": false
     },
     "GA": {
@@ -218,11 +253,16 @@ var NAPCS_CONFIG = {
       "clo": 0,
       "watch": 0,
       "density": "0.0%",
-      "lb": "National Labor Relations Board",
-      "lb_abbrev": "NLRB R10",
-      "lb_full": "NLRB Region 10 (Atlanta)",
-      "rtw": true,
-      "note": "0 organized. 10 Documented Organizing Activity — KIPP Metro Atlanta network (CMO_PRECEDENT).",
+      "lb": "NLRB R10 (Atlanta)",
+      "lb_abbrev": "",
+      "lb_full": "",
+      "rtw": {
+        "status": "YES",
+        "basis": "Georgia Code §34-6-6 — right-to-work statute enacted 1947. Union security agreements (union shop, agency fee) are not available for any employer-employee relationship in Georgia, including NLRB-jurisdiction charter schools.",
+        "effectiveDate": "1947",
+        "notes": "Right-to-work status means that even if a GA charter school were certified, union security clauses would be unavailable in CBA negotiations."
+      },
+      "note": "",
       "deferred": false
     },
     "HI": {
@@ -235,11 +275,16 @@ var NAPCS_CONFIG = {
       "clo": 1,
       "watch": 0,
       "density": "100.0%",
-      "lb": "Hawaii Labor Relations Board",
-      "lb_abbrev": "HLRB",
-      "lb_full": "Hawaii Labor Relations Board",
-      "rtw": false,
-      "note": "100% Structural Coverage — HSTA statewide statutory coverage (HRS §89-10.55).",
+      "lb": "HLRB (HI)",
+      "lb_abbrev": "",
+      "lb_full": "",
+      "rtw": {
+        "status": "NO",
+        "basis": "HRS Art. XIII §2; HRS Ch. 89",
+        "effectiveDate": "",
+        "notes": "Not a right-to-work state. Strong public-sector bargaining rights under HRS Chapter 89."
+      },
+      "note": "",
       "deferred": false
     },
     "IA": {
@@ -296,11 +341,16 @@ var NAPCS_CONFIG = {
       "clo": 6,
       "watch": 0,
       "density": "23.5%",
-      "lb": "NLRB R13 / IELRB",
-      "lb_abbrev": "NLRB R13/IELRB",
-      "lb_full": "NLRB Region 13 (Chicago) / Illinois ELRB",
-      "rtw": false,
-      "note": "31 Independently Organized + 1 Structural Coverage (Springfield SD 186). CTU/ChiACTS dominant. 5 closed.",
+      "lb": "NLRB (Region 13) / IELRB",
+      "lb_abbrev": "",
+      "lb_full": "",
+      "rtw": {
+        "status": "NO",
+        "basis": "Illinois has no right-to-work statute.",
+        "effectiveDate": null,
+        "notes": "Applies to both NLRB (private-sector charters) and IELRB (public-employer charters). Union security agreements are permissible in both jurisdictions."
+      },
+      "note": "",
       "deferred": false
     },
     "IN": {
@@ -357,11 +407,16 @@ var NAPCS_CONFIG = {
       "clo": 1,
       "watch": 0,
       "density": "2.9%",
-      "lb": "Louisiana State Civil Service Commission",
-      "lb_abbrev": "LSCSC/LERA",
-      "lb_full": "Louisiana SCSC (LERA)",
-      "rtw": true,
-      "note": "3 Independently Organized. Act 172 stripped NLRB R15 jurisdiction over BESE-authorized schools. 1 Decertified (Lycée Français). 1 Closed.",
+      "lb": "LSCSC / NLRB R15",
+      "lb_abbrev": "",
+      "lb_full": "",
+      "rtw": {
+        "status": "YES",
+        "basis": "La. R.S. §23:982",
+        "effectiveDate": null,
+        "notes": "Louisiana is a right-to-work state. Union security clauses are not available for LA charter school unions. Applies to Type 1/3/3B OPSB-authorized schools under NLRB jurisdiction as private employers. Type 2/5 schools under Act 172 LSCSC routing have no established collective bargaining procedure as of June 2026."
+      },
+      "note": "",
       "deferred": false
     },
     "MA": {
@@ -374,11 +429,16 @@ var NAPCS_CONFIG = {
       "clo": 1,
       "watch": 0,
       "density": "17.8%",
-      "lb": "Department of Labor Relations",
-      "lb_abbrev": "DLR(MA)",
-      "lb_full": "Massachusetts DLR",
-      "rtw": false,
-      "note": "8 Independently Organized + 5 Structural Coverage (BPS Horace Mann). Card-check dominant. 1 Decertified.",
+      "lb": "DLR (MA)",
+      "lb_abbrev": "",
+      "lb_full": "",
+      "rtw": {
+        "status": "NO",
+        "basis": "Massachusetts has no right-to-work statute. MA charter school employees are classified as public employees under M.G.L. c. 71 §89(y) and bargain under M.G.L. c. 150E. Agency fee provisions are available in collective bargaining agreements.",
+        "effectiveDate": "N/A",
+        "notes": "No right-to-work statute applies to any MA charter school employer or employee."
+      },
+      "note": "",
       "deferred": false
     },
     "MD": {
@@ -391,11 +451,16 @@ var NAPCS_CONFIG = {
       "clo": 2,
       "watch": 0,
       "density": "98.1%",
-      "lb": "Maryland Public Employee Relations Board",
-      "lb_abbrev": "PERB(MD)",
-      "lb_full": "Maryland PERB",
-      "rtw": false,
-      "note": "100% Structural Coverage — county CBA authorization by statute.",
+      "lb": "PERB (MD)",
+      "lb_abbrev": "",
+      "lb_full": "",
+      "rtw": {
+        "status": "NO",
+        "basis": "Md. Ed. Article §9-108; Md. Labor & Employment",
+        "effectiveDate": "",
+        "notes": "Not a right-to-work state. All charter schools BLANKET_DEPENDENT under §9-108."
+      },
+      "note": "",
       "deferred": false
     },
     "ME": {
@@ -408,11 +473,16 @@ var NAPCS_CONFIG = {
       "clo": 0,
       "watch": 0,
       "density": "9.1%",
-      "lb": "National Labor Relations Board",
-      "lb_abbrev": "NLRB R1",
-      "lb_full": "NLRB Region 1 (Boston)",
-      "rtw": false,
-      "note": "1 Independently Organized — Baxter Academy (MEA/NEA, 30-4 vote May 2019).",
+      "lb": "NLRB",
+      "lb_abbrev": "",
+      "lb_full": "",
+      "rtw": {
+        "status": "NO",
+        "basis": "Maine has no right-to-work statute. Maine is a private-sector state under NLRA jurisdiction for charter schools; union security provisions are available in CBA negotiations.",
+        "effectiveDate": "N/A",
+        "notes": "No right-to-work statute applies to ME charter schools."
+      },
+      "note": "",
       "deferred": false
     },
     "MI": {
@@ -425,11 +495,16 @@ var NAPCS_CONFIG = {
       "clo": 0,
       "watch": 1,
       "density": "2.7%",
-      "lb": "Michigan Employment Relations Commission",
-      "lb_abbrev": "MERC/NLRB R7",
-      "lb_full": "MERC / NLRB Region 7 (Detroit)",
-      "rtw": false,
-      "note": "10 Independently Organized. Split MERC/NLRB jurisdiction. RTW repealed Feb 2024.",
+      "lb": "MERC / NLRB Region 7",
+      "lb_abbrev": "",
+      "lb_full": "",
+      "rtw": {
+        "status": "YES",
+        "basis": "Mich. Comp. Laws §423.14 (enacted 2012, effective 2013; repealed February 2024 for private-sector NLRB-jurisdiction employers)",
+        "effectiveDate": "2013 (enacted); repealed February 2024 for NLRB-jurisdiction",
+        "notes": "Michigan enacted right-to-work in 2012 (effective March 2013). Michigan voters passed Proposition 22 in November 2022 repealing right-to-work for private-sector workers; repeal took effect February 2024. NLRB-jurisdiction charter schools (privately incorporated) are now no longer subject to right-to-work — new CBAs may include union security clauses. MERC-jurisdiction charter schools (public employers) were never subject to right-to-work; PERA governs. RTW status: effectively NO for NLRB-jurisdiction charters as of February 2024; never applied to MERC-jurisdiction charters."
+      },
+      "note": "",
       "deferred": false
     },
     "MN": {
@@ -442,11 +517,16 @@ var NAPCS_CONFIG = {
       "clo": 1,
       "watch": 0,
       "density": "2.6%",
-      "lb": "Bureau of Mediation Services",
-      "lb_abbrev": "BMS",
-      "lb_full": "Minnesota Bureau of Mediation Services",
-      "rtw": false,
-      "note": "7 Independently Organized. Card-check post-2023 PELRA amendment. 1 Closed within lookback.",
+      "lb": "BMS (MN)",
+      "lb_abbrev": "",
+      "lb_full": "",
+      "rtw": {
+        "status": "NO",
+        "basis": "Minnesota has no right-to-work statute. Right-to-work legislation has been proposed in the Minnesota Legislature but has not been enacted. MN charter school employees are public employees under PELRA (Minn. Stat. §179A) following the 2023 amendments; union security provisions are available in collective bargaining agreements.",
+        "effectiveDate": "N/A",
+        "notes": "RTW legislation proposed but not enacted as of May 2026."
+      },
+      "note": "",
       "deferred": false
     },
     "MO": {
@@ -459,11 +539,16 @@ var NAPCS_CONFIG = {
       "clo": 0,
       "watch": 0,
       "density": "0.0%",
-      "lb": "National Labor Relations Board",
-      "lb_abbrev": "NLRB R14/R17",
-      "lb_full": "NLRB Regions 14 & 17",
-      "rtw": true,
-      "note": "0 organized. 1 Decertified (KIPP STL High, May 2024). 11 Documented Organizing Activity.",
+      "lb": "NLRB R14 (St. Louis) + NLRB R17 (Kansas City)",
+      "lb_abbrev": "",
+      "lb_full": "",
+      "rtw": {
+        "status": "NO",
+        "basis": "Missouri right-to-work law (RSMo §290.590, enacted 2017) was rejected by voter referendum August 7, 2018 (67% opposed). Missouri has no operative right-to-work statute. Union security provisions are available in collective bargaining agreements.",
+        "effectiveDate": "N/A — RTW law repealed by referendum August 2018",
+        "notes": "Missouri voters rejected right-to-work 67-33% in August 2018. The 2017 statute never took effect. Union security clauses are available in MO charter school CBAs under NLRA."
+      },
+      "note": "",
       "deferred": false
     },
     "MS": {
@@ -542,11 +627,16 @@ var NAPCS_CONFIG = {
       "clo": 1,
       "watch": 0,
       "density": "22.1%",
-      "lb": "Public Employment Relations Commission",
-      "lb_abbrev": "PERC(NJ)",
-      "lb_full": "New Jersey PERC",
-      "rtw": false,
-      "note": "19 Independently Organized. Card-check dominant. NJEA near-monopoly. 1 Closed.",
+      "lb": "PERC (NJ)",
+      "lb_abbrev": "",
+      "lb_full": "",
+      "rtw": {
+        "status": "NO",
+        "basis": "New Jersey has no right-to-work statute.",
+        "effectiveDate": null,
+        "notes": "NJ charter school employees are public employees under PERC(NJ) jurisdiction (EERA). Right-to-work statutes apply only to private-sector NLRA employers. Not applicable to NJ charter schools."
+      },
+      "note": "",
       "deferred": false
     },
     "NM": {
@@ -559,11 +649,16 @@ var NAPCS_CONFIG = {
       "clo": 0,
       "watch": 0,
       "density": "3.1%",
-      "lb": "NM PELRB / NLRB R28",
-      "lb_abbrev": "PELRB/NLRB R28",
-      "lb_full": "NM PELRB / NLRB Region 28 — jurisdiction unsettled",
-      "rtw": false,
-      "note": "3 Independently Organized (Monte del Sol + J Paul Taylor + TTCS). TTCS: cert Oct–Nov 2021, no CBA. 2 Documented Organizing Activity (Explore ABQ + SDIS).",
+      "lb": "PELRB (confirmed for J Paul Taylor Academy) / CONTESTED PELRB or NLRB Region 28 (other schools)",
+      "lb_abbrev": "",
+      "lb_full": "",
+      "rtw": {
+        "status": "NO",
+        "basis": "N.M. Stat. Ann. §50-11-1 et seq.",
+        "effectiveDate": "",
+        "notes": "Not a right-to-work state. Jurisdictional ambiguity between PELRB and NLRB R28 for charter schools."
+      },
+      "note": "",
       "deferred": false
     },
     "NV": {
@@ -598,11 +693,16 @@ var NAPCS_CONFIG = {
       "clo": 0,
       "watch": 0,
       "density": "8.0%",
-      "lb": "NLRB / PERB(NY) historical",
-      "lb_abbrev": "NLRB R2/R29/R3",
-      "lb_full": "NLRB Regions 2, 29 & 3",
-      "rtw": false,
-      "note": "24 Independently Organized + 4 Structural Coverage. UFT dominant. NRtW decert active at KIPP Academy Bronx. 1 Decertified.",
+      "lb": "PERB(NY)",
+      "lb_abbrev": "",
+      "lb_full": "",
+      "rtw": {
+        "status": "NO",
+        "basis": "New York has no right-to-work statute.",
+        "effectiveDate": null,
+        "notes": "NY charter school employees are statutory public employees under Education Law Article 56 (Taylor Law jurisdiction). Right-to-work statutes apply only to private-sector NLRA employers. PERB(NY)-jurisdiction schools are public employers and not subject to right-to-work. NLRB-jurisdiction independently incorporated NY charters are private employers — no right-to-work statute applies in New York."
+      },
+      "note": "",
       "deferred": false
     },
     "OH": {
@@ -615,11 +715,16 @@ var NAPCS_CONFIG = {
       "clo": 0,
       "watch": 0,
       "density": "8.4%",
-      "lb": "National Labor Relations Board",
-      "lb_abbrev": "NLRB R8/R9",
-      "lb_full": "NLRB Regions 8 & 9",
-      "rtw": false,
-      "note": "13 Independently Organized + 14 Structural Coverage (ORC §3314.10 conversion). Cleveland ACTS dominant.",
+      "lb": "NLRB (Region 8 / Region 9)",
+      "lb_abbrev": "",
+      "lb_full": "",
+      "rtw": {
+        "status": "NO",
+        "basis": "Ohio has no right-to-work statute for private-sector employees. NLRA preempts state right-to-work law for private employers, and Ohio has enacted no such statute. Ohio public employees retain full collective bargaining rights under ORC Chapter 4117 (SB 5, enacted 2011, was repealed by voter referendum November 2011).",
+        "effectiveDate": "N/A",
+        "notes": "No right-to-work statute applies to Ohio charter schools, which are private employers under the NLRA. Union security provisions (agency fee, union shop) are available in CBA negotiations."
+      },
+      "note": "",
       "deferred": false
     },
     "OK": {
@@ -654,11 +759,16 @@ var NAPCS_CONFIG = {
       "clo": 0,
       "watch": 0,
       "density": "95.3%",
-      "lb": "Employment Relations Board",
-      "lb_abbrev": "ERB/NLRB R19",
-      "lb_full": "Oregon ERB / NLRB Region 19",
-      "rtw": false,
-      "note": "2 Independently Organized + 120 Structural Coverage (OEA statutory). 2 Decertified (Ridgeline + VICS).",
+      "lb": "ERB (OR)",
+      "lb_abbrev": "",
+      "lb_full": "",
+      "rtw": {
+        "status": "NO",
+        "basis": "Oregon has no right-to-work statute.",
+        "effectiveDate": null,
+        "notes": "Oregon is a non-right-to-work state. ORS Chapter 243 (PECBA) governs public employer charter schools (ERB jurisdiction). Union security clauses are permissible. Independently incorporated OR charter schools that are private employers under NLRA (NLRB jurisdiction) are also not subject to right-to-work — no Oregon right-to-work statute exists for either jurisdiction."
+      },
+      "note": "",
       "deferred": false
     },
     "PA": {
@@ -671,11 +781,16 @@ var NAPCS_CONFIG = {
       "clo": 2,
       "watch": 0,
       "density": "13.1%",
-      "lb": "National Labor Relations Board",
-      "lb_abbrev": "NLRB R4/R6/R5",
-      "lb_full": "NLRB Regions 4, 6 & 5",
-      "rtw": false,
-      "note": "21 Independently Organized. Two ecosystems: Philadelphia (ACSE/AFT) + Pittsburgh (PSEA/NEA).",
+      "lb": "NLRB",
+      "lb_abbrev": "",
+      "lb_full": "",
+      "rtw": {
+        "status": "NO",
+        "basis": "Pennsylvania has no right-to-work statute. Right-to-work legislation has been introduced in the Pennsylvania General Assembly but has not been enacted. PA charter school employees are private-sector employees under the NLRA; union security provisions are available in collective bargaining agreements.",
+        "effectiveDate": "N/A",
+        "notes": "RTW legislation has been proposed but not enacted as of May 2026."
+      },
+      "note": "",
       "deferred": false
     },
     "RI": {
@@ -688,11 +803,16 @@ var NAPCS_CONFIG = {
       "clo": 1,
       "watch": 0,
       "density": "14.3%",
-      "lb": "National Labor Relations Board",
-      "lb_abbrev": "NLRB R1",
-      "lb_full": "NLRB Region 1 (Boston)",
-      "rtw": false,
-      "note": "5 Independently Organized + 2 Structural Coverage. 4 certifications in 10-month window (2024–25). First IBEW charter union in dataset.",
+      "lb": "NLRB Region 1 (Boston)",
+      "lb_abbrev": "",
+      "lb_full": "",
+      "rtw": {
+        "status": "NO",
+        "basis": "Rhode Island has no right-to-work statute. RI charter school employees are private-sector employees under the NLRA; union security provisions are available in CBA negotiations.",
+        "effectiveDate": "N/A",
+        "notes": "The unresolved question in RI is whether the state teacher strike prohibition (applicable to public-sector educators under RIPLRA) applies to NLRB-organized charter school employees. Federal court proceedings pending as of May 2026."
+      },
+      "note": "",
       "deferred": false
     },
     "SC": {
@@ -815,11 +935,16 @@ var NAPCS_CONFIG = {
       "clo": 0,
       "watch": 6,
       "density": "6.7%",
-      "lb": "WA Public Employment Relations Commission",
-      "lb_abbrev": "PERC(WA)",
-      "lb_full": "Washington PERC",
-      "rtw": false,
-      "note": "1 Independently Organized (WIHS — confirmed Sept 2023). 6 Documented Organizing Activity — Summit campuses + Rooted School Vancouver.",
+      "lb": "PERC (WA)",
+      "lb_abbrev": "",
+      "lb_full": "",
+      "rtw": {
+        "status": "NO",
+        "basis": "Washington has no right-to-work statute. RCW 41.56.0251 classifies WA charter school employees as public employees under PECBA — union security provisions are standard in WA public employee collective bargaining agreements.",
+        "effectiveDate": "N/A",
+        "notes": "WA charter school employees are public employees under RCW 41.56.0251 (SB 6194, 2016). PERC (Public Employment Relations Commission) has exclusive jurisdiction. Public employee union security is standard in WA."
+      },
+      "note": "",
       "deferred": false
     },
     "WI": {
@@ -832,11 +957,16 @@ var NAPCS_CONFIG = {
       "clo": 0,
       "watch": 0,
       "density": "52.3%",
-      "lb": "Wisconsin Employment Relations Commission",
-      "lb_abbrev": "WERC",
-      "lb_full": "Wisconsin Employment Relations Commission",
-      "rtw": false,
-      "note": "124 Structural Coverage — MPS instrumentality statute. Act 10 limits bargaining to base wages.",
+      "lb": "WERC (WI) / NLRB R18",
+      "lb_abbrev": "",
+      "lb_full": "",
+      "rtw": {
+        "status": "NO",
+        "basis": "Wisconsin right-to-work (Wis. Stat. §111.04) applies to private-sector NLRA employers only. Does not apply to WERC-jurisdiction public employers.",
+        "effectiveDate": "2015",
+        "notes": "WI enacted right-to-work for private-sector employees in 2015 (Wis. Stat. §111.04). All 124 DEPENDENT WI charter schools are LEA instrumentalities — public employers under WERC jurisdiction (MERA). Right-to-work does not apply to WERC-jurisdiction schools. NLRB R18 non-instrumentality charters are private employers and are subject to right-to-work; union security clauses are not available."
+      },
+      "note": "",
       "deferred": false
     },
     "WV": {
@@ -885,110 +1015,6 @@ var NAPCS_CONFIG = {
     }
   },
   "state_centers": {
-    "AZ": [
-      34,
-      -111.5
-    ],
-    "CA": [
-      36.7,
-      -119.7
-    ],
-    "CO": [
-      39,
-      -105.5
-    ],
-    "CT": [
-      41.6,
-      -72.7
-    ],
-    "DC": [
-      38.9,
-      -77
-    ],
-    "DE": [
-      39,
-      -75.5
-    ],
-    "FL": [
-      27.8,
-      -81.6
-    ],
-    "GA": [
-      32.5,
-      -83.5
-    ],
-    "HI": [
-      20.5,
-      -157
-    ],
-    "IL": [
-      40,
-      -89
-    ],
-    "LA": [
-      30.5,
-      -91.8
-    ],
-    "MA": [
-      42.2,
-      -71.5
-    ],
-    "MD": [
-      39.4,
-      -76.6
-    ],
-    "ME": [
-      44.5,
-      -69
-    ],
-    "MI": [
-      43.5,
-      -84.5
-    ],
-    "MN": [
-      46,
-      -93.5
-    ],
-    "MO": [
-      38.5,
-      -92.5
-    ],
-    "NJ": [
-      40.1,
-      -74.5
-    ],
-    "NM": [
-      34.5,
-      -106
-    ],
-    "NY": [
-      43,
-      -75.5
-    ],
-    "OH": [
-      40.4,
-      -82.8
-    ],
-    "OR": [
-      43.9,
-      -120.5
-    ],
-    "PA": [
-      40.9,
-      -77.7
-    ],
-    "RI": [
-      41.7,
-      -71.5
-    ],
-    "WA": [
-      47.4,
-      -120.5
-    ],
-    "WI": [
-      44.5,
-      -89.5
-    ],
     "AK": [
       64.2,
       -153
@@ -1093,7 +1119,7 @@ var NAPCS_CONFIG = {
       "watch": 0,
       "dec": 0,
       "clo": 1,
-      "lb": "HLRB"
+      "lb": ""
     },
     {
       "st": "KS",
@@ -1121,7 +1147,7 @@ var NAPCS_CONFIG = {
       "watch": 0,
       "dec": 0,
       "clo": 2,
-      "lb": "PERB(MD)"
+      "lb": ""
     },
     {
       "st": "OR",
@@ -1135,7 +1161,7 @@ var NAPCS_CONFIG = {
       "watch": 0,
       "dec": 2,
       "clo": 0,
-      "lb": "ERB/NLRB R19"
+      "lb": ""
     },
     {
       "st": "WI",
@@ -1149,7 +1175,7 @@ var NAPCS_CONFIG = {
       "watch": 0,
       "dec": 0,
       "clo": 0,
-      "lb": "WERC"
+      "lb": ""
     },
     {
       "st": "IA",
@@ -1191,7 +1217,7 @@ var NAPCS_CONFIG = {
       "watch": 2,
       "dec": 4,
       "clo": 9,
-      "lb": "PERB(CA)/EERA"
+      "lb": ""
     },
     {
       "st": "CT",
@@ -1205,7 +1231,7 @@ var NAPCS_CONFIG = {
       "watch": 0,
       "dec": 0,
       "clo": 0,
-      "lb": "SBLR/NLRB R34"
+      "lb": ""
     },
     {
       "st": "IL",
@@ -1219,7 +1245,7 @@ var NAPCS_CONFIG = {
       "watch": 0,
       "dec": 0,
       "clo": 6,
-      "lb": "NLRB R13/IELRB"
+      "lb": ""
     },
     {
       "st": "NJ",
@@ -1233,7 +1259,7 @@ var NAPCS_CONFIG = {
       "watch": 0,
       "dec": 0,
       "clo": 1,
-      "lb": "PERC(NJ)"
+      "lb": ""
     },
     {
       "st": "MA",
@@ -1247,7 +1273,7 @@ var NAPCS_CONFIG = {
       "watch": 0,
       "dec": 1,
       "clo": 1,
-      "lb": "DLR(MA)"
+      "lb": ""
     },
     {
       "st": "DE",
@@ -1261,7 +1287,7 @@ var NAPCS_CONFIG = {
       "watch": 0,
       "dec": 0,
       "clo": 0,
-      "lb": "PERB(DE)"
+      "lb": ""
     },
     {
       "st": "RI",
@@ -1275,7 +1301,7 @@ var NAPCS_CONFIG = {
       "watch": 0,
       "dec": 0,
       "clo": 1,
-      "lb": "NLRB R1"
+      "lb": ""
     },
     {
       "st": "PA",
@@ -1289,7 +1315,7 @@ var NAPCS_CONFIG = {
       "watch": 0,
       "dec": 0,
       "clo": 2,
-      "lb": "NLRB R4/R6/R5"
+      "lb": ""
     },
     {
       "st": "ME",
@@ -1303,7 +1329,7 @@ var NAPCS_CONFIG = {
       "watch": 0,
       "dec": 0,
       "clo": 0,
-      "lb": "NLRB R1"
+      "lb": ""
     },
     {
       "st": "OH",
@@ -1317,7 +1343,7 @@ var NAPCS_CONFIG = {
       "watch": 0,
       "dec": 0,
       "clo": 0,
-      "lb": "NLRB R8/R9"
+      "lb": ""
     },
     {
       "st": "NY",
@@ -1331,7 +1357,7 @@ var NAPCS_CONFIG = {
       "watch": 0,
       "dec": 2,
       "clo": 0,
-      "lb": "NLRB R2/R29/R3"
+      "lb": ""
     },
     {
       "st": "WA",
@@ -1345,7 +1371,7 @@ var NAPCS_CONFIG = {
       "watch": 6,
       "dec": 0,
       "clo": 0,
-      "lb": "PERC(WA)"
+      "lb": ""
     },
     {
       "st": "DC",
@@ -1359,7 +1385,7 @@ var NAPCS_CONFIG = {
       "watch": 0,
       "dec": 0,
       "clo": 1,
-      "lb": "NLRB R5"
+      "lb": ""
     },
     {
       "st": "NM",
@@ -1373,7 +1399,7 @@ var NAPCS_CONFIG = {
       "watch": 0,
       "dec": 0,
       "clo": 0,
-      "lb": "PELRB/NLRB R28"
+      "lb": ""
     },
     {
       "st": "LA",
@@ -1387,7 +1413,7 @@ var NAPCS_CONFIG = {
       "watch": 0,
       "dec": 1,
       "clo": 1,
-      "lb": "LSCSC/LERA"
+      "lb": ""
     },
     {
       "st": "MI",
@@ -1401,7 +1427,7 @@ var NAPCS_CONFIG = {
       "watch": 1,
       "dec": 0,
       "clo": 0,
-      "lb": "MERC/NLRB R7"
+      "lb": ""
     },
     {
       "st": "MN",
@@ -1415,7 +1441,7 @@ var NAPCS_CONFIG = {
       "watch": 0,
       "dec": 0,
       "clo": 1,
-      "lb": "BMS"
+      "lb": ""
     },
     {
       "st": "FL",
@@ -1429,7 +1455,7 @@ var NAPCS_CONFIG = {
       "watch": 0,
       "dec": 0,
       "clo": 0,
-      "lb": "PERC(FL)"
+      "lb": ""
     },
     {
       "st": "AZ",
@@ -1443,7 +1469,7 @@ var NAPCS_CONFIG = {
       "watch": 0,
       "dec": 0,
       "clo": 0,
-      "lb": "NLRB R28"
+      "lb": ""
     },
     {
       "st": "AR",
@@ -1471,7 +1497,7 @@ var NAPCS_CONFIG = {
       "watch": 9,
       "dec": 0,
       "clo": 0,
-      "lb": "NLRB R27"
+      "lb": ""
     },
     {
       "st": "GA",
@@ -1485,7 +1511,7 @@ var NAPCS_CONFIG = {
       "watch": 0,
       "dec": 0,
       "clo": 0,
-      "lb": "NLRB R10"
+      "lb": ""
     },
     {
       "st": "MO",
@@ -1499,7 +1525,7 @@ var NAPCS_CONFIG = {
       "watch": 0,
       "dec": 1,
       "clo": 0,
-      "lb": "NLRB R14/R17"
+      "lb": ""
     },
     {
       "st": "NH",
@@ -1530,269 +1556,14 @@ var NAPCS_CONFIG = {
       "lb": ""
     }
   ],
-  "jurisdiction_data": {
-    "AZ": {
-      "lb_abbrev": "NLRB R28",
-      "lb_full": "NLRB Region 28 (Phoenix)",
-      "statute": "NLRA",
-      "nlrb": "Yes",
-      "card_check": "No",
-      "dominant": "AACTS / AFT Local 6627",
-      "note": "NLRB R28 jurisdiction. BASIS Tucson North + CITY Center (3 campuses) confirmed. Election pathway only.",
-      "rtw": true
-    },
-    "CA": {
-      "lb_abbrev": "PERB(CA)/EERA",
-      "lb_full": "California PERB",
-      "statute": "EERA (Gov. Code §3540)",
-      "nlrb": "Limited",
-      "card_check": "Yes",
-      "dominant": "UTLA, AMU, HTEC, CFT",
-      "note": "Card-check dominant. 193 Independently Organized + 113 Structural Coverage (LAUSD/district). Documented Organizing Activity: Journey School + COIL.",
-      "rtw": false
-    },
-    "CO": {
-      "lb_abbrev": "NLRB R27",
-      "lb_full": "NLRB Region 27 (Denver)",
-      "statute": "NLRA",
-      "nlrb": "Yes",
-      "card_check": "No",
-      "dominant": "None confirmed",
-      "note": "0 organized. 9 Documented Organizing Activity — Summit Public Schools network (CMO_PRECEDENT).",
-      "rtw": false
-    },
-    "CT": {
-      "lb_abbrev": "SBLR/NLRB R34",
-      "lb_full": "CT SBLR / NLRB R34",
-      "statute": "C.G.S. §10-66dd / TNA",
-      "nlrb": "Partial",
-      "card_check": "No",
-      "dominant": "CEA/NEA, UAW Local 2110",
-      "note": "4 Independently Organized + 1 Structural Coverage (Elm City Montessori).",
-      "rtw": false
-    },
-    "DC": {
-      "lb_abbrev": "NLRB R5",
-      "lb_full": "NLRB Region 5 (Baltimore)",
-      "statute": "NLRA",
-      "nlrb": "Yes",
-      "card_check": "No",
-      "dominant": "DC ACTS Local 1927 / AFT",
-      "note": "7 Independently Organized. DC ACTS/AFT dominant. 1 Closed (Cesar Chavez PCS, 2019).",
-      "rtw": false
-    },
-    "DE": {
-      "lb_abbrev": "PERB(DE)",
-      "lb_full": "Delaware PERB",
-      "statute": "14 Del.C. Ch. 40",
-      "nlrb": "No",
-      "card_check": "Yes",
-      "dominant": "DSEA/NEA",
-      "note": "100% NAPCS density. Card-check dominant. All 4 schools DSEA/NEA.",
-      "rtw": false
-    },
-    "FL": {
-      "lb_abbrev": "PERC(FL)",
-      "lb_full": "Florida PERC",
-      "statute": "Fla. Stat. §447",
-      "nlrb": "No",
-      "card_check": "No",
-      "dominant": "BTU Local 1975 / FEA, PEA/FEA",
-      "note": "5 Independently Organized + 3 Structural Coverage. SB256 annual recertification requirement.",
-      "rtw": true
-    },
-    "GA": {
-      "lb_abbrev": "NLRB R10",
-      "lb_full": "NLRB Region 10 (Atlanta)",
-      "statute": "NLRA",
-      "nlrb": "Yes",
-      "card_check": "No",
-      "dominant": "None confirmed",
-      "note": "0 organized. 10 Documented Organizing Activity — KIPP Metro Atlanta network (CMO_PRECEDENT).",
-      "rtw": true
-    },
-    "HI": {
-      "lb_abbrev": "HLRB",
-      "lb_full": "Hawaii Labor Relations Board",
-      "statute": "HRS Ch. 89 / §89-10.55",
-      "nlrb": "No",
-      "card_check": "Yes",
-      "dominant": "HSTA/NEA",
-      "note": "100% Structural Coverage — HSTA statewide statutory coverage (HRS §89-10.55).",
-      "rtw": false
-    },
-    "IL": {
-      "lb_abbrev": "NLRB R13/IELRB",
-      "lb_full": "NLRB Region 13 (Chicago) / Illinois ELRB",
-      "statute": "NLRA / IELRA (105 ILCS 5)",
-      "nlrb": "Yes",
-      "card_check": "Partial",
-      "dominant": "CTU/ChiACTS, UEJ/AFT",
-      "note": "31 Independently Organized + 1 Structural Coverage (Springfield SD 186). CTU/ChiACTS dominant. 5 closed.",
-      "rtw": false
-    },
-    "LA": {
-      "lb_abbrev": "LSCSC/LERA",
-      "lb_full": "Louisiana SCSC (LERA)",
-      "statute": "LERA / Act 172 (2024)",
-      "nlrb": "Partial",
-      "card_check": "No",
-      "dominant": "UTNO / AFT Local 527",
-      "note": "3 Independently Organized. Act 172 stripped NLRB R15 jurisdiction over BESE-authorized schools. 1 Decertified (Lycée Français). 1 Closed.",
-      "rtw": true
-    },
-    "MA": {
-      "lb_abbrev": "DLR(MA)",
-      "lb_full": "Massachusetts DLR",
-      "statute": "M.G.L. c. 71 §89",
-      "nlrb": "No",
-      "card_check": "Yes",
-      "dominant": "BTU Local 66, AFTMA, UAW, Teamsters",
-      "note": "8 Independently Organized + 5 Structural Coverage (BPS Horace Mann). Card-check dominant. 1 Decertified.",
-      "rtw": false
-    },
-    "MD": {
-      "lb_abbrev": "PERB(MD)",
-      "lb_full": "Maryland PERB",
-      "statute": "Ed. Article §9-108",
-      "nlrb": "No",
-      "card_check": "Yes",
-      "dominant": "District CBAs (county-level)",
-      "note": "100% Structural Coverage — county CBA authorization by statute.",
-      "rtw": false
-    },
-    "ME": {
-      "lb_abbrev": "NLRB R1",
-      "lb_full": "NLRB Region 1 (Boston)",
-      "statute": "NLRA",
-      "nlrb": "Yes",
-      "card_check": "No",
-      "dominant": "MEA/NEA",
-      "note": "1 Independently Organized — Baxter Academy (MEA/NEA, 30-4 vote May 2019).",
-      "rtw": false
-    },
-    "MI": {
-      "lb_abbrev": "MERC/NLRB R7",
-      "lb_full": "MERC / NLRB Region 7 (Detroit)",
-      "statute": "PERA / NLRA",
-      "nlrb": "Partial",
-      "card_check": "Partial",
-      "dominant": "Michigan ACTS / AFT Local 6482",
-      "note": "10 Independently Organized. Split MERC/NLRB jurisdiction. RTW repealed Feb 2024.",
-      "rtw": false
-    },
-    "MN": {
-      "lb_abbrev": "BMS",
-      "lb_full": "Minnesota Bureau of Mediation Services",
-      "statute": "PELRA (Minn. Stat. 179A)",
-      "nlrb": "No",
-      "card_check": "Yes",
-      "dominant": "Education Minnesota (NEA/AFT dual)",
-      "note": "7 Independently Organized. Card-check post-2023 PELRA amendment. 1 Closed within lookback.",
-      "rtw": false
-    },
-    "MO": {
-      "lb_abbrev": "NLRB R14/R17",
-      "lb_full": "NLRB Regions 14 & 17",
-      "statute": "NLRA",
-      "nlrb": "Yes",
-      "card_check": "No",
-      "dominant": "None confirmed",
-      "note": "0 organized. 1 Decertified (KIPP STL High, May 2024). 11 Documented Organizing Activity.",
-      "rtw": true
-    },
-    "NJ": {
-      "lb_abbrev": "PERC(NJ)",
-      "lb_full": "New Jersey PERC",
-      "statute": "N.J.S.A. 34:13A",
-      "nlrb": "No",
-      "card_check": "Yes",
-      "dominant": "NJEA/NEA",
-      "note": "19 Independently Organized. Card-check dominant. NJEA near-monopoly. 1 Closed.",
-      "rtw": false
-    },
-    "NM": {
-      "lb_abbrev": "PELRB/NLRB R28",
-      "lb_full": "NM PELRB / NLRB Region 28 — jurisdiction unsettled",
-      "statute": "PEBA (NMSA 10-7E) / NLRA",
-      "nlrb": "Partial",
-      "card_check": "Partial",
-      "dominant": "NEA-NM",
-      "note": "3 Independently Organized (Monte del Sol + J Paul Taylor + TTCS). TTCS: cert Oct–Nov 2021, no CBA. 2 Documented Organizing Activity (Explore ABQ + SDIS).",
-      "rtw": false
-    },
-    "NY": {
-      "lb_abbrev": "NLRB R2/R29/R3",
-      "lb_full": "NLRB Regions 2, 29 & 3",
-      "statute": "NLRA / Taylor Law (NY CSL Art. 14)",
-      "nlrb": "Yes",
-      "card_check": "No",
-      "dominant": "UFT Local 2 / NYSUT / AFT",
-      "note": "24 Independently Organized + 4 Structural Coverage. UFT dominant. NRtW decert active at KIPP Academy Bronx. 1 Decertified.",
-      "rtw": false
-    },
-    "OH": {
-      "lb_abbrev": "NLRB R8/R9",
-      "lb_full": "NLRB Regions 8 & 9",
-      "statute": "NLRA / ORC §3314.10(A)(3)",
-      "nlrb": "Yes",
-      "card_check": "No",
-      "dominant": "Cleveland ACTS / OFT Local 6570",
-      "note": "13 Independently Organized + 14 Structural Coverage (ORC §3314.10 conversion). Cleveland ACTS dominant.",
-      "rtw": false
-    },
-    "OR": {
-      "lb_abbrev": "ERB/NLRB R19",
-      "lb_full": "Oregon ERB / NLRB Region 19",
-      "statute": "ORS Ch. 338 / NLRA",
-      "nlrb": "Partial",
-      "card_check": "No",
-      "dominant": "OEA/NEA, AFT-Oregon",
-      "note": "2 Independently Organized + 120 Structural Coverage (OEA statutory). 2 Decertified (Ridgeline + VICS).",
-      "rtw": false
-    },
-    "PA": {
-      "lb_abbrev": "NLRB R4/R6/R5",
-      "lb_full": "NLRB Regions 4, 6 & 5",
-      "statute": "NLRA (PA Commonwealth Court 2016)",
-      "nlrb": "Yes",
-      "card_check": "No",
-      "dominant": "ACSE/AFT Local 6056, PSEA/NEA",
-      "note": "21 Independently Organized. Two ecosystems: Philadelphia (ACSE/AFT) + Pittsburgh (PSEA/NEA).",
-      "rtw": false
-    },
-    "RI": {
-      "lb_abbrev": "NLRB R1",
-      "lb_full": "NLRB Region 1 (Boston)",
-      "statute": "NLRA",
-      "nlrb": "Yes",
-      "card_check": "No",
-      "dominant": "RIFT&HP/AFT, IBEW Local 2323",
-      "note": "5 Independently Organized + 2 Structural Coverage. 4 certifications in 10-month window (2024–25). First IBEW charter union in dataset.",
-      "rtw": false
-    },
-    "WA": {
-      "lb_abbrev": "PERC(WA)",
-      "lb_full": "Washington PERC",
-      "statute": "RCW 41.56 (PECBA)",
-      "nlrb": "No",
-      "card_check": "Yes",
-      "dominant": "Federated Collective of WA Charter Teachers / AFT",
-      "note": "1 Independently Organized (WIHS — confirmed Sept 2023). 6 Documented Organizing Activity — Summit campuses + Rooted School Vancouver.",
-      "rtw": false
-    },
-    "WI": {
-      "lb_abbrev": "WERC",
-      "lb_full": "Wisconsin Employment Relations Commission",
-      "statute": "Wis. Stat. §118.40(7)",
-      "nlrb": "Partial",
-      "card_check": "No",
-      "dominant": "MPS-affiliated district CBAs",
-      "note": "124 Structural Coverage — MPS instrumentality statute. Act 10 limits bargaining to base wages.",
-      "rtw": false
-    }
-  },
+  "jurisdiction_data": {},
   "stateReports": {
+    "AK": {
+      "boxUrl": "https://pltstrategiesgroup.box.com/v/NAPCS-AK-State-Research-Report"
+    },
+    "AR": {
+      "boxUrl": "https://pltstrategiesgroup.box.com/v/NAPCS-AR-State-Research-Report"
+    },
     "AZ": {
       "boxUrl": "https://pltstrategiesgroup.box.com/v/NAPCS-AZ-State-Research-Report"
     },
@@ -1820,8 +1591,14 @@ var NAPCS_CONFIG = {
     "HI": {
       "boxUrl": "https://pltstrategiesgroup.box.com/v/NAPCS-HI-State-Research-Report"
     },
+    "IA": {
+      "boxUrl": "https://pltstrategiesgroup.box.com/v/NAPCS-IA-State-Research-Report"
+    },
     "IL": {
       "boxUrl": "https://pltstrategiesgroup.box.com/v/NAPCS-IL-State-Research-Report"
+    },
+    "KS": {
+      "boxUrl": "https://pltstrategiesgroup.box.com/v/NAPCS-KS-State-Research-Report"
     },
     "LA": {
       "boxUrl": "https://pltstrategiesgroup.box.com/v/NAPCS-LA-State-Research-Report"
@@ -1844,6 +1621,9 @@ var NAPCS_CONFIG = {
     "MO": {
       "boxUrl": "https://pltstrategiesgroup.box.com/v/NAPCS-MO-State-Research-Report"
     },
+    "NH": {
+      "boxUrl": "https://pltstrategiesgroup.box.com/v/NAPCS-NH-State-Research-Report"
+    },
     "NJ": {
       "boxUrl": "https://pltstrategiesgroup.box.com/v/NAPCS-NJ-State-Research-Report"
     },
@@ -1865,62 +1645,20 @@ var NAPCS_CONFIG = {
     "RI": {
       "boxUrl": "https://pltstrategiesgroup.box.com/v/NAPCS-RI-State-Research-Report"
     },
+    "VA": {
+      "boxUrl": "https://pltstrategiesgroup.box.com/v/NAPCS-VA-State-Research-Report"
+    },
     "WA": {
       "boxUrl": "https://pltstrategiesgroup.box.com/v/NAPCS-WA-State-Research-Report"
     },
     "WI": {
       "boxUrl": "https://pltstrategiesgroup.box.com/v/NAPCS-WI-State-Research-Report"
     },
-    "AK": {
-      "boxUrl": "https://pltstrategiesgroup.box.com/v/NAPCS-AK-State-Research-Report"
-    },
-    "AR": {
-      "boxUrl": "https://pltstrategiesgroup.box.com/v/NAPCS-AR-State-Research-Report"
-    },
-    "IA": {
-      "boxUrl": "https://pltstrategiesgroup.box.com/v/NAPCS-IA-State-Research-Report"
-    },
-    "KS": {
-      "boxUrl": "https://pltstrategiesgroup.box.com/v/NAPCS-KS-State-Research-Report"
-    },
-    "NH": {
-      "boxUrl": "https://pltstrategiesgroup.box.com/v/NAPCS-NH-State-Research-Report"
-    },
-    "VA": {
-      "boxUrl": "https://pltstrategiesgroup.box.com/v/NAPCS-VA-State-Research-Report"
-    },
     "WV": {
       "boxUrl": "https://pltstrategiesgroup.box.com/v/NAPCS-WV-State-Research-Report"
     }
   },
   "stateK12Enrollment": {
-    "source": "NCES CCD ELSI 2024-25 (SY 2024-25 Universe Files, Version 1a)",
-    "vintage": "2024-25",
-    "AZ": 1103894,
-    "CA": 5805510,
-    "CO": 865077,
-    "CT": 508402,
-    "DE": 142156,
-    "DC": 94211,
-    "FL": 2859600,
-    "HI": 167071,
-    "IL": 1842881,
-    "LA": 666840,
-    "ME": 167309,
-    "MD": 891525,
-    "MA": 915932,
-    "MI": 1423933,
-    "MN": 876182,
-    "NJ": 1394971,
-    "NM": 307110,
-    "NY": 2527258,
-    "OH": 1665566,
-    "OR": 545088,
-    "PA": 1691456,
-    "RI": 135978,
-    "TX": 5545640,
-    "WA": 1094502,
-    "WI": 806065,
     "AK": 126000,
     "AL": 726000,
     "AR": 476000,
