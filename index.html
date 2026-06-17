@@ -18,6 +18,7 @@
 <script src="napcs_schools_northeast.js"></script>
 <script src="napcs_schools_great_lakes.js"></script>
 <script src="napcs_schools_midwest.js"></script>
+<script src="napcs_associations.js"></script>
 
 
 <style>
@@ -286,8 +287,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
       <label class="fitem"><input type="checkbox" checked data-status="CONFIRMED"><span class="fdot" style="background:#6CC04A"></span><span>Independently Organized (<span id="fc-0">0</span>)</span></label>
       <label class="fitem"><input type="checkbox" checked data-status="DEPENDENT"><span class="fdot" style="background:#4ABFBF"></span><span>Structural Coverage (<span id="fc-1">0</span>)</span></label>
       <label class="fitem"><input type="checkbox" checked data-status="ORGANIZING"><span class="fdot" style="background:#F5A623"></span><span>Organizing Presence / Intent (<span id="fc-2">0</span>)</span></label>
-      <label class="fitem" title="Schools that were certified but had their certification removed (decertified). Currently no active union."><input type="checkbox" checked data-status="DECERTIFIED"><span class="fdot" style="background:#C084FC"></span><span>Decertified — School Open (<span id="fc-3">0</span>)</span></label>
-      <label class="fitem" title="Schools that were organized when they closed. Shown for historical reference only."><input type="checkbox" checked data-status="CLOSED"><span class="fdot" style="background:#E07A4A"></span><span>Closed — Was Organized (<span id="fc-4">0</span>)</span></label>
+      <label class="fitem" title="Schools that were certified but had their certification removed (decertified). Currently no active union."><input type="checkbox" data-status="DECERTIFIED"><span class="fdot" style="background:#C084FC"></span><span>Decertified — School Open (<span id="fc-3">0</span>)</span></label>
+      <label class="fitem" title="Schools that were organized when they closed. Shown for historical reference only."><input type="checkbox" data-status="CLOSED"><span class="fdot" style="background:#E07A4A"></span><span>Closed — Was Organized (<span id="fc-4">0</span>)</span></label>
       <label class="fitem" title="Schools fully researched with no evidence of union activity found."><input type="checkbox" data-status="UNVERIFIED"><span class="fdot" style="background:transparent;border:1.5px dashed #4A6A80"></span><span>No Organizing Activity Documented (<span id="fc-5">0</span>)</span></label>
       <label class="fitem" title="12 states where research was deferred by Executive Sponsor direction. No organized charter schools known to exist. Sector assumed unorganized as of June 2026."><input type="checkbox" data-status="DEFERRED"><span class="fdot" style="background:#4A7A9B;border:1px solid #2A5A7B"></span><span style="color:#8BA0B4">No Known Organizing Activity (<span id="fc-6">0</span>)</span></label>
       <div style="border-top:1px solid #1E2D40;margin-top:6px;padding-top:5px;font-size:8px;color:#4A6A80;line-height:1.4"><strong style="color:#888">Decertified — School Open</strong> = cert removed<br><strong style="color:#E07A4A">Closed — Was Organized</strong> = closed while organized</div>
@@ -358,35 +359,35 @@ var NAPCS_SCHOOLS = [].concat(NAPCS_SCHOOLS_CA, NAPCS_SCHOOLS_FL_SOUTH, NAPCS_SC
 var SCHOOLS = NAPCS_SCHOOLS;
 var INTEL = (typeof NAPCS_INTEL !== "undefined") ? NAPCS_INTEL : {};
 var ASSOC = (typeof NAPCS_ASSOCIATIONS !== "undefined") ? NAPCS_ASSOCIATIONS : {};
+// STATE_ASSOC — fallback for states not in verified NAPCS_ASSOCIATIONS file
 var STATE_ASSOC = {
-  AZ:[{name:"Arizona Charter Schools Association",website:"https://www.azcharters.org"}],
-  CA:[{name:"California Charter Schools Association",website:"https://www.ccsa.org"},{name:"California Alliance of Public Charter Schools",website:"https://www.capcs.org"}],
+  AK:[{name:"Alaska Charter Schools Association",website:"https://www.alaskacharters.org"}],
+  AL:[{name:"Alabama Association of Public Charter Schools",website:"https://www.alapcs.org"}],
+  AR:[{name:"Arkansas Public School Resource Center",website:"https://www.apsrc.net"}],
   CO:[{name:"Colorado League of Charter Schools",website:"https://www.coloradoleague.org"}],
-  CT:[{name:"Connecticut Coalition for Achievement Now",website:"https://www.conncan.org"}],
-  DC:[{name:"DC Public Charter School Board",website:"https://www.dcpcsb.org"}],
-  DE:[{name:"Delaware Charter Schools Network",website:"https://www.decharternetwork.org"}],
-  FL:[{name:"Florida Charter School Alliance",website:"https://www.flcharteralliance.org"}],
   GA:[{name:"Georgia Charter Schools Association",website:"https://www.georgiacharterschools.org"}],
-  HI:[{name:"Hawaii Public Charter School Commission",website:"https://www.hawaiipublicschools.org/TeachingAndLearning/SpecializedLearning/CharterSchools/Pages/home.aspx"}],
-  IL:[{name:"Illinois Network of Charter Schools",website:"https://www.incschools.org"}],
-  LA:[{name:"Louisiana Association of Public Charter Schools",website:"https://www.lapcs.org"}],
-  MA:[{name:"Massachusetts Charter Public School Association",website:"https://www.masscharterschools.org"}],
+  IA:[{name:"Iowa Association of Charter Schools",website:"https://www.iowacharters.org"}],
+  ID:[{name:"Idaho Charter School Network",website:"https://www.idahocharters.org"}],
+  IN:[{name:"Indiana Charter School Board",website:"https://www.in.gov/icsb"}],
+  KS:[{name:"Kansas Charter School Association",website:"https://www.kansascharters.org"}],
   MD:[{name:"Maryland Public Charter School Association",website:"https://www.mdpsa.org"}],
-  ME:[{name:"Maine Charter School Association",website:"https://www.mainecharterschools.org"}],
-  MI:[{name:"Michigan Association of Public School Academies",website:"https://www.charterschools.org"}],
-  MN:[{name:"Minnesota Association of Charter Schools",website:"https://www.mncharterschools.org"}],
   MO:[{name:"Missouri Charter Public School Association",website:"https://www.mocharterschools.org"}],
-  NJ:[{name:"New Jersey Charter Schools Association",website:"https://www.njcharters.org"}],
-  NM:[{name:"New Mexico Coalition for Charter Schools",website:"https://www.newmexicocharters.org"}],
-  NY:[{name:"New York Charter Schools Association",website:"https://www.nycharterschools.org"}],
-  OH:[{name:"Ohio Alliance for Public Charter Schools",website:"https://www.oapcs.org"}],
-  OR:[{name:"Oregon Charter School Association",website:"https://www.oregoncharters.org"}],
-  PA:[{name:"Pennsylvania Coalition of Public Charter Schools",website:"https://www.pacharterschools.org"}],
-  RI:[{name:"Rhode Island League of Charter Schools",website:"https://www.rilcs.org"}],
+  MS:[{name:"Mississippi Charter Schools Association",website:"https://www.mscharters.org"}],
+  NC:[{name:"NC Association for Public Charter Schools",website:"https://www.ncpubliccharters.org"}],
+  NH:[{name:"New Hampshire Alliance for Public Charter Schools",website:"https://www.nhallianceforcharters.org"}],
+  NV:[{name:"Charter School Association of Nevada",website:"https://www.nvcharters.org"}],
+  OK:[{name:"Oklahoma Public Charter School Association",website:"https://okcharters.org"}],
+  SC:[{name:"Public Charter School Alliance of South Carolina",website:"https://www.scpcs.org"}],
+  TN:[{name:"Tennessee Charter School Center",website:"https://tnchartercenter.org"}],
+  TX:[{name:"Texas Public Charter Schools Association",website:"https://txcharterschools.org"}],
+  UT:[{name:"Utah Association of Public Charter Schools",website:"https://www.utahcharters.org"}],
+  VA:[{name:"Virginia Association of Public Charter Schools",website:"https://www.vapcs.org"}],
   WA:[{name:"Washington State Charter Schools Association",website:"https://www.wacharters.org"}],
-  WI:[{name:"Wisconsin Coalition of Independent Charter Schools",website:"https://www.wicics.org"}]
+  WV:[{name:"West Virginia Collaborative for 21st Century Schools",website:"https://wvcharters.org"}],
+  WY:[{name:"Wyoming School Boards Association",website:"https://www.wsba-wy.org"}],
 };
-if(!Object.keys(ASSOC).length) ASSOC = STATE_ASSOC;
+// Merge: STATE_ASSOC fills gaps for states not in verified NAPCS_ASSOCIATIONS
+Object.keys(STATE_ASSOC).forEach(function(st){ if(!ASSOC[st]) ASSOC[st] = STATE_ASSOC[st]; });
 var JDATA = NAPCS_CONFIG.jurisdiction_data || {};
 var RC = NAPCS_REGISTRY_CONTENT;
 var SR = NAPCS_CONFIG.stateReports || {};
@@ -478,7 +479,7 @@ L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{
 }).addTo(map);
 
 var layers={};
-var HIDDEN_BY_DEFAULT = new Set(['UNVERIFIED','DEFERRED']);
+var HIDDEN_BY_DEFAULT = new Set(['UNVERIFIED','DEFERRED','CLOSED','DECERTIFIED']);
 Object.keys(STATUS_CFG).forEach(function(s){
   layers[s] = L.layerGroup();
   if(!HIDDEN_BY_DEFAULT.has(s)) layers[s].addTo(map);
@@ -946,27 +947,35 @@ function showStatePanel(code){
   var pct=sd.universe>0?(combined/sd.universe*100).toFixed(1):'0.0';
   var h='';
 
+  // Deferred badge — shown prominently at top
+  if(sd.deferred){
+    h+='<div style="background:#0D1E2A;border:1px solid #2A5070;border-left:4px solid #4A7A9B;border-radius:4px;padding:8px 10px;margin-bottom:8px">';
+    h+='<div style="font-size:10px;font-weight:700;color:#4A9FBF;margin-bottom:3px">&#128274; Research Deferred</div>';
+    h+='<div style="font-size:9px;color:#6A8A9A;line-height:1.5">Executive Sponsor direction (PDR-018, June 7, 2026). No school-level research conducted. Sector assumed unorganized.</div>';
+    h+='</div>';
+  }
+
   // Density stats
   h+='<div class="section-label">'+name+'</div>';
   h+=srow('Census Total',(sd.universe||0).toLocaleString(),'');
-  h+=srow('Independently Organized',sd.conf||0,'sv-g');
+  h+=srow('Independently Organized',sd.conf||'<span style="color:#2A3A50">—</span>','sv-g');
   if(sd.dep) h+=srow('Structural Coverage (Dep.)',sd.dep,'sv-t');
   if(sd.org||sd.watch) h+=srow('Organizing Presence / Intent',(sd.watch||sd.org),'sv-gold');
   if(sd.dec) h+=srow('Decertified — School Open',sd.dec,'');
   if(sd.clo) h+=srow('Closed — Was Organized',sd.clo,'');
-  h+=srow('Combined Density',pct+'%',combined>0?'sv-g':'');
+  h+=srow('Combined Density',pct+'%',combined>0?'sv-g':(sd.deferred?'':''));
   h+='<div class="density-bar"><div class="density-fill" style="width:'+Math.min(100,parseFloat(pct))+'%"></div></div>';
 
-  // Enrollment (from registry)
-  var charterEnr = (NAPCS_CONFIG.charterEnrollment||{})[code]||0;
+  // Enrollment — computed from SCHOOLS array for this state
+  var stateSchools = SCHOOLS.filter(function(s){ return s.state===code; });
+  var charterEnr = stateSchools.reduce(function(sum,s){ return sum+(Number(s.enrollment_2425)||0); },0);
   var totalK12   = (NAPCS_CONFIG.stateK12Enrollment||{})[code]||0;
-  var charterPct = totalK12>0?(charterEnr/totalK12*100).toFixed(1):null;
-  if(charterEnr>0||totalK12>0){
-    h+='<div class="section-label">State Enrollment (2024\u201325)</div>';
-    if(totalK12>0) h+=srow('Total Public K\u201312',totalK12.toLocaleString(),'');
-    if(charterEnr>0) h+=srow('Charter Enrollment',charterEnr.toLocaleString(),'sv-b');
-    if(charterPct) h+=srow('Charter Share',charterPct+'% of public K\u201312','');
-  }
+  var charterPct = (totalK12>0&&charterEnr>0)?(charterEnr/totalK12*100).toFixed(1):null;
+  h+='<div class="section-label">State Enrollment (2024\u201325)</div>';
+  h+=srow('Total Public K\u201312',totalK12>0?totalK12.toLocaleString():'N/A','');
+  h+=srow('Charter Enrollment',charterEnr>0?charterEnr.toLocaleString():'N/A','sv-b');
+  if(charterPct) h+=srow('Charter Share',charterPct+'% of public K\u201312','');
+  else h+=srow('Charter Share','0.0% of public K\u201312','');
 
   // Jurisdiction — RTW first
   h+='<div class="section-label">Jurisdiction</div>';
@@ -977,19 +986,57 @@ function showStatePanel(code){
   if(jd.statute) h+=srow('Statute',jd.statute,'');
   if(jd.nlrb) h+=srow('NLRB',jd.nlrb,'');
   if(jd.card_check) h+=srow('Card-Check',jd.card_check,jd.card_check==='Yes'?'sv-g':'');
-  if(sd.deferred) h+='<div style="font-size:9px;color:#E07A4A;line-height:1.4;margin-top:4px;padding:4px 6px;background:#1A1010;border-radius:3px">Research deferred — Executive Sponsor direction. Sector assumed unorganized as of June 7, 2026 (PDR-018).</div>';
-  else if(sd.note) h+='<div style="font-size:9px;color:#6A7A8A;line-height:1.4;margin-top:4px;padding:4px 6px;background:#1A2535;border-radius:3px">'+esc(sd.note.slice(0,150))+'</div>';
+  if(!sd.deferred && sd.note) h+='<div style="font-size:9px;color:#6A7A8A;line-height:1.4;margin-top:4px;padding:4px 6px;background:#1A2535;border-radius:3px">'+esc(sd.note.slice(0,150))+'</div>';
 
   // Associations
-  var assocs=(ASSOC[code]||STATE_ASSOC[code]||[]);
+  // Enrollment Intelligence — breakdown by organized/organizing
+  var stateSchools2 = stateSchools; // already computed above
+  var enrConf=0, enrDep=0, enrOrg=0;
+  stateSchools2.forEach(function(s){
+    var e=Number(s.enrollment_2425);
+    if(!e||isNaN(e)||e<=0) return;
+    if(s.status==='CONFIRMED') enrConf+=e;
+    else if(s.status==='DEPENDENT') enrDep+=e;
+    else if(s.status==='ORGANIZING') enrOrg+=e;
+  });
+  var enrOrganized = enrConf + enrDep;
+  var enrShare = (charterEnr>0&&enrOrganized>0)?(enrOrganized/charterEnr*100).toFixed(1):null;
+  if(enrOrganized>0||enrOrg>0){
+    h+='<div class="section-label">Enrollment — Union Breakdown</div>';
+    h+=srow('Students in Organized Schools',enrOrganized.toLocaleString(),'sv-g');
+    if(enrConf>0) h+=srow('Independently Organized',enrConf.toLocaleString(),'sv-g');
+    if(enrDep>0)  h+=srow('Structural Coverage',enrDep.toLocaleString(),'sv-t');
+    if(enrOrg>0)  h+=srow('Organizing — Students Affected',enrOrg.toLocaleString(),'sv-gold');
+    if(enrShare)  h+=srow('Union Enrollment Share',enrShare+'%','sv-g');
+  }
+
+  // Charter Association(s)
+  var assocs=(ASSOC[code]||[]);
   if(assocs.length){
     h+='<div class="section-label">Charter Association'+(assocs.length>1?'s':'')+'</div>';
     assocs.forEach(function(a){
-      h+='<div class="spo-assoc"><div class="spo-assoc-name">'+esc(a.name)+'</div>';
-      if(a.website) h+='<div class="spo-assoc-link"><a href="'+esc(a.website)+'" target="_blank" rel="noopener">'+esc(a.website.replace(/^https?:\/\//,''))+'</a></div>';
+      h+='<div class="assoc-card">';
+      if(a.website){
+        h+='<div style="font-weight:700;font-size:10px"><a href="'+esc(a.website)+'" target="_blank" rel="noopener" style="color:#4A9FE0;text-decoration:none">'+esc(a.name)+'</a></div>';
+        h+='<div style="font-size:9px;color:#6A8A9A;margin-top:2px">'+esc(a.website.replace(/^https?:\/\//,''))+'</div>';
+      } else {
+        h+='<div style="font-weight:700;font-size:10px;color:#8AA8C0">'+esc(a.name)+'</div>';
+      }
+      if(a.contact && a.contact !== 'None [Vacant]') h+='<div style="font-size:9px;color:#6A8A9A">'+esc(a.contact)+'</div>';
       h+='</div>';
     });
   }
+
+  // Download State Research Report button
+  var rpt = SR[code];
+  var rptUrl = rpt ? (rpt.netlifyUrl||rpt.boxUrl||null) : null;
+  h+='<div style="margin-top:10px">';
+  if(rptUrl && !sd.deferred){
+    h+='<a class="spo-report-btn" href="'+esc(rptUrl)+'" target="_blank" rel="noopener">&#8595; Download State Research Report (PDF)</a>';
+  } else {
+    h+='<div class="spo-report-btn" style="opacity:0.4;cursor:default">&#8595; '+(sd.deferred?'Report Coming Soon — Research Deferred':'Report Coming Soon')+'</div>';
+  }
+  h+='</div>';
 
   setPanelBody(h);
 }
@@ -1002,25 +1049,36 @@ function srow(l,v,cls){
 var dtSortCol = 'density', dtSortDir = -1; // default: density descending
 
 function buildDensityTable(){
-  setPanelHdr('Census Table','All '+NAT.jurisdictions+' jurisdictions \u00B7 click column header to sort');
+  setPanelHdr('Census Table','All 45 jurisdictions (33 researched + 12 deferred) \u00B7 click column header to sort');
   renderDensityTable();
 }
 
 function renderDensityTable(){
-  var rows = NAPCS_CONFIG.density_table.slice(); // copy
-  // Sort
-  rows.sort(function(a,b){
+  var allRows = NAPCS_CONFIG.density_table.slice();
+  var researched = allRows.filter(function(r){return !r.deferred;});
+  var deferred   = allRows.filter(function(r){return r.deferred;});
+
+  // Sort researched rows only (deferred always appended at bottom alpha)
+  researched.sort(function(a,b){
     var av, bv;
-    if(dtSortCol==='name')     { av=a.name||''; bv=b.name||''; return dtSortDir*(av.localeCompare(bv)); }
-    if(dtSortCol==='universe') { av=a.universe||0; bv=b.universe||0; }
+    if(dtSortCol==='name')      { av=a.name||''; bv=b.name||''; return dtSortDir*(av.localeCompare(bv)); }
+    if(dtSortCol==='universe')  { av=a.universe||0; bv=b.universe||0; }
     else if(dtSortCol==='confirmed') { av=a.confirmed||0; bv=b.confirmed||0; }
     else if(dtSortCol==='dependent') { av=a.dependent||0; bv=b.dependent||0; }
-    else if(dtSortCol==='density')   { av=parseFloat(a.density)||0; bv=parseFloat(b.density)||0; }
     else { av=parseFloat(a.density)||0; bv=parseFloat(b.density)||0; }
     return dtSortDir*(av-bv);
   });
-  var maxPct=rows.length>0?parseFloat(rows[0].density):100;
-  if(dtSortCol!=='density') maxPct=Math.max.apply(null,rows.map(function(r){return parseFloat(r.density)||0;}));
+
+  var maxPct=Math.max.apply(null,researched.map(function(r){return parseFloat(r.density)||0;}));
+
+  // Build state-level charter enrollment lookup from SCHOOLS array
+  var stEnroll={};
+  SCHOOLS.forEach(function(s){
+    var e=Number(s.enrollment_2425);
+    if(e&&e>0&&!isNaN(e)){
+      stEnroll[s.state]=(stEnroll[s.state]||0)+e;
+    }
+  });
 
   function thArrow(col, label){
     var active = dtSortCol===col;
@@ -1028,22 +1086,55 @@ function renderDensityTable(){
     return '<th style="cursor:pointer;'+(active?'color:#4A9FE0':'')+'" onclick="dtSort(\''+col+'\')">'+label+arrow+'</th>';
   }
 
-  var trs=rows.map(function(row){
-    var pct=parseFloat(row.density)||0,univ=row.universe||1;
+  function researchedRow(row){
+    var pct=parseFloat(row.density)||0, univ=row.universe||1;
     var cW=maxPct>0?Math.round(row.confirmed/univ*100/maxPct*100):0;
     var dW=maxPct>0?Math.round((row.dependent||0)/univ*100/maxPct*100):0;
+    var enr=stEnroll[row.st]||0;
+    var enrCell=enr>0?enr.toLocaleString():'<span style="color:#2A3A50">—</span>';
     return '<tr><td><span class="dt-link" onclick="openStateSlideout(\''+row.st+'\',null)">'+esc(row.name)+'</span></td>'+
       '<td>'+row.universe.toLocaleString()+'</td>'+
-      '<td style="color:#6CC04A;font-weight:700">'+row.confirmed+'</td>'+
-      '<td style="color:#4ABFBF">'+(row.dependent||'\u2014')+'</td>'+
-      '<td style="font-weight:700">'+row.density+'<div class="dt-bar"><div class="dt-fill-conf" style="width:'+cW+'%"></div><div class="dt-fill-dep" style="width:'+dW+'%"></div></div></td></tr>';
-  }).join('');
-  var totRow='<tr class="tot"><td><strong>ALL '+NAT.jurisdictions+'</strong></td><td><strong>'+NAT.universe.toLocaleString()+'</strong></td><td style="color:#6CC04A"><strong>'+NAT.confirmed+'</strong></td><td style="color:#4ABFBF"><strong>'+NAT.dependent+'</strong></td><td><strong>'+NAT.density+'</strong></td></tr>';
-  var printBtn='<div style="text-align:right;margin-bottom:6px"><button onclick="printDensityTable()" style="font-size:9px;background:#1A2535;border:1px solid #2E75B6;color:#4A9FE0;padding:3px 10px;border-radius:4px;cursor:pointer;font-family:inherit">&#128438; Print / Save PDF</button></div>';
-  setPanelBody(printBtn+'<table id="dtable"><thead><tr>'+
+      '<td style="color:#6CC04A;font-weight:700">'+(row.confirmed||'<span style="color:#2A3A50">—</span>')+'</td>'+
+      '<td style="color:#4ABFBF">'+(row.dependent||'<span style="color:#2A3A50">—</span>')+'</td>'+
+      '<td style="font-weight:700">'+row.density+'<div class="dt-bar"><div class="dt-fill-conf" style="width:'+cW+'%"></div><div class="dt-fill-dep" style="width:'+dW+'%"></div></div></td>'+
+      '<td style="color:#8AA8C0;font-size:9px">'+enrCell+'</td></tr>';
+  }
+
+  function deferredRow(row){
+    var enr=stEnroll[row.st]||0;
+    var enrCell=enr>0?enr.toLocaleString():'<span style="color:#2A3A50">—</span>';
+    return '<tr style="opacity:0.7"><td><span class="dt-link" onclick="openStateSlideout(\''+row.st+'\',null)">'+esc(row.name)+
+      '</span> <span style="font-size:8px;background:#1A3040;color:#4A7A9B;border:1px solid #2A5070;border-radius:3px;padding:1px 4px;vertical-align:middle">DEFERRED</span></td>'+
+      '<td>'+row.universe.toLocaleString()+'</td>'+
+      '<td style="color:#2A3A50">—</td>'+
+      '<td style="color:#2A3A50">—</td>'+
+      '<td style="color:#4A7A9B;font-size:9px">0.0%<br><span style="font-size:8px;color:#3A5A70">Research deferred</span></td>'+
+      '<td style="color:#8AA8C0;font-size:9px">'+enrCell+'</td></tr>';
+  }
+
+  var trs = researched.map(researchedRow).join('') +
+    '<tr><td colspan="6" style="background:#0A1520;color:#3A5A70;font-size:9px;padding:4px 8px;font-style:italic">'+
+    '&#9660; 12 Deferred Jurisdictions — Research deferred per Executive Sponsor direction (PDR-018). Sector assumed unorganized.</td></tr>' +
+    deferred.map(deferredRow).join('');
+
+  var totRow='<tr class="tot"><td><strong>ALL 45 JURISDICTIONS</strong> <span style="font-size:8px;font-weight:normal;color:#8AA8C0">(33 researched + 12 deferred · KY excluded — no open charter schools)</span></td>'+
+    '<td><strong>'+NAT.universe.toLocaleString()+'</strong></td>'+
+    '<td style="color:#6CC04A"><strong>'+NAT.confirmed+'</strong></td>'+
+    '<td style="color:#4ABFBF"><strong>'+NAT.dependent+'</strong></td>'+
+    '<td><strong>'+NAT.density+'</strong></td>'+
+    '<td style="font-size:9px;color:#8AA8C0"><strong>'+(Object.values(stEnroll).reduce(function(a,b){return a+b;},0)).toLocaleString()+'</strong></td></tr>';
+
+  var BASE_URL = 'https://napcs-charter-school-census-dashboard.netlify.app/reports/';
+  var dlBar='<div style="text-align:right;margin-bottom:6px;display:flex;gap:6px;justify-content:flex-end">'+
+    '<a href="'+BASE_URL+'NAPCS_National_Census_Table_v10.html" target="_blank" style="font-size:9px;background:#1A2535;border:1px solid #2E75B6;color:#4A9FE0;padding:3px 10px;border-radius:4px;cursor:pointer;font-family:inherit;text-decoration:none">&#128196; Download HTML</a>'+
+    '<a href="'+BASE_URL+'NAPCS_National_Census_Table_v10.pdf" target="_blank" style="font-size:9px;background:#1A2535;border:1px solid #2E75B6;color:#4A9FE0;padding:3px 10px;border-radius:4px;cursor:pointer;font-family:inherit;text-decoration:none">&#128196; Download PDF</a>'+
+    '<button onclick="printDensityTable()" style="font-size:9px;background:#1A2535;border:1px solid #2E75B6;color:#4A9FE0;padding:3px 10px;border-radius:4px;cursor:pointer;font-family:inherit">&#128438; Print View</button></div>';
+
+  setPanelBody(dlBar+'<table id="dtable"><thead><tr>'+
     thArrow('name','State')+thArrow('universe','Census Total')+
     thArrow('confirmed','Indep. Org.')+thArrow('dependent','Structural Coverage')+
     thArrow('density','Combined %')+
+    '<th style="font-size:9px">Charter Enrollment</th>'+
     '</tr></thead><tbody>'+trs+totRow+'</tbody></table>');
 }
 
