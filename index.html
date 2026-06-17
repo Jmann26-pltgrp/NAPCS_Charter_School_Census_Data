@@ -193,7 +193,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .pu-warn{font-size:9px;color:#F5A623;margin-top:5px;padding:3px 6px;background:rgba(245,166,35,0.1);border-radius:3px;border:1px solid rgba(245,166,35,0.3)}
 .bc-CONFIRMED{background:#0A2A0A;color:#6CC04A;border:1px solid #1E4A1E}
 .bc-DEPENDENT{background:#0A2A2A;color:#4ABFBF;border:1px solid #1A4040}
-.bc-ORGANIZING{background:#2A1A0A;color:#F5A623;border:1px solid #4A3010}
+.bc-ORGANIZING{background:#2A0A18;color:#FF6B9D;border:1px solid #6A1A3A}
 .bc-DECERTIFIED{background:#1A1030;color:#C084FC;border:1px solid #5A2D9A}
 .bc-DEFERRED{background:#0A1A2A;color:#4A9FBF;border:1px solid #1E4A6A}
 .bc-CLOSED{background:#2A1010;color:#E07A4A;border:1px solid #4A2010}
@@ -286,7 +286,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
       </div>
       <label class="fitem"><input type="checkbox" checked data-status="CONFIRMED"><span class="fdot" style="background:#6CC04A"></span><span>Independently Organized (<span id="fc-0">0</span>)</span></label>
       <label class="fitem"><input type="checkbox" checked data-status="DEPENDENT"><span class="fdot" style="background:#4ABFBF"></span><span>Structural Coverage (<span id="fc-1">0</span>)</span></label>
-      <label class="fitem"><input type="checkbox" checked data-status="ORGANIZING"><span class="fdot" style="background:#F5A623"></span><span>Organizing Presence / Intent (<span id="fc-2">0</span>)</span></label>
+      <label class="fitem"><input type="checkbox" checked data-status="ORGANIZING"><span class="fdot" style="background:#FF6B9D"></span><span>Organizing Presence / Intent (<span id="fc-2">0</span>)</span></label>
       <label class="fitem" title="Schools that were certified but had their certification removed (decertified). Currently no active union."><input type="checkbox" data-status="DECERTIFIED"><span class="fdot" style="background:#C084FC"></span><span>Decertified — School Open (<span id="fc-3">0</span>)</span></label>
       <label class="fitem" title="Schools that were organized when they closed. Shown for historical reference only."><input type="checkbox" data-status="CLOSED"><span class="fdot" style="background:#E07A4A"></span><span>Closed — Was Organized (<span id="fc-4">0</span>)</span></label>
       <label class="fitem" title="Schools fully researched with no evidence of union activity found."><input type="checkbox" data-status="UNVERIFIED"><span class="fdot" style="background:transparent;border:1.5px dashed #4A6A80"></span><span>No Organizing Activity Documented (<span id="fc-5">0</span>)</span></label>
@@ -406,11 +406,11 @@ var STATE_NAMES = {
 };
 
 var STATUS_CFG = {
-  CONFIRMED:  {color:'#6CC04A',r:5,opacity:0.88},   // Independently Organized
-  DEPENDENT:  {color:'#4ABFBF',r:5,opacity:0.80},   // Structural Coverage (Dependent)
-  ORGANIZING: {color:'#F5A623',r:7,opacity:0.95},   // Organizing Presence / Intent
-  DECERTIFIED:{color:'#C084FC',r:4,opacity:0.85},   // Decertified — School Open (purple)
-  CLOSED:     {color:'#E07A4A',r:4,opacity:0.85},   // Closed — Was Organized (burnt orange)
+  CONFIRMED:  {color:'#6CC04A',r:5,opacity:0.88},   // Independently Organized — green
+  DEPENDENT:  {color:'#4ABFBF',r:5,opacity:0.80},   // Structural Coverage (Dependent) — teal
+  ORGANIZING: {color:'#FF6B9D',r:5,opacity:0.95},   // Organizing Presence / Intent — magenta/pink
+  DECERTIFIED:{color:'#C084FC',r:4,opacity:0.85},   // Decertified — School Open — purple
+  CLOSED:     {color:'#E07A4A',r:4,opacity:0.85},   // Closed — Was Organized — burnt orange
   UNVERIFIED: {color:'rgba(0,0,0,0)',r:3,opacity:1.0, dashed:true}, // No Organizing Activity Documented — dashed circle
   DEFERRED:   {color:'#4A7A9B',r:3,opacity:0.55},   // No Known Organizing Activity — deferred jurisdictions
 };
@@ -788,7 +788,7 @@ function openStateSlideout(code, coords){
   if(sd.deferred){
     h+='<div style="background:#0D1E2A;border:1px solid #2A5070;border-left:4px solid #4A7A9B;border-radius:4px;padding:6px 8px;margin-bottom:8px">';
     h+='<div style="font-size:9px;font-weight:700;color:#4A9FBF">&#128274; Research Deferred</div>';
-    h+='<div style="font-size:8px;color:#6A8A9A;margin-top:2px">Executive Sponsor direction (PDR-018). Sector assumed unorganized.</div>';
+    h+='<div style="font-size:8px;color:#6A8A9A;margin-top:2px">Executive Sponsor direction. Sector assumed unorganized.</div>';
     h+='</div>';
   }
 
@@ -964,9 +964,7 @@ h+='<div class="oi-card" style="border-left:3px solid #2E75B6"><div class="oi-lb
 h+='<div class="oi-card" style="border-left:3px solid #4A7A9B;cursor:pointer" onclick="switchTab(\'dataquality\')" title="Click for full methodology note">';
 h+='<div class="oi-lbl">Deferred Jurisdictions (12)</div>';
 h+='<div class="oi-val" style="font-size:9px;color:#6A8A9A">AL, ID, IN, MS, NC, NV, OK, SC, TN, TX, UT, WY \u2014 No organized charter schools known to exist. Classified as No Known Organizing Activity. <span style="color:#4A9FE0">See Data Quality \u2192</span></div></div>';
-h+='<div class="section-label">\u26a0 Open Items</div>';
-  h+='<div class="oi-card" style="border-left:3px solid #4A9FE0"><div class="oi-lbl">Biannual refresh</div><div class="oi-val sv-b">October 2026 target</div></div>';
-  h+='<div class="section-label">Data Source</div>';
+h+='<div class="section-label">Data Source</div>';
   h+=srow('Charter School Registry','v130 \u00B7 NCES CCD 2024\u201325','sv-b');
   h+=srow('Research','PLT Strategies Group \u00B7 June 16, 2026','');
   setPanelBody(h);
@@ -983,7 +981,7 @@ function showStatePanel(code){
   if(sd.deferred){
     h+='<div style="background:#0D1E2A;border:1px solid #2A5070;border-left:4px solid #4A7A9B;border-radius:4px;padding:8px 10px;margin-bottom:8px">';
     h+='<div style="font-size:10px;font-weight:700;color:#4A9FBF;margin-bottom:3px">&#128274; Research Deferred</div>';
-    h+='<div style="font-size:9px;color:#6A8A9A;line-height:1.5">Executive Sponsor direction (PDR-018, June 7, 2026). No school-level research conducted. Sector assumed unorganized.</div>';
+    h+='<div style="font-size:9px;color:#6A8A9A;line-height:1.5">Executive Sponsor direction. No school-level research conducted. Sector assumed unorganized.</div>';
     h+='</div>';
   }
 
@@ -1146,7 +1144,7 @@ function renderDensityTable(){
 
   var trs = researched.map(researchedRow).join('') +
     '<tr><td colspan="6" style="background:#0A1520;color:#3A5A70;font-size:9px;padding:4px 8px;font-style:italic">'+
-    '&#9660; 12 Deferred Jurisdictions — Research deferred per Executive Sponsor direction (PDR-018). Sector assumed unorganized.</td></tr>' +
+    '&#9660; 12 Deferred Jurisdictions — Research deferred per Executive Sponsor direction. Sector assumed unorganized.</td></tr>' +
     deferred.map(deferredRow).join('');
 
   var totRow='<tr class="tot"><td><strong>ALL 45 JURISDICTIONS</strong> <span style="font-size:8px;font-weight:normal;color:#8AA8C0">(33 researched + 12 deferred · KY excluded — no open charter schools)</span></td>'+
@@ -1205,13 +1203,18 @@ function buildRegistryPanel(){
   setPanelHdr('Charter School Registry','Registry '+(RC?RC.version:'v69')+' \u00B7 '+(RC?RC.lastUpdated:'May 2026'));
   if(!RC){ setPanelBody('<div class="no-state">Registry content not available.</div>'); return; }
   var h='';
-  // Executive narrative first
+  // Executive narrative — override stale scope/open items text
+  var SCOPE_OVERRIDE = 'The Registry currently covers all 45 jurisdictions — 44 states with active charter sectors plus the District of Columbia — comprising 7,888 Registry-verified open charter schools as of June 2026. Coverage is complete across all jurisdictions. Research sessions have been completed for 33 jurisdictions with school-by-school labor board verification. The 12 deferred jurisdictions are included in the Registry and dashboard with sector-level classification pending individual school research authorization.';
   if(RC.narrative){
     var sections=['projectOverview','scope','methodology','dataSources','challenges','architecture'];
     sections.forEach(function(key){
       var sec=RC.narrative[key];
       if(!sec) return;
-      h+='<div class="static-section"><h3>'+esc(sec.title)+'</h3><p>'+esc(sec.body)+'</p></div>';
+      // Skip open items — internal only
+      if(key==='openItems'||key==='openitems'||sec.title==='Open Items') return;
+      // Override scope with current text
+      var body = (key==='scope') ? SCOPE_OVERRIDE : sec.body;
+      h+='<div class="static-section"><h3>'+esc(sec.title)+'</h3><p>'+esc(body)+'</p></div>';
     });
   }
   // Then key stats
@@ -1335,6 +1338,8 @@ function buildDataQualityPanel(){
     {title:'Closed School Lookback Window',body:'The 5-year lookback window for historically organized closed schools is applied uniformly, but closure dates are not always publicly documented with precision. Some schools close gradually — declining enrollment, authorizer non-renewal — rather than on a specific date. Closure year is used as the operative date when a specific closure date is unavailable. Schools that closed more than five years before the research window are excluded from active counts but noted in state research records.'},
     {title:'Enrollment Data Completeness',body:'Enrollment figures are sourced from the NCES CCD 2024–25 universe file, joined to school records via NCES ID. Approximately 97% of schools in the dashboard have enrollment data following the June 2026 enrichment pass across all three data tiers. Schools with NAPCS-ADD IDs (discovered through research, not in the NCES universe) or suppressed NCES enrollment values (small-n suppression) may not have enrollment figures available.'},
     {title:'Geographic Coordinate Precision',body:'School map coordinates are sourced from the NCES CCD 2024–25 universe file via NCES ID join, supplemented by name-based matching for Tier 2 nonunion records where NCES IDs were not available in the original file build. Approximately 97% of schools in the dashboard have geo coordinates as of June 2026. Schools without coordinates are primarily NAPCS-ADD records pending NCES ID assignment, or virtual/online-only schools without a fixed physical address. These schools appear in count totals and filter results but do not display as map pins.'},
+    {title:'Website Verification',body:'School website URLs in the Registry are sourced from NCES CCD data and authorizer directories. A systematic verification pass was completed in June 2026 as part of the Registry v130 build. Verification confirmed active websites for the majority of schools; schools with no confirmed website or a non-resolving URL are flagged in the registry and shown as unavailable in school popups on the dashboard. Website data is used for reference only and does not affect research classification.'},
+    {title:'Physical Address Verification',body:'Physical addresses in the Registry are drawn from NCES CCD 2024–25 data and represent the address on file with NCES as of the data vintage. A physical address verification pass was completed as part of the Registry v130 build, cross-referencing NCES addresses against authorizer directories and Google Maps validation where discrepancies were identified. Virtual and online-only schools may carry a administrative office address rather than a physical school site. Address data informs geographic coordinate assignment and charter share of public K–12 enrollment calculations at the state level.'},
   ];
   challenges.forEach(function(c){
     h+='<div style="background:#111B27;border-radius:5px;padding:8px 10px;margin-bottom:7px;border-left:3px solid #2E75B6">'+
