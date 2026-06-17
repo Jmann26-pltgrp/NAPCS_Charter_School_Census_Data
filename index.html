@@ -333,7 +333,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
       <div class="tab-row">
         <button class="ftab" data-tab="cba">CBA Registry</button>
         <button class="ftab" data-tab="monitoring">Monitoring</button>
-        <button class="ftab" data-tab="openitems">Open Items</button>
+        <button class="ftab" data-tab="networks">Networks</button>
       </div>
     </div>
     <div id="panel-hdr">
@@ -853,26 +853,32 @@ function openStateSlideout(code, coords){
   });
   var sCmoList=Object.values(sCmoMap).sort(function(a,b){return b.enr-a.enr;});
   if(sCmoList.length>0){
-    var sEmos=sCmoList.filter(function(c){return c.type==='For-Profit';});
     var sCmos=sCmoList.filter(function(c){return c.type!=='For-Profit';});
+    var sEmos=sCmoList.filter(function(c){return c.type==='For-Profit';});
     function spoNetworkRow(c){
       var typeTag=c.type==='For-Profit'?'<span style="font-size:7px;color:#FF6B9D;margin-left:3px">[EMO]</span>':
                  (c.type==='Nonprofit'?'<span style="font-size:7px;color:#6CC04A;margin-left:3px">[CMO]</span>':'');
       var nm=c.website?'<a href="'+esc(c.website)+'" target="_blank" rel="noopener" style="color:#4A9FE0;text-decoration:none">'+esc(c.name)+'</a>':esc(c.name);
-      var detail=c.schools+'sch';
-      if(c.enr>0) detail+=' · '+c.enr.toLocaleString();
-      if(c.orgSchools>0) detail+=' · <span style="color:#6CC04A">'+c.orgSchools+' org</span>';
-      return '<div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid #0A1520;font-size:9px">'+
-        '<div>'+nm+typeTag+'</div><div style="color:#6A8A9A;white-space:nowrap;margin-left:6px">'+detail+'</div></div>';
+      var sStateUniv=(SD[code]||{}).universe||0;
+      var sSPct=sStateUniv>0?'('+( c.schools/sStateUniv*100).toFixed(1)+'%)':'';
+      var sEPct=charterEnroll>0&&c.enr>0?'('+( c.enr/charterEnroll*100).toFixed(1)+'%)':'';
+      var sPen=c.schools>0&&c.orgSchools>0?(c.orgSchools/c.schools*100).toFixed(0)+'%':null;
+      var detail=c.schools+'sch '+sSPct;
+      if(c.enr>0) detail+=' · '+c.enr.toLocaleString()+' '+sEPct;
+      if(c.orgSchools>0) detail+=' · <span style="color:#6CC04A">'+c.orgSchools+' org'+(sPen?' ('+sPen+')':'')+'</span>';
+      return '<div style="padding:3px 0;border-bottom:1px solid #0A1520;font-size:9px">'+
+        '<div style="display:flex;justify-content:space-between"><div>'+nm+typeTag+'</div><div style="color:#6A8A9A;white-space:nowrap;margin-left:6px">'+detail+'</div></div></div>';
     }
-    if(sEmos.length>0){
-      h+='<div class="spo-section">EMO Operators</div>';
-      sEmos.forEach(function(c){h+=spoNetworkRow(c);});
-    }
+    // CMOs first
     h+='<div class="spo-section">'+(sEmos.length>0?'CMO Networks':'CMO / Networks')+'</div>';
     sCmos.slice(0,8).forEach(function(c){h+=spoNetworkRow(c);});
     if(sCmos.length>8) h+='<div style="font-size:8px;padding:2px 0"><a href="javascript:void(0)" onclick="openCmoTab(\''+code+'\',true)" style="color:#4A9FE0;text-decoration:none">+ '+(sCmos.length-8)+' more → View all</a></div>';
     else h+='<div style="font-size:8px;padding:2px 0"><a href="javascript:void(0)" onclick="openCmoTab(\''+code+'\',true)" style="color:#4A9FE0;text-decoration:none">View full network detail →</a></div>';
+    // EMOs after
+    if(sEmos.length>0){
+      h+='<div class="spo-section">EMO Operators</div>';
+      sEmos.forEach(function(c){h+=spoNetworkRow(c);});
+    }
   }
 
   // Associations
@@ -953,7 +959,7 @@ document.getElementById('back-btn').addEventListener('click',function(){
 });
 
 // ── FILE FOLDER TABS ──────────────────────────────────────────────────────────
-var INTEL_TABS=['political','organizing','trends','patterns','media','networks','cba','monitoring','openitems'];
+var INTEL_TABS=['political','organizing','trends','patterns','media','networks','cba','monitoring','networks'];
 function isIntelTab(t){ return INTEL_TABS.indexOf(t)>=0; }
 
 document.getElementById('tab-folders').addEventListener('click',function(e){
@@ -1103,10 +1109,11 @@ function showStatePanel(code){
   });
   var cmoList=Object.values(cmoMap).sort(function(a,b){return b.enr-a.enr;});
   if(cmoList.length>0){
-    // Separate EMOs from CMOs
-    var emos=cmoList.filter(function(c){return c.type==='For-Profit';});
+    // CMOs first, EMOs second
     var cmos=cmoList.filter(function(c){return c.type!=='For-Profit';});
+    var emos=cmoList.filter(function(c){return c.type==='For-Profit';});
     
+    var stateUniv = (SD[code]||{}).universe||0;
     function renderCmoRow(c){
       var typeTag = c.type==='For-Profit'
         ? '<span style="font-size:8px;background:#2A1010;color:#FF6B9D;border:1px solid #4A1A1A;border-radius:2px;padding:1px 4px;margin-left:4px">EMO</span>'
@@ -1116,25 +1123,38 @@ function showStatePanel(code){
       var nameDisplay = c.website
         ? '<a href="'+esc(c.website)+'" target="_blank" rel="noopener" style="color:#4A9FE0;text-decoration:none;font-weight:700">'+esc(c.name)+'</a>'+typeTag
         : '<span style="font-weight:700">'+esc(c.name)+'</span>'+typeTag;
-      var detail = c.schools+' school'+(c.schools!==1?'s':'');
-      if(c.enr>0) detail += ' · '+c.enr.toLocaleString()+' students';
-      if(c.orgSchools>0) detail += ' · <span style="color:#6CC04A">'+c.orgSchools+' organized</span>';
-      return '<div style="display:flex;justify-content:space-between;align-items:baseline;padding:4px 0;border-bottom:1px solid #0A1520">'+
-        '<div style="font-size:10px">'+nameDisplay+'</div>'+
-        '<div style="font-size:9px;color:#6A8A9A;text-align:right;white-space:nowrap;margin-left:8px">'+detail+'</div></div>';
+      var schoolPct = stateUniv>0 ? ' ('+( c.schools/stateUniv*100).toFixed(1)+'% of state)' : '';
+      var enrPct   = charterEnr>0&&c.enr>0 ? ' ('+( c.enr/charterEnr*100).toFixed(1)+'% of charter enr.)' : '';
+      var penetration = c.schools>0&&c.orgSchools>0 ? (c.orgSchools/c.schools*100).toFixed(0)+'%' : null;
+      var row='<div style="padding:4px 0;border-bottom:1px solid #0A1520">';
+      row+='<div style="font-size:10px;margin-bottom:2px">'+nameDisplay+'</div>';
+      row+='<div style="font-size:9px;color:#8AA8C0">'+c.schools+' schools'+schoolPct;
+      if(c.enr>0) row+=' · '+c.enr.toLocaleString()+' students'+enrPct;
+      row+='</div>';
+      if(c.orgSchools>0){
+        row+='<div style="font-size:9px;color:#6CC04A">'+c.orgSchools+' of '+c.schools+' organized';
+        if(penetration) row+=' — '+penetration+' penetration rate';
+        row+='</div>';
+      } else {
+        row+='<div style="font-size:9px;color:#2A4A2A">No organized schools</div>';
+      }
+      if(c.orgActSchools>0) row+='<div style="font-size:9px;color:#FF6B9D">'+c.orgActSchools+' organizing</div>';
+      row+='</div>';
+      return row;
     }
     
-    if(emos.length>0){
-      h+='<div class="section-label">EMO Operators (For-Profit)</div>';
-      emos.forEach(function(c){ h+=renderCmoRow(c); });
-    }
+    // CMOs first
     var cmoLabel = emos.length>0 ? 'CMO Networks (Nonprofit / Other)' : 'CMO / Network Operators';
     h+='<div class="section-label">'+cmoLabel+'</div>';
-    // Show top 10 CMOs, with a "show more" note if there are more
     var showCmos = cmos.slice(0,10);
     showCmos.forEach(function(c){ h+=renderCmoRow(c); });
     if(cmos.length>10) h+='<div style="font-size:9px;padding:4px 0"><a href="javascript:void(0)" onclick="openCmoTab(\''+code+'\',false)" style="color:#4A9FE0;text-decoration:none">+ '+(cmos.length-10)+' more → View all networks</a></div>';
     else if(cmos.length>0) h+='<div style="font-size:9px;padding:4px 0"><a href="javascript:void(0)" onclick="openCmoTab(\''+code+'\',false)" style="color:#4A9FE0;text-decoration:none">View full network detail →</a></div>';
+    // EMOs after
+    if(emos.length>0){
+      h+='<div class="section-label">EMO Operators (For-Profit)</div>';
+      emos.forEach(function(c){ h+=renderCmoRow(c); });
+    }
   }
 
   // Charter Association(s)
@@ -1437,7 +1457,7 @@ function buildRegistryPanel(){
       var sec=RC.narrative[key];
       if(!sec) return;
       // Skip open items — internal only
-      if(key==='openItems'||key==='openitems'||sec.title==='Open Items') return;
+      if(key==='openItems'||key==='networks'||sec.title==='Open Items') return;
       // Override scope with current text
       var body = (key==='scope') ? SCOPE_OVERRIDE : sec.body;
       h+='<div class="static-section"><h3>'+esc(sec.title)+'</h3><p>'+esc(body)+'</p></div>';
@@ -1588,7 +1608,7 @@ var TAB_META={
   networks:{title:'Networks & CMOs',sub:'Organized charter management organizations',prompts:null},
   cba:{title:'CBA Registry',sub:'Contract status by school/network',prompts:null},
   monitoring:{title:'Monitoring Queue',sub:'Active monitoring items',prompts:null},
-  openitems:{title:'Open Items',sub:'Decisions required \u00B7 notable findings',prompts:null},
+  networks:{title:'Networks',sub:'CMO \u00B7 EMO \u00B7 Penetration rates',prompts:null},
 };
 
 function renderIntelTab(tab,code){
@@ -1653,16 +1673,10 @@ function renderIntelTab(tab,code){
         '<div style="font-size:10px;font-weight:700;color:#E8EDF2;margin-bottom:3px">'+esc(m.target)+'</div>'+
         '<div style="font-size:9.5px;color:#8BA0B4;line-height:1.5">'+esc(m.issue)+'</div></div>';
     });
-  } else if(tab==='openitems'){
-    var oi=st.openItems||[];
-    if(!oi.length) h='<div class="no-state">No open items for this state.</div>';
-    oi.forEach(function(o){
-      var pri=(o.priority||'MEDIUM').toUpperCase();
-      h+='<div class="mon-card '+pri+'"><span class="pri-badge pri-'+pri+'">'+pri+'</span>'+
-        '<div style="font-size:9.5px;color:#C0D0E0;margin:3px 0;line-height:1.5">'+esc(o.description)+'</div>'+
-        (o.resolution?'<div style="font-size:9px;color:#4A6A80;margin-top:2px"><strong>Resolution:</strong> '+esc(o.resolution)+'</div>':'')+
-        (o.who?'<div style="font-size:9px;color:#4A6A80"><strong>Who:</strong> '+esc(o.who)+'</div>':'')+'</div>';
-    });
+  } else if(tab==='networks'){
+    // Show CMO/EMO detail for this state
+    showCmoDetailPanel(code);
+    return; // showCmoDetailPanel handles setPanelBody
   }
   setPanelBody(h);
 }
