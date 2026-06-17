@@ -784,42 +784,74 @@ function openStateSlideout(code, coords){
   h+=spoRow('Combined Density',pct+'%',combined>0?'g':'');
   h+='<div class="spo-bar"><div class="spo-bar-fill" style="width:'+barW+'%"></div></div>';
 
+  // Deferred badge
+  if(sd.deferred){
+    h+='<div style="background:#0D1E2A;border:1px solid #2A5070;border-left:4px solid #4A7A9B;border-radius:4px;padding:6px 8px;margin-bottom:8px">';
+    h+='<div style="font-size:9px;font-weight:700;color:#4A9FBF">&#128274; Research Deferred</div>';
+    h+='<div style="font-size:8px;color:#6A8A9A;margin-top:2px">Executive Sponsor direction (PDR-018). Sector assumed unorganized.</div>';
+    h+='</div>';
+  }
+
   // Enrollment
-  if(charterEnroll>0){
-    h+='<div class="spo-section">State Enrollment (2024\u201325)</div>';
-    h+=spoRow('Total Public K\u201312',totalK12>0?totalK12.toLocaleString():'N/A','');
-    h+=spoRow('Charter Enrollment',charterEnroll.toLocaleString(),'b');
-    if(charterSharePct) h+=spoRow('Charter Share',charterSharePct+'% of public K\u201312','');
+  h+='<div class="spo-section">State Enrollment (2024\u201325)</div>';
+  h+=spoRow('Total Public K\u201312',totalK12>0?totalK12.toLocaleString():'N/A','');
+  h+=spoRow('Charter Enrollment',charterEnroll>0?charterEnroll.toLocaleString():'N/A','b');
+  if(charterSharePct) h+=spoRow('Charter Share',charterSharePct+'% of public K\u201312','');
+  else h+=spoRow('Charter Share','0.0% of public K\u201312','');
+
+  // Union enrollment breakdown
+  var enrConf=0, enrDep=0, enrOrg2=0;
+  stateSchools.forEach(function(s){
+    var e=Number(s.enrollment_2425);
+    if(!e||isNaN(e)||e<=0) return;
+    if(s.status==='CONFIRMED') enrConf+=e;
+    else if(s.status==='DEPENDENT') enrDep+=e;
+    else if(s.status==='ORGANIZING') enrOrg2+=e;
+  });
+  var enrOrganized=enrConf+enrDep;
+  var enrShare=charterEnroll>0&&enrOrganized>0?(enrOrganized/charterEnroll*100).toFixed(1):null;
+  if(enrOrganized>0||enrOrg2>0){
+    h+='<div class="spo-section">Enrollment \u2014 Union Breakdown</div>';
+    h+=spoRow('Students in Organized Schools',enrOrganized.toLocaleString(),'g');
+    if(enrConf>0) h+=spoRow('Independently Organized',enrConf.toLocaleString(),'g');
+    if(enrDep>0)  h+=spoRow('Structural Coverage',enrDep.toLocaleString(),'t');
+    if(enrOrg2>0) h+=spoRow('Organizing \u2014 Students Affected',enrOrg2.toLocaleString(),'gold');
+    if(enrShare)  h+=spoRow('Union Enrollment Share',enrShare+'%','g');
   }
 
   // Jurisdiction
-  if(jd.lb_full||jd.statute){
-    h+='<div class="spo-section">Jurisdiction</div>';
-    var rtwVal=(jd.rtw!==undefined?jd.rtw:(SD[code]||{}).rtw);
-    if(rtwVal!==undefined) h+=spoRow('Right to Work',rtwVal?'<span style="color:#E05A4A;font-weight:700">Yes</span>':'<span style="color:#6CC04A;font-weight:700">No</span>','');
-    if(jd.lb_full) h+=spoRow('Board',jd.lb_full.slice(0,45)+(jd.lb_full.length>45?'\u2026':''),'b');
-    if(jd.statute) h+=spoRow('Statute',jd.statute,'');
-    if(jd.nlrb) h+=spoRow('NLRB',jd.nlrb,'');
-    if(jd.card_check) h+=spoRow('Card-Check',jd.card_check,jd.card_check==='Yes'?'g':'');
-    if(jd.note) h+='<div style="font-size:9px;color:#6A7A8A;line-height:1.4;margin-top:4px;padding:4px 6px;background:#1A2535;border-radius:3px">'+esc(jd.note.slice(0,120))+'</div>';
-  }
+  h+='<div class="spo-section">Jurisdiction</div>';
+  var rtwVal=(jd.rtw!==undefined?jd.rtw:(SD[code]||{}).rtw);
+  if(rtwVal!==undefined) h+=spoRow('Right to Work',rtwVal?'<span style="color:#E05A4A;font-weight:700">Yes</span>':'<span style="color:#6CC04A;font-weight:700">No</span>','');
+  var lbDisplay=jd.lb_full||(sd.lb_abbrev||sd.lb||'\u2014');
+  h+=spoRow('Board',lbDisplay.slice(0,50)+(lbDisplay.length>50?'\u2026':''),'b');
+  if(jd.statute) h+=spoRow('Statute',jd.statute,'');
+  if(jd.nlrb) h+=spoRow('NLRB',jd.nlrb,'');
+  if(jd.card_check) h+=spoRow('Card-Check',jd.card_check,jd.card_check==='Yes'?'g':'');
+  if(!sd.deferred && jd.note) h+='<div style="font-size:9px;color:#6A7A8A;line-height:1.4;margin-top:4px;padding:4px 6px;background:#1A2535;border-radius:3px">'+esc(jd.note.slice(0,120))+'</div>';
 
   // Associations
   if(assocs.length){
     h+='<div class="spo-section">Charter Association'+(assocs.length>1?'s':'')+'</div>';
     assocs.forEach(function(a){
-      h+='<div class="spo-assoc"><div class="spo-assoc-name">'+esc(a.name)+'</div>';
-      if(a.website) h+='<div class="spo-assoc-link"><a href="'+esc(a.website)+'" target="_blank" rel="noopener">'+esc(a.website.replace(/^https?:\/\//,''))+'</a></div>';
+      h+='<div class="assoc-card">';
+      if(a.website){
+        h+='<div style="font-weight:700;font-size:10px"><a href="'+esc(a.website)+'" target="_blank" rel="noopener" style="color:#4A9FE0;text-decoration:none">'+esc(a.name)+'</a></div>';
+        h+='<div style="font-size:9px;color:#6A8A9A;margin-top:1px">'+esc(a.website.replace(/^https?:\/\//,''))+'</div>';
+      } else {
+        h+='<div style="font-weight:700;font-size:10px;color:#8AA8C0">'+esc(a.name)+'</div>';
+      }
+      if(a.contact && a.contact!=='None [Vacant]') h+='<div style="font-size:9px;color:#6A8A9A">'+esc(a.contact)+'</div>';
       h+='</div>';
     });
   }
 
   // Report button
   var rptUrl = (rpt && rpt.netlifyUrl) ? rpt.netlifyUrl : (rpt && rpt.boxUrl ? rpt.boxUrl : null);
-  if(rptUrl){
+  if(rptUrl && !sd.deferred){
     h+='<a class="spo-report-btn" href="'+esc(rptUrl)+'" target="_blank" rel="noopener">&#8595; Download State Research Report (PDF)</a>';
   } else {
-    h+='<div class="spo-report-btn" style="opacity:0.4;cursor:default">&#8595; Report Coming Soon</div>';
+    h+='<div class="spo-report-btn" style="opacity:0.4;cursor:default">&#8595; '+(sd.deferred?'Report Coming Soon \u2014 Research Deferred':'Report Coming Soon')+'</div>';
   }
 
   h+='</div>'; // close spo-body
