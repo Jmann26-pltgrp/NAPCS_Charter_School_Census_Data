@@ -2544,9 +2544,9 @@ var NAPCS_CONFIG = {
     "dependentEnrollment": 183295,
     "combinedEnrollment": 424434,
     "organizingEnrollment": 9608,
-    "totalTrackedEnrollment": 1244371,
-    "enrollmentDensity": "34.1%",
-    "schoolsWithEnrollment": 2486
+    "totalTrackedEnrollment": 1242658,
+    "enrollmentDensity": "34.2%",
+    "schoolsWithEnrollment": 2484
   },
   "status_lists": {}
 };

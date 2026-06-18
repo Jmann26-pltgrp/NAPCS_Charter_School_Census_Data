@@ -1298,20 +1298,27 @@ function searchSelectSchool(idx){
   var s = SCHOOLS[idx];
   document.getElementById('school-search').value = s.name;
   document.getElementById('search-results').style.display='none';
-  // Pan to school and open popup
   if(s.lat&&s.lng){
-    map.setView([s.lat,s.lng], 13);
-    // Find and open the marker
+    // Ensure the layer is visible (may be hidden by default)
     var layer = layers[s.status];
-    if(layer){
-      layer.eachLayer(function(marker){
-        if(marker.options&&marker.options.schoolIdx===idx){
-          marker.openPopup();
-        }
-      });
+    if(layer && !map.hasLayer(layer)){
+      map.addLayer(layer);
+      // Also check the filter checkbox
+      var cb = document.querySelector('input[data-status="'+s.status+'"]');
+      if(cb) cb.checked = true;
     }
+    map.setView([s.lat,s.lng], 14);
+    // Small delay to let layer render before opening popup
+    setTimeout(function(){
+      if(layer){
+        layer.eachLayer(function(marker){
+          if(marker.options&&marker.options.schoolIdx===idx){
+            marker.openPopup();
+          }
+        });
+      }
+    }, 150);
   } else {
-    // No coords — show in side panel
     showStatePanel(s.state);
   }
 }
