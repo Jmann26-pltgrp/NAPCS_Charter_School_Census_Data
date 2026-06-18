@@ -232,8 +232,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 <div id="search-box-wrap" style="position:absolute;top:10px;right:10px;z-index:1100">
   <div style="position:relative">
     <input id="school-search" type="text" placeholder="&#128269; Search school or network..." 
-      style="background:#0D1A26;border:1px solid #2E75B6;color:#E8EDF2;padding:5px 10px 5px 8px;border-radius:4px;font-size:10px;width:230px;font-family:inherit;outline:none"
+      style="background:#0D1A26;border:1px solid #2E75B6;color:#E8EDF2;padding:5px 22px 5px 8px;border-radius:4px;font-size:10px;width:230px;font-family:inherit;outline:none"
       oninput="searchSchools(this.value)" onblur="setTimeout(function(){document.getElementById('search-results').style.display='none'},200)" autocomplete="off"/>
+    <span id="search-clear" onclick="clearSearch()" title="Clear search &amp; reset map"
+      style="display:none;position:absolute;right:6px;top:50%;transform:translateY(-50%);cursor:pointer;color:#4A9FE0;font-size:13px;line-height:1;padding:2px">&#10005;</span>
     <div id="search-results" style="display:none;position:absolute;top:28px;right:0;background:#0D1A26;border:1px solid #2E75B6;border-radius:4px;max-height:280px;overflow-y:auto;width:300px;z-index:1200;box-shadow:0 4px 12px rgba(0,0,0,.6)"></div>
   </div>
 </div>
@@ -1253,8 +1255,28 @@ function buildSearchIndex(){
   });
 }
 
+function clearSearch(){
+  var inp = document.getElementById('school-search');
+  var results = document.getElementById('search-results');
+  var clr = document.getElementById('search-clear');
+  inp.value = '';
+  results.style.display = 'none';
+  clr.style.display = 'none';
+  // Reset map to national view — same as back-btn
+  map.setView([38,-96],4);
+  _curState=null;
+  document.getElementById('back-btn').style.display='none';
+  if(_statePopup){ map.closePopup(_statePopup); _statePopup=null; }
+  if(_curTab==='overview') showNationalPanel();
+  // Remove the search reset button if present
+  var rb = document.getElementById('search-reset-btn');
+  if(rb) rb.remove();
+}
+
 function searchSchools(q){
   var results = document.getElementById('search-results');
+  var clr = document.getElementById('search-clear');
+  if(clr) clr.style.display = q&&q.length>0 ? 'block' : 'none';
   if(!q||q.length<2){ results.style.display='none'; return; }
   buildSearchIndex();
   var ql = q.toLowerCase().trim();
@@ -1298,17 +1320,16 @@ function searchSelectSchool(idx){
   var s = SCHOOLS[idx];
   document.getElementById('school-search').value = s.name;
   document.getElementById('search-results').style.display='none';
+  document.getElementById('search-clear').style.display = 'block';
   if(s.lat&&s.lng){
     // Ensure the layer is visible (may be hidden by default)
     var layer = layers[s.status];
     if(layer && !map.hasLayer(layer)){
       map.addLayer(layer);
-      // Also check the filter checkbox
       var cb = document.querySelector('input[data-status="'+s.status+'"]');
       if(cb) cb.checked = true;
     }
     map.setView([s.lat,s.lng], 14);
-    // Small delay to let layer render before opening popup
     setTimeout(function(){
       if(layer){
         layer.eachLayer(function(marker){
@@ -1318,9 +1339,23 @@ function searchSelectSchool(idx){
         });
       }
     }, 150);
+    // Show "← Back to national view" button on the map
+    showSearchResetBtn(s.name);
   } else {
     showStatePanel(s.state);
   }
+}
+
+function showSearchResetBtn(schoolName){
+  var existing = document.getElementById('search-reset-btn');
+  if(existing) existing.remove();
+  var btn = document.createElement('div');
+  btn.id = 'search-reset-btn';
+  btn.innerHTML = '&#8592; All States';
+  btn.title = 'Reset to national view';
+  btn.style.cssText = 'position:absolute;top:10px;left:50px;z-index:1000;background:#1A2535;border:1px solid #2E75B6;color:#4A9FE0;padding:4px 10px;border-radius:4px;font-size:10px;font-weight:700;cursor:pointer;font-family:inherit';
+  btn.onclick = function(){ clearSearch(); this.remove(); };
+  document.getElementById('map').appendChild(btn);
 }
 
 function srow(l,v,cls){
