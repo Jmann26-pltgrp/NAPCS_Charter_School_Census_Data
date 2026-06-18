@@ -631,7 +631,7 @@ function purow(l,v){ return '<div class="pu-row"><span class="pu-lbl">'+l+'</spa
 // ── PLOT SCHOOLS ─────────────────────────────────────────────────────────────
 // markerIndex: napcsId (or fallback key) → {marker, school} for programmatic popup access
 var markerIndex = {};
-SCHOOLS.forEach(function(s){
+SCHOOLS.forEach(function(s,idx){
   if(!s.lat||!s.lng) return;
   var cfg=STATUS_CFG[s.status]||STATUS_CFG.UNVERIFIED;
   var isUnv=s.status==='UNVERIFIED';
