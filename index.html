@@ -587,15 +587,9 @@ function buildPopup(s){
     var closeDt = s.closureDate||s.dateClose||s.closureYear||'';
     if(closeDt) h+=purow('Closed',esc(String(closeDt)));
     if(s.cbaStatus&&s.cbaStatus!=='N/A') h+=purow('Note',esc(s.cbaStatus.slice(0,100)));
-    // Closure record — link to NLRB/PERB case search or school website
-    var closureUrl = s.cbaUrl || s.website || null;
-    if(closureUrl){
-      h+='<div class="pu-link"><span>&#128196;</span><a href="'+esc(closureUrl)+'" target="_blank" rel="noopener" style="color:#E07A4A">View Closure Record &#8599;</a></div>';
-    } else if(s.lb_abbrev&&s.lb_abbrev.includes('NLRB')){
-      h+='<div class="pu-link"><span>&#128196;</span><a href="https://efts.nlrb.gov/natural-search/search?searchText='+encodeURIComponent(s.name)+'" target="_blank" rel="noopener" style="color:#E07A4A">Search NLRB Records &#8599;</a></div>';
-    } else {
-      h+='<div class="pu-link"><span>&#128196;</span><span style="color:#E07A4A;font-size:9px">Closure record — see state research report</span></div>';
-    }
+    // Closure record — smart link based on certCase and jurisdiction
+    var _closureLink = buildCaseLink(s, '#E07A4A', 'View Closure Record', 'Structural coverage at time of closure — no individual certification case');
+    h+='<div class="pu-link"><span>&#128196;</span>'+_closureLink+'</div>';
   }
   // DECERTIFIED — show decert details and link
   if(s.status==='DECERTIFIED'){
@@ -603,16 +597,8 @@ function buildPopup(s){
     if(s.union) h+=purow('Was Union',uUrlD?'<a href="'+esc(uUrlD)+'" target="_blank" rel="noopener" style="color:#C084FC;text-decoration:underline">'+esc(s.union)+'</a>':'<span style="color:#C084FC">'+esc(s.union)+'</span>');
     if(s.dateUnionized&&s.dateUnionized!=='N/A') h+=purow('Was Certified',esc(String(s.dateUnionized).slice(0,50)));
     if(s.cbaStatus&&s.cbaStatus!=='N/A') h+=purow('Note',esc(s.cbaStatus.slice(0,100)));
-    var decertUrl = s.cbaUrl || null;
-    if(decertUrl){
-      h+='<div class="pu-link"><span>&#128196;</span><a href="'+esc(decertUrl)+'" target="_blank" rel="noopener" style="color:#C084FC">View Decertification Record &#8599;</a></div>';
-    } else if(s.lb_abbrev&&s.lb_abbrev.includes('NLRB')){
-      h+='<div class="pu-link"><span>&#128196;</span><a href="https://efts.nlrb.gov/natural-search/search?searchText='+encodeURIComponent(s.name)+'" target="_blank" rel="noopener" style="color:#C084FC">Search NLRB Decertification Records &#8599;</a></div>';
-    } else if(s.lb_abbrev&&(s.lb_abbrev.includes('PERB')||s.lb_abbrev.includes('ERB'))){
-      h+='<div class="pu-link"><span>&#128196;</span><a href="https://www.perb.ca.gov/public-records/case-search/" target="_blank" rel="noopener" style="color:#C084FC">Search PERB Records &#8599;</a></div>';
-    } else {
-      h+='<div class="pu-link"><span>&#128196;</span><span style="color:#C084FC;font-size:9px">Decertification record — see state research report</span></div>';
-    }
+    var _decertLink = buildCaseLink(s, '#C084FC', 'View Decertification Record', 'Decertification record — see state research report');
+    h+='<div class="pu-link"><span>&#128196;</span>'+_decertLink+'</div>';
   }
   // Website — use cbaUrl as fallback if school website not present
   var siteUrl = s.website || s.cbaUrl || null;
@@ -1235,6 +1221,51 @@ function showStatePanel(code){
   h+='</div>';
 
   setPanelBody(h);
+}
+
+// ── CASE RECORD LINK BUILDER ─────────────────────────────────────────────────
+function buildCaseLink(s, color, label, structuralNote){
+  // Extract NLRB-style case number from certCase field
+  // Pattern: "28-RC-313911", "20-RD-378706", "13-RC-123456" etc.
+  var certCase = s.certCase || '';
+  var caseMatch = certCase.match(/(\d{1,2}-[A-Z]{2,3}-\d{4,7})/);
+  var caseNum = caseMatch ? caseMatch[1] : null;
+
+  // Structural coverage — no individual case
+  var isStructural = s.napcsOrgMethod==='STRUCTURAL_DISTRICT' || s.napcsOrgMethod==='STATUTORY_COVERAGE' ||
+    s.napcsSubStatus==='HISTORICALLY_ORGANIZED' || s.napcsOrgMethod==='DISTRICT_CBA';
+  if(isStructural && !caseNum){
+    return '<span style="color:'+color+';font-size:9px">'+esc(structuralNote||'Structural coverage — no individual case')+'</span>';
+  }
+
+  // Direct NLRB case link
+  if(caseNum && (!s.lb_abbrev || s.lb_abbrev.includes('NLRB') || s.lb_abbrev.includes('PERB')==false)){
+    var nlrbUrl = 'https://www.nlrb.gov/case/'+encodeURIComponent(caseNum);
+    return '<a href="'+esc(nlrbUrl)+'" target="_blank" rel="noopener" style="color:'+color+'">' +
+      esc(label)+' ('+caseNum+') &#8599;</a>';
+  }
+
+  // PERB(CA) — link to ePERB search
+  if(s.lb_abbrev && s.lb_abbrev.includes('PERB')){
+    var perbUrl = 'https://efts.perb.ca.gov/search?q='+encodeURIComponent(s.name);
+    if(caseNum) perbUrl = 'https://efts.perb.ca.gov/search?q='+encodeURIComponent(caseNum);
+    return '<a href="'+esc(perbUrl)+'" target="_blank" rel="noopener" style="color:'+color+'">' +
+      esc(label)+(caseNum ? ' ('+caseNum+')' : '')+ ' &#8599;</a>';
+  }
+
+  // NLRB fallback search
+  if(s.lb_abbrev && s.lb_abbrev.includes('NLRB')){
+    var searchUrl = 'https://efts.nlrb.gov/natural-search/search?searchText='+encodeURIComponent(s.name);
+    return '<a href="'+esc(searchUrl)+'" target="_blank" rel="noopener" style="color:'+color+'">Search NLRB Records &#8599;</a>';
+  }
+
+  // certCase text available but no linkable case number — show as tooltip
+  if(certCase && certCase.length > 5){
+    return '<span style="color:'+color+';font-size:9px" title="'+esc(certCase.substring(0,200))+'">'+esc(label)+' ℹ</span>';
+  }
+
+  // Nothing available
+  return '<span style="color:'+color+';font-size:9px;opacity:0.6">'+esc(label)+' — record not available</span>';
 }
 
 // ── SCHOOL / NETWORK SEARCH ──────────────────────────────────────────────────
