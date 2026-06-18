@@ -573,6 +573,10 @@ function buildPopup(s){
     h+=purow('Union',uUrl?'<a href="'+esc(uUrl)+'" target="_blank" rel="noopener" style="color:#6CC04A;text-decoration:underline">'+esc(s.union||'\u2014')+'</a>':'<span class="pu-val green">'+esc(s.union||'\u2014')+'</span>');
     if(s.dateUnionized&&s.dateUnionized!=='N/A') h+=purow('Certified',esc(String(s.dateUnionized).slice(0,50)));
     if(s.cbaStatus&&s.cbaStatus!=='N/A') h+=purow('CBA',esc(s.cbaStatus.slice(0,80)));
+    if(s.certCase){
+      var certLink=buildCaseLink(s,'#6CC04A','View Certification Record','');
+      if(certLink) h+='<div class="pu-link"><span>&#128196;</span>'+certLink+'</div>';
+    }
   }
   // Union info — DEPENDENT
   if(s.status==='DEPENDENT'){
@@ -790,7 +794,7 @@ function openStateSlideout(code, coords){
   // Charter enrollment stats
   var enrData = NAPCS_CONFIG.stateK12Enrollment || {};
   var stateSchools = SCHOOLS.filter(function(s){ return s.state===code; });
-  var charterEnroll = stateSchools.reduce(function(sum,s){ return sum+(s.enrollment_2425||0); },0);
+  var charterEnroll = stateSchools.reduce(function(sum,s){ return sum+(Number(s.enrollment_2425)||0); },0);
   var totalK12 = enrData[code] || 0;
   var charterSharePct = totalK12>0 ? (charterEnroll/totalK12*100).toFixed(1) : null;
 
@@ -817,6 +821,7 @@ function openStateSlideout(code, coords){
 
   // Enrollment
   h+='<div class="spo-section">State Enrollment (2024\u201325)</div>';
+  h+='<div style="font-size:8px;color:#3A5A70;margin-bottom:3px">NCES ELSI 2024\u201325</div>';
   h+=spoRow('Total Public K\u201312',totalK12>0?totalK12.toLocaleString():'N/A','');
   var sEnrDisplay=charterEnroll>0?charterEnroll.toLocaleString()+(charterSharePct?' ('+charterSharePct+'% of K\u201312)':''):'N/A';
   h+=spoRow('Charter Enrollment',sEnrDisplay,'b');
@@ -1077,6 +1082,7 @@ function showStatePanel(code){
   var totalK12   = (NAPCS_CONFIG.stateK12Enrollment||{})[code]||0;
   var charterPct = (totalK12>0&&charterEnr>0)?(charterEnr/totalK12*100).toFixed(1):null;
   h+='<div class="section-label">State Enrollment (2024\u201325)</div>';
+  h+='<div style="font-size:8px;color:#3A5A70;margin-bottom:4px">Source: NCES ELSI 2024\u201325 (same vintage as charter enrollment data)</div>';
   h+=srow('Total Public K\u201312',totalK12>0?totalK12.toLocaleString():'N/A','');
   var enrDisplay = charterEnr>0 ? charterEnr.toLocaleString()+(charterPct?' ('+charterPct+'% of public K\u201312)':'') : 'N/A';
   h+=srow('Charter Enrollment',enrDisplay,'sv-b');
@@ -1225,47 +1231,71 @@ function showStatePanel(code){
 
 // ── CASE RECORD LINK BUILDER ─────────────────────────────────────────────────
 function buildCaseLink(s, color, label, structuralNote){
-  // Extract NLRB-style case number from certCase field
-  // Pattern: "28-RC-313911", "20-RD-378706", "13-RC-123456" etc.
   var certCase = s.certCase || '';
-  var caseMatch = certCase.match(/(\d{1,2}-[A-Z]{2,3}-\d{4,7})/);
+  var lb = (s.lb_abbrev || s.lb || '').toUpperCase();
+
+  // Extract NLRB-style case number from certCase text
+  var caseMatch = certCase.match(/(\d{1,2}-[A-Z]{2,3}-\d{4,7})/);
   var caseNum = caseMatch ? caseMatch[1] : null;
 
-  // Structural coverage — no individual case
-  var isStructural = s.napcsOrgMethod==='STRUCTURAL_DISTRICT' || s.napcsOrgMethod==='STATUTORY_COVERAGE' ||
-    s.napcsSubStatus==='HISTORICALLY_ORGANIZED' || s.napcsOrgMethod==='DISTRICT_CBA';
+  // Detect board from lb_abbrev OR certCase text content
+  var isNLRB = lb.indexOf('NLRB') !== -1 || certCase.toUpperCase().indexOf('NLRB') !== -1;
+  var isPERB  = lb.indexOf('PERB') !== -1 || lb.indexOf('PERC') !== -1 ||
+    certCase.toUpperCase().indexOf('PERB') !== -1 || certCase.toUpperCase().indexOf('PERC') !== -1;
+
+  // Structural coverage — no individual certification case
+  var isStructural = s.napcsOrgMethod==='STRUCTURAL_DISTRICT' ||
+    s.napcsOrgMethod==='STATUTORY_COVERAGE' ||
+    s.napcsOrgMethod==='STATE_LAW' ||
+    s.napcsOrgMethod==='DISTRICT_CBA' ||
+    (s.napcsSubStatus==='HISTORICALLY_ORGANIZED' && !caseNum && !isNLRB && !isPERB);
   if(isStructural && !caseNum){
-    return '<span style="color:'+color+';font-size:9px">'+esc(structuralNote||'Structural coverage — no individual case')+'</span>';
+    return '<span style="color:'+color+';font-size:9px">'+esc(structuralNote||'Structural coverage — no individual certification case')+'</span>';
   }
 
-  // Direct NLRB case link
-  if(caseNum && (!s.lb_abbrev || s.lb_abbrev.includes('NLRB') || s.lb_abbrev.includes('PERB')==false)){
-    var nlrbUrl = 'https://www.nlrb.gov/case/'+encodeURIComponent(caseNum);
-    return '<a href="'+esc(nlrbUrl)+'" target="_blank" rel="noopener" style="color:'+color+'">' +
-      esc(label)+' ('+caseNum+') &#8599;</a>';
+  // Direct NLRB case link — case number found
+  // If we have a case number AND the certCase mentions NLRB, use direct NLRB link
+  // (even if PERB is also mentioned — NLRB takes priority when case# is present)
+  if(caseNum && (isNLRB || !isPERB)){
+    var nlrbUrl = 'https://www.nlrb.gov/case/'+caseNum;
+    return '<a href="'+esc(nlrbUrl)+'" target="_blank" rel="noopener" style="color:'+color+';font-weight:700">'+
+      esc(label)+' <span style="font-size:9px;font-weight:normal">('+caseNum+')</span> &#8599;</a>';
   }
 
-  // PERB(CA) — link to ePERB search
-  if(s.lb_abbrev && s.lb_abbrev.includes('PERB')){
-    var perbUrl = 'https://efts.perb.ca.gov/search?q='+encodeURIComponent(s.name);
-    if(caseNum) perbUrl = 'https://efts.perb.ca.gov/search?q='+encodeURIComponent(caseNum);
-    return '<a href="'+esc(perbUrl)+'" target="_blank" rel="noopener" style="color:'+color+'">' +
-      esc(label)+(caseNum ? ' ('+caseNum+')' : '')+ ' &#8599;</a>';
+  // PERB(CA) — ePERB case search
+  if(isPERB){
+    var perbSearch = 'https://efts.perb.ca.gov/search?query='+encodeURIComponent(s.name);
+    return '<a href="'+esc(perbSearch)+'" target="_blank" rel="noopener" style="color:'+color+';font-weight:700">'+
+      esc(label)+' <span style="font-size:9px;font-weight:normal">(search ePERB)</span> &#8599;</a>';
   }
 
-  // NLRB fallback search
-  if(s.lb_abbrev && s.lb_abbrev.includes('NLRB')){
-    var searchUrl = 'https://efts.nlrb.gov/natural-search/search?searchText='+encodeURIComponent(s.name);
-    return '<a href="'+esc(searchUrl)+'" target="_blank" rel="noopener" style="color:'+color+'">Search NLRB Records &#8599;</a>';
+  // NLRB jurisdiction but no case number — NLRB name search
+  if(isNLRB){
+    var nlrbSearch = 'https://efts.nlrb.gov/natural-search/search?searchText='+encodeURIComponent(s.name);
+    return '<a href="'+esc(nlrbSearch)+'" target="_blank" rel="noopener" style="color:'+color+';font-weight:700">'+
+      esc(label)+' <span style="font-size:9px;font-weight:normal">(search NLRB)</span> &#8599;</a>';
   }
 
-  // certCase text available but no linkable case number — show as tooltip
-  if(certCase && certCase.length > 5){
-    return '<span style="color:'+color+';font-size:9px" title="'+esc(certCase.substring(0,200))+'">'+esc(label)+' ℹ</span>';
+  // certCase has narrative text — show with hover tooltip
+  if(certCase && certCase.length > 10){
+    return '<span style="color:'+color+';font-size:9px;cursor:help;text-decoration:underline dotted" title="'+esc(certCase.substring(0,300))+'">'+
+      esc(label)+' &#8505;</span>';
   }
 
-  // Nothing available
-  return '<span style="color:'+color+';font-size:9px;opacity:0.6">'+esc(label)+' — record not available</span>';
+  // Final fallback — use state to determine board and link to search
+  if(s.state==='CA'){
+    var perbFallback='https://efts.perb.ca.gov/search?query='+encodeURIComponent(s.name);
+    return '<a href="'+esc(perbFallback)+'" target="_blank" rel="noopener" style="color:'+color+';font-weight:700">'+
+      esc(label)+' <span style="font-size:9px;font-weight:normal">(search ePERB)</span> &#8599;</a>';
+  }
+  if(s.state==='WA'){
+    return '<a href="https://perc.wa.gov/cases/" target="_blank" rel="noopener" style="color:'+color+';font-weight:700">'+
+      esc(label)+' <span style="font-size:9px;font-weight:normal">(search WA PERC)</span> &#8599;</a>';
+  }
+  // All other states default to NLRB search
+  var nlrbFallback='https://efts.nlrb.gov/natural-search/search?searchText='+encodeURIComponent(s.name);
+  return '<a href="'+esc(nlrbFallback)+'" target="_blank" rel="noopener" style="color:'+color+';font-weight:700">'+
+    esc(label)+' <span style="font-size:9px;font-weight:normal">(search NLRB)</span> &#8599;</a>';
 }
 
 // ── SCHOOL / NETWORK SEARCH ──────────────────────────────────────────────────
@@ -1605,7 +1635,7 @@ function renderDensityTable(){
   var dlBar='<div style="text-align:right;margin-bottom:6px;display:flex;gap:6px;justify-content:flex-end">'+
     '<a href="'+BASE_URL+'NAPCS_National_Census_Table_v10.html" target="_blank" style="font-size:9px;background:#1A2535;border:1px solid #2E75B6;color:#4A9FE0;padding:3px 10px;border-radius:4px;cursor:pointer;font-family:inherit;text-decoration:none">&#128196; Download HTML</a>'+
     '<a href="'+BASE_URL+'NAPCS_National_Census_Table_v10.pdf" target="_blank" style="font-size:9px;background:#1A2535;border:1px solid #2E75B6;color:#4A9FE0;padding:3px 10px;border-radius:4px;cursor:pointer;font-family:inherit;text-decoration:none">&#128196; Download PDF</a>'+
-    '<button onclick="printDensityTable()" style="font-size:9px;background:#1A2535;border:1px solid #2E75B6;color:#4A9FE0;padding:3px 10px;border-radius:4px;cursor:pointer;font-family:inherit">&#128438; Print View</button></div>';
+    '</div>';
 
   setPanelBody(dlBar+'<table id="dtable"><thead><tr>'+
     thArrow('name','State')+thArrow('universe','Census Total')+
