@@ -229,6 +229,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 
 <!-- TOP BAR -->
 <div id="topbar">
+<div id="search-box-wrap" style="position:absolute;top:10px;right:10px;z-index:1100">
+  <div style="position:relative">
+    <input id="school-search" type="text" placeholder="&#128269; Search school or network..." 
+      style="background:#0D1A26;border:1px solid #2E75B6;color:#E8EDF2;padding:5px 10px 5px 8px;border-radius:4px;font-size:10px;width:230px;font-family:inherit;outline:none"
+      oninput="searchSchools(this.value)" onblur="setTimeout(function(){document.getElementById('search-results').style.display='none'},200)" autocomplete="off"/>
+    <div id="search-results" style="display:none;position:absolute;top:28px;right:0;background:#0D1A26;border:1px solid #2E75B6;border-radius:4px;max-height:280px;overflow-y:auto;width:300px;z-index:1200;box-shadow:0 4px 12px rgba(0,0,0,.6)"></div>
+  </div>
+</div>
   <h1>NAPCS Charter School Unionization Census</h1>
   <span class="tsub" id="topbar-sub"></span>
 </div>
@@ -577,7 +585,15 @@ function buildPopup(s){
     var closeDt = s.closureDate||s.dateClose||s.closureYear||'';
     if(closeDt) h+=purow('Closed',esc(String(closeDt)));
     if(s.cbaStatus&&s.cbaStatus!=='N/A') h+=purow('Note',esc(s.cbaStatus.slice(0,100)));
-    if(s.napcsId) h+='<div class="pu-link"><span>&#128196;</span><a href="javascript:openSchoolDetail(\''+esc(s.napcsId)+'\',\''+esc(s.name)+'\',\''+esc(s.state)+'\','+s.lat+','+s.lng+')" style="color:#E07A4A">View Closure Record &#8599;</a></div>';
+    // Closure record — link to NLRB/PERB case search or school website
+    var closureUrl = s.cbaUrl || s.website || null;
+    if(closureUrl){
+      h+='<div class="pu-link"><span>&#128196;</span><a href="'+esc(closureUrl)+'" target="_blank" rel="noopener" style="color:#E07A4A">View Closure Record &#8599;</a></div>';
+    } else if(s.lb_abbrev&&s.lb_abbrev.includes('NLRB')){
+      h+='<div class="pu-link"><span>&#128196;</span><a href="https://efts.nlrb.gov/natural-search/search?searchText='+encodeURIComponent(s.name)+'" target="_blank" rel="noopener" style="color:#E07A4A">Search NLRB Records &#8599;</a></div>';
+    } else {
+      h+='<div class="pu-link"><span>&#128196;</span><span style="color:#E07A4A;font-size:9px">Closure record — see state research report</span></div>';
+    }
   }
   // DECERTIFIED — show decert details and link
   if(s.status==='DECERTIFIED'){
@@ -585,7 +601,16 @@ function buildPopup(s){
     if(s.union) h+=purow('Was Union',uUrlD?'<a href="'+esc(uUrlD)+'" target="_blank" rel="noopener" style="color:#C084FC;text-decoration:underline">'+esc(s.union)+'</a>':'<span style="color:#C084FC">'+esc(s.union)+'</span>');
     if(s.dateUnionized&&s.dateUnionized!=='N/A') h+=purow('Was Certified',esc(String(s.dateUnionized).slice(0,50)));
     if(s.cbaStatus&&s.cbaStatus!=='N/A') h+=purow('Note',esc(s.cbaStatus.slice(0,100)));
-    if(s.napcsId) h+='<div class="pu-link"><span>&#128196;</span><a href="javascript:openSchoolDetail(\''+esc(s.napcsId)+'\',\''+esc(s.name)+'\',\''+esc(s.state)+'\','+s.lat+','+s.lng+')" style="color:#C084FC">View Decertification Record &#8599;</a></div>';
+    var decertUrl = s.cbaUrl || null;
+    if(decertUrl){
+      h+='<div class="pu-link"><span>&#128196;</span><a href="'+esc(decertUrl)+'" target="_blank" rel="noopener" style="color:#C084FC">View Decertification Record &#8599;</a></div>';
+    } else if(s.lb_abbrev&&s.lb_abbrev.includes('NLRB')){
+      h+='<div class="pu-link"><span>&#128196;</span><a href="https://efts.nlrb.gov/natural-search/search?searchText='+encodeURIComponent(s.name)+'" target="_blank" rel="noopener" style="color:#C084FC">Search NLRB Decertification Records &#8599;</a></div>';
+    } else if(s.lb_abbrev&&(s.lb_abbrev.includes('PERB')||s.lb_abbrev.includes('ERB'))){
+      h+='<div class="pu-link"><span>&#128196;</span><a href="https://www.perb.ca.gov/public-records/case-search/" target="_blank" rel="noopener" style="color:#C084FC">Search PERB Records &#8599;</a></div>';
+    } else {
+      h+='<div class="pu-link"><span>&#128196;</span><span style="color:#C084FC;font-size:9px">Decertification record — see state research report</span></div>';
+    }
   }
   // Website — use cbaUrl as fallback if school website not present
   var siteUrl = s.website || s.cbaUrl || null;
@@ -619,6 +644,7 @@ SCHOOLS.forEach(function(s){
     weight:isUnv?1.2:isDec?1.5:isDef?1:1,
     fillOpacity:isUnv?0:cfg.opacity,
     dashArray:isUnv?'2,3':isDef?'3,4':null,
+    schoolIdx: idx,
   });
   mk.bindPopup(buildPopup(s),{maxWidth:300});
   mk.addTo(layers[s.status]);
@@ -1207,6 +1233,87 @@ function showStatePanel(code){
   h+='</div>';
 
   setPanelBody(h);
+}
+
+// ── SCHOOL / NETWORK SEARCH ──────────────────────────────────────────────────
+var _searchIndex = null;
+function buildSearchIndex(){
+  if(_searchIndex) return;
+  _searchIndex = SCHOOLS.map(function(s,i){
+    return {
+      i: i,
+      name: (s.name||'').toLowerCase(),
+      city: (s.city||'').toLowerCase(),
+      state: s.state||'',
+      cmo: (s.cmoName&&s.cmoName!=='Independent'?s.cmoName:'').toLowerCase(),
+      status: s.status||'',
+      displayName: s.name||'',
+      displayCmo: (s.cmoName&&s.cmoName!=='Independent')?s.cmoName:null,
+    };
+  });
+}
+
+function searchSchools(q){
+  var results = document.getElementById('search-results');
+  if(!q||q.length<2){ results.style.display='none'; return; }
+  buildSearchIndex();
+  var ql = q.toLowerCase().trim();
+  var matches = [];
+  // First pass: exact prefix matches on school name
+  // Second pass: contains matches
+  _searchIndex.forEach(function(s){
+    var nameMatch = s.name.indexOf(ql);
+    var cmoMatch  = s.cmo && s.cmo.indexOf(ql) !== -1;
+    if(nameMatch!==-1||cmoMatch){
+      matches.push({s:s, score: nameMatch===0?0:(cmoMatch&&!nameMatch?2:1)});
+    }
+  });
+  matches.sort(function(a,b){ return a.score-b.score || a.s.name.localeCompare(b.s.name); });
+  matches = matches.slice(0,12);
+
+  if(!matches.length){
+    results.innerHTML='<div style="padding:8px 10px;font-size:9px;color:#4A6A80">No results for \''+esc(q)+'\'</div>';
+    results.style.display='block';
+    return;
+  }
+
+  var html='';
+  var STATUS_COLOR = {CONFIRMED:'#6CC04A',DEPENDENT:'#4ABFBF',ORGANIZING:'#FF6B9D',DECERTIFIED:'#C084FC',CLOSED:'#E07A4A',UNVERIFIED:'#3A5A70',DEFERRED:'#4A7A9B'};
+  matches.forEach(function(m){
+    var s=m.s, school=SCHOOLS[s.i];
+    var dot='<span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:'+(STATUS_COLOR[s.status]||'#3A5A70')+';margin-right:5px;flex-shrink:0"></span>';
+    var sub=s.city+(s.state?', '+s.state:'');
+    if(s.displayCmo) sub+=' · '+s.displayCmo;
+    html+='<div onclick="searchSelectSchool('+s.i+')" style="padding:7px 10px;cursor:pointer;border-bottom:1px solid #0A1520;display:flex;align-items:center" '+
+      'onmouseover="this.style.background=\'#1A2535\'" onmouseout="this.style.background=\'\'">'+
+      dot+
+      '<div><div style="font-size:10px;font-weight:700;color:#E8EDF2">'+esc(s.displayName)+'</div>'+
+      '<div style="font-size:9px;color:#6A8A9A">'+esc(sub)+'</div></div></div>';
+  });
+  results.innerHTML=html;
+  results.style.display='block';
+}
+
+function searchSelectSchool(idx){
+  var s = SCHOOLS[idx];
+  document.getElementById('school-search').value = s.name;
+  document.getElementById('search-results').style.display='none';
+  // Pan to school and open popup
+  if(s.lat&&s.lng){
+    map.setView([s.lat,s.lng], 13);
+    // Find and open the marker
+    var layer = layers[s.status];
+    if(layer){
+      layer.eachLayer(function(marker){
+        if(marker.options&&marker.options.schoolIdx===idx){
+          marker.openPopup();
+        }
+      });
+    }
+  } else {
+    // No coords — show in side panel
+    showStatePanel(s.state);
+  }
 }
 
 function srow(l,v,cls){
