@@ -979,7 +979,7 @@ document.getElementById('back-btn').addEventListener('click',function(){
 });
 
 // ── FILE FOLDER TABS ──────────────────────────────────────────────────────────
-var INTEL_TABS=['political','organizing','trends','patterns','media','networks','cba','monitoring','networks'];
+var INTEL_TABS=['legalsector','media','cbaregistry','networks','political','organizing','trends','patterns','cba','monitoring'];
 function isIntelTab(t){ return INTEL_TABS.indexOf(t)>=0; }
 
 document.getElementById('tab-folders').addEventListener('click',function(e){
@@ -1887,10 +1887,9 @@ var TAB_META={
   organizing:{title:'Organizing Intel',sub:'How organizers approach schools \u00B7 What leaders should do',prompts:[2,3]},
   trends:{title:'Trends & Watch',sub:'3\u20135 year developments to watch',prompts:[4,5,6,7,8,9,10]},
   patterns:{title:'Cross-State Patterns',sub:'Findings visible across multiple states',prompts:null},
-  media:{title:'Media & Stakeholders',sub:'Press coverage \u00B7 stakeholder positions',prompts:null},
-  networks:{title:'Networks & CMOs',sub:'Organized charter management organizations',prompts:null},
-  cba:{title:'CBA Registry',sub:'Contract status by school/network',prompts:null},
-  monitoring:{title:'Monitoring Queue',sub:'Active monitoring items',prompts:null},
+  legalsector:{title:'Legal & Sector',sub:'Legal framework \u00B7 sector structure',prompts:null},
+  media:{title:'Media Coverage',sub:'Press coverage \u00B7 legislative context',prompts:null},
+  cbaregistry:{title:'CBA Registry',sub:'Contract records \u00B7 CBA status',prompts:null},
   networks:{title:'Networks',sub:'CMO \u00B7 EMO \u00B7 Penetration rates',prompts:null},
 };
 
