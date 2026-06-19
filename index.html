@@ -497,8 +497,8 @@ function unionUrl(u){
   if(s.includes('UTLA')) return 'https://www.utla.net';
   if(s.includes('UFT')) return 'https://www.uft.org';
   if(s.includes('CTU')||s.includes('CHICAGO TEACHERS UNION')) return 'https://www.ctulocal1.com';
-  if(s.includes('CHIACTS')) return 'https://www.chiacts.org';
-  if(s.includes('DC ACTS')) return 'https://www.dcacts.org';
+  if(s.includes('CHIACTS')) return 'https://www.ctulocal1.org/union/charter/'; // ChiACTS merged into CTU 2018
+  if(s.includes('DC ACTS')) return 'https://www.aft.org/press-release/second-dc-public-charter-school-week-votes-unionize-dc-acts'; // dcacts.org defunct
   if(s.includes('MICHIGAN ACTS')||s.includes('MICHIGAN ALLIANCE')) return 'https://www.michiganacts.org';
   if(s.includes('AZ-ACTS')||s.includes('AACTS')||s.includes('ARIZONA ALLIANCE')) return 'https://www.az-acts.org';
   if(s.includes('UTNO')) return 'https://www.utno.org';
@@ -533,12 +533,54 @@ function unionUrl(u){
   return null;
 }
 
+// ── NETWORK NOTE LOOKUP ─────────────────────────────────────────────────────
+// Contextual notes linking related schools — keyed by napcsId or school name
+// Applied in buildPopup when school record has no networkNote field populated
+var _NN = {
+  // DECERTIFIED — St. HOPE network (shared case 20-RD-378706)
+  'C0603056':         'Part of St. HOPE Public Schools network decertification (NLRB case 20-RD-378706, March 5, 2026). SCTA disclaimed interest before scheduled election. NLRB R20 accepted jurisdiction over PERB objection. See also: Sacramento Charter High (same network, same case).',
+  'NAPCS-ADD-CA-DEC-003': 'Part of St. HOPE Public Schools network decertification (NLRB case 20-RD-378706, March 5, 2026). Same network-level ruling as St. HOPE Public School 7. SCTA disclaimed interest March 5, 2026 — no vote held.',
+  // ORGANIZING — KIPP Colorado network (case 27-RC-311273)
+  // napcsId is null for CO KIPP schools — use name key
+  'KIPP Northeast Denver Leadership Academy': 'Lead campus for KIPP Colorado organizing. NLRB case 27-RC-311273 filed January 2023; RC petition dismissed February 2023. Five related KIPP Denver campuses carry WATCH status based on ongoing network organizing activity.',
+  'KIPP Sunshine Peak Academy':       'Part of KIPP Colorado network organizing. KIPP NE Denver Leadership Academy filed NLRB petition (27-RC-311273) Jan 2023; dismissed Feb 2023. This campus carries WATCH status — no independent petition filed.',
+  'KIPP Denver Collegiate High School':'Part of KIPP Colorado network organizing. KIPP NE Denver Leadership Academy filed NLRB petition (27-RC-311273) Jan 2023; dismissed Feb 2023. This campus carries WATCH status — no independent petition filed.',
+  'KIPP Northeast Denver Middle School':'Part of KIPP Colorado network organizing. KIPP NE Denver Leadership Academy filed NLRB petition (27-RC-311273) Jan 2023; dismissed Feb 2023. This campus carries WATCH status — no independent petition filed.',
+  'KIPP Northeast Elementary':         'Part of KIPP Colorado network organizing. KIPP NE Denver Leadership Academy filed NLRB petition (27-RC-311273) Jan 2023; dismissed Feb 2023. This campus carries WATCH status — no independent petition filed.',
+  'KIPP Sunshine Peak Elementary':     'Part of KIPP Colorado network organizing. KIPP NE Denver Leadership Academy filed NLRB petition (27-RC-311273) Jan 2023; dismissed Feb 2023. This campus carries WATCH status — no independent petition filed.',
+  // ORGANIZING — New America Schools CO network
+  'New America School - Aurora':   'Part of New America Schools (CO) network. NAS Educators United (CEA/NEA affiliate) — recognition method and formal certification status pending confirmation across 3 CO campuses.',
+  'New America School':            'Part of New America Schools (CO) network. NAS Educators United (CEA/NEA affiliate) — recognition method and formal certification status pending confirmation across 3 CO campuses.',
+  'New America School - Thornton': 'Part of New America Schools (CO) network. NAS Educators United (CEA/NEA affiliate) — recognition method and formal certification status pending confirmation across 3 CO campuses.',
+  // CLOSED — IL ASPIRA network
+  'C1705001': 'Part of ASPIRA Inc. of Illinois network (EIN 36-2666800). Network-wide ChiACTS / CTU-ACTS IELRB card-check certification 2010. ASPIRA IL ceased operations 2022.',
+  'C1707001': 'Part of ASPIRA Inc. of Illinois network (EIN 36-2666800). Network-wide ChiACTS / CTU-ACTS IELRB card-check certification 2010. ASPIRA IL ceased operations 2022.',
+  'C1715001': 'Part of ASPIRA Inc. of Illinois network (EIN 36-2666800). Network-wide ChiACTS / CTU-ACTS IELRB card-check certification 2010. ASPIRA IL ceased operations 2022.',
+  // CLOSED — IL ACERO network (formerly UNO)
+  'C1712004': 'Part of Acero Charter Schools network (formerly UNO Charter School Network). United Educators for Justice (UEJ) / CTU-ACTS represents all Acero campuses. Network remains active with organized campuses — see Acero CONFIRMED schools.',
+  'C1798005': 'Part of Acero Charter Schools network (formerly UNO Charter School Network). United Educators for Justice (UEJ) / CTU-ACTS represents all Acero campuses. Network remains active with organized campuses — see Acero CONFIRMED schools.',
+  // CLOSED — CA ACE network (San Jose)
+  'ACE Esperanza Middle':  'Part of ACE (Asian Community Education) charter network, San Jose. Network has active organized campuses — see ACE Charter High (CONFIRMED). Closed campus; certification history in PERB/NLRB records.',
+  'ACE Inspire Academy':   'Part of ACE (Asian Community Education) charter network, San Jose. Network has active organized campuses — see ACE Charter High (CONFIRMED). Closed campus; certification history in PERB/NLRB records.',
+  'ACE Empower Academy':   'Part of ACE (Asian Community Education) charter network, San Jose. Network has active organized campuses — see ACE Charter High (CONFIRMED). Closed campus; certification history in PERB/NLRB records.',
+};
+function getNetworkNote(s){
+  // Priority: field on record, then lookup by napcsId, then lookup by name
+  if(s.networkNote) return s.networkNote;
+  if(s.napcsId && _NN[s.napcsId]) return _NN[s.napcsId];
+  if(s.name && _NN[s.name]) return _NN[s.name];
+  return null;
+}
+
 // ── POPUP ───────────────────────────────────────────────────────────────────
 function buildPopup(s){
   var stLbl={CONFIRMED:'Independently Organized',DEPENDENT:'Structural Coverage (Dependent)',ORGANIZING:'Organizing Presence / Intent',DECERTIFIED:'Decertified — School Open',CLOSED:'Closed — Was Organized',UNVERIFIED:'No Organizing Activity Documented',DEFERRED:'No Known Organizing Activity'}[s.status]||s.status;
   var lowPrec=isLowPrecision(s);
   var h='<div class="pu-name">'+esc(s.name)+'</div>';
   h+=purow('Status','<span class="pu-badge bc-'+s.status+'">'+stLbl+'</span>');
+  // Network note — contextual note linking related schools (e.g. shared decertification case)
+  var _nn = getNetworkNote(s);
+  if(_nn) h+='<div style="background:#1a2a3a;border-left:3px solid #4A9FE0;padding:6px 8px;margin:4px 0;font-size:10px;color:#8ab4c8;line-height:1.4">&#8505; '+esc(_nn)+'</div>';
   // Location + address (single entry)
   h+=purow('Location',esc(s.city+', '+s.state));
   if(s.address) h+=purow('Address',esc(s.address+(s.zip?' '+s.zip:'')));
@@ -604,7 +646,12 @@ function buildPopup(s){
     h+='<div class="pu-link"><span>&#128196;</span>'+_decertLink+'</div>';
   }
   // Website — use cbaUrl as fallback if school website not present
+  // Suppress known defunct school websites rather than showing dead links
+  var _deadSites = ['www.gomperssd.org','www.lyceenola.org'];
   var siteUrl = s.website || s.cbaUrl || null;
+  if(siteUrl && _deadSites.some(function(d){ return siteUrl.indexOf(d) !== -1; })) siteUrl = null;
+  // Update known sites that moved
+  if(siteUrl && siteUrl.indexOf('lyceenola.org') !== -1) siteUrl = 'https://www.lfno.org';
   if(siteUrl) h+='<div class="pu-link"><span>&#127760;</span><a href="'+esc(siteUrl)+'" target="_blank" rel="noopener">School Website &#8599;</a></div>';
   // IDs — NCES and State, with "Not available" fallback
   var nces = s.ncesId||s.nces||null;
@@ -1278,16 +1325,16 @@ function buildCaseLink(s, color, label, structuralNote){
       esc(label)+' <span style="font-size:9px;font-weight:normal">('+caseNum+')</span> &#8599;</a>';
   }
 
-  // PERB(CA) — ePERB case search
+  // PERB(CA) — ePERB portal search (pre-populated; user hits Enter)
   if(isPERB){
-    var perbSearch = 'https://efts.perb.ca.gov/search?query='+encodeURIComponent(s.name);
+    var perbSearch = 'https://www.perb.ca.gov/decisions/decision-search/?s='+encodeURIComponent(s.name);
     return '<a href="'+esc(perbSearch)+'" target="_blank" rel="noopener" style="color:'+color+';font-weight:700">'+
-      esc(label)+' <span style="font-size:9px;font-weight:normal">(search ePERB)</span> &#8599;</a>';
+      esc(label)+' <span style="font-size:9px;font-weight:normal">(search PERB)</span> &#8599;</a>';
   }
 
-  // NLRB jurisdiction but no case number — NLRB name search
+  // NLRB jurisdiction but no case number — NLRB case search (pre-populated; user hits Enter)
   if(isNLRB){
-    var nlrbSearch = 'https://efts.nlrb.gov/natural-search/search?searchText='+encodeURIComponent(s.name);
+    var nlrbSearch = 'https://www.nlrb.gov/search/case?searchText='+encodeURIComponent(s.name);
     return '<a href="'+esc(nlrbSearch)+'" target="_blank" rel="noopener" style="color:'+color+';font-weight:700">'+
       esc(label)+' <span style="font-size:9px;font-weight:normal">(search NLRB)</span> &#8599;</a>';
   }
@@ -1298,18 +1345,18 @@ function buildCaseLink(s, color, label, structuralNote){
       esc(label)+' &#8505;</span>';
   }
 
-  // Final fallback — use state to determine board and link to search
+  // Final fallback — use state to determine board and link to pre-populated search
   if(s.state==='CA'){
-    var perbFallback='https://efts.perb.ca.gov/search?query='+encodeURIComponent(s.name);
+    var perbFallback='https://www.perb.ca.gov/decisions/decision-search/?s='+encodeURIComponent(s.name);
     return '<a href="'+esc(perbFallback)+'" target="_blank" rel="noopener" style="color:'+color+';font-weight:700">'+
-      esc(label)+' <span style="font-size:9px;font-weight:normal">(search ePERB)</span> &#8599;</a>';
+      esc(label)+' <span style="font-size:9px;font-weight:normal">(search PERB)</span> &#8599;</a>';
   }
   if(s.state==='WA'){
     return '<a href="https://perc.wa.gov/cases/" target="_blank" rel="noopener" style="color:'+color+';font-weight:700">'+
       esc(label)+' <span style="font-size:9px;font-weight:normal">(search WA PERC)</span> &#8599;</a>';
   }
-  // All other states default to NLRB search
-  var nlrbFallback='https://efts.nlrb.gov/natural-search/search?searchText='+encodeURIComponent(s.name);
+  // All other states default to NLRB case search (pre-populated)
+  var nlrbFallback='https://www.nlrb.gov/search/case?searchText='+encodeURIComponent(s.name);
   return '<a href="'+esc(nlrbFallback)+'" target="_blank" rel="noopener" style="color:'+color+';font-weight:700">'+
     esc(label)+' <span style="font-size:9px;font-weight:normal">(search NLRB)</span> &#8599;</a>';
 }
