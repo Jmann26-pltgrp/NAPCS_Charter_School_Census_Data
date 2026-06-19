@@ -431,7 +431,7 @@ function isLowPrecision(s) {
 
 // ── HEADER ─────────────────────────────────────────────────────────────────
 document.getElementById('topbar-sub').textContent =
-  'Working Data \u00B7 Last Updated June 16, 2026 \u00B7 v2.1';
+  'Working Data \u00B7 Last Updated ' + NAT.dataDate + ' \u00B7 v2.1';
 
 // Stat bar population
 var combPct = NAT.density;
@@ -439,7 +439,7 @@ var confPct = NAT.confirmed_density;
 var depPct  = NAT.dependent ? (NAT.dependent/NAT.universe*100).toFixed(1)+'%' : '0%';
 
 document.getElementById('sv-total').textContent = NAT.universe.toLocaleString();
-document.getElementById('ss-total').textContent = '45 Jurisdictions + DC \u00B7 June 2026';
+document.getElementById('ss-total').textContent = NAT.jurisdictions + ' Jurisdictions \u00B7 ' + NAT.dataDate;
 document.getElementById('sv-comb').textContent  = NAT.combined.toLocaleString();
 document.getElementById('ss-comb').textContent  = combPct+' of universe';
 document.getElementById('sv-conf').textContent  = NAT.confirmed.toLocaleString();
@@ -617,6 +617,9 @@ function purow(l,v){ return '<div class="pu-row"><span class="pu-lbl">'+l+'</spa
 var markerIndex = {};
 SCHOOLS.forEach(function(s,idx){
   if(!s.lat||!s.lng) return;
+  // Suppress future/not-yet-open schools — should not appear on dashboard map
+  var opStatus = (s.operatingStatus||'').toLowerCase();
+  if(opStatus.indexOf('future')!==-1||opStatus.indexOf('not yet open')!==-1) return;
   var cfg=STATUS_CFG[s.status]||STATUS_CFG.UNVERIFIED;
   var isUnv=s.status==='UNVERIFIED';
   var isDec=s.status==='DECERTIFIED';
@@ -698,7 +701,7 @@ function printDensityTable(){
     '<td>'+NAT.confirmed+'</td>'+
     '<td>'+NAT.dependent+'</td>'+
     '<td>'+NAT.density+'</td></tr>';
-  w.document.write('<html><head><title>NAPCS Census Table \u2014 June 16, 2026</title>'+
+  w.document.write('<html><head><title>NAPCS Census Table \u2014 ' + NAT.dataDate + '</title>'+
     '<style>body{font-family:Arial,sans-serif;margin:20px;color:#000}'+
     'h2{font-size:14px;margin-bottom:4px}p{font-size:10px;color:#666;margin-bottom:12px}'+
     'table{border-collapse:collapse;width:100%;font-size:11px}'+
@@ -707,7 +710,7 @@ function printDensityTable(){
     'tr:nth-child(even) td{background:#f5f8fc}'+
     '@media print{button{display:none}}</style></head><body>');
   w.document.write('<h2>NAPCS Charter School Unionization Census Table</h2>'+
-    '<p>PLT Strategies Group, Inc. \u00B7 Working Data \u00B7 Data Currency: June 16, 2026</p>');
+    '<p>PLT Strategies Group, Inc. \u00B7 Working Data \u00B7 Data Currency: ' + NAT.dataDate + '</p>');
   w.document.write('<table><thead><tr>'+
     '<th>State</th><th>Census Total</th><th>Indep. Organized</th>'+
     '<th>Structural Coverage</th><th>Combined %</th>'+
@@ -1020,7 +1023,7 @@ function noStateMsg(n){ return '<div class="no-state"><div class="ns-icon">&#128
 function showNationalPanel(){
   setPanelHdr('National Overview','Click any state label on the map to zoom in');
   var h='';
-  h+='<div class="section-label">National Census \u2014 June 16, 2026 Data Currency Date</div>';
+  h+='<div class="section-label">National Census \u2014 ' + NAT.dataDate + ' Data Currency Date</div>';
   h+=srow('Census Total (Charter Schools)',NAT.universe.toLocaleString(),'');
   h+=srow('Combined',NAT.combined+' ('+NAT.density+')','sv-g');
   h+=srow('Independently Organized',NAT.confirmed+' ('+NAT.confirmed_density+')','sv-g');
@@ -1028,7 +1031,7 @@ function showNationalPanel(){
   h+=srow('Organizing Presence / Intent',NAT.organizing,NAT.organizing>0?'sv-gold':'');
   h+=srow('Decertified',NAT.decertified,'');
   h+=srow('Closed — Was Organized (ref.)',sc.CLOSED,'sv-r');
-  h+=srow('Jurisdictions',NAT.jurisdictions+' states + DC (all jurisdictions except KY)','');
+  h+=srow('Jurisdictions',NAT.jurisdictions+' (44 states + DC; KY excluded — no open charter schools)','');
   // Enrollment intelligence section
   var CE = NAPCS_CONFIG.charterEnrollment || {};
   if (CE.combinedEnrollment) {
@@ -1042,13 +1045,13 @@ function showNationalPanel(){
     h+='<div style="font-size:9px;color:#6A8A9A;padding:2px 0 6px">Enrollment share reflects schools with available 2024–25 data only ('+CE.schoolsWithEnrollment.toLocaleString()+' of '+NAT.universe.toLocaleString()+' schools).</div>';
   }
   h+='<div class="section-label">Data Currency</div>';
-h+='<div class="oi-card" style="border-left:3px solid #2E75B6"><div class="oi-lbl">Working Data</div><div class="oi-val">Last Updated June 16, 2026</div></div>';
+h+='<div class="oi-card" style="border-left:3px solid #2E75B6"><div class="oi-lbl">Working Data</div><div class="oi-val">Last Updated ' + NAT.dataDate + '</div></div>';
 h+='<div class="oi-card" style="border-left:3px solid #4A7A9B;cursor:pointer" onclick="switchTab(\'dataquality\')" title="Click for full methodology note">';
 h+='<div class="oi-lbl">Deferred Jurisdictions (12)</div>';
 h+='<div class="oi-val" style="font-size:9px;color:#6A8A9A">AL, ID, IN, MS, NC, NV, OK, SC, TN, TX, UT, WY \u2014 No organized charter schools known to exist. Classified as No Known Organizing Activity. <span style="color:#4A9FE0">See Data Quality \u2192</span></div></div>';
 h+='<div class="section-label">Data Source</div>';
   h+=srow('Charter School Registry','v130 \u00B7 NCES CCD 2024\u201325','sv-b');
-  h+=srow('Research','PLT Strategies Group \u00B7 June 16, 2026','');
+  h+=srow('Research','PLT Strategies Group \u00B7 ' + NAT.dataDate,'');
   setPanelBody(h);
 }
 
@@ -1623,7 +1626,7 @@ function showCmoDetailPanel(code){
 var dtSortCol = 'density', dtSortDir = -1; // default: density descending
 
 function buildDensityTable(){
-  setPanelHdr('Census Table','All 45 jurisdictions (33 researched + 12 deferred) \u00B7 click column header to sort');
+  setPanelHdr('Census Table','All '+NAT.jurisdictions+' jurisdictions ('+NAT.jurisdictionsResearched+' researched + '+NAT.jurisdictionsDeferred+' deferred) \u00B7 click column header to sort');
   renderDensityTable();
 }
 
