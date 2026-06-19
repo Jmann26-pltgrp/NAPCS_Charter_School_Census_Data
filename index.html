@@ -294,6 +294,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
         <div class="drag-dots"><span></span><span></span><span></span></div>
         &#8801; Filter by Status <span style="font-size:8px;color:#4A9FE0;margin-left:auto;font-weight:700;letter-spacing:.3px;padding-left:8px">DRAG &#8597;</span>
       </div>
+      <label class="fitem" style="border-bottom:1px solid #1E2D40;margin-bottom:5px;padding-bottom:5px" title="Toggle state label icons on/off. Reset to All States will restore them."><input type="checkbox" checked id="toggle-state-labels"><span class="fdot" style="background:#2E75B6;border-radius:2px"></span><span>State Label Icons</span></label>
       <label class="fitem"><input type="checkbox" checked data-status="CONFIRMED"><span class="fdot" style="background:#6CC04A"></span><span>Independently Organized (<span id="fc-0">0</span>)</span></label>
       <label class="fitem"><input type="checkbox" checked data-status="DEPENDENT"><span class="fdot" style="background:#4ABFBF"></span><span>Structural Coverage (<span id="fc-1">0</span>)</span></label>
       <label class="fitem"><input type="checkbox" checked data-status="ORGANIZING"><span class="fdot" style="background:#FF6B9D"></span><span>Organizing Presence / Intent (<span id="fc-2">0</span>)</span></label>
@@ -438,7 +439,7 @@ var confPct = NAT.confirmed_density;
 var depPct  = NAT.dependent ? (NAT.dependent/NAT.universe*100).toFixed(1)+'%' : '0%';
 
 document.getElementById('sv-total').textContent = NAT.universe.toLocaleString();
-document.getElementById('ss-total').textContent = NAT.jurisdictions+' Jurisdictions \u00B7 June 16, 2026';
+document.getElementById('ss-total').textContent = '45 Jurisdictions + DC \u00B7 June 2026';
 document.getElementById('sv-comb').textContent  = NAT.combined.toLocaleString();
 document.getElementById('ss-comb').textContent  = combPct+' of universe';
 document.getElementById('sv-conf').textContent  = NAT.confirmed.toLocaleString();
@@ -721,7 +722,14 @@ function printDensityTable(){
 // ── FILTER ──────────────────────────────────────────────────────────────────
 document.querySelectorAll('#filter-bar input[type=checkbox]').forEach(function(cb){
   cb.addEventListener('change',function(){
+    // State label toggle
+    if(this.id==='toggle-state-labels'){
+      if(this.checked) map.addLayer(stateLabelGroup);
+      else map.removeLayer(stateLabelGroup);
+      return;
+    }
     var st=this.getAttribute('data-status');
+    if(!st) return;
     if(this.checked) map.addLayer(layers[st]); else map.removeLayer(layers[st]);
   });
 });
@@ -974,6 +982,9 @@ document.getElementById('back-btn').addEventListener('click',function(){
   _curState=null;
   this.style.display='none';
   if(_statePopup){ map.closePopup(_statePopup); _statePopup=null; }
+  // Restore state labels when returning to national view
+  var lblCb=document.getElementById('toggle-state-labels');
+  if(lblCb){ lblCb.checked=true; map.addLayer(stateLabelGroup); }
   if(_curTab==='overview') showNationalPanel();
   else if(isIntelTab(_curTab)) renderIntelTab(_curTab,null);
 });
@@ -1042,6 +1053,7 @@ h+='<div class="section-label">Data Source</div>';
 }
 
 function showStatePanel(code){
+  _curState = code;  // ensure tab clicks work after showStatePanel
   var sd=SD[code]||{}, jd=JDATA[code]||{}, name=STATE_NAMES[code]||code;
   setPanelHdr(name,(sd.lb_abbrev||sd.lb||'')+(sd.note?' \u00B7 '+sd.note.slice(0,60):''));
   var combined=(sd.conf||0)+(sd.dep||0);
@@ -1319,6 +1331,9 @@ function clearSearch(){
   _curState=null;
   document.getElementById('back-btn').style.display='none';
   if(_statePopup){ map.closePopup(_statePopup); _statePopup=null; }
+  // Restore state labels
+  var lblCb=document.getElementById('toggle-state-labels');
+  if(lblCb){ lblCb.checked=true; map.addLayer(stateLabelGroup); }
   if(_curTab==='overview') showNationalPanel();
   // Remove the search reset button if present
   var rb = document.getElementById('search-reset-btn');
@@ -1897,6 +1912,12 @@ function renderIntelTab(tab,code){
   var meta=TAB_META[tab]||{title:tab,sub:''};
   setPanelHdr(meta.title,code?(STATE_NAMES[code]||code)+' \u00B7 '+meta.sub:meta.sub);
   if(!code){ setPanelBody(noStateMsg(meta.title.toLowerCase())); return; }
+  // Sidebar-driven tabs bypass INTEL check — they use SIDEBAR data directly
+  if(tab==='legalsector'||tab==='media'||tab==='cbaregistry'){
+    renderInfoTab(tab,code);
+    return;
+  }
+  if(tab==='networks'){ showCmoDetailPanel(code); return; }
   var st=(INTEL&&INTEL[code])||null;
   if(!st){ setPanelBody('<div class="no-state"><div class="ns-icon">&#128202;</div>No information data available yet for '+esc(STATE_NAMES[code]||code)+'.<br><br><span style="font-size:9px;color:#4A6A80">State information is added through dedicated research sessions. The Verification tab documents the methodology applied to all states.</span></div>'); return; }
   var h='';
