@@ -3245,6 +3245,2403 @@ var NAPCS_CONFIG = {
           "items": []
         }
       }
+    },
+    "AK": {
+      "state": "AK",
+      "stateName": "Alaska",
+      "reportVersion": "v8.0",
+      "generatedDate": "2026-06-19",
+      "isDeferred": false,
+      "sections": {
+        "legalSector": {
+          "label": "Legal & Sector Overview",
+          "items": [
+            {
+              "heading": "Legal & Jurisdictional Framework",
+              "body": "AS 14.03.270(b) (charter school CBA carryover — district CBA applies by default to district-employed charter teachers unless district and bargaining unit jointly agree to waiver). AS 14.03.270(d) (charter may also hire non-district employees outside CBA). AS 23.40 (PERA — public employee labor relations). AS 23.40.090 (bargaining unit determination). All AK charter schools are district-authorized programs. District is employer of record for district-employed teachers. Alaska is not a right-to-work state (Alaska has no right-to-work statute. AS 23.40 (PERA) and AS 14.03.270 govern public employee labor relations without RTW restriction.). ALRA (AK) has exclusive jurisdiction. Federal NLRB does not apply to charter schools in Alaska. Secret ballot NLRB election is the required organizing pathway. Card-check is not available."
+            },
+            {
+              "heading": "Charter Sector Structure",
+              "body": "Alaska operates 32 open-enrollment charter schools, enrolling approximately 7,266 students. No multi-campus charter networks are identified in the Charter School Registry for Alaska."
+            }
+          ]
+        },
+        "media": {
+          "label": "Media Coverage",
+          "items": [
+            {
+              "headline": "Press Coverage Overview",
+              "outlet": null,
+              "date": null,
+              "summary": "No press coverage of charter-school-specific union organizing activity in Alaska was identified. District-level bargaining coverage is extensive (Anchorage Daily News, Alaska Public Media) but does not specifically address charter school CBA coverage under AS 14.03.270(b).",
+              "url": null,
+              "sentiment": "NEUTRAL"
+            }
+          ]
+        },
+        "cbaRegistry": {
+          "label": "CBA Registry",
+          "items": [
+            {
+              "school": "ASD Charter Schools (8 schools — see SCHOOLS array)",
+              "union": "Anchorage Education Association (AEA) / NEA-Alaska / NEA",
+              "cbaStatus": "CONFIRMED",
+              "cbaYear": "2026-2029 (3-year CBA ratified February 2026)",
+              "cbaUrl": null,
+              "notes": "AEA represents ~2,800–3,000 ASD educators. Charter school teachers employed by ASD are covered by AEA CBA per AS 14.03.270(b)."
+            },
+            {
+              "school": "FNSBSD Charter Schools (5 schools — see SCHOOLS array)",
+              "union": "Fairbanks Education Association (FEA) / NEA-Alaska / NEA",
+              "cbaStatus": "CONFIRMED",
+              "cbaYear": "In active negotiations as of April 2026",
+              "cbaUrl": null,
+              "notes": "FEA covers FNSBSD teachers including charter school employees per AS 14.03.270(b)."
+            },
+            {
+              "school": "JSD Charter School (1 school — Juneau Community Charter School)",
+              "union": "Juneau Education Association (JEA) / NEA-Alaska / NEA",
+              "cbaStatus": "CONFIRMED",
+              "cbaYear": "Active — current period to be confirmed",
+              "cbaUrl": null,
+              "notes": "JEA covers JSD teachers including Juneau Community Charter School employees per AS 14.03.270(b)."
+            },
+            {
+              "school": "KPBSD Charter Schools (5 schools — see SCHOOLS array)",
+              "union": "Kenai Peninsula Education Association (KPEA) / NEA-Alaska / NEA",
+              "cbaStatus": "CONFIRMED",
+              "cbaYear": "Active — 2021-2024 CBA extended one year to June 30, 2025; 2025-26 negotiations in progress",
+              "cbaUrl": null,
+              "notes": "KPEA covers KPBSD teachers including 5 charter school campuses per AS 14.03.270(b). 2021-2024 CBA reapproved for one year to June 30, 2025; successor agreement in negotiation."
+            },
+            {
+              "school": "KGBSD Charter Schools (2 schools — see SCHOOLS array)",
+              "union": "Ketchikan Education Association (KEA) / NEA-Alaska / NEA",
+              "cbaStatus": "CONFIRMED",
+              "cbaYear": "Active — current period to be confirmed",
+              "cbaUrl": null,
+              "notes": "KEA covers KGBSD teachers including 2 charter school campuses per AS 14.03.270(b)."
+            },
+            {
+              "school": "LKSD Charter School (1 school — Ayaprun Elitnaurvik)",
+              "union": "Lower Kuskokwim Education Association (LKEA) / NEA-Alaska / NEA",
+              "cbaStatus": "CONFIRMED",
+              "cbaYear": "Active — current period to be confirmed",
+              "cbaUrl": null,
+              "notes": "LKEA covers LKSD teachers including Ayaprun Elitnaurvik Yup'ik Immersion School per AS 14.03.270(b)."
+            },
+            {
+              "school": "LYSD Charter School (1 school — Hooper Bay Charter School)",
+              "union": "Lower Yukon Teachers Association (LYTA) / NEA-Alaska / NEA",
+              "cbaStatus": "CONFIRMED",
+              "cbaYear": "Active — current period to be confirmed",
+              "cbaUrl": null,
+              "notes": "LYTA covers LYSD teachers including Hooper Bay Charter School per AS 14.03.270(b)."
+            },
+            {
+              "school": "MSBSD Charter Schools (8 schools — see SCHOOLS array)",
+              "union": "Matanuska-Susitna Education Association (MSEA) / NEA-Alaska / NEA",
+              "cbaStatus": "CONFIRMED",
+              "cbaYear": "Active — current period to be confirmed",
+              "cbaUrl": null,
+              "notes": "MSEA covers MSBSD teachers including 8 charter school campuses per AS 14.03.270(b)."
+            },
+            {
+              "school": "NCSD Charter School (1 school — Anvil City Science Academy)",
+              "union": "Nome Education Association / NEA-Alaska / NEA",
+              "cbaStatus": "CONFIRMED",
+              "cbaYear": "Active — current period to be confirmed",
+              "cbaUrl": null,
+              "notes": "Nome Education Association covers NCSD teachers including Anvil City Science Academy per AS 14.03.270(b)."
+            }
+          ]
+        }
+      }
+    },
+    "AL": {
+      "state": "AL",
+      "stateName": "Alabama",
+      "reportVersion": "v8.0",
+      "generatedDate": "2026-06-19",
+      "isDeferred": true,
+      "sections": {
+        "legalSector": {
+          "label": "Legal & Sector Overview",
+          "items": [
+            {
+              "heading": "Legal & Jurisdictional Framework",
+              "body": "Ala. Code §16-6B (Alabama Charter School Act, 2015). Charter teachers are employees of the charter school, not the LEA. NLRB R10 private employer framework applies. Alabama is a right-to-work state (Ala. Code §25-7-30 through §25-7-36). Charter schools in Alabama are subject to NLRB jurisdiction as private employers (NLRB R10). Secret ballot NLRB election is the required organizing pathway. Card-check is not available."
+            },
+            {
+              "heading": "Charter Sector Structure",
+              "body": "Alabama operates 23 open-enrollment charter schools, enrolling approximately 8,356 students. 6 charter management organizations and education management organizations operate in Alabama. The largest networks by campus count are MAEF Public Charter Schools (2 campuses in state), Empower Schools of Alabama (2 campuses in state), LEAD Academy (2 campuses in state). Approximately 11 schools operate independently with no CMO or EMO affiliation. Network-level detail appears in the CMO & EMO section of the state report. No school-level union research has been conducted. Research deferred — Executive Sponsor direction (PDR-018, June 7, 2026)."
+            }
+          ]
+        },
+        "media": {
+          "label": "Media Coverage",
+          "items": [
+            {
+              "headline": "Press Coverage Overview",
+              "outlet": null,
+              "date": null,
+              "summary": "No press coverage of charter school employee organizing has been identified in Alabama. Coverage of the Alabama charter sector focuses primarily on sector growth since the 2015 charter law enactment, authorizer oversight, and school performance accountability.",
+              "url": null,
+              "sentiment": "NEUTRAL"
+            },
+            {
+              "headline": "Legislative Context",
+              "outlet": null,
+              "date": null,
+              "summary": "No charter-sector collective bargaining legislation has been introduced in the Alabama Legislature. The 2015 Charter School Act (SB 45) established the foundational framework; subsequent legislative attention has focused on authorizer accountability and sector expansion rather than labor relations.",
+              "url": null,
+              "sentiment": "NEUTRAL"
+            }
+          ]
+        },
+        "cbaRegistry": {
+          "label": "CBA Registry",
+          "items": []
+        }
+      }
+    },
+    "AR": {
+      "state": "AR",
+      "stateName": "Arkansas",
+      "reportVersion": "v8.0",
+      "generatedDate": "2026-06-19",
+      "isDeferred": false,
+      "sections": {
+        "legalSector": {
+          "label": "Legal & Sector Overview",
+          "items": [
+            {
+              "heading": "Legal & Jurisdictional Framework",
+              "body": "Charter schools in Arkansas are subject to NLRB jurisdiction as private employers (National Labor Relations Board — Region 15 (New Orleans)). Arkansas is a right-to-work state (Arkansas Constitution Amendment 34 (1944); Ark. Code Ann. §11-3-303 et seq.). Card-check recognition is available under Voluntary recognition is available under NLRA for private employers. NLRB R15 jurisdiction. However, Act 612 of 2021 (SB 341) prohibits any district or public-employer collective bargaining in AR; this does not affect NLRB jurisdiction over charter schools as private employers. Note: Some ambiguity exists about whether AR charter schools are private or public employers. They are organized as nonprofits but authorized by and accountable to the state. No NLRB ruling on AR charter school jurisdiction confirmed as of June 2026.."
+            },
+            {
+              "heading": "Charter Sector Structure",
+              "body": "Arkansas operates 109 open-enrollment charter schools, enrolling approximately 44,900 students. 14 charter management organizations and education management organizations operate in Arkansas. The largest networks by campus count are LISA Academy (13 campuses in state), Premier High Schools of Arkansas (7 campuses in state), Friendship Aspire Academies Arkansas (7 campuses in state). Approximately 46 schools operate independently with no CMO or EMO affiliation. Network-level detail appears in the CMO & EMO section of the state report."
+            }
+          ]
+        },
+        "media": {
+          "label": "Media Coverage",
+          "items": []
+        },
+        "cbaRegistry": {
+          "label": "CBA Registry",
+          "items": []
+        }
+      }
+    },
+    "AZ": {
+      "state": "AZ",
+      "stateName": "Arizona",
+      "reportVersion": "v8.0",
+      "generatedDate": "2026-06-19",
+      "isDeferred": false,
+      "sections": {
+        "legalSector": {
+          "label": "Legal & Sector Overview",
+          "items": [
+            {
+              "heading": "Legal & Jurisdictional Framework",
+              "body": "National Labor Relations Act (NLRA). Arizona is a right-to-work state (ARS §23-1302). No state public-sector collective bargaining statute applies to charter schools. NLRB Region 28 has exclusive jurisdiction. Arizona is a right-to-work state (A.R.S. §23-1302). Charter schools in Arizona are subject to NLRB jurisdiction as private employers (NLRB Region 28 (Phoenix)). Secret ballot NLRB election is the required organizing pathway. Card-check is not available."
+            },
+            {
+              "heading": "Charter Sector Structure",
+              "body": "Arizona operates 562 open-enrollment charter schools, enrolling approximately 229,165 students. 21 charter management organizations and education management organizations operate in Arizona, including 4 for-profit EMOs. The largest networks by campus count are BASIS Schools (22 campuses in state), Great Hearts Academies (22 campuses in state), Legacy Traditional Schools (21 campuses in state). Approximately 384 schools operate independently with no CMO or EMO affiliation. Network-level detail appears in the CMO & EMO section of the state report."
+            }
+          ]
+        },
+        "media": {
+          "label": "Media Coverage",
+          "items": [
+            {
+              "headline": "Press Coverage Overview",
+              "outlet": null,
+              "date": null,
+              "summary": "Arizona Luminaria (Shannon Conner, education solutions reporter) has been the primary outlet covering AZ charter school organizing. Coverage arc: December 2025 (City High / Paulo Freire announce union intent) → January 2026 (board files Littler Mendelson jurisdictional challenge) → February 2026 (rally, teachers say vote stalled) → May 4, 2026 (NLRB approves election). Tucson.com covered BASIS Tucson North CBA ratification (September 2025). National AFT press release (August 2025) covered contract ratification. Law360 (May 2026) reported NLRB regional director \"approved a union vote at a network of AZ charter schools\" — believed to refer to BASIS Goodyear RC petition approval.",
+              "url": null,
+              "sentiment": "NEUTRAL"
+            }
+          ]
+        },
+        "cbaRegistry": {
+          "label": "CBA Registry",
+          "items": [
+            {
+              "school": "BASIS Tucson North (C0412011)",
+              "union": "AACTS / AFT Local 6627",
+              "cbaStatus": "CONFIRMED",
+              "cbaYear": "Ratified August 2025 (term unknown)",
+              "cbaUrl": null,
+              "notes": "First charter union contract in AZ history. Not publicly posted. AFT press release confirms ratification. NLRB FOIA for case 28-RC-313911 documents recommended."
+            },
+            {
+              "school": "City High School (C0404006)",
+              "union": "AACTS / AFT Local 6627 (pending)",
+              "cbaStatus": "PRE_FIRST_CONTRACT",
+              "cbaYear": "N/A — election not yet held",
+              "cbaUrl": null,
+              "notes": "NLRB election scheduled May 19, 2026. No CBA until certified and first contract bargained."
+            },
+            {
+              "school": "Paulo Freire - Downtown (C0414026)",
+              "union": "AACTS / AFT Local 6627 (pending)",
+              "cbaStatus": "PRE_FIRST_CONTRACT",
+              "cbaYear": "N/A — election not yet held",
+              "cbaUrl": null,
+              "notes": "Same unit and election as City High. See above."
+            },
+            {
+              "school": "Paulo Freire - University (C0405011)",
+              "union": "AACTS / AFT Local 6627 (pending)",
+              "cbaStatus": "PRE_FIRST_CONTRACT",
+              "cbaYear": "N/A — election not yet held",
+              "cbaUrl": null,
+              "notes": "Same unit and election as City High. See above."
+            }
+          ]
+        }
+      }
+    },
+    "CT": {
+      "state": "CT",
+      "stateName": "Connecticut",
+      "reportVersion": "v8.0",
+      "generatedDate": "2026-06-19",
+      "isDeferred": false,
+      "sections": {
+        "legalSector": {
+          "label": "Legal & Sector Overview",
+          "items": [
+            {
+              "heading": "Legal & Jurisdictional Framework",
+              "body": "Connecticut Teacher Negotiation Act (TNA) — Conn. Gen. Stat. §10-153a et seq. Governs certificated staff in most CT charter schools classified as public employers. SBLR handles prohibited practice complaints; representation via TNA process administered by CT SBE. Connecticut is not a right-to-work state (Connecticut has no right-to-work statute. Conn. Gen. Stat. §31-101 et seq. (Connecticut Labor Relations Act) and TNA (§10-153a et seq.) permit union security provisions.). Charter schools in Connecticut are subject to NLRB jurisdiction as private employers (SBLR (CT)). Secret ballot NLRB election is the required organizing pathway. Card-check is not available."
+            },
+            {
+              "heading": "Charter Sector Structure",
+              "body": "Connecticut operates 21 open-enrollment charter schools, enrolling approximately 10,811 students. 3 charter management organizations and education management organizations operate in Connecticut. The largest networks by campus count are Achievement First (4 campuses in state), Capital Preparatory Schools (1 campuses in state), Great Oaks Charter Schools (1 campuses in state). Approximately 15 schools operate independently with no CMO or EMO affiliation. Network-level detail appears in the CMO & EMO section of the state report."
+            }
+          ]
+        },
+        "media": {
+          "label": "Media Coverage",
+          "items": [
+            {
+              "headline": "Press Coverage Overview",
+              "outlet": null,
+              "date": null,
+              "summary": "Connecticut charter school labor relations have received limited press coverage, consistent with the small size of the sector (21 schools) and the low-conflict nature of TNA representation. The most significant press event was the April 2022 New Haven Arts Paper coverage of the Common Ground High School NLRB election — reporting the vote as 62-8 and documenting post-election teacher non-renewals that led to an NLRB ULP settlement of $10,000 (April 2022). TNA-represented schools (ISAAC, New Beginnings, Integrated Day) have generated no press coverage of their organizing history, consistent with TNA's administrative rather than adversarial certification process.",
+              "url": null,
+              "sentiment": "NEUTRAL"
+            },
+            {
+              "headline": "Legislative Context",
+              "outlet": null,
+              "date": null,
+              "summary": "Connecticut's Teacher Negotiation Act (TNA) is unique in the NAPCS dataset — it is the only state framework that does not produce a public certification database or election record for teacher bargaining. TNA representation is established by written authorization and does not require a state labor board election. This creates a documentation gap for the project: certification dates for ISAAC (2005) and New Beginnings (pre-2013) are approximate and cannot be confirmed without direct contact with CEA or CT SBE.",
+              "url": null,
+              "sentiment": "NEUTRAL"
+            }
+          ]
+        },
+        "cbaRegistry": {
+          "label": "CBA Registry",
+          "items": [
+            {
+              "school": "ISAAC (Interdistrict School for Arts and Communication)",
+              "union": "ISAAC Education Association / CEA/NEA",
+              "cbaStatus": "Active (assumed)",
+              "cbaYear": "Unknown — not publicly posted. Coordinator: contact CEA or school for current contract period.",
+              "cbaUrl": null,
+              "notes": "TNA representation since 2005."
+            },
+            {
+              "school": "New Beginnings Family Academy",
+              "union": "New Beginnings Education Association / CEA/NEA",
+              "cbaStatus": "Active (assumed)",
+              "cbaYear": "Unknown — not publicly posted. Coordinator: contact CEA or school (nbfacademy.org) for current contract period.",
+              "cbaUrl": null,
+              "notes": "TNA representation pre-2013."
+            },
+            {
+              "school": "Common Ground High School",
+              "union": "UAW Local 2110",
+              "cbaStatus": "First contract not yet ratified — bargaining in progress",
+              "cbaYear": "N/A — first contract pending. School job postings confirm CBA in progress as of December 2022; no ratification announced through February 2024 press coverage. Monitor 2110uaw.org and commongroundct.org.",
+              "cbaUrl": null,
+              "notes": "NLRB election November 2021. ULP settlement April 2022. Over 3 years post-certification without a first contract as of research date. UAW Local 2110 represents all staff across school, farm, and program operations (broader than teaching staff only)."
+            },
+            {
+              "school": "Integrated Day Charter School",
+              "union": "Norwich Integrated Education Association / CEA/NEA",
+              "cbaStatus": "Active (assumed)",
+              "cbaYear": "Unknown — not publicly posted. Coordinator: contact CEA or school (idcs.org) for current contract period.",
+              "cbaUrl": null,
+              "notes": "TNA representation since 1997 founding. Oldest charter union in CT dataset."
+            },
+            {
+              "school": "Elm City Montessori School",
+              "union": "New Haven Federation of Teachers (NHFT) / AFT Connecticut",
+              "cbaStatus": "Active — NHFT district CBA in force",
+              "cbaYear": "Current: July 1, 2023 – June 30, 2026. Successor CBA ratified January 2026: July 1, 2026 – June 30, 2029 (13.57% pay increase over 3 years). Source: NHFT/NHPS ratification coverage, Yale Daily News January 2026; Elm City Montessori teacher David Weinreb confirmed NHFT membership in ratification reporting.",
+              "cbaUrl": null,
+              "notes": "DEPENDENT — covered by NHFT district CBA, no independent certification event. CBA covers all NHPS teachers including those at Elm City Montessori."
+            }
+          ]
+        }
+      }
+    },
+    "DE": {
+      "state": "DE",
+      "stateName": "Delaware",
+      "reportVersion": "v8.0",
+      "generatedDate": "2026-06-19",
+      "isDeferred": false,
+      "sections": {
+        "legalSector": {
+          "label": "Legal & Sector Overview",
+          "items": [
+            {
+              "heading": "Legal & Jurisdictional Framework",
+              "body": "14 Del.C. Chapter 40 — Public School Employment Relations Act (PSERA). All Delaware charter schools are public employers. PERB(DE) has exclusive jurisdiction. The NLRB has never claimed jurisdiction over a Delaware charter school. Card-check (majority authorization / BU determination without election) is available under PSERA — confirmed by Sussex Academy cert February 2026 (case 1521, BU Determination). Delaware is not a right-to-work state (Delaware has no right-to-work statute. DE charter school employees are public employees under 14 Del.C. Chapter 40; PERB(DE) has jurisdiction. Union security provisions are standard in public-sector CBAs.). PERB(DE) has exclusive jurisdiction. Federal NLRB does not apply to charter schools in Delaware. Card-check recognition is available under Card-check (Majority Authorization / BU Determination without election) is available under 14 Del.C. Ch. 40. Sussex Academy certification February 2026 (case 1521) was a BU Determination — no election held, no vote tally. CSW, Odyssey, and Sussex Montessori cert methods require PERB(DE) FOIA confirmation.."
+            },
+            {
+              "heading": "Charter Sector Structure",
+              "body": "Delaware operates 23 open-enrollment charter schools, enrolling approximately 19,032 students. 2 charter management organizations and education management organizations operate in Delaware. The largest networks by campus count are Freire Schools Collaborative (1 campuses in state), Great Oaks Charter School - Wilmington (1 campuses in state). Approximately 21 schools operate independently with no CMO or EMO affiliation. Network-level detail appears in the CMO & EMO section of the state report."
+            }
+          ]
+        },
+        "media": {
+          "label": "Media Coverage",
+          "items": [
+            {
+              "headline": "Press Coverage Overview",
+              "outlet": null,
+              "date": null,
+              "summary": "Delaware charter school labor relations have received limited but targeted press coverage, primarily through the Exceptional Delaware blog — the principal public record of Delaware charter organizing history. The blog documented the Charter School of Wilmington organizing campaign (spring 2018) and Odyssey Charter School campaign (fall 2018) in real time, providing granular detail on governance conflicts that drove staff organizing. No mainstream Delaware press (News Journal/USA Today Network) has covered DE charter labor relations in depth. The Sussex Academy February 2026 certification has not yet generated press coverage as of May 2026.",
+              "url": null,
+              "sentiment": "NEUTRAL"
+            },
+            {
+              "headline": "Legislative Context",
+              "outlet": null,
+              "date": null,
+              "summary": "Delaware PSERA (Public School Employment Relations Act, 14 Del.C. Chapter 40) governs all DE charter school labor relations. PERB(DE) administers the act. Key feature: card-check certification is available — formally a BU Determination by Majority Authorization. Sussex Academy's February 2026 certification (PERB case 1521) is the most recent DE charter certification event and the clearest example of the card-check pathway. Sussex Montessori's cert date is pending a PERB(DE) FOIA response — the UniServ assignment is confirmed via DSEA staff directory.",
+              "url": null,
+              "sentiment": "NEUTRAL"
+            }
+          ]
+        },
+        "cbaRegistry": {
+          "label": "CBA Registry",
+          "items": [
+            {
+              "school": "Charter School of Wilmington (C1096002)",
+              "union": "Delaware State Education Association (DSEA/NEA)",
+              "cbaStatus": "Active",
+              "cbaYear": "Unknown — verify with DSEA or school",
+              "cbaUrl": null,
+              "notes": "Certified spring 2018. Cert case number pending PERB(DE) FOIA response."
+            },
+            {
+              "school": "Odyssey Charter School (C1006003)",
+              "union": "Odyssey Charter School Education Association (OCSEA) / DSEA/NEA",
+              "cbaStatus": "Active",
+              "cbaYear": "Unknown — verify with OCSEA or DSEA",
+              "cbaUrl": null,
+              "notes": "Certified fall 2018. OCSEA is the named local — may have independent communications from DSEA."
+            },
+            {
+              "school": "Sussex Academy of Arts and Sciences (C1096003)",
+              "union": "Delaware State Education Association (DSEA/NEA)",
+              "cbaStatus": "Pending first contract",
+              "cbaYear": "N/A — recently certified February 2026",
+              "cbaUrl": null,
+              "notes": "Card-check certification February 2026. First contract negotiations not yet complete."
+            },
+            {
+              "school": "Sussex Montessori Charter School (C1096001)",
+              "union": "Delaware State Education Association (DSEA/NEA)",
+              "cbaStatus": "Active (assumed)",
+              "cbaYear": "Unknown — cert date pending PERB(DE) FOIA",
+              "cbaUrl": null,
+              "notes": "DSEA UniServ assignment confirmed via DSEA staff directory. Cert date and case number not yet obtained."
+            }
+          ]
+        }
+      }
+    },
+    "FL": {
+      "state": "FL",
+      "stateName": "Florida",
+      "reportVersion": "v8.0",
+      "generatedDate": "2026-06-19",
+      "isDeferred": false,
+      "sections": {
+        "legalSector": {
+          "label": "Legal & Sector Overview",
+          "items": [
+            {
+              "heading": "Legal & Jurisdictional Framework",
+              "body": "Florida Public Employees Relations Act (PERA), Fla. Stat. §447.203. PERC(FL) has exclusive jurisdiction over all FL charter schools — all are public employers. NLRB has no jurisdiction. SB256 (2023) requires annual union recertification if dues-paying membership falls below 60%. Florida is a right-to-work state (Art. X §12, Florida Constitution). PERC (FL) has exclusive jurisdiction. Federal NLRB does not apply to charter schools in Florida. Secret ballot NLRB election is the required organizing pathway. Card-check is not available."
+            },
+            {
+              "heading": "Charter Sector Structure",
+              "body": "Florida operates 730 open-enrollment charter schools, enrolling approximately 405,354 students. 17 charter management organizations and education management organizations operate in Florida, including 1 for-profit EMO. The largest networks by campus count are Somerset Academy Inc. (62 campuses in state), Mater Academy Inc. (38 campuses in state), Charter Schools USA Inc. (26 campuses in state). Approximately 471 schools operate independently with no CMO or EMO affiliation. Network-level detail appears in the CMO & EMO section of the state report."
+            }
+          ]
+        },
+        "media": {
+          "label": "Media Coverage",
+          "items": [
+            {
+              "headline": "Teachers in Fla. Charter Schools Vote to Join Local Union Affiliate",
+              "outlet": null,
+              "date": "January 30, 2007",
+              "summary": "Primary source for Pembroke Pines 2007 election: 181-46 vote, 7 campuses, first FL charter school network election.",
+              "url": null,
+              "sentiment": null
+            },
+            {
+              "headline": "Palm Pointe Educational Research School at Tradition Transitions to St. Lucie Public Schools",
+              "outlet": null,
+              "date": "August 2023",
+              "summary": "Palm Pointe charter-to-public-school conversion announced for July 2024.",
+              "url": null,
+              "sentiment": null
+            },
+            {
+              "headline": "Broward teachers vote to keep union amid tougher state rules",
+              "outlet": null,
+              "date": "July 15, 2025",
+              "summary": "BTU recertification election under SB256 (2023) — BTU won 6,228-128.",
+              "url": null,
+              "sentiment": null
+            },
+            {
+              "headline": "Florida law pushes elections on teachers' collective bargaining in Broward, Miami-Dade",
+              "outlet": null,
+              "date": "September 1, 2024",
+              "summary": "SB256 recertification elections for BTU and United Teachers of Dade.",
+              "url": null,
+              "sentiment": null
+            }
+          ]
+        },
+        "cbaRegistry": {
+          "label": "CBA Registry",
+          "items": [
+            {
+              "school": "City of Pembroke Pines Charter School System (3 campuses: C1298003, C1200007, C1299007)",
+              "union": "Broward Teachers Union (BTU) Local #1975 — Charter School Professionals Unit",
+              "cbaStatus": "Active — 2024-25 agreement",
+              "cbaYear": "2024-25 (annual salary negotiations; current agreement reached 2024)",
+              "cbaUrl": null,
+              "notes": "Separate contract from BCPS district teachers. Annual salary negotiations between BTU and City of Pembroke Pines. 2024-25: max salary $82,356; minimum starting salary $52,000 (as of July 1, 2024). Referendum supplements negotiated separately. Previous CBA addenda publicly available at ppines.com."
+            }
+          ]
+        }
+      }
+    },
+    "GA": {
+      "state": "GA",
+      "stateName": "Georgia",
+      "reportVersion": "v8.0",
+      "generatedDate": "2026-06-19",
+      "isDeferred": false,
+      "sections": {
+        "legalSector": {
+          "label": "Legal & Sector Overview",
+          "items": [
+            {
+              "heading": "Legal & Jurisdictional Framework",
+              "body": "O.C.G.A. 20-2-989.10 (\"Nothing in this part shall be construed to permit or foster collective bargaining\") — Georgia is the only state to single out teachers by statute to bar collective bargaining. O.C.G.A. 20-2-2065(b)(1): a charter school is \"a public, nonsectarian, nonreligious, nonprofit school.\" Charter Schools Act of 1998 (O.C.G.A. 20-2-2060 et seq.). Georgia is a right-to-work state. Georgia is a right-to-work state (Georgia Code §34-6-6 — right-to-work statute enacted 1947. Union security agreements (union shop, agency fee) are not available for any employer-employee relationship in Georgia, including NLRB-jurisdiction charter schools.). Charter schools in Georgia are subject to NLRB jurisdiction as private employers (NLRB R10 (Atlanta)). Secret ballot NLRB election is the required organizing pathway. Card-check is not available."
+            },
+            {
+              "heading": "Charter Sector Structure",
+              "body": "Georgia operates 94 open-enrollment charter schools, enrolling approximately 63,179 students. 11 charter management organizations and education management organizations operate in Georgia. The largest networks by campus count are KIPP Metro Atlanta Schools (10 campuses in state), Utopian Academy for the Arts (3 campuses in state), Charles R. Drew Charter School (2 campuses in state). Approximately 64 schools operate independently with no CMO or EMO affiliation. Network-level detail appears in the CMO & EMO section of the state report."
+            }
+          ]
+        },
+        "media": {
+          "label": "Media Coverage",
+          "items": [
+            {
+              "headline": "Press Coverage Overview",
+              "outlet": null,
+              "date": null,
+              "summary": "No press coverage of Georgia charter school union organizing found as of May 2026. The Georgia Cyber Academy individual ULP (10-CA-357225, Dec 2024) generated no press coverage. Charter sector coverage in the Atlanta Journal-Constitution and Chalkbeat Georgia focuses on school performance, APS authorization decisions, and state funding equity. No organizing-related coverage found in any Georgia outlet.",
+              "url": null,
+              "sentiment": "NEUTRAL"
+            },
+            {
+              "headline": "Legislative Context",
+              "outlet": null,
+              "date": null,
+              "summary": "O.C.G.A. 20-2-989.10: statutory bar on public teacher CB. Charter Schools Act of 1998 (O.C.G.A. 20-2-2060 et seq.): establishes independent nonprofit public schools. Georgia is a right-to-work state. No pending charter-labor legislation identified. The SCSC (State Charter Schools Commission) authorizes 51 of 100 GA charter schools; the remainder are LEA-authorized, concentrated in Atlanta metro (APS: 19, DeKalb: 8, Fulton: 7, Chatham: 6).",
+              "url": null,
+              "sentiment": "NEUTRAL"
+            }
+          ]
+        },
+        "cbaRegistry": {
+          "label": "CBA Registry",
+          "items": [
+            {
+              "school": "No certified union contracts in GA charter sector",
+              "union": "N/A",
+              "cbaStatus": "NONE_FOUND",
+              "cbaYear": "N/A",
+              "cbaUrl": null,
+              "notes": "NLRB R10 (Atlanta) ADS by employer name. Filter 10-RC / 10-CA. Georgia has no state public-sector labor board with charter jurisdiction. No charter school CBA exists to request."
+            }
+          ]
+        }
+      }
+    },
+    "HI": {
+      "state": "HI",
+      "stateName": "Hawaii",
+      "reportVersion": "v8.0",
+      "generatedDate": "2026-06-19",
+      "isDeferred": false,
+      "sections": {
+        "legalSector": {
+          "label": "Legal & Sector Overview",
+          "items": [
+            {
+              "heading": "Legal & Jurisdictional Framework",
+              "body": "Hawaii Revised Statutes Chapter 89 (Collective Bargaining in Public Employment); HRS §89-10.55 (Charter School Collective Bargaining); HRS Chapter 302D (Charter Schools Act); HRS §302B (Public Charter Schools) Hawaii is not a right-to-work state (HRS Art. XIII §2; HRS Ch. 89). HLRB (HI) has exclusive jurisdiction. Federal NLRB does not apply to charter schools in Hawaii. Card-check recognition is available under HRS Chapter 89 permits majority card-check recognition for public employees. In practice, HSTA BU05 is established by statute and HLRB order — no individual school card-check petition is needed or applicable.."
+            },
+            {
+              "heading": "Charter Sector Structure",
+              "body": "Hawaii operates 37 open-enrollment charter schools, enrolling approximately 12,984 students. No multi-campus charter networks are identified in the Charter School Registry for Hawaii."
+            }
+          ]
+        },
+        "media": {
+          "label": "Media Coverage",
+          "items": [
+            {
+              "headline": "Press Coverage Overview",
+              "outlet": null,
+              "date": null,
+              "summary": "Media coverage of Hawaii charter school labor relations is sparse — consistent with a structural DEPENDENT state where no independent organizing campaigns occur. Coverage centers on charter accountability, HPCSC oversight, and school closures (Kamalani Academy, Ka'u Learning Academy). The Honolulu Civil Beat provides the most consistent charter school coverage and documented the 2025 Kamalani closure extensively. Hawaii Public Radio (HPR) covered the March 2025 HPCSC non-renewal vote. No press coverage of charter-specific union organizing drives was found.",
+              "url": null,
+              "sentiment": "NEUTRAL"
+            }
+          ]
+        },
+        "cbaRegistry": {
+          "label": "CBA Registry",
+          "items": [
+            {
+              "school": "All Hawaii Charter Schools — Teachers (BU05)",
+              "union": "Hawaii State Teachers Association (HSTA)",
+              "cbaStatus": "Active",
+              "cbaYear": "July 1, 2023 – June 30, 2027",
+              "cbaUrl": "https://www.hsta.org/wp-content/uploads/2023/07/2023-2027-HSTA-CBA-FINAL.pdf",
+              "notes": "BU05 covers all certificated public charter school teachers statewide under HRS §89-10.55. Recognition clause explicitly names public charter schools. 2025 reopener in progress for EUTF health premium contributions. Ratified April-May 2023 (92.3% approval, 7,721 ballots cast)."
+            },
+            {
+              "school": "All Hawaii Charter Schools — Classified Support Staff (HGEA BUs)",
+              "union": "Hawaii Government Employees Association (HGEA), AFSCME Local 152",
+              "cbaStatus": "Active",
+              "cbaYear": "July 1, 2021 – June 30, 2025 (renewal negotiations in progress)",
+              "cbaUrl": "https://dhrd.hawaii.gov/state-hr-professionals/lro/public-emp-excl-reps/",
+              "notes": "HGEA represents charter school classified staff in applicable bargaining units (BU 2 supervisory blue-collar, BU 3 non-supervisory white-collar, BU 4 supervisory white-collar, BU 9 nurses). Unit 2021-2025 CBAs expired June 30 2025 — successor contracts under negotiation. AFSCME confirmed charter schools within HGEA coverage scope (AFSCME press release, May 2024 hazard pay settlement explicitly named public charter schools)."
+            }
+          ]
+        }
+      }
+    },
+    "IA": {
+      "state": "IA",
+      "stateName": "Iowa",
+      "reportVersion": "v8.0",
+      "generatedDate": "2026-06-19",
+      "isDeferred": false,
+      "sections": {
+        "legalSector": {
+          "label": "Legal & Sector Overview",
+          "items": [
+            {
+              "heading": "Legal & Jurisdictional Framework",
+              "body": "DUAL TRACK. Track A: National Labor Relations Act (NLRA) — Iowa Code §256E independently incorporated charter schools are private employers under NLRB R33. Track B: Iowa PERA (Iowa Code §20) — School Board Model (CSD*) charter school teachers are employees of the authorizing school district. Iowa school districts are public employers under Iowa Code §20.3. ISEA/NEA affiliates hold teacher agreements at virtually all Iowa districts. District teacher agreements cover CSD* charter school teachers by virtue of district employment. Iowa is a right-to-work state (Iowa Code Ch. 731 (Iowa Right to Work Act)). Charter schools in Iowa are subject to NLRB jurisdiction as private employers (Dual jurisdiction: NLRB R33 (Track A) / Iowa PERA Iowa Code §20 (Track B)). Secret ballot NLRB election is the required organizing pathway. Card-check is not available."
+            },
+            {
+              "heading": "Charter Sector Structure",
+              "body": "Iowa operates 10 open-enrollment charter schools, enrolling approximately 804 students. 1 charter management organizations and education management organizations operate in Iowa. The largest networks by campus count are Concept Schools (1 campuses in state). Approximately 9 schools operate independently with no CMO or EMO affiliation. Network-level detail appears in the CMO & EMO section of the state report."
+            }
+          ]
+        },
+        "media": {
+          "label": "Media Coverage",
+          "items": []
+        },
+        "cbaRegistry": {
+          "label": "CBA Registry",
+          "items": [
+            {
+              "school": "Hamburg Charter High School",
+              "union": null,
+              "cbaStatus": null,
+              "cbaYear": null,
+              "cbaUrl": null,
+              "notes": null
+            },
+            {
+              "school": "Storm Lake/Iowa Central/BVU Early College High School",
+              "union": null,
+              "cbaStatus": null,
+              "cbaYear": null,
+              "cbaUrl": null,
+              "notes": null
+            },
+            {
+              "school": "West Central Charter High School",
+              "union": null,
+              "cbaStatus": null,
+              "cbaYear": null,
+              "cbaUrl": null,
+              "notes": null
+            }
+          ]
+        }
+      }
+    },
+    "ID": {
+      "state": "ID",
+      "stateName": "Idaho",
+      "reportVersion": "v8.0",
+      "generatedDate": "2026-06-19",
+      "isDeferred": true,
+      "sections": {
+        "legalSector": {
+          "label": "Legal & Sector Overview",
+          "items": [
+            {
+              "heading": "Legal & Jurisdictional Framework",
+              "body": "Idaho Code §33-5200 et seq. (Public Charter Schools Act). Charter schools are independent public schools — private employer for NLRB purposes. NLRB R19. Idaho is a right-to-work state (Idaho Code §44-2101 through §44-2104). Charter schools in Idaho are subject to NLRB jurisdiction as private employers (NLRB R19). Secret ballot NLRB election is the required organizing pathway. Card-check is not available."
+            },
+            {
+              "heading": "Charter Sector Structure",
+              "body": "Idaho operates 84 open-enrollment charter schools, enrolling approximately 40,734 students. 6 charter management organizations and education management organizations operate in Idaho. The largest networks by campus count are Richard McKenna Charter Schools (4 campuses in state), The Academy Inc. (2 campuses in state), Inspire Academics (2 campuses in state). Approximately 70 schools operate independently with no CMO or EMO affiliation. Network-level detail appears in the CMO & EMO section of the state report. No school-level union research has been conducted. Research deferred — Executive Sponsor direction (PDR-018, June 7, 2026)."
+            }
+          ]
+        },
+        "media": {
+          "label": "Media Coverage",
+          "items": [
+            {
+              "headline": "Press Coverage Overview",
+              "outlet": null,
+              "date": null,
+              "summary": "No press coverage of charter school employee organizing has been identified in Idaho. Sector coverage focuses on enrollment growth, virtual charter school operations, and authorizer oversight.",
+              "url": null,
+              "sentiment": "NEUTRAL"
+            },
+            {
+              "headline": "Legislative Context",
+              "outlet": null,
+              "date": null,
+              "summary": "No charter-sector collective bargaining legislation has been introduced in the Idaho Legislature. Idaho charter law has been periodically amended to address accountability and authorizer oversight; labor relations are not addressed in the charter statute.",
+              "url": null,
+              "sentiment": "NEUTRAL"
+            }
+          ]
+        },
+        "cbaRegistry": {
+          "label": "CBA Registry",
+          "items": []
+        }
+      }
+    },
+    "IN": {
+      "state": "IN",
+      "stateName": "Indiana",
+      "reportVersion": "v8.0",
+      "generatedDate": "2026-06-19",
+      "isDeferred": true,
+      "sections": {
+        "legalSector": {
+          "label": "Legal & Sector Overview",
+          "items": [
+            {
+              "heading": "Legal & Jurisdictional Framework",
+              "body": "Ind. Code §20-24 (Charter Schools). Ind. Code §20-24-6 — charter teachers are at-will employees of the charter school. IEERB has jurisdiction over public employers; independently operated charters may fall under NLRB R25. Jurisdiction unsettled. Indiana is a right-to-work state (Ind. Code §22-6-6). Charter schools in Indiana are subject to NLRB jurisdiction as private employers (IEERB/NLRB R25). Secret ballot NLRB election is the required organizing pathway. Card-check is not available."
+            },
+            {
+              "heading": "Charter Sector Structure",
+              "body": "Indiana operates 132 open-enrollment charter schools, enrolling approximately 54,937 students. 8 charter management organizations and education management organizations operate in Indiana. The largest networks by campus count are Goodwill Excel Centers (24 campuses in state), Phalen Leadership Academies Indiana (6 campuses in state), KIPP Indianapolis (3 campuses in state). Approximately 87 schools operate independently with no CMO or EMO affiliation. Network-level detail appears in the CMO & EMO section of the state report. No school-level union research has been conducted. Research deferred — Executive Sponsor direction (PDR-018, June 7, 2026)."
+            }
+          ]
+        },
+        "media": {
+          "label": "Media Coverage",
+          "items": [
+            {
+              "headline": "Press Coverage Overview",
+              "outlet": null,
+              "date": null,
+              "summary": "No press coverage of charter school employee organizing has been identified in Indiana. Charter sector coverage focuses on school accountability, urban enrollment patterns in Indianapolis, and CMO performance.",
+              "url": null,
+              "sentiment": "NEUTRAL"
+            },
+            {
+              "headline": "Legislative Context",
+              "outlet": null,
+              "date": null,
+              "summary": "No charter-sector collective bargaining legislation has been introduced in the Indiana General Assembly. Indiana enacted right-to-work legislation in 2012 (Ind. Code §22-6-6). Charter law amendments have addressed governance and accountability; labor relations are not addressed in Ind. Code §20-24.",
+              "url": null,
+              "sentiment": "NEUTRAL"
+            }
+          ]
+        },
+        "cbaRegistry": {
+          "label": "CBA Registry",
+          "items": []
+        }
+      }
+    },
+    "KS": {
+      "state": "KS",
+      "stateName": "Kansas",
+      "reportVersion": "v8.0",
+      "generatedDate": "2026-06-19",
+      "isDeferred": false,
+      "sections": {
+        "legalSector": {
+          "label": "Legal & Sector Overview",
+          "items": [
+            {
+              "heading": "Legal & Jurisdictional Framework",
+              "body": "Kansas Department of Labor — Labor Relations Division (PNA/PERB) has exclusive jurisdiction. Federal NLRB does not apply to charter schools in Kansas. Kansas is a right-to-work state (K.S.A. 44-831 (Kansas Labor-Management Relations Act, Article 8)). Secret ballot NLRB election is the required organizing pathway. Card-check is not available."
+            },
+            {
+              "heading": "Charter Sector Structure",
+              "body": "Kansas operates 8 open-enrollment charter schools, enrolling approximately 2,347 students. 1 charter management organizations and education management organizations operate in Kansas. The largest networks by campus count are Stride Inc. (1 campuses in state). Approximately 7 schools operate independently with no CMO or EMO affiliation. Network-level detail appears in the CMO & EMO section of the state report."
+            }
+          ]
+        },
+        "media": {
+          "label": "Media Coverage",
+          "items": []
+        },
+        "cbaRegistry": {
+          "label": "CBA Registry",
+          "items": []
+        }
+      }
+    },
+    "LA": {
+      "state": "LA",
+      "stateName": "Louisiana",
+      "reportVersion": "v8.0",
+      "generatedDate": "2026-06-19",
+      "isDeferred": false,
+      "sections": {
+        "legalSector": {
+          "label": "Legal & Sector Overview",
+          "items": [
+            {
+              "heading": "Legal & Jurisdictional Framework",
+              "body": "Louisiana Employee Relations Act (LERA) — post-Act 172 (signed May 23, 2024) for all BESE-authorized Type 2/5 charters. Pre-Act 172: NLRA / NLRB R15. Locally-authorized (Type 1/3/3B/4) charters: LSCSC/LERA throughout. Louisiana is a right-to-work state (La. R.S. §23:982). Charter schools in Louisiana are subject to NLRB jurisdiction as private employers (LSCSC / NLRB R15). Card-check recognition is available under Voluntary recognition (board vote) has been the dominant mechanism in the NOLA charter sector. No card-check statute per se — but board vote recognition produces the same outcome without an adversarial election. LSCSC/LERA does not have an established charter school certification procedure as of May 2026.."
+            },
+            {
+              "heading": "Charter Sector Structure",
+              "body": "Louisiana operates 139 open-enrollment charter schools, enrolling approximately 93,239 students. 19 charter management organizations and education management organizations operate in Louisiana, including 2 for-profit EMOs. The largest networks by campus count are KIPP New Orleans (8 campuses in state), Collegiate Academies (6 campuses in state), Charter Schools USA (6 campuses in state). Approximately 71 schools operate independently with no CMO or EMO affiliation. Network-level detail appears in the CMO & EMO section of the state report."
+            }
+          ]
+        },
+        "media": {
+          "label": "Media Coverage",
+          "items": [
+            {
+              "headline": "Press Coverage Overview",
+              "outlet": null,
+              "date": null,
+              "summary": "Press coverage of LA charter school labor relations is concentrated in The Lens NOLA (local investigative outlet) and Verite News, which have covered UTNO organizing campaigns with substantive reporting. The Hechinger Report provided the foundational early coverage of Morris Jeff’s 2013 organizing as a national test case. The Lycée Français Act 172 case received Verite News coverage in February 2026 (the most recent significant piece in the dataset). National charter sector press has not followed Louisiana closely relative to Illinois, New York, and California.",
+              "url": null,
+              "sentiment": "NEUTRAL"
+            }
+          ]
+        },
+        "cbaRegistry": {
+          "label": "CBA Registry",
+          "items": [
+            {
+              "school": "Morris Jeff Community School",
+              "union": "Morris Jeff United Educators (MJUE) / UTNO AFT Local 527",
+              "cbaStatus": "CONFIRMED",
+              "cbaYear": "Active — successive contracts since 2013",
+              "cbaUrl": null,
+              "notes": "Voluntary recognition 2013. CBA linked in NAPCS Accumulator. LSCSC records request recommended for formal documentation."
+            },
+            {
+              "school": "Benjamin Franklin High School",
+              "union": "United Teachers of Franklin / UTNO AFT Local 527",
+              "cbaStatus": "CONFIRMED",
+              "cbaYear": "Active — successive contracts since 2014",
+              "cbaUrl": null,
+              "notes": "Board vote recognition 2014. CBA linked in NAPCS Accumulator. LSCSC records request recommended."
+            },
+            {
+              "school": "Bricolage Academy",
+              "union": "Bricolage Academy Educators United (BAEU) / UTNO AFT Local 527",
+              "cbaStatus": "CONFIRMED",
+              "cbaYear": "Active — since 2021 election win",
+              "cbaUrl": null,
+              "notes": "NLRB election May 28, 2021. CBA linked in NAPCS Accumulator."
+            },
+            {
+              "school": "Lycée Français de la Nouvelle-Orléans",
+              "union": "Union des Educateurs du LFNO (UELFNO) / UTNO",
+              "cbaStatus": "NONE — jurisdiction stripped by Act 172",
+              "cbaYear": "N/A",
+              "cbaUrl": null,
+              "notes": "NLRB cert May 21, 2024; Act 172 stripped jurisdiction May 23, 2024. No CBA. All ULPs withdrawn Feb 2026."
+            },
+            {
+              "school": "International High School of New Orleans (CLOSED)",
+              "union": "United Teachers of International High School / UTNO",
+              "cbaStatus": "NONE — employer refused to bargain 2016–2025",
+              "cbaYear": "N/A",
+              "cbaUrl": null,
+              "notes": "School closed 2025. 10 NLRB R15 ULPs. No contract ever reached."
+            }
+          ]
+        }
+      }
+    },
+    "MD": {
+      "state": "MD",
+      "stateName": "Maryland",
+      "reportVersion": "v8.0",
+      "generatedDate": "2026-06-19",
+      "isDeferred": false,
+      "sections": {
+        "legalSector": {
+          "label": "Legal & Sector Overview",
+          "items": [
+            {
+              "heading": "Legal & Jurisdictional Framework",
+              "body": "Maryland Education Article §§9-101 et seq. (Public Charter School Act of 2003, 2003 Md. Laws ch. 358); Ed. Article §9-108 (employee status — charter teachers are public school employees of the authorizing district); Ed. Article Title 6, Subtitles 4 and 5 (collective bargaining rights for certificated and non-certificated employees); Maryland PERB consolidated from three prior boards (SLRB, SHELRB, PSLRB) under HB 984 (2023), effective 2024. Maryland is not a right-to-work state (Md. Ed. Article §9-108; Md. Labor & Employment). PERB (MD) has exclusive jurisdiction. Federal NLRB does not apply to charter schools in Maryland. Card-check recognition is available under Maryland PERB (formerly PSLRB) permits majority card-check recognition for public school employees. In practice, MD charter teachers are already covered by the district CBA by operation of Ed. Article §9-108 — no card-check petition is needed or applicable for DEPENDENT schools.."
+            },
+            {
+              "heading": "Charter Sector Structure",
+              "body": "Maryland operates 52 open-enrollment charter schools, enrolling approximately 25,531 students. 10 charter management organizations and education management organizations operate in Maryland. The largest networks by campus count are Imagine Schools (4 campuses in state), Chesapeake Lighthouse Foundation (CLF) (3 campuses in state), City Neighbors Foundation (3 campuses in state). Approximately 31 schools operate independently with no CMO or EMO affiliation. Network-level detail appears in the CMO & EMO section of the state report."
+            }
+          ]
+        },
+        "media": {
+          "label": "Media Coverage",
+          "items": [
+            {
+              "headline": "Press Coverage Overview",
+              "outlet": null,
+              "date": null,
+              "summary": "Media coverage of Maryland charter school labor relations is sparse, consistent with a BLANKET_DEPENDENT state where no independent organizing campaigns occur. Coverage centers on charter closures (Baltimore Collegiate, Excel Academy, the NACA network collapse, Monarch Academy Baltimore, Banneker Blake Academy), BCPSS charter renewal processes, and district-level labor disputes. The Baltimore Sun and Baltimore Banner provide the most consistent charter coverage. The Baltimore BTU-BCPSS information rights litigation (PERB ULP 2025-41, April 2026) received no specific press coverage identified in this research session, though the underlying issues of district information compliance are ongoing story threads.",
+              "url": null,
+              "sentiment": "NEUTRAL"
+            }
+          ]
+        },
+        "cbaRegistry": {
+          "label": "CBA Registry",
+          "items": [
+            {
+              "school": "All 31 BCPSS-authorized charter schools",
+              "union": "Baltimore Teachers Union (BTU) / AFT Local 340",
+              "cbaStatus": "CONFIRMED",
+              "cbaYear": "Ongoing — BTU master agreement with BCPSS (current term; refresh at next biannual cycle)",
+              "cbaUrl": null,
+              "notes": "District master CBA covers all certificated charter school employees as BCPSS public employees under Ed. Article §9-108. No charter-specific amendment or side agreement has been executed. CBA URL to be captured at next refresh."
+            },
+            {
+              "school": "All PGCPS-authorized charter schools (9 active after Excel closure)",
+              "union": "Prince George's County Educators' Association (PGCEA) / NEA",
+              "cbaStatus": "CONFIRMED",
+              "cbaYear": "Ongoing — PGCEA master agreement with PGCPS",
+              "cbaUrl": null,
+              "notes": "District master CBA covers all certificated charter school employees as PGCPS public employees under Ed. Article §9-108."
+            },
+            {
+              "school": "All 4 Frederick County-authorized charter schools",
+              "union": "Frederick County Teachers Association (FCT) / NEA",
+              "cbaStatus": "CONFIRMED",
+              "cbaYear": "Ongoing — FCT master agreement with Frederick County Public Schools",
+              "cbaUrl": null,
+              "notes": "District master CBA covers all certificated charter school employees under Ed. Article §9-108."
+            },
+            {
+              "school": "All 3 Anne Arundel County-authorized charter schools",
+              "union": "Teachers Association of Anne Arundel County (TAAAC) / NEA",
+              "cbaStatus": "CONFIRMED",
+              "cbaYear": "Ongoing — TAAAC master agreement with AACPS",
+              "cbaUrl": null,
+              "notes": "Three schools: Chesapeake Science Point, Monarch Academy (Glen Burnie), Monarch Academy Annapolis. District master CBA covers all under Ed. Article §9-108."
+            },
+            {
+              "school": "Watershed (BCPS), Phoenix (Charles County), Chesapeake Charter (St. Mary's), MBLI (Montgomery County)",
+              "union": "TABCO/NEA (Baltimore County); CCTA/NEA (Charles); SMCTA/NEA (St. Mary's); MCEA/NEA (Montgomery)",
+              "cbaStatus": "CONFIRMED",
+              "cbaYear": "Ongoing — respective district master agreements",
+              "cbaUrl": null,
+              "notes": "Four single-school authorizer districts. Each charter school covered by district CBA under Ed. Article §9-108."
+            }
+          ]
+        }
+      }
+    },
+    "ME": {
+      "state": "ME",
+      "stateName": "Maine",
+      "reportVersion": "v8.0",
+      "generatedDate": "2026-06-19",
+      "isDeferred": false,
+      "sections": {
+        "legalSector": {
+          "label": "Legal & Sector Overview",
+          "items": [
+            {
+              "heading": "Legal & Jurisdictional Framework",
+              "body": "National Labor Relations Act (NLRA). Baxter Academy is incorporated as a private nonprofit charter school under the Maine Charter School Commission — it is not a public employer and falls under NLRB, not MLRB. MLRB (Maine Labor Relations Board) governs traditional public employers only and does NOT apply to Baxter Academy. Maine is not a right-to-work state (Maine has no right-to-work statute. Maine is a private-sector state under NLRA jurisdiction for charter schools; union security provisions are available in CBA negotiations.). Charter schools in Maine are subject to NLRB jurisdiction as private employers (NLRB). Secret ballot NLRB election is the required organizing pathway. Card-check is not available."
+            },
+            {
+              "heading": "Charter Sector Structure",
+              "body": "Maine operates 11 open-enrollment charter schools, enrolling approximately 2,717 students. 1 charter management organizations and education management organizations operate in Maine. The largest networks by campus count are Community Regional Charter School (3 campuses in state). Approximately 8 schools operate independently with no CMO or EMO affiliation. Network-level detail appears in the CMO & EMO section of the state report."
+            }
+          ]
+        },
+        "media": {
+          "label": "Media Coverage",
+          "items": [
+            {
+              "headline": "Press Coverage Overview",
+              "outlet": null,
+              "date": null,
+              "summary": "Maine charter school labor relations have generated minimal press coverage, consistent with the state having only one NAPCS charter school and no contested organizing campaigns. The Maine Beacon (September 2019) provided contemporaneous coverage of the Baxter Academy 30-4 election vote confirming MEA/NEA representation. No subsequent coverage of CBA negotiations or contract ratification has been identified. The small size of Maine's charter sector (9 schools total) and the absence of any other organizing activity makes further press coverage unlikely without a new organizing campaign.",
+              "url": null,
+              "sentiment": "NEUTRAL"
+            },
+            {
+              "headline": "Legislative Context",
+              "outlet": null,
+              "date": null,
+              "summary": "Maine charter schools are private employers under NLRB jurisdiction (MLRB does not apply — Baxter Academy is a privately incorporated nonprofit). Maine has no state public-sector collective bargaining statute applicable to charter schools. NLRB Region 1 (Boston) has jurisdiction. Maine has no right-to-work law for private-sector employees, meaning union security provisions remain available in CBA negotiations.",
+              "url": null,
+              "sentiment": "NEUTRAL"
+            }
+          ]
+        },
+        "cbaRegistry": {
+          "label": "CBA Registry",
+          "items": [
+            {
+              "school": "Baxter Academy for Technology and Science",
+              "union": "Baxter Academy Education Association / MEA/NEA",
+              "cbaStatus": "Active",
+              "cbaYear": "Unknown — contact MEA (mea.org) or school HR",
+              "cbaUrl": null,
+              "notes": "CBA active; period not publicly posted. MEA contact: (207) 622-5866, 35 Community Dr., Augusta ME 04330."
+            }
+          ]
+        }
+      }
+    },
+    "MI": {
+      "state": "MI",
+      "stateName": "Michigan",
+      "reportVersion": "v8.0",
+      "generatedDate": "2026-06-19",
+      "isDeferred": false,
+      "sections": {
+        "legalSector": {
+          "label": "Legal & Sector Overview",
+          "items": [
+            {
+              "heading": "Legal & Jurisdictional Framework",
+              "body": "SPLIT JURISDICTION: (1) MERC under PERA (Mich. Comp. Laws §423.201 et seq.) for locally-authorized and ISD-authorized charter schools (public employers); (2) NLRB Region 7 (Detroit, prefix \"07-\") for privately incorporated charter nonprofits under NLRA. Authorizer type is the determinative factor — same pattern as Illinois. Michigan calls charter schools \"Public School Academies (PSAs).\" Prop 22 (November 2022) repealed right-to-work for private-sector workers effective March 2023 / February 2024 (private sector NLRB workers); card-check (majority sign-up) available for MERC-jurisdiction schools under PERA. Michigan is a right-to-work state (Mich. Comp. Laws §423.14 (enacted 2012, effective 2013; repealed February 2024 for private-sector NLRB-jurisdiction employers)). Charter schools in Michigan are subject to NLRB jurisdiction as private employers (MERC / NLRB Region 7). Card-check recognition is available under Card-check (WMA — majority sign-up without election) available for MERC-jurisdiction (public employer) charter schools under PERA. Right-to-work repealed March 2023 (public sector) / February 2024 (private sector NLRA). NLRB-jurisdiction schools still require secret ballot election.."
+            },
+            {
+              "heading": "Charter Sector Structure",
+              "body": "Michigan operates 373 open-enrollment charter schools, enrolling approximately 154,171 students. 13 charter management organizations and education management organizations operate in Michigan, including 3 for-profit EMOs. The largest networks by campus count are National Heritage Academies (58 campuses in state), GEE Educational (15 campuses in state), University Preparatory Schools (UPrep) (10 campuses in state). Approximately 264 schools operate independently with no CMO or EMO affiliation. Network-level detail appears in the CMO & EMO section of the state report."
+            }
+          ]
+        },
+        "media": {
+          "label": "Media Coverage",
+          "items": [
+            {
+              "headline": "Arts Academy in the Woods charter school teachers vote to unionize (first charter school in MI to unionize)",
+              "outlet": "HuffPost / Michigan media",
+              "date": "~January 2012",
+              "summary": "Teachers at AAW voted 20-1 to join Michigan Alliance of Charter Teachers and Staff (Michigan ACTS), AFT Local 6482. Brandon Moss (English teacher) was organizing spokesperson. Board president stated the board did not dispute right to organize.",
+              "url": "https://www.huffingtonpost.com/entry/arts-academy-in-the-woods-charter-school-union_n_1150009.html",
+              "sentiment": null
+            },
+            {
+              "headline": "University Yes Academy teachers vote to form union",
+              "outlet": "AFT Michigan / Detroit Metro Times",
+              "date": "May 7, 2015",
+              "summary": "Teachers at UYA voted 27-18 to form a union with Michigan ACTS (AFT Local 6482). Vote certified May 14, 2015 (NLRB case 07-RC-148928). Employer (New Urban Learning) simultaneously announced it would leave as management company, creating successor-employer complications.",
+              "url": "https://aftmichigan.org/university-yes-academy-teachers-vote-yes-to-form-union/",
+              "sentiment": null
+            },
+            {
+              "headline": "NLRB steps in to hold Detroit charter school accountable — alter-ego employer complaint",
+              "outlet": "AFT Michigan / Detroit Metro Times",
+              "date": "March 29, 2016",
+              "summary": "NLRB filed complaint alleging New Urban Learning CEO Lesley Redwine created InspirED as alter-ego corporation to evade bargaining with Michigan ACTS at UYA. Hearing scheduled June 6, 2016. UYA teachers: \"We were told our vote didn't count.\"",
+              "url": "https://aftmichigan.org/nlrb-steps-in-to-hold-detroit-charter-school-accountable",
+              "sentiment": null
+            },
+            {
+              "headline": "State's largest charter school organized by labor union (MEA, 2000)",
+              "outlet": "Michigan Education Report / Mackinac Center",
+              "date": "May 2000",
+              "summary": "Mid-Michigan Public School Academy (now MMLA) became the largest unionized charter school in the nation when 38 teachers voted to join MEA in January 2000. MERC-jurisdiction. NAPCS baseline reflects this election. Current union status unclear — no CBA on Mackinac database; SABIS management.",
+              "url": "https://www.mackinac.org/2881",
+              "sentiment": null
+            }
+          ]
+        },
+        "cbaRegistry": {
+          "label": "CBA Registry",
+          "items": [
+            {
+              "school": "Arts Academy in the Woods (C2601002)",
+              "union": "Arts Academy in the Woods Federation of Teachers (Michigan ACTS / AFT Local 6482)",
+              "cbaStatus": "Active — successive CBAs since ~2012-13",
+              "cbaYear": "Unknown. Gap: CBA period not publicly posted. Obtainable via AFT Michigan or school HR directly (no FOIA required).",
+              "cbaUrl": null,
+              "notes": "Employment page confirms active Michigan ACTS membership as of May 2026. CBA text not publicly posted. Direct request to school or AFT Michigan is recommended — no FOIA required for a public charter school CBA."
+            },
+            {
+              "school": "University Yes Academy (C2610008)",
+              "union": "Michigan Alliance of Charter Teachers and Staff (Michigan ACTS / AFT Local 6482)",
+              "cbaStatus": "UNKNOWN — certified May 14, 2015 (07-RC-148928); post-management-change status unconfirmed",
+              "cbaYear": "Unknown — NLRB/MERC records request required",
+              "cbaUrl": null,
+              "notes": "Employer (NUL) departed mid-2015; InspirED alter-ego complaint 2016; NPFE now manages. Whether NPFE recognized Michigan ACTS and ratified first CBA is unknown. Search NLRB ADS (nlrb.gov/search/case) for employer \"University Yes Academy\" and \"New Paradigm for Education\" post-2016 — public search, no FOIA required."
+            },
+            {
+              "school": "Cesar Chavez Academy network — all 4 NAPCS campuses (C2601012, C2609001, C2699073, C2699074)",
+              "union": "Michigan Alliance of Charter Teachers & Staff (Michigan ACTS) / AFT Michigan",
+              "cbaStatus": "Second 5-year contract ratified 91-3 (~2016 per AFT Michigan press release). Post-Leona Group (~2019) successor contract status unknown.",
+              "cbaYear": "Second contract: ~2016-2021. Successor contract unknown — direct contact with Michigan ACTS (AFT Michigan, Detroit) or NLRB R7 FOIA required.",
+              "cbaUrl": null,
+              "notes": "First contract ratified within ~3 years of Feb 7, 2013 certification. Second contract ratified 91-3 covering all 4+ campuses. Leona Group departed ~2019. CCA now independently operated — whether Michigan ACTS remains recognized and a successor CBA exists requires NLRB R7 ADS search or direct contact."
+            },
+            {
+              "school": "Grand Rapids Child Discovery Center (C2600004)",
+              "union": "Unknown — MERC FOIA required (merc@michigan.gov)",
+              "cbaStatus": "ACTIVE — confirmed via school transparency page (2025-26): \"Health benefits for teaching staff are directed by the current bargaining agreement.\"",
+              "cbaYear": "Unknown — MERC FOIA required",
+              "cbaUrl": null,
+              "notes": "GRPS-authorized charter, MERC jurisdiction. Active CBA confirmed via Michigan transparency reporting requirement. Union name and case number unknown — MERC FOIA or GRPS HR contact required. Also check Mackinac Center CBA database at mackinac.org/depts/epi/agreement.aspx."
+            }
+          ]
+        }
+      }
+    },
+    "MN": {
+      "state": "MN",
+      "stateName": "Minnesota",
+      "reportVersion": "v8.0",
+      "generatedDate": "2026-06-19",
+      "isDeferred": false,
+      "sections": {
+        "legalSector": {
+          "label": "Legal & Sector Overview",
+          "items": [
+            {
+              "heading": "Legal & Jurisdictional Framework",
+              "body": "Minnesota Public Employment Labor Relations Act (PELRA), Minn. Stat. §179A. 2023 PELRA amendments explicitly included charter school employees as public employees — all MN charter organizing now routes through BMS. Pre-2023 certifications (TCGIS, CSE, Hiawatha) were processed via NLRB because schools were treated as private employers before the amendment. Minnesota is not a right-to-work state (Minnesota has no right-to-work statute. Right-to-work legislation has been proposed in the Minnesota Legislature but has not been enacted. MN charter school employees are public employees under PELRA (Minn. Stat. §179A) following the 2023 amendments; union security provisions are available in collective bargaining agreements.). BMS (MN) has exclusive jurisdiction. Federal NLRB does not apply to charter schools in Minnesota. Card-check recognition is available under BMS (MN) allows card-check authorization — petition with sufficient authorization cards can result in certification without an election if employer does not contest.."
+            },
+            {
+              "heading": "Charter Sector Structure",
+              "body": "Minnesota operates 309 open-enrollment charter schools, enrolling approximately 72,096 students. 25 charter management organizations and education management organizations operate in Minnesota. The largest networks by campus count are Minnesota Transitions Charter School (9 campuses in state), Community School of Excellence (6 campuses in state), Prodeo Academy (6 campuses in state). Approximately 222 schools operate independently with no CMO or EMO affiliation. Network-level detail appears in the CMO & EMO section of the state report."
+            }
+          ]
+        },
+        "media": {
+          "label": "Media Coverage",
+          "items": [
+            {
+              "headline": "Press Coverage Overview",
+              "outlet": null,
+              "date": null,
+              "summary": "Minnesota charter school labor relations have received focused press coverage around two clusters: the 2014 TCGIS and CSE certifications (Star Tribune, EdMN press) and the simultaneous June 2021 Hiawatha Academies and Great River School certifications (Star Tribune, EdMN). The 2023 PELRA amendment extending public employee status to charter school employees received legislative press coverage. The ASA card-check certification (2021, BMS 21RCE0933) and Ubah Academy (2011, BMS 11PCE0488) received no documented press coverage — both were confirmed via BMS records scan, not press reporting.",
+              "url": null,
+              "sentiment": "NEUTRAL"
+            },
+            {
+              "headline": "Legislative Context",
+              "outlet": null,
+              "date": null,
+              "summary": "The 2023 PELRA amendments (Minn. Stat. §179A) explicitly extended public employee collective bargaining rights to charter school employees, shifting all MN charter organizing from NLRB to BMS jurisdiction. This was a DFL-backed amendment enacted in the 2023 legislative session. SF 2257 (2025-26 session) would establish a two-year moratorium on new charter school formation (July 1, 2025 through July 1, 2027) — referred to Education Policy Committee as of research date; not enacted.",
+              "url": null,
+              "sentiment": "NEUTRAL"
+            }
+          ]
+        },
+        "cbaRegistry": {
+          "label": "CBA Registry",
+          "items": [
+            {
+              "school": "Twin Cities German Immersion School (TCGIS)",
+              "union": "TCGIS Staff Association / EdMN",
+              "cbaStatus": "Active (assumed)",
+              "cbaYear": "Unknown. Gap: CBA period not publicly posted. Obtainable via BMS records request or direct EdMN contact.",
+              "cbaUrl": null,
+              "notes": "EdMN charter affiliate since January 2014. Current CBA period requires BMS records request."
+            },
+            {
+              "school": "Community School of Excellence (CSE)",
+              "union": "CSE Staff Association / EdMN",
+              "cbaStatus": "Active (assumed)",
+              "cbaYear": "Unknown. Gap: CBA period not publicly posted. Obtainable via BMS records request or direct EdMN contact.",
+              "cbaUrl": null,
+              "notes": "EdMN charter affiliate since June 2014. Current CBA period requires BMS records request."
+            },
+            {
+              "school": "Hiawatha Academies (3 active campuses)",
+              "union": "Hiawatha Area Workers United (HAWU) / EdMN",
+              "cbaStatus": "Unknown — first contract status unconfirmed",
+              "cbaYear": "N/A until first contract ratified",
+              "cbaUrl": null,
+              "notes": "Network-wide certification June 2021. BMS mediation April 2023 (BMS 23PN2305). First contract likely resolved but unconfirmed — BMS records request + HAWU contact required."
+            },
+            {
+              "school": "Art and Science Academy (ASA)",
+              "union": "ASA Staff Association / EdMN",
+              "cbaStatus": "Unknown — BMS records confirm certification 2021 (21RCE0933) and arbitration Aug 2024 (25RA0150)",
+              "cbaYear": "Unknown — pending BMS records request",
+              "cbaUrl": null,
+              "notes": "Card-check certification 2021. Arbitration August 2024 — outcome unknown. Priority BMS records request."
+            },
+            {
+              "school": "Great River School (NAPCS-ADD-MN-001 — approved)",
+              "union": "Great River Staff Association / EdMN",
+              "cbaStatus": "Unknown. Gap: CBA period not publicly posted. Obtainable via BMS records request or direct EdMN contact.",
+              "cbaYear": "Unknown",
+              "cbaUrl": null,
+              "notes": "EdMN certification June 2021, concurrent with Hiawatha. Discovery school — NAPCS addition approved April 2026."
+            },
+            {
+              "school": "Ubah Academy (NAPCS-ADD-MN-002 — approved May 19 2026)",
+              "union": "Ubah Academy Staff Association / EdMN",
+              "cbaStatus": "Active (assumed — BMS 11PCE0488, 2011)",
+              "cbaYear": "Unknown. Gap: CBA period not publicly posted. Obtainable via BMS records request (case 11PCE0488).",
+              "cbaUrl": null,
+              "notes": "Confirmed via Registry BMS scan April 30, 2026. Executive Sponsor approved NAPCS addition May 19, 2026. NAPCS ID pending NAPCS assignment."
+            }
+          ]
+        }
+      }
+    },
+    "MO": {
+      "state": "MO",
+      "stateName": "Missouri",
+      "reportVersion": "v8.0",
+      "generatedDate": "2026-06-19",
+      "isDeferred": false,
+      "sections": {
+        "legalSector": {
+          "label": "Legal & Sector Overview",
+          "items": [
+            {
+              "heading": "Legal & Jurisdictional Framework",
+              "body": "RSMo Chapter 160.400-160.425 (Missouri charter school law). RSMo 160.400.1: \"A charter school is an independent public school.\" RSMo 160.420: employment provisions (individual employee retention option only — no blanket district-CBA carryover). Mo. Const. Art. I 29: public-employee collective bargaining right (Independence-NEA v. Independence Sch. Dist., 2007). RSMo 105.510 excludes all teachers from the statutory public-sector labor act. Missouri is not a right-to-work state (Missouri right-to-work law (RSMo §290.590, enacted 2017) was rejected by voter referendum August 7, 2018 (67% opposed). Missouri has no operative right-to-work statute. Union security provisions are available in collective bargaining agreements.). Charter schools in Missouri are subject to NLRB jurisdiction as private employers (NLRB R14 (St. Louis) + NLRB R17 (Kansas City)). Secret ballot NLRB election is the required organizing pathway. Card-check is not available."
+            },
+            {
+              "heading": "Charter Sector Structure",
+              "body": "Missouri operates 81 open-enrollment charter schools, enrolling approximately 25,751 students. 20 charter management organizations and education management organizations operate in Missouri. The largest networks by campus count are KIPP Missouri (8 campuses in state), Confluence Academies (6 campuses in state), Allen Village (5 campuses in state). Approximately 15 schools operate independently with no CMO or EMO affiliation. Network-level detail appears in the CMO & EMO section of the state report."
+            }
+          ]
+        },
+        "media": {
+          "label": "Media Coverage",
+          "items": [
+            {
+              "headline": "Press Coverage Overview",
+              "outlet": null,
+              "date": null,
+              "summary": "Missouri charter labor coverage centers entirely on KIPP St. Louis High. The St. Louis Post-Dispatch and The Labor Tribune covered the November 2022 certification, the April 2024 one-day strikes, and the May 2024 decertification (19-17). Coverage documented ~50% annual staff turnover at the 440-student school and the dispute over third-party grievance arbitration and just-cause termination. Grand Center Arts Academy's 2015 organizing received limited contemporaneous coverage. No Kansas City charter organizing coverage found.",
+              "url": null,
+              "sentiment": "NEUTRAL"
+            },
+            {
+              "headline": "Legislative Context",
+              "outlet": null,
+              "date": null,
+              "summary": "Missouri Proposition A (Aug 7, 2018): voters repealed the 2017 right-to-work law (SB 19) ~67% to 33% — the first state to reverse an enacted RTW law by referendum. Mo. Const. Art. I 29 (Independence-NEA v. Independence Sch. Dist., 2007): public employees, including teachers, have a constitutional collective-bargaining right, though RSMo 105.510 excludes teachers from the statutory public-sector labor act. RSMo 160.400-160.425: charter law confines charters to specified districts and defines them as independent public schools.",
+              "url": null,
+              "sentiment": "NEUTRAL"
+            }
+          ]
+        },
+        "cbaRegistry": {
+          "label": "CBA Registry",
+          "items": [
+            {
+              "school": "No active certified union contracts in MO charter sector",
+              "union": "N/A (KIPP St. Louis High AFT Local 420 unit decertified May 2024 before any CBA; Grand Center Arts 2015 attempt produced no CBA)",
+              "cbaStatus": "NONE_FOUND",
+              "cbaYear": "N/A",
+              "cbaUrl": null,
+              "notes": "NLRB R14 (St. Louis) and R17 (Kansas City) ADS by employer name. KIPP STL decert: case 14-RD-341432. SLBA (Missouri State Board of Mediation) for any KCPS/SLPS employer-of-record schools."
+            }
+          ]
+        }
+      }
+    },
+    "MS": {
+      "state": "MS",
+      "stateName": "Mississippi",
+      "reportVersion": "v8.0",
+      "generatedDate": "2026-06-19",
+      "isDeferred": true,
+      "sections": {
+        "legalSector": {
+          "label": "Legal & Sector Overview",
+          "items": [
+            {
+              "heading": "Legal & Jurisdictional Framework",
+              "body": "Miss. Code Ann. §37-28 (Mississippi Charter School Act). Charter schools are independent employers. NLRB R15 private employer framework applies. Mississippi is a right-to-work state (Miss. Code Ann. §71-1-47). Charter schools in Mississippi are subject to NLRB jurisdiction as private employers (NLRB R15). Secret ballot NLRB election is the required organizing pathway. Card-check is not available."
+            },
+            {
+              "heading": "Charter Sector Structure",
+              "body": "Mississippi operates 10 open-enrollment charter schools, enrolling approximately 3,977 students. 1 charter management organizations and education management organizations operate in Mississippi. The largest networks by campus count are Joel E. Smilow Prep (2 campuses in state). Approximately 8 schools operate independently with no CMO or EMO affiliation. Network-level detail appears in the CMO & EMO section of the state report. No school-level union research has been conducted. Research deferred — Executive Sponsor direction (PDR-018, June 7, 2026)."
+            }
+          ]
+        },
+        "media": {
+          "label": "Media Coverage",
+          "items": [
+            {
+              "headline": "Press Coverage Overview",
+              "outlet": null,
+              "date": null,
+              "summary": "No press coverage of charter school employee organizing has been identified in Mississippi. The sector is small and recently established; coverage focuses on school performance and authorizer oversight.",
+              "url": null,
+              "sentiment": "NEUTRAL"
+            },
+            {
+              "headline": "Legislative Context",
+              "outlet": null,
+              "date": null,
+              "summary": "No charter-sector collective bargaining legislation has been introduced in the Mississippi Legislature. Mississippi charter law (Miss. Code Ann. §37-28) does not address employee collective bargaining.",
+              "url": null,
+              "sentiment": "NEUTRAL"
+            }
+          ]
+        },
+        "cbaRegistry": {
+          "label": "CBA Registry",
+          "items": []
+        }
+      }
+    },
+    "NC": {
+      "state": "NC",
+      "stateName": "North Carolina",
+      "reportVersion": "v8.0",
+      "generatedDate": "2026-06-19",
+      "isDeferred": true,
+      "sections": {
+        "legalSector": {
+          "label": "Legal & Sector Overview",
+          "items": [
+            {
+              "heading": "Legal & Jurisdictional Framework",
+              "body": "N.C. Gen. Stat. §115C-218 et seq. (Charter Schools Act). N.C.G.S. §95-98 bans collective bargaining agreements with governmental units — charter schools are classified as private employers for labor law purposes. NLRB R11 jurisdiction. North Carolina is a right-to-work state (N.C. Gen. Stat. §95-78 through §95-84). Charter schools in North Carolina are subject to NLRB jurisdiction as private employers (NLRB R11). Secret ballot NLRB election is the required organizing pathway. Card-check is not available."
+            },
+            {
+              "heading": "Charter Sector Structure",
+              "body": "North Carolina operates 213 open-enrollment charter schools, enrolling approximately 153,008 students. 9 charter management organizations and education management organizations operate in North Carolina. The largest networks by campus count are KIPP North Carolina (4 campuses in state), Ascend Leadership Academy (2 campuses in state), Voyager Academy (2 campuses in state). Approximately 195 schools operate independently with no CMO or EMO affiliation. Network-level detail appears in the CMO & EMO section of the state report. No school-level union research has been conducted. Research deferred — Executive Sponsor direction (PDR-018, June 7, 2026)."
+            }
+          ]
+        },
+        "media": {
+          "label": "Media Coverage",
+          "items": [
+            {
+              "headline": "Press Coverage Overview",
+              "outlet": null,
+              "date": null,
+              "summary": "No press coverage of charter school employee organizing has been identified in North Carolina. Sector coverage focuses on growth, authorizer oversight, and school performance accountability.",
+              "url": null,
+              "sentiment": "NEUTRAL"
+            },
+            {
+              "headline": "Legislative Context",
+              "outlet": null,
+              "date": null,
+              "summary": "No charter-sector collective bargaining legislation has been introduced in the North Carolina General Assembly. The §95-98 government CB prohibition does not apply to charter schools as private employers. No legislative proposals addressing charter employee labor relations have been identified.",
+              "url": null,
+              "sentiment": "NEUTRAL"
+            }
+          ]
+        },
+        "cbaRegistry": {
+          "label": "CBA Registry",
+          "items": []
+        }
+      }
+    },
+    "NH": {
+      "state": "NH",
+      "stateName": "New Hampshire",
+      "reportVersion": "v8.0",
+      "generatedDate": "2026-06-19",
+      "isDeferred": false,
+      "sections": {
+        "legalSector": {
+          "label": "Legal & Sector Overview",
+          "items": [
+            {
+              "heading": "Legal & Jurisdictional Framework",
+              "body": "RSA 273-A (Public Employee Labor Relations Act); RSA 194-B (Charter Schools Act). Charter school teachers who choose charter employment retain the right to join or organize separate bargaining units (RSA 194-B:14(II)(a)). Units must be separate from district units (RSA 194-B:14(II)(b)); prior district affiliation must be severed (RSA 194-B:14(II)(e)). CBAs must be filed with PELRB within 14 days of signing. New Hampshire is not a right-to-work state (New Hampshire has no right-to-work statute. RSA 273-A and RSA 194-B govern NH public employee labor relations without RTW restriction.). PELRB (NH) has exclusive jurisdiction. Federal NLRB does not apply to charter schools in New Hampshire. Card-check recognition is available under RSA 273-A allows recognition by mutual consent without election, which functions as card-check for NH public employees. A charter school governing board may voluntarily recognize a bargaining unit.."
+            },
+            {
+              "heading": "Charter Sector Structure",
+              "body": "New Hampshire operates 33 open-enrollment charter schools, enrolling approximately 6,037 students. 10 charter management organizations and education management organizations operate in New Hampshire. The largest networks by campus count are North Country Charter Academy (2 campuses in state), Academy for Science and Design Charter School (2 campuses in state), Great Bay Charter School (2 campuses in state). Approximately 13 schools operate independently with no CMO or EMO affiliation. Network-level detail appears in the CMO & EMO section of the state report."
+            }
+          ]
+        },
+        "media": {
+          "label": "Media Coverage",
+          "items": [
+            {
+              "headline": "Press Coverage Overview",
+              "outlet": null,
+              "date": null,
+              "summary": "No press coverage of charter school union organizing activity in New Hampshire was identified in searches of Chalkbeat, Education Week, or regional NH news outlets as of June 2026.",
+              "url": null,
+              "sentiment": "NEUTRAL"
+            }
+          ]
+        },
+        "cbaRegistry": {
+          "label": "CBA Registry",
+          "items": []
+        }
+      }
+    },
+    "NM": {
+      "state": "NM",
+      "stateName": "New Mexico",
+      "reportVersion": "v8.0",
+      "generatedDate": "2026-06-19",
+      "isDeferred": false,
+      "sections": {
+        "legalSector": {
+          "label": "Legal & Sector Overview",
+          "items": [
+            {
+              "heading": "Legal & Jurisdictional Framework",
+              "body": "NM charter schools authorized by PEC, serve as independent LEAs. PEBA (NMSA 10-7E) covers state agencies/units of local government. Two NAPCS schools confirmed organized under NEA-NM via PELRB public employer framework, establishing that at least some NM charter schools are treated as public employers under PEBA. Jurisdictional question remains unsettled for the broader NM charter sector. Option C declared May 9, 2026 for unresolved schools. New Mexico is not a right-to-work state (N.M. Stat. Ann. §50-11-1 et seq.). Charter schools in New Mexico are subject to NLRB jurisdiction as private employers (PELRB (confirmed for J Paul Taylor Academy) / CONTESTED PELRB or NLRB Region 28 (other schools)). Secret ballot NLRB election is the required organizing pathway. Card-check is not available."
+            },
+            {
+              "heading": "Charter Sector Structure",
+              "body": "New Mexico operates 98 open-enrollment charter schools, enrolling approximately 32,856 students. 4 charter management organizations and education management organizations operate in New Mexico, including 1 for-profit EMO. The largest networks by campus count are Explore Academy (3 campuses in state), Mission Achievement and Success Charter School (2 campuses in state), The New America School (2 campuses in state). Approximately 90 schools operate independently with no CMO or EMO affiliation. Network-level detail appears in the CMO & EMO section of the state report."
+            }
+          ]
+        },
+        "media": {
+          "label": "Media Coverage",
+          "items": [
+            {
+              "headline": "Press Coverage Overview",
+              "outlet": null,
+              "date": null,
+              "summary": "New Mexico charter school labor relations have generated zero press coverage — consistent with the complete absence of organizing activity. No union petition, card drive, election, or recognition has been publicly reported for any NM charter school. The Santa Fe New Mexican and Las Cruces Sun-News — the primary local papers in the two markets where NM NAPCS schools are concentrated — have not covered charter labor relations. NM charter organizing news, if it emerges, would likely first appear in the Santa Fe Reporter or NM Political Report given their education policy coverage.",
+              "url": null,
+              "sentiment": "NEUTRAL"
+            },
+            {
+              "headline": "Legislative Context",
+              "outlet": null,
+              "date": null,
+              "summary": "New Mexico PEBA (Public Employee Bargaining Act, NMSA 10-7E) creates PELRB and covers state agencies and local government units. NM charter schools are authorized by PEC (a state body) and operate as their own LEAs — suggesting public employer status. However, NM charters are typically incorporated as 501(c)(3) nonprofits, potentially placing them under NLRB R28 jurisdiction as private employers. This jurisdictional ambiguity — PELRB vs. NLRB R28 — has never been resolved because no charter school has ever filed a case with either board. The first petition would establish precedent for the entire NM charter sector.",
+              "url": null,
+              "sentiment": "NEUTRAL"
+            }
+          ]
+        },
+        "cbaRegistry": {
+          "label": "CBA Registry",
+          "items": [
+            {
+              "school": "Monte del Sol Charter School",
+              "union": "NEA-New Mexico (NEA)",
+              "cbaStatus": "ACTIVE — 2025-2026",
+              "cbaYear": "2025-2026 (current; union since 2010-11)",
+              "cbaUrl": null,
+              "notes": "CBA posted publicly on school Policy Documents page. Union since 2010-11. PELRB public employer framework."
+            },
+            {
+              "school": "J Paul Taylor Academy (PELRB name: \"John Paul Taylor Academy\")",
+              "union": "NEA (PELRB certified)",
+              "cbaStatus": "ACTIVE — salary schedules through 2025-26",
+              "cbaYear": "CBA ratified 2017-18; salary schedules updated through 2025-26",
+              "cbaUrl": null,
+              "notes": "PELRB bargaining unit listed in PELRB All Known Bargaining Units (Feb 2026). Unit formed 2015-16; CBA ratified 2017-18. ~18 certified employees."
+            },
+            {
+              "school": "Turquoise Trail Charter School",
+              "union": "NEA-NM (local chapter name unknown)",
+              "cbaStatus": "NO CBA RATIFIED — bargaining stalled September 2022",
+              "cbaYear": "N/A — no CBA exists as of April 2026",
+              "cbaUrl": null,
+              "notes": "Certified Oct–Nov 2021. All 5 original union leaders departed June 2022. Bargaining closed. No union activity in board minutes October 2022 – April 2026. ~4.5 years post-cert without first contract."
+            }
+          ]
+        }
+      }
+    },
+    "NV": {
+      "state": "NV",
+      "stateName": "Nevada",
+      "reportVersion": "v8.0",
+      "generatedDate": "2026-06-19",
+      "isDeferred": true,
+      "sections": {
+        "legalSector": {
+          "label": "Legal & Sector Overview",
+          "items": [
+            {
+              "heading": "Legal & Jurisdictional Framework",
+              "body": "NRS 386.490 et seq. (Charter Schools). NRS 288 (Local Government Employee-Management Relations Act) may apply to some NV charter schools as public employers. Independently operated charters likely fall under NLRB R28. Jurisdiction unsettled — requires per-school Gate 0 analysis. Nevada is not a right-to-work state. Charter schools in Nevada are subject to NLRB jurisdiction as private employers (EMRB(NV)/NLRB R28). Secret ballot NLRB election is the required organizing pathway. Card-check is not available."
+            },
+            {
+              "heading": "Charter Sector Structure",
+              "body": "Nevada operates 104 open-enrollment charter schools, enrolling approximately 73,202 students. 14 charter management organizations and education management organizations operate in Nevada. The largest networks by campus count are Coral Academy of Science (12 campuses in state), Nevada State High School (9 campuses in state), Pinecrest Academy of Nevada (8 campuses in state). Approximately 39 schools operate independently with no CMO or EMO affiliation. Network-level detail appears in the CMO & EMO section of the state report. No school-level union research has been conducted. Research deferred — Executive Sponsor direction (PDR-018, June 7, 2026)."
+            }
+          ]
+        },
+        "media": {
+          "label": "Media Coverage",
+          "items": [
+            {
+              "headline": "Press Coverage Overview",
+              "outlet": null,
+              "date": null,
+              "summary": "No press coverage of charter school employee organizing under the EMRB framework has been identified in Nevada. General labor relations coverage in Nevada focuses primarily on Clark County School District (CCEA/CCE) and gaming industry unions.",
+              "url": null,
+              "sentiment": "NEUTRAL"
+            },
+            {
+              "headline": "Legislative Context",
+              "outlet": null,
+              "date": null,
+              "summary": "NRS 288 as applied to charter schools is established law in Nevada — no recent legislative proposals have modified the charter school provisions. The EMRB administers this framework without controversy specific to the charter sector.",
+              "url": null,
+              "sentiment": "NEUTRAL"
+            }
+          ]
+        },
+        "cbaRegistry": {
+          "label": "CBA Registry",
+          "items": []
+        }
+      }
+    },
+    "OH": {
+      "state": "OH",
+      "stateName": "Ohio",
+      "reportVersion": "v8.0",
+      "generatedDate": "2026-06-19",
+      "isDeferred": false,
+      "sections": {
+        "legalSector": {
+          "label": "Legal & Sector Overview",
+          "items": [
+            {
+              "heading": "Legal & Jurisdictional Framework",
+              "body": "National Labor Relations Act (NLRA). Ohio charter schools (\"community schools\" per ORC Chapter 3314) are classified as privately incorporated nonprofits — private employers under the NLRA. SERB (State Employment Relations Board, ORC Chapter 4117) does NOT apply. Settled by NLRB precedent: Menlo Park Academy (08-RC-286190, 2022), KIPP Columbus (09-CA-310589, 2022–2024), and a decade of prior Ohio charter elections all confirming NLRB jurisdiction. Ohio is not a right-to-work state (Ohio has no right-to-work statute for private-sector employees. NLRA preempts state right-to-work law for private employers, and Ohio has enacted no such statute. Ohio public employees retain full collective bargaining rights under ORC Chapter 4117 (SB 5, enacted 2011, was repealed by voter referendum November 2011).). Charter schools in Ohio are subject to NLRB jurisdiction as private employers (NLRB (Region 8 / Region 9)). Secret ballot NLRB election is the required organizing pathway. Card-check is not available."
+            },
+            {
+              "heading": "Charter Sector Structure",
+              "body": "Ohio operates 323 open-enrollment charter schools, enrolling approximately 123,080 students. 11 charter management organizations and education management organizations operate in Ohio, including 1 for-profit EMO. The largest networks by campus count are Summit Academy Management (20 campuses in state), Concept Schools (16 campuses in state), Constellation Schools (15 campuses in state). Approximately 251 schools operate independently with no CMO or EMO affiliation. Network-level detail appears in the CMO & EMO section of the state report."
+            }
+          ]
+        },
+        "media": {
+          "label": "Media Coverage",
+          "items": [
+            {
+              "headline": "Press Coverage Overview",
+              "outlet": null,
+              "date": null,
+              "summary": "Ohio charter union organizing has received consistent press coverage concentrated around election events and the 2019 Summit Academy Parma strike. The Cleveland Plain Dealer and cleveland.com have covered Cleveland ACTS certifications most thoroughly. The Columbus Dispatch has covered KIPP Columbus and ACPA. OFT press releases are the most complete single source for certification announcements. The KIPP Columbus ULP findings received national education press attention (Chalkbeat, Education Week). ACPA's 44-1 election result has not received major press coverage as of May 2026 — consistent with the pattern that overwhelming union victories receive less press attention than contested elections.",
+              "url": null,
+              "sentiment": "NEUTRAL"
+            },
+            {
+              "headline": "Legislative Context",
+              "outlet": null,
+              "date": null,
+              "summary": "Ohio's charter school law (ORC Chapter 3314) does not address employee unionization. The NLRB's exclusive jurisdiction over Ohio charter employees has not been legislatively modified. Ohio is not a right-to-work state for private employers (NLRA preempts state right-to-work for private sector). Ohio has not enacted any legislation that would shift charter school employees to SERB jurisdiction.",
+              "url": null,
+              "sentiment": "NEUTRAL"
+            }
+          ]
+        },
+        "cbaRegistry": {
+          "label": "CBA Registry",
+          "items": [
+            {
+              "school": "Summit Academy Secondary School-Parma",
+              "union": "Cleveland ACTS / OFT Local 6570",
+              "cbaStatus": "Active",
+              "cbaYear": "Multiple cycles — first CBA ratified March 2019 (post-strike)",
+              "cbaUrl": null,
+              "notes": "First charter school CBA in Ohio produced after a strike. Text not publicly available."
+            },
+            {
+              "school": "Northeast Ohio College Preparatory School",
+              "union": "Cleveland ACTS / OFT Local 6570",
+              "cbaStatus": "Active",
+              "cbaYear": "First ratified ~2017-18; current cycle unknown",
+              "cbaUrl": null,
+              "notes": "Earliest ACCEL certification. CBA text not publicly available."
+            },
+            {
+              "school": "Cleveland College Preparatory Academy",
+              "union": "Cleveland ACTS / OFT Local 6570",
+              "cbaStatus": "Active",
+              "cbaYear": "First ratified ~2017-18; current cycle unknown",
+              "cbaUrl": null,
+              "notes": "CBA text not publicly available."
+            },
+            {
+              "school": "University of Cleveland Preparatory School",
+              "union": "Cleveland ACTS / OFT Local 6570",
+              "cbaStatus": "Active",
+              "cbaYear": "First ratified ~2017-18; current cycle unknown",
+              "cbaUrl": null,
+              "notes": "CBA text not publicly available."
+            },
+            {
+              "school": "Stepstone Academy",
+              "union": "Cleveland ACTS / OFT Local 6570",
+              "cbaStatus": "Active",
+              "cbaYear": "First ratified ~2019-20; current cycle unknown",
+              "cbaUrl": null,
+              "notes": "CBA text not publicly available."
+            },
+            {
+              "school": "Summit Academy Community School-Lorain",
+              "union": "OFT",
+              "cbaStatus": "Active",
+              "cbaYear": "First ratified ~2022-23 (post-cert Jan 2022); current cycle unknown",
+              "cbaUrl": null,
+              "notes": "CBA text not publicly available."
+            },
+            {
+              "school": "Menlo Park Academy",
+              "union": "Cleveland ACTS / OFT Local 6570",
+              "cbaStatus": "Active",
+              "cbaYear": "First ratified ~2022-23 (post-cert April 2022); current cycle unknown",
+              "cbaUrl": null,
+              "notes": "CBA text not publicly available."
+            },
+            {
+              "school": "KIPP Columbus",
+              "union": "KIPP Columbus ACTS / OFT",
+              "cbaStatus": "Pre-first-contract — in negotiation",
+              "cbaYear": "Certified May 5, 2023; first contract not yet ratified as of May 2026",
+              "cbaUrl": null,
+              "notes": "Over 3 years post-cert without first contract. NLRB ULP findings Aug 2024 complicate bargaining climate."
+            },
+            {
+              "school": "Arts and College Preparatory Academy (ACPA)",
+              "union": "ACPA United / OFT",
+              "cbaStatus": "Pre-first-contract — newly certified",
+              "cbaYear": "Certified December 5, 2025; bargaining not yet commenced",
+              "cbaUrl": null,
+              "notes": "44-1 vote. First contract negotiations expected to begin 2026."
+            },
+            {
+              "school": "Coshocton Opportunity School",
+              "union": "Coshocton City Education Association (OEA)",
+              "cbaStatus": "ACTIVE — district CBA coverage via ORC §3314.10(A)(3)",
+              "cbaYear": "Ongoing — district CBA cycle",
+              "cbaUrl": null,
+              "notes": "TEXT VERIFIED: Coshocton City EA CBA explicitly names \"Director of Opportunity School\" and \"All Certified Personnel\" as covered. Source: Law Insider (SERB archive). District school board is employer of record (ORC §3314.10(B)). Refresh: check Coshocton City SD CBA renewal at SERB, not NLRB ADS."
+            },
+            {
+              "school": "Eagle Learning Center",
+              "union": "Oregon City Federation of Teachers (OFT/AFT)",
+              "cbaStatus": "ACTIVE — district CBA coverage via ORC §3314.10(A)(3)",
+              "cbaYear": "Ongoing — district CBA cycle",
+              "cbaUrl": null,
+              "notes": "Statutory coverage confirmed. Oregon City SD CBA extends to Eagle Learning Center employees by operation of law. Refresh: SERB Oregon City SD CBA. District website: oregoncityschools.org."
+            },
+            {
+              "school": "Fairborn Digital Academy",
+              "union": "Fairborn Education Association (OEA/NEA)",
+              "cbaStatus": "ACTIVE — district CBA coverage via ORC §3314.10(A)(3)",
+              "cbaYear": "Ongoing — district CBA cycle",
+              "cbaUrl": null,
+              "notes": "TEXT PARTIAL: District website and Chamber of Commerce confirm \"Fairborn also sponsors the Fairborn Digital Academy.\" FEA CBA (SERB 19-MED-12-1303) covers all employees providing services to the Board. Refresh: SERB Fairborn City SD CBA. District: fairborn.k12.oh.us."
+            },
+            {
+              "school": "Findlay Digital Academy",
+              "union": "Findlay Education Association (OEA)",
+              "cbaStatus": "ACTIVE — district CBA coverage via ORC §3314.10(A)(3)",
+              "cbaYear": "Ongoing — district CBA cycle",
+              "cbaUrl": null,
+              "notes": "Statutory coverage confirmed. Refresh: SERB Findlay City SD CBA."
+            },
+            {
+              "school": "Foxfire High School",
+              "union": "Maysville Education Association (OEA)",
+              "cbaStatus": "ACTIVE — district CBA coverage via ORC §3314.10(A)(3)",
+              "cbaYear": "Ongoing — district CBA cycle",
+              "cbaUrl": null,
+              "notes": "Statutory coverage confirmed. Shares district CBA with Foxfire Intermediate (same Maysville Local SD). Refresh: SERB Maysville Local SD CBA."
+            },
+            {
+              "school": "Foxfire Intermediate School",
+              "union": "Maysville Education Association (OEA)",
+              "cbaStatus": "ACTIVE — district CBA coverage via ORC §3314.10(A)(3)",
+              "cbaYear": "Ongoing — district CBA cycle",
+              "cbaUrl": null,
+              "notes": "Statutory coverage confirmed. Shares district CBA with Foxfire High (same Maysville Local SD). Refresh: SERB Maysville Local SD CBA."
+            },
+            {
+              "school": "Par Excellence Academy",
+              "union": "Newark Teachers Association (OEA)",
+              "cbaStatus": "ACTIVE — district CBA coverage via ORC §3314.10(A)(3)",
+              "cbaYear": "Ongoing — district CBA cycle",
+              "cbaUrl": null,
+              "notes": "Statutory coverage confirmed. Refresh: SERB Newark City SD CBA."
+            },
+            {
+              "school": "Quaker Digital Academy",
+              "union": "New Philadelphia Education Association (OEA)",
+              "cbaStatus": "ACTIVE — district CBA coverage via ORC §3314.10(A)(3)",
+              "cbaYear": "Ongoing — district CBA cycle",
+              "cbaUrl": null,
+              "notes": "Statutory coverage confirmed. Refresh: SERB New Philadelphia City SD CBA."
+            },
+            {
+              "school": "Rittman Academy",
+              "union": "Rittman Education Association (OEA)",
+              "cbaStatus": "ACTIVE — district CBA coverage via ORC §3314.10(A)(3)",
+              "cbaYear": "Ongoing — district CBA cycle",
+              "cbaUrl": null,
+              "notes": "Statutory coverage confirmed. Refresh: SERB Rittman Exempted Village SD CBA."
+            },
+            {
+              "school": "Schnee Learning Center",
+              "union": "Cuyahoga Falls Education Association (OEA)",
+              "cbaStatus": "ACTIVE — district CBA coverage via ORC §3314.10(A)(3)",
+              "cbaYear": "Ongoing — district CBA cycle",
+              "cbaUrl": null,
+              "notes": "Statutory coverage confirmed. Refresh: SERB Cuyahoga Falls City SD CBA."
+            },
+            {
+              "school": "Tomorrow Center Digital",
+              "union": "Mount Gilead Teachers Association (OEA)",
+              "cbaStatus": "ACTIVE — district CBA coverage via ORC §3314.10(A)(3)",
+              "cbaYear": "Ongoing — district CBA cycle",
+              "cbaUrl": null,
+              "notes": "Statutory coverage confirmed. Cardington-Lincoln Local SD authorizes. Refresh: SERB Cardington-Lincoln Local SD CBA."
+            },
+            {
+              "school": "Utica Shale Academy of Ohio",
+              "union": "Jefferson County Teachers Association (OEA)",
+              "cbaStatus": "ACTIVE — district CBA coverage via ORC §3314.10(A)(3)",
+              "cbaYear": "Ongoing — district CBA cycle",
+              "cbaUrl": null,
+              "notes": "Statutory coverage confirmed. Southern Local SD (Jefferson County) authorizes. Refresh: SERB Southern Local SD CBA."
+            }
+          ]
+        }
+      }
+    },
+    "OK": {
+      "state": "OK",
+      "stateName": "Oklahoma",
+      "reportVersion": "v8.0",
+      "generatedDate": "2026-06-19",
+      "isDeferred": true,
+      "sections": {
+        "legalSector": {
+          "label": "Legal & Sector Overview",
+          "items": [
+            {
+              "heading": "Legal & Jurisdictional Framework",
+              "body": "Okla. Stat. tit. 70, §3-130 et seq. (Charter Schools Act). Charter schools are independent employers. NLRB R17 private employer framework applies. Oklahoma is a right-to-work state (Okla. Stat. tit. 40, §§481-490). Charter schools in Oklahoma are subject to NLRB jurisdiction as private employers (NLRB R17). Secret ballot NLRB election is the required organizing pathway. Card-check is not available."
+            },
+            {
+              "heading": "Charter Sector Structure",
+              "body": "Oklahoma operates 73 open-enrollment charter schools, enrolling approximately 55,021 students. 21 charter management organizations and education management organizations operate in Oklahoma. The largest networks by campus count are Santa Fe South Charter Schools (10 campuses in state), Dove Schools of OKC (5 campuses in state), Academy of Seminole (3 campuses in state). Approximately 12 schools operate independently with no CMO or EMO affiliation. Network-level detail appears in the CMO & EMO section of the state report. No school-level union research has been conducted. Research deferred — Executive Sponsor direction (PDR-018, June 7, 2026)."
+            }
+          ]
+        },
+        "media": {
+          "label": "Media Coverage",
+          "items": [
+            {
+              "headline": "Press Coverage Overview",
+              "outlet": null,
+              "date": null,
+              "summary": "No press coverage of charter school employee organizing has been identified in Oklahoma. Sector coverage focuses on school accountability and the state's relatively high number of single-site operators.",
+              "url": null,
+              "sentiment": "NEUTRAL"
+            },
+            {
+              "headline": "Legislative Context",
+              "outlet": null,
+              "date": null,
+              "summary": "No charter-sector collective bargaining legislation has been introduced in the Oklahoma Legislature. Oklahoma charter law does not address employee collective bargaining. Oklahoma's right-to-work law (Okla. Stat. tit. 40, §§2–4) has been in effect since 2001.",
+              "url": null,
+              "sentiment": "NEUTRAL"
+            }
+          ]
+        },
+        "cbaRegistry": {
+          "label": "CBA Registry",
+          "items": []
+        }
+      }
+    },
+    "OR": {
+      "state": "OR",
+      "stateName": "Oregon",
+      "reportVersion": "v8.0",
+      "generatedDate": "2026-06-19",
+      "isDeferred": false,
+      "sections": {
+        "legalSector": {
+          "label": "Legal & Sector Overview",
+          "items": [
+            {
+              "heading": "Legal & Jurisdictional Framework",
+              "body": "PECBA — Public Employee Collective Bargaining Act (ORS 243.650 et seq.). All district-authorized OR charter schools are public employers under PECBA/ERB jurisdiction. ERB (not PERB — a common error) administers collective bargaining for Oregon public employers including charter schools authorized by local school districts. NLRB applies only to independently incorporated charter operators authorized by the State Board of Education (rare — Oregon Virtual Academy is the primary example in this dataset). Oregon is not a right-to-work state (Oregon has no right-to-work statute.). Charter schools in Oregon are subject to NLRB jurisdiction as private employers (ERB (OR)). Secret ballot NLRB election is the required organizing pathway. Card-check is not available."
+            },
+            {
+              "heading": "Charter Sector Structure",
+              "body": "Oregon operates 128 open-enrollment charter schools, enrolling approximately 44,718 students. 1 charter management organizations and education management organizations operate in Oregon. The largest networks by campus count are Arthur Academy (6 campuses in state). Approximately 122 schools operate independently with no CMO or EMO affiliation. Network-level detail appears in the CMO & EMO section of the state report."
+            }
+          ]
+        },
+        "media": {
+          "label": "Media Coverage",
+          "items": [
+            {
+              "headline": "Press Coverage Overview",
+              "outlet": null,
+              "date": null,
+              "summary": "Oregon charter school labor coverage has been limited and primarily focused on two events: the May 2026 Ivy School NLRB election (which received regional coverage from OPB and The Oregonian given the unusual 31-2 employer victory and the Hawkins County jurisdictional significance), and the August 2021 ORVA/Evergreen Virtual Academy certification (85-16, AFT-Oregon, covered by OregonLive and statewide education press). The dominant structural story — OEA coverage of 123 district-authorized charters — has generated no press coverage because it is not a discrete organizing event. Education Week (2019) documented the broader national trend of declining independent charter organizing in structural-coverage states.",
+              "url": null,
+              "sentiment": "NEUTRAL"
+            },
+            {
+              "headline": "Legislative Context",
+              "outlet": null,
+              "date": null,
+              "summary": "Oregon charter labor relations are governed by the Public Employees Collective Bargaining Act (PECBA), administered by ERB. All district-authorized charter schools are public employers — their staff are district employees, not charter employees. The 2024 Valley Inquiry Charter (VICS) staffing transition — converting all staff to charter-direct contracts — is the first documented case in OR of a charter school exiting OEA district CBA coverage without a formal ERB decertification vote. This is a potential legislative and legal grey area: does VICS's unilateral staffing model change require an ERB process? No ERB case has been filed as of May 2026.",
+              "url": null,
+              "sentiment": "NEUTRAL"
+            }
+          ]
+        },
+        "cbaRegistry": {
+          "label": "CBA Registry",
+          "items": [
+            {
+              "school": "Mosier Community School",
+              "union": "OEA/District 21 EA",
+              "cbaStatus": null,
+              "cbaYear": null,
+              "cbaUrl": null,
+              "notes": null
+            },
+            {
+              "school": "Oregon Virtual Academy (ORVA)",
+              "union": "ORVA Educators United / AFT-Oregon",
+              "cbaStatus": null,
+              "cbaYear": null,
+              "cbaUrl": null,
+              "notes": null
+            }
+          ]
+        }
+      }
+    },
+    "PA": {
+      "state": "PA",
+      "stateName": "Pennsylvania",
+      "reportVersion": "v8.0",
+      "generatedDate": "2026-06-19",
+      "isDeferred": false,
+      "sections": {
+        "legalSector": {
+          "label": "Legal & Sector Overview",
+          "items": [
+            {
+              "heading": "Legal & Jurisdictional Framework",
+              "body": "National Labor Relations Act (NLRA). Pennsylvania Virtual Charter School, 364 NLRB No. 87 (2016) established that all PA charter schools incorporated as private nonprofits with self-perpetuating boards are private employers under NLRB jurisdiction — not public employers under PLRB/PERA. This landmark ruling covers all 23 NAPCS PA schools. Pennsylvania is not a right-to-work state (Pennsylvania has no right-to-work statute. Right-to-work legislation has been introduced in the Pennsylvania General Assembly but has not been enacted. PA charter school employees are private-sector employees under the NLRA; union security provisions are available in collective bargaining agreements.). Charter schools in Pennsylvania are subject to NLRB jurisdiction as private employers (NLRB). Secret ballot NLRB election is the required organizing pathway. Card-check is not available."
+            },
+            {
+              "heading": "Charter Sector Structure",
+              "body": "Pennsylvania operates 175 open-enrollment charter schools, enrolling approximately 168,356 students. 8 charter management organizations and education management organizations operate in Pennsylvania. The largest networks by campus count are Mastery Charter Schools (15 campuses in state), Propel Schools (8 campuses in state), KIPP Philadelphia (5 campuses in state). Approximately 137 schools operate independently with no CMO or EMO affiliation. Network-level detail appears in the CMO & EMO section of the state report."
+            }
+          ]
+        },
+        "media": {
+          "label": "Media Coverage",
+          "items": [
+            {
+              "headline": "Press Coverage Overview",
+              "outlet": null,
+              "date": null,
+              "summary": "Pennsylvania charter school labor coverage has been dominated by two stories: the April 2021 Propel Schools network-wide election (236-82 across 13 campuses, covered by WESA Pittsburgh) — the largest single charter school union election by vote count in the full NAPCS dataset — and the ongoing ACSE/AFT Local 6056 organizing campaign in Philadelphia, which has produced certifications at Folk Arts (December 2022), Northwood Academy (January 2023), Urban Pathways (June 2022), and New Foundations (July 2025). Philadelphia Inquirer and Chalkbeat Philadelphia have provided periodic coverage of the Philadelphia organizing wave. Pittsburgh Post-Gazette covered the Propel election and subsequent contract ratification.",
+              "url": null,
+              "sentiment": "NEUTRAL"
+            },
+            {
+              "headline": "Legislative Context",
+              "outlet": null,
+              "date": null,
+              "summary": "PSEA has documented organizing interest at Young Scholars of Central PA as early as 2010 (PSEA Voice magazine, June 2010) — no NLRB petition was ever filed, illustrating the gap between organizing interest and formal petition in NLRB-jurisdiction states. PA has no card-check equivalent — all certifications require NLRB secret ballot election. SEIU Local 32BJ certified a custodial/support unit at Propel Schools (December 2025) — the first Service Employees International Union certification in the full 584-school NAPCS dataset and the first non-instructional-staff unit in PA.",
+              "url": null,
+              "sentiment": "NEUTRAL"
+            }
+          ]
+        },
+        "cbaRegistry": {
+          "label": "CBA Registry",
+          "items": [
+            {
+              "school": "Propel Schools (7 NAPCS campuses — network unit)",
+              "union": "Propel Charter School Education Association (PCSEA) / PSEA/NEA",
+              "cbaStatus": "Active",
+              "cbaYear": "Unknown — verify with PCSEA (propelunion.com) or PSEA",
+              "cbaUrl": null,
+              "notes": "Network-wide certification April 29, 2021 (06-RC-273664). 2 units: Unit A (professionals) + Unit B (non-professionals). Also: SEIU Local 32BJ custodial unit (December 2025)."
+            },
+            {
+              "school": "New Foundations Charter School",
+              "union": "AFT Pennsylvania",
+              "cbaStatus": "In negotiations (first contract)",
+              "cbaYear": "N/A — recently certified July 2025",
+              "cbaUrl": null,
+              "notes": "Certified July 14, 2025 (04-RM-366549). 54-17 vote. First contract pending."
+            },
+            {
+              "school": "Pennsylvania Virtual Charter School",
+              "union": "PA Virtual Charter Education Association / PSEA/NEA",
+              "cbaStatus": "Active (assumed)",
+              "cbaYear": "Unknown",
+              "cbaUrl": null,
+              "notes": "Landmark 2016 NLRB ruling school. Certified September 7, 2016 (04-RC-143831). 57-15 vote."
+            },
+            {
+              "school": "Agora Cyber Charter School",
+              "union": "Agora Cyber Education Association / PSEA (teachers); Agora Counselors Association / PSEA (counselors); 21st Century Cyber EA / PSEA (student services)",
+              "cbaStatus": "Active (assumed — 3 units)",
+              "cbaYear": "Unknown",
+              "cbaUrl": null,
+              "notes": "3 units: teachers cert May 2016 (04-RC-170767, 312-46); counselors cert January 2015 (04-RC-141319, 22-1); student services cert September 2016 (04-RC-179402, 51-11)."
+            },
+            {
+              "school": "Pennsylvania Cyber Charter School",
+              "union": "PA Cyber School Education Association / PSEA/NEA (teachers); PA Cyber Academic Advisors and School Counselors EA / PSEA/NEA (advisors)",
+              "cbaStatus": "Active (assumed — 2 units)",
+              "cbaYear": "Unknown",
+              "cbaUrl": null,
+              "notes": "2 units: teachers cert April 25, 2014 (06-RC-120811, 71-34); advisors cert February 7, 2022 (06-RC-287129, 44-14)."
+            }
+          ]
+        }
+      }
+    },
+    "RI": {
+      "state": "RI",
+      "stateName": "Rhode Island",
+      "reportVersion": "v8.0",
+      "generatedDate": "2026-06-19",
+      "isDeferred": false,
+      "sections": {
+        "legalSector": {
+          "label": "Legal & Sector Overview",
+          "items": [
+            {
+              "heading": "Legal & Jurisdictional Framework",
+              "body": "Federal NLRA. All 42 RI charter schools are independently incorporated nonprofits — including the 3 LEA/District-authorized schools (Apprenticeship Exploration/Cranston; Times2 x2/Providence). RI charters are treated as private employers under the NLRA. The Rhode Island State Labor Relations Board (RISLRB, R.I.G.L. Ch. 28-7) has no jurisdiction over charter school employees. RI has no Right-to-Work law. Rhode Island is not a right-to-work state (Rhode Island has no right-to-work statute. RI charter school employees are private-sector employees under the NLRA; union security provisions are available in CBA negotiations.). Charter schools in Rhode Island are subject to NLRB jurisdiction as private employers (NLRB Region 1 (Boston)). Secret ballot NLRB election is the required organizing pathway. Card-check is not available."
+            },
+            {
+              "heading": "Charter Sector Structure",
+              "body": "Rhode Island operates 42 open-enrollment charter schools, enrolling approximately 13,465 students. 9 charter management organizations and education management organizations operate in Rhode Island. The largest networks by campus count are Achievement First (7 campuses in state), Blackstone Valley Prep (6 campuses in state), Paul Cuffee School (3 campuses in state). Approximately 15 schools operate independently with no CMO or EMO affiliation. Network-level detail appears in the CMO & EMO section of the state report."
+            }
+          ]
+        },
+        "media": {
+          "label": "Media Coverage",
+          "items": [
+            {
+              "headline": "Press Coverage Overview",
+              "outlet": null,
+              "date": null,
+              "summary": "Rhode Island's 2024-2025 charter organizing wave generated significant regional and national press coverage. Eight primary sources documented confirmed events. The dominant outlets were Rhode Island Current (rhodeislandcurrent.com), Providence Business News (pbn.com), the Boston Globe, and GoLocalProv, plus national coverage in the IBEW Electrical Worker newsletter. Coverage peaked in November 2025 (Highlander strike) and June 2025 (Paul Cuffee full unionization). Notable items:\n\n(1) \"Rhode Island law bans teacher strikes. Teachers at one charter school are challenging that.\" — Boston Globe, November 24, 2025. Highlander IBEW strike — federal preemption argument. RIFT&HP/AFT president says Paul Cuffee teachers also have right to strike. URL: https://www.bostonglobe.com/2025/11/24/metro/providence-charter-school-teacher-strike-dispute-ri/\n\n(2) \"Paul Cuffee becomes first fully unionized charter school in R.I.\" — Providence Business News, June 4, 2025. Middle School cert completes full Paul Cuffee unionization. URL: https://pbn.com/paul-cuffee-becomes-first-fully-unionized-charter-school-in-r-i/\n\n(3) \"Memo to public charter schools looking to unionize: Be careful what you wish for.\" — Rhode Island Current, May 27, 2025. Analysis of all three organized schools in first-contract negotiations. Notes 20% per-pupil funding gap vs. district schools as complication for first-contract bargaining. URL: https://rhodeislandcurrent.com/2025/05/27/memo-to-public-charter-schools-looking-to-unionize-be-careful-what-you-wish-for/\n\n(4) \"Providence charter school teachers vote to unionize\" — Rhode Island Current, October 22, 2024. Paul Cuffee Upper School certification. URL: https://rhodeislandcurrent.com/briefs/providence-charter-school-teachers-vote-to-unionize/\n\n(5) \"Teachers at Paul Cuffee Lower School file to unionize, joining other Providence charter schools\" — Brown Daily Herald, December 2, 2024. Lower School election. Notes Upper School was first independent RI charter to unionize with RIFTHP. URL: https://www.browndailyherald.com/article/2024/12/teachers-at-paul-cuffee-lower-school-file-to-unionize-joining-other-providence-charter-schools/\n\n(6) \"The outlook for Rhode Island's charter schools\" — Boston Globe, January 8, 2025. Forward-looking analysis. RIFT&HP and NEA-RI in active conversations with other charter teachers. Mayoral academies (BVP, Achievement First) identified as harder to organize given national network backing. URL: https://www.bostonglobe.com/2025/01/08/metro/outlook-rhode-islands-charter-schools/\n\n(7) \"Rhode Island Local Organizes Charter School Teachers\" — IBEW Electrical Worker (national newsletter), April 2025. Lead organizers Michaela Wnuk and Steve Smith named. School's Highlander Folk School heritage invoked by IBEW as organizing narrative. URL: https://ibew.org/rhode-island-local-organizes/\n\n(8) \"Providence Charter School Announces It Will Close for Multiple Days Due to Union Strike\" — GoLocalProv, November 22, 2025. Highlander Elementary closed Nov 24-25, 2025. IBEW cites NLRA federal right to strike; school and RIDE Commissioner argue RI state strike prohibition applies. URL: https://www.golocalprov.com/news/providence-charter-school-announces-it-will-close-for-multiple-days-due-to/",
+              "url": null,
+              "sentiment": "NEUTRAL"
+            },
+            {
+              "headline": "Legislative Context",
+              "outlet": null,
+              "date": null,
+              "summary": "RI has no equivalent of Florida's SB 256 (annual recertification), Louisiana's Act 172 (NLRB jurisdiction stripping), or any state-level anti-union charter legislation. The most significant active legal question is whether RI's public school teacher strike ban (which applies to DCPS teachers under RIPLRA) extends to charter school employees organized under NLRB. IBEW Local 2323's federal court complaint is the vehicle for resolving this question. Until resolved, the right of NLRB-organized charter school teachers to strike in RI is legally uncertain. The Providence City Council resolution (March 2025) supporting Paul Cuffee unionizations represents the only legislative/governmental position explicitly endorsing charter school organizing in RI.",
+              "url": null,
+              "sentiment": "NEUTRAL"
+            }
+          ]
+        },
+        "cbaRegistry": {
+          "label": "CBA Registry",
+          "items": [
+            {
+              "school": "Highlander Elementary Charter School",
+              "union": "International Brotherhood of Electrical Workers (IBEW) Local 2323",
+              "cbaStatus": "First contract under negotiation — not yet ratified",
+              "cbaYear": "N/A — first contract pending",
+              "cbaUrl": null,
+              "notes": "Cert September 6, 2024. Two-day strike November 2025 (wages and healthcare). Federal court complaint filed by IBEW challenging RI strike prohibition applicability. Contract dispute ongoing."
+            },
+            {
+              "school": "Paul Cuffee Upper School",
+              "union": "Rhode Island Federation of Teachers and Health Professionals (RIFT&HP)/AFT",
+              "cbaStatus": "First contract under negotiation — not yet ratified",
+              "cbaYear": "N/A — first contract pending",
+              "cbaUrl": null,
+              "notes": "Cert October 29, 2024. Unit A (professional) + Unit B (non-professional). UC petition (01-UC-359693) to add custodian/assistant withdrawn April 14, 2026 — cert unchanged."
+            },
+            {
+              "school": "Paul Cuffee Lower School",
+              "union": "Rhode Island Federation of Teachers and Health Professionals (RIFT&HP)/AFT",
+              "cbaStatus": "First contract under negotiation — not yet ratified",
+              "cbaYear": "N/A — first contract pending",
+              "cbaUrl": null,
+              "notes": "Cert December 10, 2024. Landslide vote 31-2. K-5 campus at 459 Promenade St, Providence."
+            },
+            {
+              "school": "Paul Cuffee Middle School",
+              "union": "Rhode Island Federation of Teachers and Health Professionals (RIFT&HP)/AFT",
+              "cbaStatus": "First contract — negotiations likely just beginning",
+              "cbaYear": "N/A — first contract pending",
+              "cbaUrl": null,
+              "notes": "Cert June 11, 2025. Completes full Paul Cuffee unionization."
+            },
+            {
+              "school": "NEL/CPS Construction Career Academy",
+              "union": "Cranston Teachers Alliance (AFT Local 1704)",
+              "cbaStatus": "Active — district CBA governs; 2019-2022 contract confirmed; successor period unknown",
+              "cbaYear": "2019-2022 (confirmed); successor contract period unknown",
+              "cbaUrl": "https://www.cta1704.org/uploads/8/6/8/7/8687649/cta-cps_2019-2022_teacher_contract_-_final_-__9-12-19__1_.pdf",
+              "notes": "DEPENDENT school — LEA-authorized by Cranston Public Schools. Staff are Cranston district employees covered by CTA district CBA by operation of RI law. Source: NAPCS February 2026 dataset."
+            },
+            {
+              "school": "Times2 Academy (Elementary + Middle/High)",
+              "union": "Providence Teachers Union (AFT Local 958)",
+              "cbaStatus": "Active — district CBA governs; contract text not yet retrieved",
+              "cbaYear": "Unknown — Providence Teachers Union contract governs; obtain from PTU (proteun.org)",
+              "cbaUrl": null,
+              "notes": "DEPENDENT school — LEA-authorized by Providence. Staff are Providence district employees covered by PTU district CBA. Registry v56 lists as two schools (Times2 Elementary + Times2 Middle/High). Source: NAPCS February 2026 dataset."
+            }
+          ]
+        }
+      }
+    },
+    "SC": {
+      "state": "SC",
+      "stateName": "South Carolina",
+      "reportVersion": "v8.0",
+      "generatedDate": "2026-06-19",
+      "isDeferred": true,
+      "sections": {
+        "legalSector": {
+          "label": "Legal & Sector Overview",
+          "items": [
+            {
+              "heading": "Legal & Jurisdictional Framework",
+              "body": "S.C. Code Ann. §59-40 (Charter School Act). Charter schools are independent employers. NLRB R11 private employer framework applies. South Carolina is a right-to-work state (S.C. Code Ann. §41-7-10 through §41-7-90). Charter schools in South Carolina are subject to NLRB jurisdiction as private employers (NLRB R11). Secret ballot NLRB election is the required organizing pathway. Card-check is not available."
+            },
+            {
+              "heading": "Charter Sector Structure",
+              "body": "South Carolina operates 104 open-enrollment charter schools, enrolling approximately 61,956 students. 3 charter management organizations and education management organizations operate in South Carolina. The largest networks by campus count are GREEN Charter Schools (6 campuses in state), SC Virtual / Connections Academy (2 campuses in state), Movement School (1 campuses in state). Approximately 95 schools operate independently with no CMO or EMO affiliation. Network-level detail appears in the CMO & EMO section of the state report. No school-level union research has been conducted. Research deferred — Executive Sponsor direction (PDR-018, June 7, 2026)."
+            }
+          ]
+        },
+        "media": {
+          "label": "Media Coverage",
+          "items": [
+            {
+              "headline": "Press Coverage Overview",
+              "outlet": null,
+              "date": null,
+              "summary": "No press coverage of charter school employee organizing has been identified in South Carolina. Coverage focuses on school accountability and sector growth.",
+              "url": null,
+              "sentiment": "NEUTRAL"
+            },
+            {
+              "headline": "Legislative Context",
+              "outlet": null,
+              "date": null,
+              "summary": "No charter-sector collective bargaining legislation has been introduced in the South Carolina General Assembly. South Carolina charter law (S.C. Code Ann. §59-40) does not address employee collective bargaining.",
+              "url": null,
+              "sentiment": "NEUTRAL"
+            }
+          ]
+        },
+        "cbaRegistry": {
+          "label": "CBA Registry",
+          "items": []
+        }
+      }
+    },
+    "TN": {
+      "state": "TN",
+      "stateName": "Tennessee",
+      "reportVersion": "v8.0",
+      "generatedDate": "2026-06-19",
+      "isDeferred": true,
+      "sections": {
+        "legalSector": {
+          "label": "Legal & Sector Overview",
+          "items": [
+            {
+              "heading": "Legal & Jurisdictional Framework",
+              "body": "Tenn. Code Ann. §49-13 (Public Charter Schools Act). Charter schools are independent employers. NLRB R10 private employer framework applies. Tennessee is a right-to-work state (Tenn. Code Ann. §50-1-201). Charter schools in Tennessee are subject to NLRB jurisdiction as private employers (NLRB R10). Secret ballot NLRB election is the required organizing pathway. Card-check is not available."
+            },
+            {
+              "heading": "Charter Sector Structure",
+              "body": "Tennessee operates 112 open-enrollment charter schools, enrolling approximately 44,349 students. 14 charter management organizations and education management organizations operate in Tennessee. The largest networks by campus count are KIPP Nashville (8 campuses in state), Compass Community Schools (6 campuses in state), Memphis Business Academy (5 campuses in state). Approximately 59 schools operate independently with no CMO or EMO affiliation. Network-level detail appears in the CMO & EMO section of the state report. No school-level union research has been conducted. Research deferred — Executive Sponsor direction (PDR-018, June 7, 2026)."
+            }
+          ]
+        },
+        "media": {
+          "label": "Media Coverage",
+          "items": [
+            {
+              "headline": "Press Coverage Overview",
+              "outlet": null,
+              "date": null,
+              "summary": "No press coverage of charter school employee organizing has been identified in Tennessee. Coverage focuses on ASD restructuring, CMO performance, and the district-employment structure.",
+              "url": null,
+              "sentiment": "NEUTRAL"
+            },
+            {
+              "headline": "Legislative Context",
+              "outlet": null,
+              "date": null,
+              "summary": "The Tennessee Professional Educators Collaboration Act (TPECA, Tenn. Code Ann. §49-5-610) governs collective bargaining for district-employed charter teachers. TPECA is distinct from private-sector NLRB framework. The Achievement School District conversion to local management in 2023 affected the authorized school population. No legislation addressing independent CMO charter employee labor relations has been identified.",
+              "url": null,
+              "sentiment": "NEUTRAL"
+            }
+          ]
+        },
+        "cbaRegistry": {
+          "label": "CBA Registry",
+          "items": []
+        }
+      }
+    },
+    "UT": {
+      "state": "UT",
+      "stateName": "Utah",
+      "reportVersion": "v8.0",
+      "generatedDate": "2026-06-19",
+      "isDeferred": true,
+      "sections": {
+        "legalSector": {
+          "label": "Legal & Sector Overview",
+          "items": [
+            {
+              "heading": "Legal & Jurisdictional Framework",
+              "body": "Utah Code Ann. §53G-5-3 et seq. (Charter School Act). Charter schools are independent employers. NLRB R28 private employer framework applies. Utah is a right-to-work state (Utah Code Ann. §34-34-1 through §34-34-17). Charter schools in Utah are subject to NLRB jurisdiction as private employers (NLRB R28). Secret ballot NLRB election is the required organizing pathway. Card-check is not available."
+            },
+            {
+              "heading": "Charter Sector Structure",
+              "body": "Utah operates 141 open-enrollment charter schools, enrolling approximately 81,879 students. 18 charter management organizations and education management organizations operate in Utah. The largest networks by campus count are American Preparatory Academy (6 campuses in state), Ascent Academies of Utah (5 campuses in state), Summit Academy (4 campuses in state). Approximately 95 schools operate independently with no CMO or EMO affiliation. Network-level detail appears in the CMO & EMO section of the state report. No school-level union research has been conducted. Research deferred — Executive Sponsor direction (PDR-018, June 7, 2026)."
+            }
+          ]
+        },
+        "media": {
+          "label": "Media Coverage",
+          "items": [
+            {
+              "headline": "Press Coverage Overview",
+              "outlet": null,
+              "date": null,
+              "summary": "No press coverage of charter school employee organizing has been identified in Utah. Sector coverage focuses on enrollment growth, authorizer accountability, and virtual charter school operations.",
+              "url": null,
+              "sentiment": "NEUTRAL"
+            },
+            {
+              "headline": "Legislative Context",
+              "outlet": null,
+              "date": null,
+              "summary": "No charter-sector collective bargaining legislation has been introduced in the Utah Legislature. Utah charter law does not address employee collective bargaining. Utah's right-to-work law (Utah Code Ann. §34-34-1 et seq.) has been in effect since 1955.",
+              "url": null,
+              "sentiment": "NEUTRAL"
+            }
+          ]
+        },
+        "cbaRegistry": {
+          "label": "CBA Registry",
+          "items": []
+        }
+      }
+    },
+    "VA": {
+      "state": "VA",
+      "stateName": "Virginia",
+      "reportVersion": "v8.0",
+      "generatedDate": "2026-06-19",
+      "isDeferred": false,
+      "sections": {
+        "legalSector": {
+          "label": "Legal & Sector Overview",
+          "items": [
+            {
+              "heading": "Legal & Jurisdictional Framework",
+              "body": "Charter schools in Virginia are subject to NLRB jurisdiction as private employers (Dual jurisdiction: Va. Code §40.1-57.2 (district CB law, 2 schools) / NLRB R5 Baltimore (5 schools)). Virginia is a right-to-work state (Virginia Code §40.1-58 et seq. (Virginia Right to Work Act)). Secret ballot NLRB election is the required organizing pathway. Card-check is not available."
+            },
+            {
+              "heading": "Charter Sector Structure",
+              "body": "Virginia operates 7 open-enrollment charter schools, enrolling approximately 1,270 students. No multi-campus charter networks are identified in the Charter School Registry for Virginia."
+            }
+          ]
+        },
+        "media": {
+          "label": "Media Coverage",
+          "items": []
+        },
+        "cbaRegistry": {
+          "label": "CBA Registry",
+          "items": [
+            {
+              "school": "Community Lab School",
+              "union": "Albemarle Education Association (AEA / VEA / NEA)",
+              "cbaStatus": null,
+              "cbaYear": null,
+              "cbaUrl": null,
+              "notes": null
+            },
+            {
+              "school": "Richmond Career Education and Employment Academy",
+              "union": "Richmond Education Association (REA / VEA / NEA)",
+              "cbaStatus": null,
+              "cbaYear": null,
+              "cbaUrl": null,
+              "notes": null
+            }
+          ]
+        }
+      }
+    },
+    "WA": {
+      "state": "WA",
+      "stateName": "Washington",
+      "reportVersion": "v8.0",
+      "generatedDate": "2026-06-19",
+      "isDeferred": false,
+      "sections": {
+        "legalSector": {
+          "label": "Legal & Sector Overview",
+          "items": [
+            {
+              "heading": "Legal & Jurisdictional Framework",
+              "body": "RCW 41.56.0251 — applies RCW ch. 41.56 (PECBA) to all WA charter schools as public employers (enacted SB 6194, 2016). RCW 41.59.031 — charter schools are separate employers from any school district. Chapter 28A.710 RCW — Washington charter school law. Washington is not a right-to-work state (Washington has no right-to-work statute. RCW 41.56.0251 classifies WA charter school employees as public employees under PECBA — union security provisions are standard in WA public employee collective bargaining agreements.). PERC (WA) has exclusive jurisdiction. Federal NLRB does not apply to charter schools in Washington. Card-check recognition is available under RCW 41.56.060 — card-check recognition available at 50%+1 of bargaining unit. Not right-to-work. Voluntary recognition without PERC petition is legal under WA PECBA and explains the absence of any PERC case for WIHS.."
+            },
+            {
+              "heading": "Charter Sector Structure",
+              "body": "Washington operates 15 open-enrollment charter schools, enrolling approximately 4,708 students. 2 charter management organizations and education management organizations operate in Washington. The largest networks by campus count are Impact Public Schools (4 campuses in state), Summit Public Schools (2 campuses in state). Approximately 9 schools operate independently with no CMO or EMO affiliation. Network-level detail appears in the CMO & EMO section of the state report."
+            }
+          ]
+        },
+        "media": {
+          "label": "Media Coverage",
+          "items": [
+            {
+              "headline": "Press Coverage Overview",
+              "outlet": null,
+              "date": null,
+              "summary": "No press coverage of WA charter school union organizing found. WIHS organizing occurred via voluntary recognition with no public announcement — consistent with the absence of a PERC petition. The only press signal is the KUOW May 2022 investigative report on Impact Public Schools staff conditions. WA Charters Association coverage (wacharters.org/news-and-press/) focuses on school performance and renewal decisions. No organizing-related coverage in Seattle Times, Crosscut, or Chalkbeat Seattle.",
+              "url": null,
+              "sentiment": "NEUTRAL"
+            },
+            {
+              "headline": "Legislative Context",
+              "outlet": null,
+              "date": null,
+              "summary": "SB 6194 (2016): established PECBA coverage for WA charter schools. Authorization window closed April 2021. Historical: RCW 41.56.036 (2004) — conversion charter carryover rejected by voters (Referendum Measure No. 55, November 2004).",
+              "url": null,
+              "sentiment": "NEUTRAL"
+            }
+          ]
+        },
+        "cbaRegistry": {
+          "label": "CBA Registry",
+          "items": [
+            {
+              "school": "Whatcom Intergenerational High School",
+              "union": "Federated Collective of Washington Charter Teachers (AFT) — from NAPCS Feb 2026 baseline; pending Step 8 confirmation",
+              "cbaStatus": "CONFIRMED — voluntary recognition, September 2023",
+              "cbaYear": "Unknown — pending Step 8 direct contact",
+              "cbaUrl": null,
+              "notes": "Step 8 direct contact — school has not posted CBA per RCW 28A.320.055. Board minutes confirm CBA existence (BoardOnTrack public portal app2.boardontrack.com/public/B7YLfi, August 31 and September 6, 2023 meeting records)."
+            }
+          ]
+        }
+      }
+    },
+    "WI": {
+      "state": "WI",
+      "stateName": "Wisconsin",
+      "reportVersion": "v8.0",
+      "generatedDate": "2026-06-19",
+      "isDeferred": false,
+      "sections": {
+        "legalSector": {
+          "label": "Legal & Sector Overview",
+          "items": [
+            {
+              "heading": "Legal & Jurisdictional Framework",
+              "body": "Wis. Stat. §118.40(7) — school board must declare each LEA charter as instrumentality or non-instrumentality. Instrumentality (§118.40(7)(a)): board SHALL employ all personnel; employees retain WERC bargaining rights (§118.40(7)(ar)). Non-instrumentality (§118.40(7)(am)): board may NOT employ personnel; NLRB R18 jurisdiction. Non-LEA authorized charters (§118.40(2r)/(2x)): non-instrumentality by statute — NLRB R18. Act 10 (2011): WERC-jurisdiction units bargain base wages only, CPI-capped; annual recertification at 51% of all eligible voters. Act 10 ruled unconstitutional Dec 2, 2024 (Dane County); STAYED Jan 23, 2025 pending WI Court of Appeals (briefed Oct 2025). Act 10 does NOT apply to NLRB-jurisdiction employers. Wisconsin is not a right-to-work state (Wisconsin right-to-work (Wis. Stat. §111.04) applies to private-sector NLRA employers only. Does not apply to WERC-jurisdiction public employers.). Charter schools in Wisconsin are subject to NLRB jurisdiction as private employers (WERC (WI) / NLRB R18). Secret ballot NLRB election is the required organizing pathway. Card-check is not available."
+            },
+            {
+              "heading": "Charter Sector Structure",
+              "body": "Wisconsin operates 237 open-enrollment charter schools, enrolling approximately 48,473 students. 11 charter management organizations and education management organizations operate in Wisconsin. The largest networks by campus count are Carmen Schools of Science and Technology (4 campuses in state), Milwaukee College Preparatory School (4 campuses in state), Etude Schools (3 campuses in state). Approximately 209 schools operate independently with no CMO or EMO affiliation. Network-level detail appears in the CMO & EMO section of the state report."
+            }
+          ]
+        },
+        "media": {
+          "label": "Media Coverage",
+          "items": [
+            {
+              "headline": "Press Coverage Overview",
+              "outlet": null,
+              "date": null,
+              "summary": "Wisconsin charter labor coverage is centered almost entirely on Milwaukee, with the 2022 Carmen campaign as the defining event. WUWM (Milwaukee NPR) produced the authoritative explanation of the instrumentality/non-instrumentality divide: \"Milwaukee Carmen union drive shows how charter schools straddle public and private sectors\" (March 10, 2022) — the single most useful public explainer of the WI three-type taxonomy. Urban Milwaukee and the Milwaukee Journal Sentinel covered the Carmen election petition (January 2022), the 59-79 defeat (March 2022), and the MPS charter non-renewal vote (November 2025). The December 2024 Act 10 ruling received statewide coverage (WPR, Spectrum News, PBS Wisconsin) but was not specifically framed as a charter labor story. Chalkbeat has not covered WI charter labor relations. No press coverage of union organizing at any WI charter school other than Carmen was found in any source.",
+              "url": null,
+              "sentiment": "NEUTRAL"
+            }
+          ]
+        },
+        "cbaRegistry": {
+          "label": "CBA Registry",
+          "items": [
+            {
+              "school": "No independently organized WI charter schools — all coverage is DEPENDENT",
+              "union": "N/A — coverage via district EA units",
+              "cbaStatus": "N/A",
+              "cbaYear": "N/A",
+              "cbaUrl": null,
+              "notes": "124 DEPENDENT schools covered by authorizing district CBAs under §118.40(7)(ar). Act 10 limits scope to base wages only (STAYED). District CBAs obtainable via FOIA/public records request to each district. AEA CBA covers 13-14 AASD charters; SEA CBA covers 7 Sheboygan charters; MTEA CBA covers 8 MPS instrumentality charters. Contact Wis. Stat. §19.35 for public records requests."
+            }
+          ]
+        }
+      }
+    },
+    "WV": {
+      "state": "WV",
+      "stateName": "West Virginia",
+      "reportVersion": "v8.0",
+      "generatedDate": "2026-06-19",
+      "isDeferred": false,
+      "sections": {
+        "legalSector": {
+          "label": "Legal & Sector Overview",
+          "items": [
+            {
+              "heading": "Legal & Jurisdictional Framework",
+              "body": "National Labor Relations Act (NLRA). WV charter schools are private NLRA employers under NLRB R9 jurisdiction. WV Code §18-5G-3(b)(7) requires charter schools to employ their own personnel. WV Code §18-5-45a explicitly declares that public employees in West Virginia have no statutory right to collective bargaining, mediation, or arbitration — but this applies to district employees, not charter school employees organized under NLRB. West Virginia is a right-to-work state (WV Code §21-1A-1 et seq. (West Virginia Workplace Freedom Act, effective July 1, 2016)). Charter schools in West Virginia are subject to NLRB jurisdiction as private employers (NLRB R9). Secret ballot NLRB election is the required organizing pathway. Card-check is not available."
+            },
+            {
+              "heading": "Charter Sector Structure",
+              "body": "West Virginia operates 8 open-enrollment charter schools, enrolling approximately 3,366 students. 2 charter management organizations and education management organizations operate in West Virginia. The largest networks by campus count are Accel Schools (1 campuses in state), Stride Inc. (1 campuses in state). Approximately 6 schools operate independently with no CMO or EMO affiliation. Network-level detail appears in the CMO & EMO section of the state report."
+            }
+          ]
+        },
+        "media": {
+          "label": "Media Coverage",
+          "items": [
+            {
+              "headline": "Press Coverage Overview",
+              "outlet": null,
+              "date": null,
+              "summary": "West Virginia charter school press coverage in June 2026 focuses on constitutional litigation (circuit court permanent injunction, WV Supreme Court review). No press coverage of union organizing activity at any WV charter school was identified.",
+              "url": null,
+              "sentiment": "NEUTRAL"
+            }
+          ]
+        },
+        "cbaRegistry": {
+          "label": "CBA Registry",
+          "items": []
+        }
+      }
+    },
+    "WY": {
+      "state": "WY",
+      "stateName": "Wyoming",
+      "reportVersion": "v8.0",
+      "generatedDate": "2026-06-19",
+      "isDeferred": true,
+      "sections": {
+        "legalSector": {
+          "label": "Legal & Sector Overview",
+          "items": [
+            {
+              "heading": "Legal & Jurisdictional Framework",
+              "body": "Wyo. Stat. Ann. §21-3-301 et seq. (Charter Schools). Charter schools are independent employers. NLRB R27 private employer framework applies. Wyoming is a right-to-work state (Wyo. Stat. Ann. §27-7-109). Charter schools in Wyoming are subject to NLRB jurisdiction as private employers (NLRB R27). Secret ballot NLRB election is the required organizing pathway. Card-check is not available."
+            },
+            {
+              "heading": "Charter Sector Structure",
+              "body": "Wyoming operates 8 open-enrollment charter schools, enrolling approximately 1,294 students. 1 charter management organizations and education management organizations operate in Wyoming. The largest networks by campus count are PODER Academy (2 campuses in state). Approximately 6 schools operate independently with no CMO or EMO affiliation. Network-level detail appears in the CMO & EMO section of the state report. No school-level union research has been conducted. Research deferred — Executive Sponsor direction (PDR-018, June 7, 2026)."
+            }
+          ]
+        },
+        "media": {
+          "label": "Media Coverage",
+          "items": [
+            {
+              "headline": "Press Coverage Overview",
+              "outlet": null,
+              "date": null,
+              "summary": "No press coverage of charter school employee organizing has been identified in Wyoming. The sector's small size limits press attention overall.",
+              "url": null,
+              "sentiment": "NEUTRAL"
+            },
+            {
+              "headline": "Legislative Context",
+              "outlet": null,
+              "date": null,
+              "summary": "No charter-sector collective bargaining legislation has been introduced in the Wyoming Legislature. Wyoming charter law (Wyo. Stat. Ann. §21-3-301 et seq.) does not address employee collective bargaining.",
+              "url": null,
+              "sentiment": "NEUTRAL"
+            }
+          ]
+        },
+        "cbaRegistry": {
+          "label": "CBA Registry",
+          "items": []
+        }
+      }
     }
   }
 };

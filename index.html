@@ -566,8 +566,14 @@ function buildPopup(s){
     if(s.dateUnionized&&s.dateUnionized!=='N/A') h+=purow('Certified',esc(String(s.dateUnionized).slice(0,50)));
     if(s.cbaStatus&&s.cbaStatus!=='N/A') h+=purow('CBA',esc(s.cbaStatus.slice(0,80)));
     if(s.certCase){
-      var certLink=buildCaseLink(s,'#6CC04A','View Certification Record','');
-      if(certLink) h+='<div class="pu-link"><span>&#128196;</span>'+certLink+'</div>';
+      // C-1: Only show filing record link when certCase has real content (not null, N/A, or N/A-prefixed)
+      var _cc = (s.certCase||'').trim();
+      var _ccNA = _cc==='' || _cc==='N/A' || _cc.indexOf('N/A')===0;
+      if(!_ccNA){
+        // C-2: ORGANIZING schools have no certification — label is "View Filing Record"
+        var certLink=buildCaseLink(s,'#6CC04A',s.status==='ORGANIZING'?'View Filing Record':'View Certification Record','');
+        if(certLink) h+='<div class="pu-link"><span>&#128196;</span>'+certLink+'</div>';
+      }
     }
   }
   // Union info — DEPENDENT
@@ -593,6 +599,7 @@ function buildPopup(s){
     if(s.union) h+=purow('Was Union',uUrlD?'<a href="'+esc(uUrlD)+'" target="_blank" rel="noopener" style="color:#C084FC;text-decoration:underline">'+esc(s.union)+'</a>':'<span style="color:#C084FC">'+esc(s.union)+'</span>');
     if(s.dateUnionized&&s.dateUnionized!=='N/A') h+=purow('Was Certified',esc(String(s.dateUnionized).slice(0,50)));
     if(s.cbaStatus&&s.cbaStatus!=='N/A') h+=purow('Note',esc(s.cbaStatus.slice(0,100)));
+    // D-1: Always show decert link — falls through to state-based search if certCase is null
     var _decertLink = buildCaseLink(s, '#C084FC', 'View Decertification Record', 'Decertification record — see state research report');
     h+='<div class="pu-link"><span>&#128196;</span>'+_decertLink+'</div>';
   }
