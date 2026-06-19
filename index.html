@@ -647,10 +647,10 @@ function buildPopup(s){
   }
   // Website — use cbaUrl as fallback if school website not present
   // Suppress known defunct school websites rather than showing dead links
-  var _deadSites = ['www.gomperssd.org','www.lyceenola.org'];
+  var _deadSites = ['www.gomperssd.org'];
   var siteUrl = s.website || s.cbaUrl || null;
   if(siteUrl && _deadSites.some(function(d){ return siteUrl.indexOf(d) !== -1; })) siteUrl = null;
-  // Update known sites that moved
+  // Redirect known sites that moved
   if(siteUrl && siteUrl.indexOf('lyceenola.org') !== -1) siteUrl = 'https://www.lfno.org';
   if(siteUrl) h+='<div class="pu-link"><span>&#127760;</span><a href="'+esc(siteUrl)+'" target="_blank" rel="noopener">School Website &#8599;</a></div>';
   // IDs — NCES and State, with "Not available" fallback
