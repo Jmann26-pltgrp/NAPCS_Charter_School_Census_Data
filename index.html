@@ -940,10 +940,10 @@ function openStateSlideout(code, coords){
 
   // Report button
   var rptUrl = (rpt && rpt.netlifyUrl) ? rpt.netlifyUrl : (rpt && rpt.boxUrl ? rpt.boxUrl : null);
-  if(rptUrl && !sd.deferred){
+  if(rptUrl){
     h+='<a class="spo-report-btn" href="'+esc(rptUrl)+'" target="_blank" rel="noopener">&#8595; Download State Research Report (PDF)</a>';
   } else {
-    h+='<div class="spo-report-btn" style="opacity:0.4;cursor:default">&#8595; '+(sd.deferred?'Report Coming Soon \u2014 Research Deferred':'Report Coming Soon')+'</div>';
+    h+='<div class="spo-report-btn" style="opacity:0.4;cursor:default">&#8595; Report Coming Soon</div>';
   }
 
   h+='</div>'; // close spo-body
@@ -1235,10 +1235,10 @@ function showStatePanel(code){
   var rpt = SR[code];
   var rptUrl = rpt ? (rpt.netlifyUrl||rpt.boxUrl||null) : null;
   h+='<div style="margin-top:10px">';
-  if(rptUrl && !sd.deferred){
+  if(rptUrl){
     h+='<a class="spo-report-btn" href="'+esc(rptUrl)+'" target="_blank" rel="noopener">&#8595; Download State Research Report (PDF)</a>';
   } else {
-    h+='<div class="spo-report-btn" style="opacity:0.4;cursor:default">&#8595; '+(sd.deferred?'Report Coming Soon — Research Deferred':'Report Coming Soon')+'</div>';
+    h+='<div class="spo-report-btn" style="opacity:0.4;cursor:default">&#8595; Report Coming Soon</div>';
   }
   h+='</div>';
 
