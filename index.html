@@ -620,6 +620,9 @@ SCHOOLS.forEach(function(s,idx){
   // Suppress future/not-yet-open schools — should not appear on dashboard map
   var opStatus = (s.operatingStatus||'').toLowerCase();
   if(opStatus.indexOf('future')!==-1||opStatus.indexOf('not yet open')!==-1) return;
+  // Suppress by ncesId for known future schools not carrying operatingStatus in built files
+  var _nces = s.ncesId||s.nces||'';
+  if(_nces==='150003000309'||_nces==='150003000310') return; // HI: Parkway Village Preschool, Namahana School
   var cfg=STATUS_CFG[s.status]||STATUS_CFG.UNVERIFIED;
   var isUnv=s.status==='UNVERIFIED';
   var isDec=s.status==='DECERTIFIED';
