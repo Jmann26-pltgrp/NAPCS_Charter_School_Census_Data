@@ -2492,6 +2492,287 @@ var NAPCS_CONFIG = {
       "notes": "No state law explicitly prohibits for-profit management contracts. Charter holder must be nonprofit. KIPP St. Louis and other networks operate in state."
     }
   },
+  "stateSidebar": {
+    "CA": {
+      "state": "CA",
+      "stateName": "California",
+      "reportVersion": "v8.0",
+      "generatedDate": "2026-06-18",
+      "isDeferred": false,
+      "sections": {
+        "legalSector": {
+          "label": "Legal & Sector Overview",
+          "items": [
+            {
+              "heading": "Legal & Jurisdictional Framework",
+              "body": "Educational Employment Relations Act (EERA), Gov. Code §3540 et seq. California is not a right-to-work state (Gov. Code §3540 et seq. (EERA)). Charter schools in California are subject to NLRB jurisdiction as private employers (PERB(CA) — California Public Employment Relations Board). Secret ballot NLRB election is the required organizing pathway. Card-check is not available."
+            },
+            {
+              "heading": "Charter Sector Structure",
+              "body": "California operates 1,246 open-enrollment charter schools, enrolling approximately 719,164 students. 30 charter management organizations and education management organizations operate in California. The largest networks by campus count are Aspire (36 campuses in state), KIPP CA (34 campuses in state), Alliance (21 campuses in state). Approximately 988 schools operate independently with no CMO or EMO affiliation. Network-level detail appears in the CMO & EMO section of the state report."
+            }
+          ]
+        },
+        "media": {
+          "label": "Media Coverage",
+          "items": [
+            {
+              "headline": "Press Coverage Overview",
+              "outlet": null,
+              "date": null,
+              "summary": "California charter school labor relations receive consistent press coverage, concentrated in education-focused outlets. EdSource provides the most sustained reporting on PERB decisions and charter organizing activity. The Los Angeles Times covers UTLA organizing campaigns at LAUSD-adjacent charter schools. National Right to Work Legal Defense Foundation press releases are primary sources for decertification event timelines, including the St. HOPE Public Schools NRtW disclaimer (March 2026) and Gompers Preparatory Academy decertification (June 2023).",
+              "url": null,
+              "sentiment": "NEUTRAL"
+            },
+            {
+              "headline": "Legislative Context",
+              "outlet": null,
+              "date": null,
+              "summary": "AB 288 (2026) — the direct legislative response to the St. HOPE NRtW jurisdiction switch — was introduced in the California Legislature to close the private-employer classification pathway for charter schools. This is the first California legislation directly addressing the dual-pathway NRtW decertification strategy documented in this research. Legislative coverage has appeared in EdSource and the Sacramento Bee.",
+              "url": null,
+              "sentiment": "NEUTRAL"
+            },
+            {
+              "headline": "Sentiment Trajectory",
+              "outlet": null,
+              "date": null,
+              "summary": "Coverage has shifted since March 2026 with the St. HOPE NRtW NLRB disclaimer. Prior to that, California charter labor coverage focused primarily on organizing campaigns and PERB certifications. Post-March 2026 coverage increasingly addresses the NRtW decertification strategy and the AB 288 legislative response.",
+              "url": null,
+              "sentiment": null
+            }
+          ]
+        },
+        "cbaRegistry": {
+          "label": "CBA Registry",
+          "items": [
+            {
+              "school": "Green Dot Public Schools / Animo — all 16 schools (AMU)",
+              "union": "Animo Management United (AMU) — independent",
+              "cbaStatus": "Active",
+              "cbaYear": "Ongoing — network-level CBA",
+              "cbaUrl": "https://www.greendot.org",
+              "notes": "AMU is the exclusive bargaining representative for all Green Dot CA schools. CBA negotiated at network level."
+            },
+            {
+              "school": "High Tech High / HTEC — 16 schools",
+              "union": "High Tech Education Collective (HTEC) — CTA/NEA affiliated",
+              "cbaStatus": "Active",
+              "cbaYear": "Ongoing — network-level CBA",
+              "cbaUrl": "https://www.hightechhigh.org",
+              "notes": "HTEC covers all HTH San Diego CMO certificated staff. napcsOrgMethod: CARD_CHECK (PERB Recognition Request pathway). PERB case SF-CO-875-E and related."
+            },
+            {
+              "school": "CAVA / California Virtual Academies — 9 schools",
+              "union": "California Virtual Educators United (CVEU) — CTA/NEA",
+              "cbaStatus": "Active",
+              "cbaYear": "Ongoing — network-wide CBA, certified April 2021",
+              "cbaUrl": "https://www.k12.com",
+              "notes": "Single network-wide bargaining unit. Card-check April 2021."
+            },
+            {
+              "school": "Summit Public Schools — 4 schools",
+              "union": "Unite Summit — independent",
+              "cbaStatus": "Active — PERB ULP SF-CE-3745-E open",
+              "cbaYear": "Ongoing",
+              "cbaUrl": null,
+              "notes": "Summit Preparatory Charter High (original Redwood City campus, NAPCS-ADD-CA-003) confirmed PERB cert SF-CO-875-E (02/27/2023). ULP SF-CE-3745-E active."
+            },
+            {
+              "school": "Alliance College-Ready Public Schools — 23 schools",
+              "union": "Alliance Educators United (UTLA chapter — CTA/CFT dual)",
+              "cbaStatus": "Active",
+              "cbaYear": "Unknown — CBA period not publicly posted.",
+              "cbaUrl": "https://www.utla.net",
+              "notes": "All 23 Alliance schools confirmed certified. See individual school records for PERB case numbers."
+            },
+            {
+              "school": "Environmental Charter Schools — 4 schools",
+              "union": "Environmental Educators United — independent",
+              "cbaStatus": "Active — PERB ULP LA-CE-7156-E open",
+              "cbaYear": "Ongoing",
+              "cbaUrl": null,
+              "notes": "Quail Lake Environmental Charter (NAPCS-ADD-CA-006) is the 5th campus; added to Tier 1 June 2026. ULP LA-CE-7156-E covers Environmental Charter/Quail Lake network."
+            },
+            {
+              "school": "LAUSD Horace Mann Charter Schools (48 schools)",
+              "union": "United Teachers Los Angeles (UTLA — CTA/CFT dual)",
+              "cbaStatus": "Active — LAUSD-UTLA master CBA",
+              "cbaYear": "Ongoing — negotiated at LAUSD district level",
+              "cbaUrl": "https://achieve.lausd.net/Page/4080",
+              "notes": "DEPENDENT coverage — not an independent PERB certification. LAUSD is employer of record. UTLA master CBA covers all certificated LAUSD employees including Horace Mann charter staff."
+            },
+            {
+              "school": "Confirmed individual schools (24 active — confirmed_individual.js)",
+              "union": "Multiple — various PERB-certified unions",
+              "cbaStatus": "Active (most)",
+              "cbaYear": "Varies by school — PERB records requests recommended",
+              "cbaUrl": null,
+              "notes": "Includes UESF/AFT/CFT (Creative Arts Charter), CSEA Chapter 665/classified (Joe Serna Jr.), Palmdale Aerospace (PETA + PACA), UTLA (various), CTA-affiliated chapters."
+            },
+            {
+              "school": "Caliber Public Schools (2 schools — CONFIRMED)",
+              "union": "Caliber Workers Union / Caliber Independent Workers Association (IWW)",
+              "cbaStatus": "Certified — first contract status unknown",
+              "cbaYear": "Unknown — post-certification",
+              "cbaUrl": null,
+              "notes": "IWW certification confirmed May 2022. SF-DP-355-E and SF-DP-356-E are post-certification dispute petitions. Monitor PERB ePERB for CBA status."
+            },
+            {
+              "school": "St. HOPE Public School 7 (C0603056 — DECERTIFIED)",
+              "union": "Sacramento City Teachers Association (SCTA — CTA/NEA) — DECERTIFIED",
+              "cbaStatus": "No CBA — decertified March 5, 2026",
+              "cbaYear": "N/A — decertified",
+              "cbaUrl": null,
+              "notes": "DECERTIFIED via NRtW/NLRB jurisdiction switch (NLRB Case 20-RD-378706). SCTA disclaimed interest March 5, 2026 before scheduled NLRB election. LANDMARK case."
+            }
+          ]
+        }
+      }
+    },
+    "MA": {
+      "state": "MA",
+      "stateName": "Massachusetts",
+      "reportVersion": "v8.0",
+      "generatedDate": "2026-06-18",
+      "isDeferred": false,
+      "sections": {
+        "legalSector": {
+          "label": "Legal & Sector Overview",
+          "items": [
+            {
+              "heading": "Legal & Jurisdictional Framework",
+              "body": "M.G.L. c. 71 §89 (Charter School Law — explicitly classifies charter school employees as public employees); M.G.L. c. 150E (Public Employee Collective Bargaining). Card-check (Written Majority Authorization / WMA) available — no election required. Massachusetts is not a right-to-work state (Massachusetts has no right-to-work statute. MA charter school employees are classified as public employees under M.G.L. c. 71 §89(y) and bargain under M.G.L. c. 150E. Agency fee provisions are available in collective bargaining agreements.). DLR (MA) has exclusive jurisdiction. Federal NLRB does not apply to charter schools in Massachusetts. Card-check recognition is available under WMA (Written Majority Authorization) available under M.G.L. c. 150E — 50%+ authorization cards filed with DLR suffices for certification without an election. This eliminates the pre-election campaign period that NLRB-jurisdiction states require.."
+            },
+            {
+              "heading": "Charter Sector Structure",
+              "body": "Massachusetts operates 73 open-enrollment charter schools, enrolling approximately 48,192 students. 6 charter management organizations and education management organizations operate in Massachusetts. The largest networks by campus count are Phoenix Academy Charter Schools (3 campuses in state), KIPP Massachusetts (2 campuses in state), Pioneer Charter School of Science (2 campuses in state). Approximately 63 schools operate independently with no CMO or EMO affiliation. Network-level detail appears in the CMO & EMO section of the state report."
+            }
+          ]
+        },
+        "media": {
+          "label": "Media Coverage",
+          "items": [
+            {
+              "headline": "Press Coverage Overview",
+              "outlet": null,
+              "date": null,
+              "summary": "Massachusetts charter school labor relations have received increasing press attention as the organizing wave accelerated between 2021 and 2026. WBUR (NPR Boston), GBH News, and the Boston Globe have covered key certifications: NHCS (BTU 2024, first contract March 2026), Codman Academy (BTU 2024), and CCSC Cambridge (AFTMA 2024). The Education Law Center and MTA (Massachusetts Teachers Association) have issued public communications on charter organizing. The Pioneer Institute — the state's leading charter advocacy think tank — has not taken a public position on charter labor relations, a notable silence given its historical opposition to charter regulations.",
+              "url": null,
+              "sentiment": "NEUTRAL"
+            },
+            {
+              "headline": "Legislative Context",
+              "outlet": null,
+              "date": null,
+              "summary": "Massachusetts DLR (Department of Labor Relations) administers PELRA — all MA charter schools are public employers and their staff have card-check organizing rights. The Education Reform Act (G.L. c. 71, §89) requires all MA charter schools to file CBAs with DESE when ratified, making Massachusetts the only state in the NAPCS dataset with a mandatory public CBA portal for charter schools. This transparency requirement makes MA the most research-accessible charter labor market in the dataset. The Horace Mann charter structure (BPS-authorized, BTU-covered by statute) is unique in MA and has no equivalent in any other NAPCS state.",
+              "url": null,
+              "sentiment": "NEUTRAL"
+            }
+          ]
+        },
+        "cbaRegistry": {
+          "label": "CBA Registry",
+          "items": [
+            {
+              "school": "AMSA",
+              "union": "AMSA Educators Association / Teamsters Local 170",
+              "cbaStatus": "Active",
+              "cbaYear": "Unknown",
+              "cbaUrl": null,
+              "notes": "2 units. Unit 1 (teachers, 2014) + Unit 2 (Dept Chairs, 2023). CBA period unknown — DESE portal check needed."
+            },
+            {
+              "school": "PVPA",
+              "union": "UAW Local 2322",
+              "cbaStatus": "EXPIRED — successor in progress",
+              "cbaYear": "July 2023–June 2026 (EXPIRED)",
+              "cbaUrl": null,
+              "notes": "Third successor negotiations in progress as of May 2026. CRITICAL: monitor for ratification."
+            },
+            {
+              "school": "Foxborough Regional CS",
+              "union": "FRCSTA (independent)",
+              "cbaStatus": "Active",
+              "cbaYear": "September 13, 2024–June 30, 2027",
+              "cbaUrl": null,
+              "notes": "The Invisible Contract. DESE portal is sole access point."
+            },
+            {
+              "school": "City on a Hill",
+              "union": "BTU Local 66",
+              "cbaStatus": "Active (assumed)",
+              "cbaYear": "Unknown",
+              "cbaUrl": null,
+              "notes": "3 campus certifications (2018). CBA period unknown."
+            },
+            {
+              "school": "NHCS",
+              "union": "BTU Local 66",
+              "cbaStatus": "Active — first contract ratified March 2026",
+              "cbaYear": "First contract (period TBD)",
+              "cbaUrl": null,
+              "notes": "First contract ratified March 2026. Obtain copy via DESE portal."
+            },
+            {
+              "school": "5 Horace Mann schools",
+              "union": "BTU Local 66",
+              "cbaStatus": "Active — BPS-BTU district CBA",
+              "cbaYear": "September 2024–August 2027",
+              "cbaUrl": null,
+              "notes": "All 5 Horace Mann schools covered by same BPS-BTU master agreement."
+            }
+          ]
+        }
+      }
+    },
+    "TX": {
+      "state": "TX",
+      "stateName": "Texas",
+      "reportVersion": "v8.0",
+      "generatedDate": "2026-06-18",
+      "isDeferred": true,
+      "sections": {
+        "legalSector": {
+          "label": "Legal & Sector Overview",
+          "items": [
+            {
+              "heading": "Legal & Jurisdictional Framework",
+              "body": "Tex. Educ. Code §12.001 et seq. (Charter Schools). Open-enrollment charter schools are independent nonprofits — NLRB R16 jurisdiction confirmed. RTW state. TX has the largest charter sector in the US (1,098 schools in ELSI 2024-25). Texas is a right-to-work state (Tex. Lab. Code §101.052 through §101.053). Charter schools in Texas are subject to NLRB jurisdiction as private employers (NLRB R16). Secret ballot NLRB election is the required organizing pathway. Card-check is not available."
+            },
+            {
+              "heading": "Charter Sector Structure",
+              "body": "Texas operates 1,056 open-enrollment charter schools, enrolling approximately 489,326 students. 104 charter management organizations and education management organizations operate in Texas. The largest networks by campus count are IDEA Public Schools (125 campuses in state), Harmony Public Schools (61 campuses in state), KIPP Texas Public Schools (54 campuses in state). Approximately 203 schools operate independently with no CMO or EMO affiliation. Network-level detail appears in the CMO & EMO section of the state report. No school-level union research has been conducted. Research deferred — Executive Sponsor direction (PDR-018, June 7, 2026)."
+            }
+          ]
+        },
+        "media": {
+          "label": "Media Coverage",
+          "items": [
+            {
+              "headline": "Press Coverage Overview",
+              "outlet": null,
+              "date": null,
+              "summary": "No press coverage of charter school employee organizing has been identified in Texas during the research period. Coverage of the Texas charter sector in major outlets (Houston Chronicle, Dallas Morning News, Texas Tribune) focuses primarily on financial accountability, rapid sector expansion, and regulatory oversight rather than labor relations. The absence of documented organizing activity in the sector corresponds with an absence of labor-related press coverage.",
+              "url": null,
+              "sentiment": "NEUTRAL"
+            },
+            {
+              "headline": "Legislative Context",
+              "outlet": null,
+              "date": null,
+              "summary": "No charter-sector collective bargaining legislation was introduced or advanced in the Texas Legislature during the 88th (2023) or 89th (2025) legislative sessions. Texas charter law (Tex. Educ. Code Ch. 12) does not address employee collective bargaining. TEA regulatory activity during this period focused on financial accountability and board governance following increased scrutiny of self-dealing in management contracts.",
+              "url": null,
+              "sentiment": "NEUTRAL"
+            }
+          ]
+        },
+        "cbaRegistry": {
+          "label": "CBA Registry",
+          "items": []
+        }
+      }
+    }
+  },
   "stateK12Enrollment": {
     "AK": 129876,
     "AL": 751060,

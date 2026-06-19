@@ -329,22 +329,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
       </div>
       <div class="tab-row-label">&#9632; INFORMATION <span style="font-size:7px;color:#4A6A80;font-weight:400;margin-left:4px">— select a state</span></div>
       <div class="tab-row">
-        <button class="ftab" data-tab="political">Political</button>
-        <button class="ftab" data-tab="organizing">Organizing</button>
-        <button class="ftab" data-tab="trends">Trends</button>
-      </div>
-      <div class="tab-row-label" style="background:#0A1520"></div>
-      <div class="tab-row">
-        <button class="ftab" data-tab="patterns">Patterns</button>
+        <button class="ftab" data-tab="legalsector">Legal &amp; Sector</button>
+        <button class="ftab" data-tab="networks">Networks</button>
         <button class="ftab" data-tab="media">Media</button>
-        <button class="ftab" data-tab="networks">Networks</button>
+        <button class="ftab" data-tab="cbaregistry">CBA Registry</button>
       </div>
-      <div class="tab-row-label" style="background:#0A1520"></div>
-      <div class="tab-row">
-        <button class="ftab" data-tab="cba">CBA Registry</button>
-        <button class="ftab" data-tab="monitoring">Monitoring</button>
-        <button class="ftab" data-tab="networks">Networks</button>
-      </div>
+
     </div>
     <div id="panel-hdr">
       <div id="panel-title">National Overview</div>
@@ -400,6 +390,7 @@ var STATE_ASSOC = {
 Object.keys(STATE_ASSOC).forEach(function(st){ if(!ASSOC[st]) ASSOC[st] = STATE_ASSOC[st]; });
 var JDATA   = NAPCS_CONFIG.jurisdiction_data || {};
 var EMO_ST  = NAPCS_CONFIG.emoByState || {};
+var SIDEBAR = NAPCS_CONFIG.stateSidebar || {};
 var RC = NAPCS_REGISTRY_CONTENT;
 var SR = NAPCS_CONFIG.stateReports || {};
 
@@ -1419,6 +1410,67 @@ function showSearchResetBtn(schoolName){
   document.getElementById('map').appendChild(btn);
 }
 
+// ── INFORMATION TAB RENDERERS ────────────────────────────────────────────────
+function renderInfoTab(tab, code){
+  var sb = code ? (SIDEBAR[code]||null) : null;
+  var h = '';
+
+  if(tab==='legalsector'){
+    if(!code){ h='<div class="no-state">Select a state to view legal &amp; sector information.</div>'; setPanelBody(h); return; }
+    if(!sb){ h='<div class="no-state">State research report not yet available for '+esc(STATE_NAMES[code]||code)+'.</div>'; setPanelBody(h); return; }
+    var items = (sb.sections.legalSector||{}).items||[];
+    items.forEach(function(item){
+      h+='<div class="section-label">'+esc(item.heading)+'</div>';
+      h+='<div style="font-size:9.5px;color:#B0C4D8;line-height:1.6;margin-bottom:10px;white-space:pre-wrap">'+esc(item.body)+'</div>';
+    });
+    if(!items.length) h='<div class="no-state">No legal &amp; sector content available.</div>';
+
+  } else if(tab==='media'){
+    if(!code){ h='<div class="no-state">Select a state to view media coverage.</div>'; setPanelBody(h); return; }
+    if(!sb){ h='<div class="no-state">State research report not yet available for '+esc(STATE_NAMES[code]||code)+'.</div>'; setPanelBody(h); return; }
+    var items = (sb.sections.media||{}).items||[];
+    items.forEach(function(item){
+      h+='<div style="background:#111B27;border-radius:4px;padding:8px 10px;margin-bottom:8px">';
+      h+='<div style="font-weight:700;font-size:10px;color:#E8EDF2;margin-bottom:3px">'+esc(item.headline||'Coverage Item')+'</div>';
+      if(item.outlet||item.date){
+        h+='<div style="font-size:9px;color:#4A9FE0;margin-bottom:4px">';
+        if(item.outlet) h+=esc(item.outlet);
+        if(item.outlet&&item.date) h+=' &middot; ';
+        if(item.date) h+=esc(item.date);
+        h+='</div>';
+      }
+      if(item.summary) h+='<div style="font-size:9px;color:#8AA8C0;line-height:1.5">'+esc(item.summary)+'</div>';
+      if(item.url) h+='<div style="margin-top:5px"><a href="'+esc(item.url)+'" target="_blank" rel="noopener" style="font-size:9px;color:#4A9FE0">Read coverage &#8599;</a></div>';
+      h+='</div>';
+    });
+    if(!items.length) h='<div class="no-state">No media coverage items on record for this state.</div>';
+
+  } else if(tab==='cbaregistry'){
+    if(!code){ h='<div class="no-state">Select a state to view the CBA Registry.</div>'; setPanelBody(h); return; }
+    if(!sb){ h='<div class="no-state">State research report not yet available for '+esc(STATE_NAMES[code]||code)+'.</div>'; setPanelBody(h); return; }
+    var items = (sb.sections.cbaRegistry||{}).items||[];
+    if(!items.length){
+      h='<div class="no-state">No CBA records on file'+(sb.isDeferred?' — research deferred for this state.':'.')+'</div>';
+    } else {
+      h+='<div style="font-size:8px;color:#4A6A80;margin-bottom:8px">'+items.length+' contract record'+(items.length!==1?'s':'')+' on file</div>';
+      items.forEach(function(item){
+        var statusColor = (item.cbaStatus||'').toLowerCase().includes('active')?'#6CC04A':
+                         (item.cbaStatus||'').toLowerCase().includes('expired')?'#E07A4A':'#8AA8C0';
+        h+='<div style="background:#111B27;border-radius:4px;padding:8px 10px;margin-bottom:6px;border-left:3px solid '+statusColor+'">';
+        h+='<div style="font-weight:700;font-size:10px;color:#E8EDF2;margin-bottom:2px">'+esc(item.school||'')+'</div>';
+        if(item.union) h+='<div style="font-size:9px;color:#4A9FE0;margin-bottom:3px">'+esc(item.union)+'</div>';
+        if(item.cbaStatus) h+='<div style="font-size:9px;color:'+statusColor+';margin-bottom:2px">'+esc(item.cbaStatus)+'</div>';
+        if(item.cbaYear) h+='<div style="font-size:9px;color:#6A8A9A">Period: '+esc(item.cbaYear)+'</div>';
+        if(item.cbaUrl) h+='<div style="margin-top:4px"><a href="'+esc(item.cbaUrl)+'" target="_blank" rel="noopener" style="font-size:9px;color:#4A9FE0">View CBA &#8599;</a></div>';
+        if(item.notes) h+='<div style="font-size:8px;color:#4A6A80;margin-top:4px;font-style:italic">'+esc(item.notes)+'</div>';
+        h+='</div>';
+      });
+    }
+  }
+
+  setPanelBody(h);
+}
+
 function srow(l,v,cls){
   return '<div class="srow"><span class="srow-lbl">'+esc(String(l))+'</span><span class="srow-val'+(cls?' '+cls:'')+'">'+(typeof v==='number'?v.toLocaleString():v)+'</span></div>';
 }
@@ -1857,57 +1909,19 @@ function renderIntelTab(tab,code){
       if(!q||!q.prompt) return;
       h+='<div class="intel-card"><div class="intel-prompt">'+esc(q.prompt.slice(0,80))+'</div><div class="intel-answer">'+esc(q.answer||'')+'</div></div>';
     });
-  } else if(tab==='patterns'){
-    var pats=st.patterns||[];
-    if(!pats.length) h='<div class="no-state">No cross-state patterns documented for this state.</div>';
-    pats.forEach(function(p){ h+='<div class="pattern-card"><div class="pattern-title">'+esc(p.title)+'</div><div class="pattern-body">'+esc(p.body)+'</div></div>'; });
+  } else if(tab==='legalsector'){
+    renderInfoTab('legalsector', code);
+    return;
   } else if(tab==='media'){
-    var med=st.media||{};
-    if(med.coverageProfile&&med.coverageProfile.volume){
-      h+='<div class="section-label">Coverage Profile</div>';
-      h+='<div class="media-item"><strong>Volume:</strong> '+esc(med.coverageProfile.volume||'')+'</div>';
-    }
-    if(med.dominantFraming){ h+='<div class="section-label">Dominant Framing</div><div class="media-item">'+esc(med.dominantFraming)+'</div>'; }
-    if(med.stakeholderPositions&&med.stakeholderPositions.length){
-      h+='<div class="section-label">Stakeholder Positions</div>';
-      med.stakeholderPositions.forEach(function(s){
-        var ac=s.alignment==='Pro-organizing'?'align-pro':s.alignment==='Resistant'?'align-res':s.alignment==='Anti-union'?'align-anti':'align-neu';
-        h+='<div class="actor-card"><div class="actor-name">'+esc(s.actor)+'</div><div><span class="actor-align '+ac+'">'+esc((s.alignment||'').slice(0,12))+'</span><div class="actor-pos" style="margin-top:3px">'+esc(s.position)+'</div></div></div>';
-      });
-    }
-    if(med.sentimentTrajectory){ h+='<div class="section-label">Sentiment Trajectory</div><div class="media-item">'+esc(med.sentimentTrajectory)+'</div>'; }
-    if(!h) h='<div class="no-state">No media data available for this state.</div>';
+    renderInfoTab('media', code);
+    return;
+  } else if(tab==='cbaregistry'){
+    renderInfoTab('cbaregistry', code);
+    return;
   } else if(tab==='networks'){
-    var nets=st.networks||[];
-    if(!nets.length) h='<div class="no-state">No networks documented for this state.</div>';
-    nets.forEach(function(n){
-      h+='<div class="net-card"><div class="net-name">'+esc(n.name)+(n.schoolCount?' <span style="color:#4A6A80;font-size:9px">('+n.schoolCount+' schools)</span>':'')+'</div>'+
-        (n.union?'<div class="net-union">'+esc(n.union)+(n.natlAff?' / '+esc(n.natlAff):'')+'</div>':'')+
-        (n.cbaStatus?'<div class="net-meta">'+esc(n.cbaStatus.slice(0,100))+'</div>':'')+
-        (n.keyFindings?'<div class="net-meta" style="margin-top:3px;color:#8BA0B4">'+esc(n.keyFindings.slice(0,200))+'</div>':'')+'</div>';
-    });
-  } else if(tab==='cba'){
-    var cba=st.cbaRegistry||[];
-    if(!cba.length) h='<div class="no-state">No CBA registry data for this state.</div>';
-    cba.forEach(function(c){
-      h+='<div class="cba-card"><div class="cba-school">'+esc(c.school||(c.network?c.network+' (network)':''))+'</div>'+
-        (c.union?'<div class="cba-union">'+esc(c.union)+'</div>':'')+
-        '<div class="cba-status">'+esc(c.status||'')+(c.period?' \u00B7 '+esc(c.period.slice(0,60)):'')+'</div>'+
-        (c.notes?'<div class="cba-status" style="margin-top:2px;color:#6A7A8A">'+esc(c.notes.slice(0,120))+'</div>':'')+'</div>';
-    });
-  } else if(tab==='monitoring'){
-    var mon=st.monitoring||[];
-    if(!mon.length) h='<div class="no-state">No monitoring items for this state.</div>';
-    mon.forEach(function(m){
-      var pri=(m.priority||'MEDIUM').toUpperCase();
-      h+='<div class="mon-card '+pri+'"><span class="pri-badge pri-'+pri+'">'+pri+'</span>'+
-        '<div style="font-size:10px;font-weight:700;color:#E8EDF2;margin-bottom:3px">'+esc(m.target)+'</div>'+
-        '<div style="font-size:9.5px;color:#8BA0B4;line-height:1.5">'+esc(m.issue)+'</div></div>';
-    });
-  } else if(tab==='networks'){
-    // Show CMO/EMO detail for this state
+    // Show CMO/EMO detail panel
     showCmoDetailPanel(code);
-    return; // showCmoDetailPanel handles setPanelBody
+    return;
   }
   setPanelBody(h);
 }
