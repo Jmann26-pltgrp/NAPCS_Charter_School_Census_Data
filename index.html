@@ -330,12 +330,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
         <button class="ftab" data-tab="registry">Registry</button>
         <button class="ftab" data-tab="verification">Verification</button>
         <button class="ftab" data-tab="dataquality">Data Quality</button>
-      </div>
-      <div class="tab-row-label" style="background:#0A1520"></div>
-      <div class="tab-row">
         <button class="ftab" data-tab="associations">Associations</button>
-        <button class="ftab" data-tab="" style="visibility:hidden;pointer-events:none"></button>
-        <button class="ftab" data-tab="" style="visibility:hidden;pointer-events:none"></button>
       </div>
       <div class="tab-row-label">&#9632; INFORMATION <span style="font-size:7px;color:#4A6A80;font-weight:400;margin-left:4px">— select a state</span></div>
       <div class="tab-row">
@@ -1142,6 +1137,9 @@ function activateOrganizedPresence(){
   if(_ufActive) return;
   _ufActive = true;
   _ufSavedState = _saveFilterState();
+  // Hide ALL existing status layers so affiliate pins render cleanly
+  Object.keys(layers).forEach(function(st){ if(map.hasLayer(layers[st])) map.removeLayer(layers[st]); });
+  // Uncheck all filter boxes + state labels (visual sync only — layers already hidden)
   _setOrganizedPresenceFilters();
   renderUnionFootprintPins();
   map.setView(DEFAULT_CENTER, DEFAULT_ZOOM, {animate:true});
@@ -1153,6 +1151,7 @@ function deactivateOrganizedPresence(){
   if(!_ufActive) return;
   _ufActive = false;
   if(_ufLayer){ map.removeLayer(_ufLayer); _ufLayer=null; }
+  // Restore saved filter state — this re-adds the correct layers
   _restoreFilterState(_ufSavedState);
   _ufSavedState = null;
   map.setView(DEFAULT_CENTER, DEFAULT_ZOOM, {animate:true});
