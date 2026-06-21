@@ -307,6 +307,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
         <label class="fitem" title="Schools fully researched with no evidence of union activity found."><input type="checkbox" data-status="UNVERIFIED"><span class="fdot" style="background:transparent;border:1.5px dashed #4A6A80"></span><span>No Organizing Activity Documented (<span id="fc-5">0</span>)</span></label>
         <label class="fitem" title="12 states where research was deferred by Executive Sponsor direction. No organized charter schools known to exist. Sector assumed unorganized as of June 2026."><input type="checkbox" data-status="DEFERRED"><span class="fdot" style="background:#4A7A9B;border:1px solid #2A5A7B"></span><span style="color:#8BA0B4">No Known Organizing Activity (<span id="fc-6">0</span>)</span></label>
         <div style="border-top:1px solid #1E2D40;margin-top:6px;padding-top:5px;font-size:8px;color:#4A6A80;line-height:1.4"><strong style="color:#888">Decertified — School Open</strong> = cert removed<br><strong style="color:#E07A4A">Closed — Was Organized</strong> = closed while organized</div>
+        <div style="border-top:1px solid #1E2D40;margin-top:6px;padding-top:5px">
+          <button id="uf-toggle-btn" onclick="toggleUnionFootprint()" style="width:100%;background:#1A2535;border:1px solid #2E75B6;color:#4A9FE0;font-size:9px;font-weight:700;letter-spacing:.4px;padding:5px 8px;border-radius:3px;cursor:pointer;text-transform:uppercase">&#9670; Union Footprint View</button>
+        </div>
       </div>
     </div>
 
@@ -320,6 +323,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
         <button class="ftab active" data-tab="overview">Overview</button>
         <button class="ftab" data-tab="density">Census Table</button>
         <button class="ftab" data-tab="jurisdiction">Jurisdiction</button>
+        <button class="ftab" data-tab="unionfootprint">Union Footprint</button>
       </div>
       <div class="tab-row-label">&#9632; PROJECT</div>
       <div class="tab-row">
@@ -1092,7 +1096,118 @@ function switchTab(tab){
   else if(tab==='associations') buildAssociationsPanel();
   else if(tab==='verification') buildVerificationPanel();
   else if(tab==='dataquality') buildDataQualityPanel();
-  else if(isIntelTab(tab)) renderIntelTab(tab,_curState);
+  else if(tab==='unionfootprint') buildUnionFootprintPanel();
+}
+
+// ── UNION FOOTPRINT MODE ──────────────────────────────────────────────────────
+var _ufActive = false;
+var _ufLayer  = null;
+
+// Normalize messy natlAff strings to clean AFT / NEA / Independent / Unknown
+function normAff(raw){
+  if(!raw) return 'Unknown';
+  var r = raw.toUpperCase();
+  if(r.includes('IWW')) return 'Independent';
+  if(r.includes('IBEW')) return 'Independent';
+  if(r.includes('IBT')) return 'Independent';
+  if(r.includes('UAW')) return 'Independent';
+  if(r.includes('SEIU')) return 'Independent';
+  if(r.includes('INDEPENDENT')||r==='NONE CONFIRMED'||r.includes('IN-HOUSE')||r.includes('NO NATIONAL')) return 'Independent';
+  if((r.includes('AFT')&&r.includes('NEA'))||r.includes('DUAL')) return 'AFT / NEA';
+  if(r.includes('AFT')) return 'AFT';
+  if(r.includes('NEA')||r.includes('CTA')||r.includes('FEA')||r.includes('NYSUT')||r.includes('PCSEA')||r.includes('SEEA')) return 'NEA';
+  if(r.includes('UNKNOWN')||r.includes('FOIA')||r.includes('GAP')||r.includes('NOT CONFIRMED')||r.includes('INFERRED')) return 'Unknown';
+  return 'Unknown';
+}
+
+var AFF_COLOR = { 'AFT':'#4A9FE0', 'NEA':'#6CC04A', 'AFT / NEA':'#F5A623', 'Independent':'#C084FC', 'Unknown':'#8BA0B4' };
+
+function toggleUnionFootprint(){
+  _ufActive = !_ufActive;
+  var btn = document.getElementById('uf-toggle-btn');
+  if(_ufActive){
+    btn.style.background='#2E75B6'; btn.style.color='#fff';
+    btn.textContent='\u25c6 Exit Union Footprint View';
+    renderUnionFootprintPins();
+    switchTab('unionfootprint');
+  } else {
+    btn.style.background='#1A2535'; btn.style.color='#4A9FE0';
+    btn.textContent='\u25c6 Union Footprint View';
+    if(_ufLayer){ map.removeLayer(_ufLayer); _ufLayer=null; }
+    switchTab('overview');
+  }
+}
+
+function renderUnionFootprintPins(){
+  if(_ufLayer){ map.removeLayer(_ufLayer); }
+  _ufLayer = L.layerGroup().addTo(map);
+  SCHOOLS.forEach(function(s){
+    if(s.status!=='CONFIRMED') return;
+    if(!s.lat||!s.lng) return;
+    var aff = normAff(s.natlAff);
+    var col = AFF_COLOR[aff] || '#8BA0B4';
+    var mk = L.circleMarker([s.lat,s.lng],{
+      radius:6, fillColor:col, color:'rgba(0,0,0,0.4)', weight:1, fillOpacity:0.92
+    });
+    mk.bindPopup(buildPopup(s),{maxWidth:300});
+    mk.addTo(_ufLayer);
+  });
+}
+
+function buildUnionFootprintPanel(){
+  setPanelHdr('Union Footprint Analysis','Independently organized schools \u2014 by national affiliate');
+  var UF = (NAPCS_CONFIG && NAPCS_CONFIG.unionFootprint) ? NAPCS_CONFIG.unionFootprint : null;
+  var h='';
+
+  // Affiliate color legend
+  h+='<div class="section-label">National Affiliate Legend</div>';
+  h+='<div style="display:flex;flex-wrap:wrap;gap:6px;padding:4px 0 10px">';
+  Object.entries(AFF_COLOR).forEach(function(e){
+    h+='<div style="display:flex;align-items:center;gap:4px;font-size:9px;color:#C8D8E8"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:'+e[1]+';flex-shrink:0"></span>'+e[0]+'</div>';
+  });
+  h+='</div>';
+
+  // Affiliate rollup from config
+  if(UF && UF.byAffiliate){
+    h+='<div class="section-label">By National Affiliate</div>';
+    var rollup = {};
+    UF.byUnion.forEach(function(u){
+      var aff = normAff(u.natlAff);
+      if(!rollup[aff]) rollup[aff]={unions:0,schools:0,enrollment:0};
+      rollup[aff].unions++; rollup[aff].schools+=u.schools; rollup[aff].enrollment+=u.enrollment;
+    });
+    Object.entries(rollup).sort(function(a,b){return b[1].schools-a[1].schools;}).forEach(function(e){
+      var col = AFF_COLOR[e[0]]||'#8BA0B4';
+      h+='<div style="display:flex;align-items:center;gap:6px;padding:3px 0;border-bottom:1px solid #1E2D40">';
+      h+='<span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:'+col+';flex-shrink:0"></span>';
+      h+='<span style="font-size:9px;color:#C8D8E8;flex:1">'+e[0]+'</span>';
+      h+='<span style="font-size:9px;color:#6CC04A;font-weight:700">'+e[1].schools+' schools</span>';
+      h+='<span style="font-size:9px;color:#4A6A80;margin-left:6px">'+e[1].unions+' unions</span>';
+      h+='</div>';
+    });
+  }
+
+  // Top unions by school count
+  if(UF && UF.byUnion && UF.byUnion.length){
+    h+='<div class="section-label" style="margin-top:10px">Top Unions by Schools Organized</div>';
+    UF.byUnion.slice(0,15).forEach(function(u){
+      var aff = normAff(u.natlAff);
+      var col = AFF_COLOR[aff]||'#8BA0B4';
+      var uurl = unionUrl(u.union);
+      h+='<div style="padding:4px 0;border-bottom:1px solid #1A2A3A">';
+      h+='<div style="display:flex;align-items:center;gap:5px">';
+      h+='<span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:'+col+';flex-shrink:0"></span>';
+      h+='<span style="font-size:9px;color:#C8D8E8;flex:1">'+(uurl?'<a href="'+uurl+'" target="_blank" style="color:#4A9FE0;text-decoration:none">'+esc(u.union)+'</a>':esc(u.union))+'</span>';
+      h+='<span style="font-size:10px;font-weight:700;color:#6CC04A">'+u.schools+'</span>';
+      h+='</div>';
+      h+='<div style="font-size:8px;color:#4A6A80;padding-left:12px">'+u.states.join(', ')+(u.enrollment?' &middot; ~'+u.enrollment.toLocaleString()+' students':'')+'</div>';
+      h+='</div>';
+    });
+    if(UF.byUnion.length>15) h+='<div style="font-size:8px;color:#4A6A80;padding:4px 0">+ '+(UF.byUnion.length-15)+' additional unions with 1 school each</div>';
+  }
+
+  if(!UF) h+='<div class="no-state">Union footprint data not available in this build.</div>';
+  setPanelBody(h);
 }
 
 function setPanelHdr(t,s){ document.getElementById('panel-title').textContent=t; document.getElementById('panel-sub').textContent=s||''; }

@@ -114,7 +114,7 @@ var NAPCS_CONFIG = {
       "deferred": false
     },
     "CA": {
-      "name": "CA",
+      "name": "California",
       "universe": 1246,
       "conf": 189,
       "dep": 113,
@@ -123,7 +123,7 @@ var NAPCS_CONFIG = {
       "clo": 9,
       "watch": 2,
       "density": "24.2%",
-      "lb": "",
+      "lb": "PERB(CA) — California Public Employment Relations Board",
       "lb_abbrev": "",
       "lb_full": "",
       "rtw": false,
@@ -1316,7 +1316,7 @@ var NAPCS_CONFIG = {
     },
     {
       "st": "CA",
-      "name": "CA",
+      "name": "California",
       "universe": 1246,
       "confirmed": 189,
       "dependent": 113,
@@ -5643,6 +5643,5052 @@ var NAPCS_CONFIG = {
         }
       }
     }
+  },
+  "unionFootprint": {
+    "byUnion": [
+      {
+        "union": "Alliance Educators United (UTLA chapter)",
+        "natlAff": "AFT / NEA (UTLA is dual-affiliated)",
+        "stateAff": "California Teachers Association (CTA) / California Federation of Teachers (CFT)",
+        "schools": 23,
+        "enrollment": 12272,
+        "states": [
+          "CA"
+        ],
+        "centLat": 34.0172,
+        "centLng": -118.2629,
+        "pins": [
+          {
+            "lat": 34.03651,
+            "lng": -118.282879,
+            "name": "Alliance Gertz-Ressler Richard Merkin 6-12 Complex",
+            "state": "CA"
+          },
+          {
+            "lat": 33.944161,
+            "lng": -118.278691,
+            "name": "Alliance Judy Ivie Burton Technology Academy High",
+            "state": "CA"
+          },
+          {
+            "lat": 34.113259,
+            "lng": -118.246685,
+            "name": "Alliance Leichtman-Levine Family Foundation Environmental Science High",
+            "state": "CA"
+          },
+          {
+            "lat": 34.035552,
+            "lng": -118.187903,
+            "name": "Alliance Morgan McKinzie High",
+            "state": "CA"
+          },
+          {
+            "lat": 33.977345,
+            "lng": -118.234464,
+            "name": "Alliance Collins Family College-Ready High",
+            "state": "CA"
+          },
+          {
+            "lat": 34.036873,
+            "lng": -118.272128,
+            "name": "Alliance Dr. Olga Mohan High",
+            "state": "CA"
+          },
+          {
+            "lat": 33.993479,
+            "lng": -118.322093,
+            "name": "Alliance Ouchi-O'Donovan 6-12 Complex",
+            "state": "CA"
+          },
+          {
+            "lat": 34.063793,
+            "lng": -118.170763,
+            "name": "Alliance Marc & Eva Stern Math and Science",
+            "state": "CA"
+          },
+          {
+            "lat": 34.00141,
+            "lng": -118.27373,
+            "name": "Alliance Patti and Peter Neuwirth Leadership Academy",
+            "state": "CA"
+          },
+          {
+            "lat": 33.930271,
+            "lng": -118.26495,
+            "name": "Alliance Jack H. Skirball Middle",
+            "state": "CA"
+          },
+          {
+            "lat": 33.960292,
+            "lng": -118.294314,
+            "name": "Alliance Piera Barbaglia Shaheen Health Services Academy",
+            "state": "CA"
+          },
+          {
+            "lat": 33.94777,
+            "lng": -118.27423,
+            "name": "Alliance College-Ready Middle Academy 4",
+            "state": "CA"
+          },
+          {
+            "lat": 33.938635,
+            "lng": -118.23874,
+            "name": "Alliance Cindy and Bill Simon Technology Academy High",
+            "state": "CA"
+          },
+          {
+            "lat": 34.102505,
+            "lng": -118.238968,
+            "name": "Alliance Tennenbaum Family Technology High",
+            "state": "CA"
+          },
+          {
+            "lat": 34.063542,
+            "lng": -118.261557,
+            "name": "Alliance Ted K. Tajima High",
+            "state": "CA"
+          },
+          {
+            "lat": 33.976628,
+            "lng": -118.325831,
+            "name": "Alliance Renee and Meyer Luskin Academy High",
+            "state": "CA"
+          },
+          {
+            "lat": 34.072208,
+            "lng": -118.220433,
+            "name": "Alliance Susan and Eric Smidt Technology High",
+            "state": "CA"
+          },
+          {
+            "lat": 33.99769,
+            "lng": -118.27327,
+            "name": "Alliance College-Ready Middle Academy 12",
+            "state": "CA"
+          },
+          {
+            "lat": 34.03546,
+            "lng": -118.187311,
+            "name": "Alliance College-Ready Middle Academy 8",
+            "state": "CA"
+          },
+          {
+            "lat": 33.987075,
+            "lng": -118.247452,
+            "name": "Alliance Kory Hunter Middle",
+            "state": "CA"
+          },
+          {
+            "lat": 33.96696,
+            "lng": -118.230601,
+            "name": "Alliance Margaret M. Bloomfield Technology Academy High",
+            "state": "CA"
+          },
+          {
+            "lat": 34.2374,
+            "lng": -118.393341,
+            "name": "Alliance Marine - Innovation and Technology 6-12 Complex",
+            "state": "CA"
+          },
+          {
+            "lat": 33.977166,
+            "lng": -118.325391,
+            "name": "Alliance Virgil Roberts Leadership Academy",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "Asociación De Maestros Unidos (AMU)",
+        "natlAff": "Independent (no national affiliate)",
+        "stateAff": "Independent (no state affiliate)",
+        "schools": 16,
+        "enrollment": 8056,
+        "states": [
+          "CA"
+        ],
+        "centLat": 33.962,
+        "centLng": -118.2853,
+        "pins": [
+          {
+            "lat": 33.934767,
+            "lng": -118.347984,
+            "name": "Animo Leadership High",
+            "state": "CA"
+          },
+          {
+            "lat": 33.96032,
+            "lng": -118.33161,
+            "name": "Animo Inglewood Charter High",
+            "state": "CA"
+          },
+          {
+            "lat": 33.93356,
+            "lng": -118.308627,
+            "name": "Animo South Los Angeles Charter",
+            "state": "CA"
+          },
+          {
+            "lat": 33.996524,
+            "lng": -118.462977,
+            "name": "Animo Venice Charter High",
+            "state": "CA"
+          },
+          {
+            "lat": 34.017985,
+            "lng": -118.275609,
+            "name": "Animo Jackie Robinson High",
+            "state": "CA"
+          },
+          {
+            "lat": 33.96395,
+            "lng": -118.242603,
+            "name": "Animo Pat Brown",
+            "state": "CA"
+          },
+          {
+            "lat": 34.0127,
+            "lng": -118.2439,
+            "name": "Animo Ralph Bunche High",
+            "state": "CA"
+          },
+          {
+            "lat": 33.918038,
+            "lng": -118.264132,
+            "name": "Animo Watts College Preparatory Academy",
+            "state": "CA"
+          },
+          {
+            "lat": 34.0127,
+            "lng": -118.2439,
+            "name": "Animo Jefferson Charter Middle",
+            "state": "CA"
+          },
+          {
+            "lat": 33.935139,
+            "lng": -118.260205,
+            "name": "Animo James B. Taylor Charter Middle",
+            "state": "CA"
+          },
+          {
+            "lat": 34.041202,
+            "lng": -118.17166,
+            "name": "Animo Ellen Ochoa Charter Middle",
+            "state": "CA"
+          },
+          {
+            "lat": 33.91754,
+            "lng": -118.264041,
+            "name": "Animo Mae Jemison Charter Middle",
+            "state": "CA"
+          },
+          {
+            "lat": 33.96309,
+            "lng": -118.242601,
+            "name": "Animo Florence Firestone Charter Middle School",
+            "state": "CA"
+          },
+          {
+            "lat": 33.952524,
+            "lng": -118.325036,
+            "name": "Animo City of Champions Charter High",
+            "state": "CA"
+          },
+          {
+            "lat": 33.911106,
+            "lng": -118.271082,
+            "name": "Ánimo Compton Charter",
+            "state": "CA"
+          },
+          {
+            "lat": 33.921033,
+            "lng": -118.308616,
+            "name": "Animo Legacy Charter Middle",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "High Tech Education Collective (HTEC)",
+        "natlAff": "National Education Association (NEA)",
+        "stateAff": "California Teachers Association (CTA)",
+        "schools": 16,
+        "enrollment": 6415,
+        "states": [
+          "CA"
+        ],
+        "centLat": 32.8021,
+        "centLng": -117.159,
+        "pins": [
+          {
+            "lat": 32.734606,
+            "lng": -117.219838,
+            "name": "High Tech Elementary Explorer",
+            "state": "CA"
+          },
+          {
+            "lat": 32.73484,
+            "lng": -117.217541,
+            "name": "High Tech High",
+            "state": "CA"
+          },
+          {
+            "lat": 32.73539,
+            "lng": -117.217841,
+            "name": "High Tech Middle",
+            "state": "CA"
+          },
+          {
+            "lat": 32.733177,
+            "lng": -117.219085,
+            "name": "High Tech High International",
+            "state": "CA"
+          },
+          {
+            "lat": 32.734606,
+            "lng": -117.219838,
+            "name": "High Tech High Media Arts",
+            "state": "CA"
+          },
+          {
+            "lat": 32.734606,
+            "lng": -117.219838,
+            "name": "High Tech Middle Media Arts",
+            "state": "CA"
+          },
+          {
+            "lat": 32.73206,
+            "lng": -117.21769,
+            "name": "High Tech Elementary",
+            "state": "CA"
+          },
+          {
+            "lat": 32.61601,
+            "lng": -116.954276,
+            "name": "High Tech High Chula Vista",
+            "state": "CA"
+          },
+          {
+            "lat": 32.61671,
+            "lng": -116.953238,
+            "name": "High Tech Elementary Chula Vista",
+            "state": "CA"
+          },
+          {
+            "lat": 32.61671,
+            "lng": -116.953238,
+            "name": "High Tech Middle Chula Vista",
+            "state": "CA"
+          },
+          {
+            "lat": 33.132371,
+            "lng": -117.202227,
+            "name": "High Tech High North County",
+            "state": "CA"
+          },
+          {
+            "lat": 33.132371,
+            "lng": -117.202227,
+            "name": "High Tech Middle North County",
+            "state": "CA"
+          },
+          {
+            "lat": 33.13399,
+            "lng": -117.20179,
+            "name": "High Tech Elementary North County",
+            "state": "CA"
+          },
+          {
+            "lat": 32.815564,
+            "lng": -117.181799,
+            "name": "High Tech High Mesa",
+            "state": "CA"
+          },
+          {
+            "lat": 32.815564,
+            "lng": -117.181799,
+            "name": "High Tech Elementary Mesa",
+            "state": "CA"
+          },
+          {
+            "lat": 32.815564,
+            "lng": -117.181799,
+            "name": "High Tech Middle Mesa",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "United Teachers Los Angeles (UTLA)",
+        "natlAff": "AFT / NEA (UTLA is dual-affiliated)",
+        "stateAff": "California Teachers Association (CTA) / California Federation of Teachers (CFT)",
+        "schools": 14,
+        "enrollment": 11158,
+        "states": [
+          "CA"
+        ],
+        "centLat": 34.14,
+        "centLng": -118.4434,
+        "pins": [
+          {
+            "lat": 34.177774,
+            "lng": -118.615299,
+            "name": "Ivy Academia",
+            "state": "CA"
+          },
+          {
+            "lat": 34.169674,
+            "lng": -118.642323,
+            "name": "El Camino Real Charter High",
+            "state": "CA"
+          },
+          {
+            "lat": 34.187721,
+            "lng": -118.504882,
+            "name": "Birmingham Community Charter High",
+            "state": "CA"
+          },
+          {
+            "lat": 34.00838,
+            "lng": -118.282971,
+            "name": "Global Education Academy",
+            "state": "CA"
+          },
+          {
+            "lat": 34.069277,
+            "lng": -118.275479,
+            "name": "Citizens of the World Charter School: Silver Lake",
+            "state": "CA"
+          },
+          {
+            "lat": 34.031977,
+            "lng": -118.442633,
+            "name": "Citizens of the World Charter School: Mar Vista",
+            "state": "CA"
+          },
+          {
+            "lat": 34.09489,
+            "lng": -118.31758,
+            "name": "Citizens of the World Charter School: Hollywood",
+            "state": "CA"
+          },
+          {
+            "lat": 34.21447,
+            "lng": -118.5721,
+            "name": "Citizens of the World Charter School: West Valley",
+            "state": "CA"
+          },
+          {
+            "lat": 34.171488,
+            "lng": -118.395108,
+            "name": "Citizens of the World: East Valley",
+            "state": "CA"
+          },
+          {
+            "lat": 34.261475,
+            "lng": -118.52446,
+            "name": "Granada Hills Charter",
+            "state": "CA"
+          },
+          {
+            "lat": 34.047871,
+            "lng": -118.531105,
+            "name": "Palisades Charter High",
+            "state": "CA"
+          },
+          {
+            "lat": 34.270359,
+            "lng": -118.415591,
+            "name": "Pacoima Charter Elementary",
+            "state": "CA"
+          },
+          {
+            "lat": 34.244481,
+            "lng": -118.415022,
+            "name": "Montague Charter Academy",
+            "state": "CA"
+          },
+          {
+            "lat": 34.010811,
+            "lng": -118.273723,
+            "name": "The Accelerated School",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "United Educators for Justice (UEJ) / ChiACTS",
+        "natlAff": "AFT",
+        "stateAff": "Chicago Teachers Union (CTU) / IFT",
+        "schools": 13,
+        "enrollment": 5660,
+        "states": [
+          "IL"
+        ],
+        "centLat": 41.8376,
+        "centLng": -87.7105,
+        "pins": [
+          {
+            "lat": 41.800044,
+            "lng": -87.6936,
+            "name": "ACERO CHARTER SCHOOL NETWORK - RUFINO TAMAYO",
+            "state": "IL"
+          },
+          {
+            "lat": 41.937399,
+            "lng": -87.699579,
+            "name": "ACERO CHARTER SCHOOL NETWORK - CARLOS FUENTES",
+            "state": "IL"
+          },
+          {
+            "lat": 41.859441,
+            "lng": -87.667859,
+            "name": "ACERO CHARTER SCHOOL NETWORK - BARTOLOME DE LAS CASAS",
+            "state": "IL"
+          },
+          {
+            "lat": 41.808589,
+            "lng": -87.697277,
+            "name": "ACERO CHARTER SCHOOL NETWORK - OFFICER DONALD J. MARQUEZ SCHOOL",
+            "state": "IL"
+          },
+          {
+            "lat": 41.80831,
+            "lng": -87.730711,
+            "name": "ACERO CHARTER SCHOOL NETWORK - SPC DANIEL ZIZUMBO CAMPUS",
+            "state": "IL"
+          },
+          {
+            "lat": 41.80831,
+            "lng": -87.730711,
+            "name": "ACERO CHARTER SCHOOL NETWORK - PFC OMAR E. TORRES CAMPUS",
+            "state": "IL"
+          },
+          {
+            "lat": 41.80831,
+            "lng": -87.730711,
+            "name": "ACERO CHARTER SCHOOL NETWORK - MAJOR HECTOR P. GARCIA M.D. HIGH SCHOOL",
+            "state": "IL"
+          },
+          {
+            "lat": 41.82305,
+            "lng": -87.694361,
+            "name": "ACERO CHARTER SCHOOL NETWORK - SANDRA CISNEROS",
+            "state": "IL"
+          },
+          {
+            "lat": 41.801167,
+            "lng": -87.709363,
+            "name": "ACERO CHARTER SCHOOL NETWORK - JOVITA IDAR",
+            "state": "IL"
+          },
+          {
+            "lat": 41.900491,
+            "lng": -87.689974,
+            "name": "ACERO CHARTER SCHOOL NETWORK - ESMERALDA SANTIAGO",
+            "state": "IL"
+          },
+          {
+            "lat": 41.917854,
+            "lng": -87.788042,
+            "name": "ACERO CHARTER SCHOOL NETWORK - ROBERTO CLEMENTE",
+            "state": "IL"
+          },
+          {
+            "lat": 41.813428,
+            "lng": -87.69341,
+            "name": "ACERO CHARTER SCHOOL NETWORK - BRIGHTON PARK",
+            "state": "IL"
+          },
+          {
+            "lat": 41.802236,
+            "lng": -87.710789,
+            "name": "ACERO CHARTER SCHOOL NETWORK VICTORIA SOTO CAMPUS",
+            "state": "IL"
+          }
+        ]
+      },
+      {
+        "union": "ChiACTS (Chicago Alliance of Charter Teachers and Staff)",
+        "natlAff": "AFT",
+        "stateAff": "Chicago Teachers Union (CTU) / IFT",
+        "schools": 11,
+        "enrollment": 4227,
+        "states": [
+          "IL"
+        ],
+        "centLat": 41.8542,
+        "centLng": -87.6827,
+        "pins": [
+          {
+            "lat": 41.9832,
+            "lng": -87.6713,
+            "name": "PASSAGES CHARTER SCHOOL",
+            "state": "IL"
+          },
+          {
+            "lat": 41.990909,
+            "lng": -87.72797,
+            "name": "CHICAGO INTERNATIONAL CHARTER SCHOOL (CICS) - NORTHTOWN",
+            "state": "IL"
+          },
+          {
+            "lat": 41.8253,
+            "lng": -87.6675,
+            "name": "NAMASTE CHARTER SCHOOL",
+            "state": "IL"
+          },
+          {
+            "lat": 41.745185,
+            "lng": -87.69287,
+            "name": "CHICAGO INTERNATIONAL CHARTER SCHOOL (CICS) - WRIGHTWOOD",
+            "state": "IL"
+          },
+          {
+            "lat": 41.748201,
+            "lng": -87.669119,
+            "name": "CHICAGO INTERNATIONAL CHARTER SCHOOL (CICS) - RALPH ELLISON",
+            "state": "IL"
+          },
+          {
+            "lat": 41.782,
+            "lng": -87.6344,
+            "name": "URBAN PREP ACADEMY CHARTER HS - ENGLEWOOD",
+            "state": "IL"
+          },
+          {
+            "lat": 41.830835,
+            "lng": -87.613484,
+            "name": "URBAN PREP ACADEMY CHARTER HS - BRONZEVILLE",
+            "state": "IL"
+          },
+          {
+            "lat": 41.84596,
+            "lng": -87.685851,
+            "name": "INSTITUTO HEALTH SCIENCE CAREER ACADEMY (IHSCA)",
+            "state": "IL"
+          },
+          {
+            "lat": 41.8771,
+            "lng": -87.705,
+            "name": "INSTITUTO JUSTICE AND LEADERSHIP CHARTER ACADEMY",
+            "state": "IL"
+          },
+          {
+            "lat": 41.922,
+            "lng": -87.7579,
+            "name": "CHRISTOPHER HOUSE",
+            "state": "IL"
+          },
+          {
+            "lat": 41.845642,
+            "lng": -87.684224,
+            "name": "JACKSON CHARTER SCHOOL",
+            "state": "IL"
+          }
+        ]
+      },
+      {
+        "union": "California Virtual Educators United",
+        "natlAff": "National Education Association (NEA)",
+        "stateAff": "California Teachers Association (CTA)",
+        "schools": 9,
+        "enrollment": 20163,
+        "states": [
+          "CA"
+        ],
+        "centLat": 34.2759,
+        "centLng": -118.798,
+        "pins": [
+          {
+            "lat": 34.275884,
+            "lng": -118.797998,
+            "name": "California Virtual Academy @ San Diego",
+            "state": "CA"
+          },
+          {
+            "lat": 34.275884,
+            "lng": -118.797998,
+            "name": "California Virtual Academy @ Sonoma",
+            "state": "CA"
+          },
+          {
+            "lat": 34.275884,
+            "lng": -118.797998,
+            "name": "California Virtual Academy at Kings",
+            "state": "CA"
+          },
+          {
+            "lat": 34.275884,
+            "lng": -118.797998,
+            "name": "California Virtual Academy @ Los Angeles",
+            "state": "CA"
+          },
+          {
+            "lat": 34.275884,
+            "lng": -118.797998,
+            "name": "California Virtual Academy San Mateo",
+            "state": "CA"
+          },
+          {
+            "lat": 34.275884,
+            "lng": -118.797998,
+            "name": "California Virtual Academy at Fresno",
+            "state": "CA"
+          },
+          {
+            "lat": 34.275884,
+            "lng": -118.797998,
+            "name": "California Virtual Academy at Maricopa",
+            "state": "CA"
+          },
+          {
+            "lat": 34.275884,
+            "lng": -118.797998,
+            "name": "California Virtual Academy @ San Joaquin",
+            "state": "CA"
+          },
+          {
+            "lat": 34.275884,
+            "lng": -118.797998,
+            "name": "California Virtual Academy at Sutter",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "United Federation of Teachers, Local 2 / NYSUT / AFT",
+        "natlAff": "American Federation of Teachers (AFT) / AFL-CIO",
+        "stateAff": "New York State United Teachers (NYSUT)",
+        "schools": 8,
+        "enrollment": 3553,
+        "states": [
+          "NY"
+        ],
+        "centLat": 40.7837,
+        "centLng": -73.9252,
+        "pins": [
+          {
+            "lat": 40.749939,
+            "lng": -73.885039,
+            "name": "Renaissance Charter School",
+            "state": "NY"
+          },
+          {
+            "lat": 40.8018,
+            "lng": -73.9556,
+            "name": "Opportunity Charter School",
+            "state": "NY"
+          },
+          {
+            "lat": 40.83965,
+            "lng": -73.920001,
+            "name": "Bronx Academy of Promise Charter School",
+            "state": "NY"
+          },
+          {
+            "lat": 40.815787,
+            "lng": -73.90165,
+            "name": "Bronx Global Learning Institute for Girls Charter School",
+            "state": "NY"
+          },
+          {
+            "lat": 40.821884,
+            "lng": -73.9106,
+            "name": "NYC Charter High School for Architecture, Engineering & Construction Industries",
+            "state": "NY"
+          },
+          {
+            "lat": 40.688562,
+            "lng": -73.971417,
+            "name": "Compass Charter School",
+            "state": "NY"
+          },
+          {
+            "lat": 40.681954,
+            "lng": -73.939688,
+            "name": "Brooklyn Prospect Charter School — CSD 13.2",
+            "state": "NY"
+          },
+          {
+            "lat": 40.870368,
+            "lng": -73.917608,
+            "name": "Amber Charter School — Inwood Campus",
+            "state": "NY"
+          }
+        ]
+      },
+      {
+        "union": "Cleveland Alliance for Charter Teachers and Staff (Cleveland ACTS)",
+        "natlAff": "AFT",
+        "stateAff": "OFT",
+        "schools": 8,
+        "enrollment": 1238,
+        "states": [
+          "OH"
+        ],
+        "centLat": 41.481,
+        "centLng": -81.581,
+        "pins": [
+          {
+            "lat": 41.480857,
+            "lng": -81.686464,
+            "name": "Northeast Ohio College Preparatory School",
+            "state": "OH"
+          },
+          {
+            "lat": 41.4555,
+            "lng": -81.6561,
+            "name": "Cleveland College Preparatory Academy",
+            "state": "OH"
+          },
+          {
+            "lat": 41.50596,
+            "lng": -81.658941,
+            "name": "University of Cleveland Preparatory School",
+            "state": "OH"
+          },
+          {
+            "lat": 41.499685,
+            "lng": -81.663733,
+            "name": "Stepstone Academy",
+            "state": "OH"
+          },
+          {
+            "lat": 41.248584,
+            "lng": -80.840721,
+            "name": "Summit Academy Secondary School-Parma",
+            "state": "OH"
+          },
+          {
+            "lat": 41.473229,
+            "lng": -81.720782,
+            "name": "Menlo Park Academy",
+            "state": "OH"
+          },
+          {
+            "lat": 41.7239,
+            "lng": -81.2436,
+            "name": "Summit Academy Community School — Painesville",
+            "state": "OH"
+          },
+          {
+            "lat": 41.4606,
+            "lng": -82.1774,
+            "name": "Summit Academy Community School – Lorain",
+            "state": "OH"
+          }
+        ]
+      },
+      {
+        "union": "PCSEA / PSEA/NEA",
+        "natlAff": "NEA",
+        "stateAff": "PSEA",
+        "schools": 7,
+        "enrollment": 2836,
+        "states": [
+          "PA"
+        ],
+        "centLat": 40.4132,
+        "centLng": -79.908,
+        "pins": [
+          {
+            "lat": 40.3455,
+            "lng": -79.8481,
+            "name": "PROPEL CHARTER SCHOOL - MCKEESPORT",
+            "state": "PA"
+          },
+          {
+            "lat": 40.460079,
+            "lng": -80.015907,
+            "name": "PROPEL CHARTER SCHOOL - NORTHSIDE",
+            "state": "PA"
+          },
+          {
+            "lat": 40.404016,
+            "lng": -79.938357,
+            "name": "PROPEL CHARTER SCHOOL - HAZELWOOD",
+            "state": "PA"
+          },
+          {
+            "lat": 40.415,
+            "lng": -79.8531,
+            "name": "PROPEL CHARTER SCHOOL - BRADDOCK HILLS",
+            "state": "PA"
+          },
+          {
+            "lat": 40.4094,
+            "lng": -79.8154,
+            "name": "PROPEL CHARTER SCHOOL - EAST",
+            "state": "PA"
+          },
+          {
+            "lat": 40.4543,
+            "lng": -80.1061,
+            "name": "PROPEL CHARTER SCHOOL - MONTOUR",
+            "state": "PA"
+          },
+          {
+            "lat": 40.4042,
+            "lng": -79.7793,
+            "name": "PROPEL CHARTER SCHOOL - PITCAIRN",
+            "state": "PA"
+          }
+        ]
+      },
+      {
+        "union": "United Federation of Teachers, Local 2 / AFT",
+        "natlAff": "American Federation of Teachers (AFT) / AFL-CIO",
+        "stateAff": "New York State United Teachers (NYSUT)",
+        "schools": 6,
+        "enrollment": 2666,
+        "states": [
+          "NY"
+        ],
+        "centLat": 40.8203,
+        "centLng": -73.9102,
+        "pins": [
+          {
+            "lat": 40.753052,
+            "lng": -73.935773,
+            "name": "Growing Up Green Charter School",
+            "state": "NY"
+          },
+          {
+            "lat": 40.87785,
+            "lng": -73.913551,
+            "name": "New Visions Charter High School for Advanced Math and Science",
+            "state": "NY"
+          },
+          {
+            "lat": 40.87785,
+            "lng": -73.913551,
+            "name": "New Visions Charter High School for the Humanities",
+            "state": "NY"
+          },
+          {
+            "lat": 40.821845,
+            "lng": -73.902904,
+            "name": "New Visions Charter High School for the Humanities II",
+            "state": "NY"
+          },
+          {
+            "lat": 40.853624,
+            "lng": -73.911775,
+            "name": "Charter High School for Law and Social Justice",
+            "state": "NY"
+          },
+          {
+            "lat": 40.737659,
+            "lng": -73.883854,
+            "name": "Elm Community Charter School",
+            "state": "NY"
+          }
+        ]
+      },
+      {
+        "union": "Camino Nuevo Teachers Association (CNTA)",
+        "natlAff": "None confirmed",
+        "stateAff": "None confirmed (independent local)",
+        "schools": 5,
+        "enrollment": 3044,
+        "states": [
+          "CA"
+        ],
+        "centLat": 34.0633,
+        "centLng": -118.2818,
+        "pins": [
+          {
+            "lat": 34.055536,
+            "lng": -118.273602,
+            "name": "Camino Nuevo Charter Academy",
+            "state": "CA"
+          },
+          {
+            "lat": 34.06855,
+            "lng": -118.289063,
+            "name": "Camino Nuevo Academy #2",
+            "state": "CA"
+          },
+          {
+            "lat": 34.039275,
+            "lng": -118.295534,
+            "name": "Camino Nuevo Elementary #3",
+            "state": "CA"
+          },
+          {
+            "lat": 34.076724,
+            "lng": -118.265066,
+            "name": "Camino Nuevo Charter Academy No. 4",
+            "state": "CA"
+          },
+          {
+            "lat": 34.076483,
+            "lng": -118.285667,
+            "name": "Camino Nuevo High #2",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "ChiACTS / Youth Connections (YCCS)",
+        "natlAff": "AFT",
+        "stateAff": "Chicago Teachers Union (CTU) / IFT",
+        "schools": 5,
+        "enrollment": 659,
+        "states": [
+          "IL"
+        ],
+        "centLat": 41.8793,
+        "centLng": -87.7213,
+        "pins": [
+          {
+            "lat": 41.937906,
+            "lng": -87.7268,
+            "name": "ASPIRA ANTONIA PANTOJA HIGH SCHOOL",
+            "state": "IL"
+          },
+          {
+            "lat": 41.901636,
+            "lng": -87.7073,
+            "name": "YCCS: ASSOCIATION HOUSE",
+            "state": "IL"
+          },
+          {
+            "lat": 41.854682,
+            "lng": -87.695319,
+            "name": "YCCS: LATINO YOUTH HIGH SCHOOL",
+            "state": "IL"
+          },
+          {
+            "lat": 41.800258,
+            "lng": -87.727651,
+            "name": "YCCS: YOUTH CONNECTION LEADERSHIP ACADEMY",
+            "state": "IL"
+          },
+          {
+            "lat": 41.902,
+            "lng": -87.749181,
+            "name": "YCCS WEST",
+            "state": "IL"
+          }
+        ]
+      },
+      {
+        "union": "Unite Summit",
+        "natlAff": "National Education Association (NEA)",
+        "stateAff": "California Teachers Association (CTA)",
+        "schools": 4,
+        "enrollment": 2024,
+        "states": [
+          "CA"
+        ],
+        "centLat": 37.7057,
+        "centLng": -122.2348,
+        "pins": [
+          {
+            "lat": 37.252875,
+            "lng": -121.821476,
+            "name": "Summit Public School: Tahoma",
+            "state": "CA"
+          },
+          {
+            "lat": 37.66658,
+            "lng": -122.476364,
+            "name": "Summit Public School: Shasta",
+            "state": "CA"
+          },
+          {
+            "lat": 37.925961,
+            "lng": -122.313368,
+            "name": "Summit Public School K2",
+            "state": "CA"
+          },
+          {
+            "lat": 37.977417,
+            "lng": -122.327873,
+            "name": "Summit Public School: Tamalpais",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "Environmental Educators United",
+        "natlAff": "National Education Association (NEA)",
+        "stateAff": "California Teachers Association (CTA)",
+        "schools": 4,
+        "enrollment": 1660,
+        "states": [
+          "CA"
+        ],
+        "centLat": 33.895,
+        "centLng": -118.3265,
+        "pins": [
+          {
+            "lat": 33.882012,
+            "lng": -118.355264,
+            "name": "Environmental Charter High - Lawndale",
+            "state": "CA"
+          },
+          {
+            "lat": 33.880456,
+            "lng": -118.289888,
+            "name": "Environmental Charter Middle - Gardena",
+            "state": "CA"
+          },
+          {
+            "lat": 33.930595,
+            "lng": -118.335375,
+            "name": "Environmental Charter Middle - Inglewood",
+            "state": "CA"
+          },
+          {
+            "lat": 33.886861,
+            "lng": -118.325586,
+            "name": "Environmental Charter High - Gardena",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "California Teachers Association (CTA/NEA)",
+        "natlAff": "NEA (National Education Association)",
+        "stateAff": "CTA (California Teachers Association)",
+        "schools": 4,
+        "enrollment": 2017,
+        "states": [
+          "CA"
+        ],
+        "centLat": 35.2634,
+        "centLng": -119.6325,
+        "pins": [
+          {
+            "lat": 32.64186,
+            "lng": -117.01632,
+            "name": "Discovery Charter",
+            "state": "CA"
+          },
+          {
+            "lat": 37.779205,
+            "lng": -122.287277,
+            "name": "Alameda Community Learning Center",
+            "state": "CA"
+          },
+          {
+            "lat": 37.779205,
+            "lng": -122.287277,
+            "name": "NEA Community Learning Center",
+            "state": "CA"
+          },
+          {
+            "lat": 32.853301,
+            "lng": -116.939229,
+            "name": "River Valley Charter",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "Michigan Alliance of Charter Teachers & Staff (Michigan ACTS) / AFT Michigan / AFT",
+        "natlAff": "American Federation of Teachers (AFT) / AFL-CIO",
+        "stateAff": "AFT Michigan",
+        "schools": 4,
+        "enrollment": 2294,
+        "states": [
+          "MI"
+        ],
+        "centLat": 42.3159,
+        "centLng": -83.121,
+        "pins": [
+          {
+            "lat": 42.3121,
+            "lng": -83.1143,
+            "name": "Cesar Chavez Academy High School",
+            "state": "MI"
+          },
+          {
+            "lat": 42.329,
+            "lng": -83.1252,
+            "name": "Cesar Chavez Academy Intermediate",
+            "state": "MI"
+          },
+          {
+            "lat": 42.3115,
+            "lng": -83.1152,
+            "name": "Cesar Chavez Academy Middle School",
+            "state": "MI"
+          },
+          {
+            "lat": 42.311031,
+            "lng": -83.129354,
+            "name": "Cesar Chavez Academy Elementary",
+            "state": "MI"
+          }
+        ]
+      },
+      {
+        "union": "Envision United (CTA/NEA)",
+        "natlAff": "NEA (National Education Association)",
+        "stateAff": "CTA (California Teachers Association)",
+        "schools": 3,
+        "enrollment": 1320,
+        "states": [
+          "CA"
+        ],
+        "centLat": 37.7189,
+        "centLng": -122.272,
+        "pins": [
+          {
+            "lat": 37.804671,
+            "lng": -122.268353,
+            "name": "Envision Academy for Arts & Technology",
+            "state": "CA"
+          },
+          {
+            "lat": 37.721493,
+            "lng": -122.444865,
+            "name": "City Arts & Leadership Academy",
+            "state": "CA"
+          },
+          {
+            "lat": 37.6306,
+            "lng": -122.102755,
+            "name": "Impact Academy of Arts & Technology",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "California Virtual Educators United (CVEU / CTA/NEA)",
+        "natlAff": "NEA (National Education Association)",
+        "stateAff": "CTA (California Teachers Association)",
+        "schools": 3,
+        "enrollment": 1002,
+        "states": [
+          "CA"
+        ],
+        "centLat": 34.2759,
+        "centLng": -118.798,
+        "pins": [
+          {
+            "lat": 34.275884,
+            "lng": -118.797998,
+            "name": "Insight @ San Joaquin",
+            "state": "CA"
+          },
+          {
+            "lat": 34.275884,
+            "lng": -118.797998,
+            "name": "Insight School of California",
+            "state": "CA"
+          },
+          {
+            "lat": 34.275884,
+            "lng": -118.797998,
+            "name": "Insight @ San Diego",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "San Diego Education Association (SDEA / NEA)",
+        "natlAff": "NEA (National Education Association)",
+        "stateAff": "CTA (California Teachers Association)",
+        "schools": 3,
+        "enrollment": 1373,
+        "states": [
+          "CA"
+        ],
+        "centLat": 32.7467,
+        "centLng": -117.075,
+        "pins": [
+          {
+            "lat": 32.757129,
+            "lng": -117.077431,
+            "name": "Iftin Charter",
+            "state": "CA"
+          },
+          {
+            "lat": 32.712839,
+            "lng": -117.098047,
+            "name": "America's Finest Charter",
+            "state": "CA"
+          },
+          {
+            "lat": 32.770107,
+            "lng": -117.04967,
+            "name": "Harriet Tubman Village Charter",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "Arizona Alliance of Charter Teachers and Staff (AACTS), AFT Local 6627 (petitioning)",
+        "natlAff": "American Federation of Teachers (AFT) / AFL-CIO",
+        "stateAff": "AZ-ACTS / AACTS",
+        "schools": 3,
+        "enrollment": 292,
+        "states": [
+          "AZ"
+        ],
+        "centLat": 32.226,
+        "centLng": -110.9692,
+        "pins": [
+          {
+            "lat": 32.223311,
+            "lng": -110.97056,
+            "name": "City High School",
+            "state": "AZ"
+          },
+          {
+            "lat": 32.223311,
+            "lng": -110.97056,
+            "name": "Paulo Freire Freedom School - Downtown",
+            "state": "AZ"
+          },
+          {
+            "lat": 32.231243,
+            "lng": -110.966607,
+            "name": "Paulo Freire Freedom School - University",
+            "state": "AZ"
+          }
+        ]
+      },
+      {
+        "union": "Capital City Staff Union",
+        "natlAff": "AFT",
+        "stateAff": "WTU (sister AFT affiliate)",
+        "schools": 3,
+        "enrollment": 1015,
+        "states": [
+          "DC"
+        ],
+        "centLat": 38.9622,
+        "centLng": -77.0129,
+        "pins": [
+          {
+            "lat": 38.962224,
+            "lng": -77.01293,
+            "name": "CAPITAL CITY PCS — LOWER SCHOOL",
+            "state": "DC"
+          },
+          {
+            "lat": 38.962224,
+            "lng": -77.01293,
+            "name": "CAPITAL CITY PCS — UPPER SCHOOL",
+            "state": "DC"
+          },
+          {
+            "lat": 38.962224,
+            "lng": -77.01293,
+            "name": "CAPITAL CITY PCS — MIDDLE SCHOOL",
+            "state": "DC"
+          }
+        ]
+      },
+      {
+        "union": "Broward Teachers Union (BTU) Local #1975 — Charter School Professionals Unit",
+        "natlAff": "AFT / NEA / AFL-CIO (FEA is dual-affiliated)",
+        "stateAff": "Florida Education Association (FEA)",
+        "schools": 3,
+        "enrollment": 6504,
+        "states": [
+          "FL"
+        ],
+        "centLat": 26.0315,
+        "centLng": -80.3747,
+        "pins": [
+          {
+            "lat": 26.031479,
+            "lng": -80.374666,
+            "name": "City of Pembroke Pines Charter — West Middle School",
+            "state": "FL"
+          },
+          {
+            "lat": 26.031479,
+            "lng": -80.374666,
+            "name": "City of Pembroke Pines Charter School — Academic Village",
+            "state": "FL"
+          },
+          {
+            "lat": 26.031479,
+            "lng": -80.374666,
+            "name": "City of Pembroke Pines Charter School — East Campus Elementary",
+            "state": "FL"
+          }
+        ]
+      },
+      {
+        "union": "Hiawatha Area Workers United (HAWU)",
+        "natlAff": "NEA / AFT",
+        "stateAff": "Education Minnesota (EdMN)",
+        "schools": 3,
+        "enrollment": 1586,
+        "states": [
+          "MN"
+        ],
+        "centLat": 44.9301,
+        "centLng": -93.2407,
+        "pins": [
+          {
+            "lat": 44.919319,
+            "lng": -93.250522,
+            "name": "HIAWATHA LEADERSHIP ACADEMY - NORTHROP CAMPUS",
+            "state": "MN"
+          },
+          {
+            "lat": 44.952524,
+            "lng": -93.221238,
+            "name": "HIAWATHA COLLEGIATE HIGH SCHOOL",
+            "state": "MN"
+          },
+          {
+            "lat": 44.918386,
+            "lng": -93.250232,
+            "name": "HIAWATHA COLLEGE PREP - NORTHROP CAMPUS",
+            "state": "MN"
+          }
+        ]
+      },
+      {
+        "union": "United Federation of Teachers (UFT) Local 2",
+        "natlAff": "American Federation of Teachers (AFT) / NEA / AFL-CIO",
+        "stateAff": "New York State United Teachers (NYSUT)",
+        "schools": 3,
+        "enrollment": 1021,
+        "states": [
+          "NY"
+        ],
+        "centLat": 40.8044,
+        "centLng": -73.9367,
+        "pins": [
+          {
+            "lat": 40.7909,
+            "lng": -73.9439,
+            "name": "Amber Charter School",
+            "state": "NY"
+          },
+          {
+            "lat": 40.814824,
+            "lng": -73.912089,
+            "name": "University Prep High School",
+            "state": "NY"
+          },
+          {
+            "lat": 40.8076,
+            "lng": -73.9542,
+            "name": "New York French-American Charter School",
+            "state": "NY"
+          }
+        ]
+      },
+      {
+        "union": "Rhode Island Federation of Teachers and Health Professionals (RIFT&HP)/AFT",
+        "natlAff": "American Federation of Teachers (AFT) / AFL-CIO",
+        "stateAff": "Rhode Island Federation of Teachers and Health Professionals (RIFT&HP)",
+        "schools": 3,
+        "enrollment": 790,
+        "states": [
+          "RI"
+        ],
+        "centLat": 41.8148,
+        "centLng": -71.43,
+        "pins": [
+          {
+            "lat": 41.829346,
+            "lng": -71.427507,
+            "name": "Paul Cuffee Lower School",
+            "state": "RI"
+          },
+          {
+            "lat": 41.817306,
+            "lng": -71.436818,
+            "name": "Paul Cuffee Middle School",
+            "state": "RI"
+          },
+          {
+            "lat": 41.797718,
+            "lng": -71.425572,
+            "name": "Paul Cuffee Upper School",
+            "state": "RI"
+          }
+        ]
+      },
+      {
+        "union": "East Bay Educators United",
+        "natlAff": "National Education Association (NEA)",
+        "stateAff": "California Teachers Association (CTA)",
+        "schools": 2,
+        "enrollment": 1119,
+        "states": [
+          "CA"
+        ],
+        "centLat": 37.7786,
+        "centLng": -122.224,
+        "pins": [
+          {
+            "lat": 37.933872,
+            "lng": -122.361212,
+            "name": "Leadership Public Schools: Richmond",
+            "state": "CA"
+          },
+          {
+            "lat": 37.623253,
+            "lng": -122.086792,
+            "name": "Leadership Public Schools - Hayward",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "Lake Elsinore Teachers Association",
+        "natlAff": "Not confirmed — PERB records request required",
+        "stateAff": "Not confirmed — PERB records request required to determine CTA/independent status",
+        "schools": 2,
+        "enrollment": 791,
+        "states": [
+          "CA"
+        ],
+        "centLat": 33.8006,
+        "centLng": -117.4816,
+        "pins": [
+          {
+            "lat": 33.584844,
+            "lng": -117.247328,
+            "name": "Sycamore Academy of Science and Cultural Arts",
+            "state": "CA"
+          },
+          {
+            "lat": 34.016386,
+            "lng": -117.715931,
+            "name": "Sycamore Academy of Science and Cultural Arts - Chino Valley",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "Animo Management United (AMU) / UTLA chapter (Green Dot network union)",
+        "natlAff": "AFT / NEA (UTLA is dual-affiliated)",
+        "stateAff": "California Teachers Association (CTA) / California Federation of Teachers (CFT)",
+        "schools": 2,
+        "enrollment": 1674,
+        "states": [
+          "CA"
+        ],
+        "centLat": 33.9792,
+        "centLng": -118.2361,
+        "pins": [
+          {
+            "lat": 34.02321,
+            "lng": -118.20342,
+            "name": "Animo Oscar De La Hoya Charter High",
+            "state": "CA"
+          },
+          {
+            "lat": 33.935167,
+            "lng": -118.26879,
+            "name": "Alain Leroy Locke College Preparatory Academy",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "Caliber Workers Union / Caliber Independent Workers Association (IWW)",
+        "natlAff": "Industrial Workers of the World (IWW)",
+        "stateAff": "Independent (IWW — Industrial Workers of the World)",
+        "schools": 2,
+        "enrollment": 1946,
+        "states": [
+          "CA"
+        ],
+        "centLat": 38.0567,
+        "centLng": -122.2854,
+        "pins": [
+          {
+            "lat": 37.993995,
+            "lng": -122.320454,
+            "name": "Caliber: Beta Academy",
+            "state": "CA"
+          },
+          {
+            "lat": 38.119334,
+            "lng": -122.250383,
+            "name": "Caliber: ChangeMakers Academy",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "Five Keys Charter School Teachers Union, United Educators of San Francisco Local 61 (CFT/AFT/AFL-CIO/CTA/NEA)",
+        "natlAff": "AFT (American Federation of Teachers) / NEA (National Education Association)",
+        "stateAff": "CFT (California Federation of Teachers) / CTA (California Teachers Association)",
+        "schools": 2,
+        "enrollment": 3648,
+        "states": [
+          "CA"
+        ],
+        "centLat": 37.7772,
+        "centLng": -122.4022,
+        "pins": [
+          {
+            "lat": 37.77716,
+            "lng": -122.40217,
+            "name": "Five Keys Charter (SF Sheriff's)",
+            "state": "CA"
+          },
+          {
+            "lat": 37.77716,
+            "lng": -122.40217,
+            "name": "Five Keys Independence HS (SF Sheriff's)",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "Discovery Teachers Association (DTA)",
+        "natlAff": "None confirmed",
+        "stateAff": "None confirmed (independent local)",
+        "schools": 2,
+        "enrollment": 1031,
+        "states": [
+          "CA"
+        ],
+        "centLat": 37.2691,
+        "centLng": -121.9098,
+        "pins": [
+          {
+            "lat": 37.302965,
+            "lng": -121.972609,
+            "name": "Discovery Charter — Phoenix Campus",
+            "state": "CA"
+          },
+          {
+            "lat": 37.23529,
+            "lng": -121.847,
+            "name": "Discovery Charter School — Falcon Campus",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "Union of Foundation Educators (UFE / CTA)",
+        "natlAff": "None confirmed (CTA is NEA-affiliated)",
+        "stateAff": "CTA (California Teachers Association)",
+        "schools": 2,
+        "enrollment": 486,
+        "states": [
+          "CA"
+        ],
+        "centLat": 37.34,
+        "centLng": -121.8319,
+        "pins": [
+          {
+            "lat": 37.320398,
+            "lng": -121.848558,
+            "name": "Luis Valdez Leadership Academy",
+            "state": "CA"
+          },
+          {
+            "lat": 37.359535,
+            "lng": -121.815289,
+            "name": "B. Roberto Cruz Leadership Academy",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "Antioch Education Association (AEA)",
+        "natlAff": "None confirmed",
+        "stateAff": "None confirmed (independent local)",
+        "schools": 2,
+        "enrollment": 406,
+        "states": [
+          "CA"
+        ],
+        "centLat": 37.9985,
+        "centLng": -121.825,
+        "pins": [
+          {
+            "lat": 38.00872,
+            "lng": -121.823148,
+            "name": "Antioch Charter Academy II",
+            "state": "CA"
+          },
+          {
+            "lat": 37.988338,
+            "lng": -121.82677,
+            "name": "Antioch Charter Academy",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "California Teachers Association (CTA/NEA) — specific local name not confirmed",
+        "natlAff": "NEA (National Education Association)",
+        "stateAff": "CTA (California Teachers Association)",
+        "schools": 2,
+        "enrollment": 817,
+        "states": [
+          "CA"
+        ],
+        "centLat": 37.8002,
+        "centLng": -122.2656,
+        "pins": [
+          {
+            "lat": 37.800157,
+            "lng": -122.265641,
+            "name": "AIMS College Prep Elementary School",
+            "state": "CA"
+          },
+          {
+            "lat": 37.800157,
+            "lng": -122.265641,
+            "name": "AIMS College Prep Middle School",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "Tulare County Office of Education Teachers' Association (TCOETA)",
+        "natlAff": "None confirmed",
+        "stateAff": "None confirmed (county office association — likely CTA)",
+        "schools": 2,
+        "enrollment": 444,
+        "states": [
+          "CA"
+        ],
+        "centLat": 36.3325,
+        "centLng": -119.2956,
+        "pins": [
+          {
+            "lat": 36.340985,
+            "lng": -119.273706,
+            "name": "La Sierra High",
+            "state": "CA"
+          },
+          {
+            "lat": 36.324068,
+            "lng": -119.317547,
+            "name": "University Preparatory High",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "La Leadership Academy Community United (LLACU)",
+        "natlAff": "None confirmed",
+        "stateAff": "None confirmed (independent local)",
+        "schools": 2,
+        "enrollment": 587,
+        "states": [
+          "CA"
+        ],
+        "centLat": 34.0809,
+        "centLng": -118.2111,
+        "pins": [
+          {
+            "lat": 34.08322,
+            "lng": -118.210608,
+            "name": "Los Angeles Leadership Academy",
+            "state": "CA"
+          },
+          {
+            "lat": 34.078576,
+            "lng": -118.211498,
+            "name": "Los Angeles Leadership Primary Academy",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "United Teachers Los Angeles (UTLA / AFT/CFT)",
+        "natlAff": "AFT",
+        "stateAff": "CFT",
+        "schools": 2,
+        "enrollment": 477,
+        "states": [
+          "CA"
+        ],
+        "centLat": 34.0313,
+        "centLng": -118.3647,
+        "pins": [
+          {
+            "lat": 34.04062,
+            "lng": -118.35805,
+            "name": "New Los Angeles Charter Middle",
+            "state": "CA"
+          },
+          {
+            "lat": 34.022,
+            "lng": -118.371282,
+            "name": "New Los Angeles Charter Elementary",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "Mundo Verde Staff Union",
+        "natlAff": "AFT",
+        "stateAff": "WTU (Washington Teachers Union) — sister AFT affiliate",
+        "schools": 2,
+        "enrollment": 1067,
+        "states": [
+          "DC"
+        ],
+        "centLat": 38.9262,
+        "centLng": -77.0025,
+        "pins": [
+          {
+            "lat": 38.909371,
+            "lng": -77.010471,
+            "name": "J.F. COOK CAMPUS — MUNDO VERDE BILINGUAL PCS",
+            "state": "DC"
+          },
+          {
+            "lat": 38.943,
+            "lng": -76.994542,
+            "name": "CALLE OCHO CAMPUS — MUNDO VERDE BILINGUAL PCS",
+            "state": "DC"
+          }
+        ]
+      },
+      {
+        "union": "Michigan Education Association (MEA) / NEA",
+        "natlAff": "National Education Association (NEA)",
+        "stateAff": "Michigan Education Association (MEA)",
+        "schools": 2,
+        "enrollment": 822,
+        "states": [
+          "MI"
+        ],
+        "centLat": 42.752,
+        "centLng": -84.716,
+        "pins": [
+          {
+            "lat": 42.4187,
+            "lng": -83.2179,
+            "name": "Old Redford Academy",
+            "state": "MI"
+          },
+          {
+            "lat": 43.0854,
+            "lng": -86.2141,
+            "name": "West Michigan Academy of Arts and Academics",
+            "state": "MI"
+          }
+        ]
+      },
+      {
+        "union": "Marion P. Thomas Education Association",
+        "natlAff": "NEA",
+        "stateAff": "NJEA",
+        "schools": 2,
+        "enrollment": 2820,
+        "states": [
+          "NJ"
+        ],
+        "centLat": 40.7471,
+        "centLng": -74.1807,
+        "pins": [
+          {
+            "lat": 40.747082,
+            "lng": -74.180684,
+            "name": "Marion P. Thomas Charter School PAC Academy",
+            "state": "NJ"
+          },
+          {
+            "lat": 40.747082,
+            "lng": -74.180684,
+            "name": "Marion P. Thomas Charter School STEAM Academy",
+            "state": "NJ"
+          }
+        ]
+      },
+      {
+        "union": "Alliance of Charter School Employees Local 6056 / AFT-PA / AFT",
+        "natlAff": "AFT",
+        "stateAff": "AFT Pennsylvania",
+        "schools": 2,
+        "enrollment": 1297,
+        "states": [
+          "PA"
+        ],
+        "centLat": 39.9897,
+        "centLng": -75.1253,
+        "pins": [
+          {
+            "lat": 39.959072,
+            "lng": -75.15604,
+            "name": "FOLK ARTS CULTURAL TREASURES CHARTER SCHOOL",
+            "state": "PA"
+          },
+          {
+            "lat": 40.0204,
+            "lng": -75.0945,
+            "name": "NORTHWOOD ACADEMY CHARTER SCHOOL",
+            "state": "PA"
+          }
+        ]
+      },
+      {
+        "union": "California School Employees Association (CSEA) — Chapter 665",
+        "natlAff": "National Education Association (NEA)",
+        "stateAff": "California School Employees Association (CSEA)",
+        "schools": 1,
+        "enrollment": 369,
+        "states": [
+          "CA"
+        ],
+        "centLat": 38.1742,
+        "centLng": -121.2613,
+        "pins": [
+          {
+            "lat": 38.174188,
+            "lng": -121.261338,
+            "name": "Joe Serna Jr. Charter",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "Ocean Charter Teachers Association",
+        "natlAff": "Independent (no national affiliate)",
+        "stateAff": "Independent (no state affiliate)",
+        "schools": 1,
+        "enrollment": 563,
+        "states": [
+          "CA"
+        ],
+        "centLat": 33.9842,
+        "centLng": -118.4276,
+        "pins": [
+          {
+            "lat": 33.984167,
+            "lng": -118.427567,
+            "name": "Ocean Charter",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "Menifee Teachers Association",
+        "natlAff": "Not confirmed — PERB records request required",
+        "stateAff": "Not confirmed — PERB records request required to determine CTA/independent status",
+        "schools": 1,
+        "enrollment": 1736,
+        "states": [
+          "CA"
+        ],
+        "centLat": 33.6771,
+        "centLng": -117.1784,
+        "pins": [
+          {
+            "lat": 33.67706,
+            "lng": -117.1784,
+            "name": "Santa Rosa Academy",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "SAE Teachers Association",
+        "natlAff": "Independent (no national affiliate)",
+        "stateAff": "Independent (no state affiliate)",
+        "schools": 1,
+        "enrollment": 647,
+        "states": [
+          "CA"
+        ],
+        "centLat": 34.0602,
+        "centLng": -117.7506,
+        "pins": [
+          {
+            "lat": 34.060236,
+            "lng": -117.75056,
+            "name": "School of Arts and Enterprise",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "Einstein Educators Collective",
+        "natlAff": "National Education Association (NEA)",
+        "stateAff": "California Teachers Association (CTA)",
+        "schools": 1,
+        "enrollment": 1448,
+        "states": [
+          "CA"
+        ],
+        "centLat": 32.72,
+        "centLng": -117.1305,
+        "pins": [
+          {
+            "lat": 32.719977,
+            "lng": -117.130543,
+            "name": "Albert Einstein Academies",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "Monterey Bay United",
+        "natlAff": "National Education Association (NEA)",
+        "stateAff": "California Teachers Association (CTA)",
+        "schools": 1,
+        "enrollment": 475,
+        "states": [
+          "CA"
+        ],
+        "centLat": 36.6054,
+        "centLng": -121.9302,
+        "pins": [
+          {
+            "lat": 36.60542,
+            "lng": -121.930167,
+            "name": "Monterey Bay Charter",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "IQ Academy Teachers Association",
+        "natlAff": "Independent (no national affiliate)",
+        "stateAff": "Independent (no state affiliate)",
+        "schools": 1,
+        "enrollment": 1721,
+        "states": [
+          "CA"
+        ],
+        "centLat": 34.2759,
+        "centLng": -118.798,
+        "pins": [
+          {
+            "lat": 34.275884,
+            "lng": -118.797998,
+            "name": "iQ Academy California-Los Angeles",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "Edison Charter Teachers Union",
+        "natlAff": "Independent (no national affiliate)",
+        "stateAff": "Independent (no state affiliate)",
+        "schools": 1,
+        "enrollment": 574,
+        "states": [
+          "CA"
+        ],
+        "centLat": 37.7545,
+        "centLng": -122.4264,
+        "pins": [
+          {
+            "lat": 37.754495,
+            "lng": -122.426418,
+            "name": "Thomas Edison Charter Academy",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "Palmdale Elementary Teachers Association (certificated unit); Palmdale Aerospace Classified Association (classified unit)",
+        "natlAff": "Not confirmed for either unit — PERB records request required",
+        "stateAff": "Not confirmed for either unit — PERB records request required",
+        "schools": 1,
+        "enrollment": 2259,
+        "states": [
+          "CA"
+        ],
+        "centLat": 34.5794,
+        "centLng": -118.0686,
+        "pins": [
+          {
+            "lat": 34.579378,
+            "lng": -118.068604,
+            "name": "Palmdale Aerospace Academy",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "United Pacific Collegiate School (United PCS)",
+        "natlAff": "Independent (no national affiliate)",
+        "stateAff": "Independent (no state affiliate)",
+        "schools": 1,
+        "enrollment": 536,
+        "states": [
+          "CA"
+        ],
+        "centLat": 36.9606,
+        "centLng": -122.0598,
+        "pins": [
+          {
+            "lat": 36.960583,
+            "lng": -122.059848,
+            "name": "Pacific Collegiate Charter",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "United Educators of San Francisco (UESF, AFT affiliate)",
+        "natlAff": "AFT/AFL-CIO",
+        "stateAff": "AFT",
+        "schools": 1,
+        "enrollment": 440,
+        "states": [
+          "CA"
+        ],
+        "centLat": 37.7798,
+        "centLng": -122.4359,
+        "pins": [
+          {
+            "lat": 37.77983,
+            "lng": -122.435891,
+            "name": "Creative Arts Charter",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "Horizon Certificated Employees Association (HCEA, CTA/NEA); Horizon Charter School Classified Association (HCSA, CTA/NEA)",
+        "natlAff": "CTA/NEA",
+        "stateAff": "CTA",
+        "schools": 1,
+        "enrollment": 1757,
+        "states": [
+          "CA"
+        ],
+        "centLat": 38.886,
+        "centLng": -121.2951,
+        "pins": [
+          {
+            "lat": 38.886039,
+            "lng": -121.295061,
+            "name": "Horizon Charter",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "Oro Grande Riverside Prep Educators Association (ORPEA, independent)",
+        "natlAff": "Unknown",
+        "stateAff": null,
+        "schools": 1,
+        "enrollment": 2453,
+        "states": [
+          "CA"
+        ],
+        "centLat": 34.5984,
+        "centLng": -117.3324,
+        "pins": [
+          {
+            "lat": 34.598422,
+            "lng": -117.33235,
+            "name": "Riverside Preparatory",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "Unite Summit (CTA/NEA)",
+        "natlAff": "CTA/NEA",
+        "stateAff": "CTA",
+        "schools": 1,
+        "enrollment": 293,
+        "states": [
+          "CA"
+        ],
+        "centLat": 37.4868,
+        "centLng": -122.2102,
+        "pins": [
+          {
+            "lat": 37.486773,
+            "lng": -122.210203,
+            "name": "Summit Preparatory Charter High",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "Association of Cornerstone Teachers (ACT)",
+        "natlAff": "None confirmed",
+        "stateAff": "None confirmed (independent local)",
+        "schools": 1,
+        "enrollment": 554,
+        "states": [
+          "CA"
+        ],
+        "centLat": 37.3248,
+        "centLng": -121.8513,
+        "pins": [
+          {
+            "lat": 37.324773,
+            "lng": -121.851296,
+            "name": "Alpha: Cornerstone Academy Preparatory",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "Family Partnership Charter Teachers Association (FPCTA)",
+        "natlAff": "None confirmed",
+        "stateAff": "None confirmed (independent local)",
+        "schools": 1,
+        "enrollment": 372,
+        "states": [
+          "CA"
+        ],
+        "centLat": 34.8659,
+        "centLng": -120.4169,
+        "pins": [
+          {
+            "lat": 34.865926,
+            "lng": -120.416933,
+            "name": "Family Partnership Charter",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "Monterey County Office of Education Teachers' Association (MCOETA)",
+        "natlAff": "None confirmed",
+        "stateAff": "None confirmed (likely CTA)",
+        "schools": 1,
+        "enrollment": 255,
+        "states": [
+          "CA"
+        ],
+        "centLat": 36.6534,
+        "centLng": -121.6398,
+        "pins": [
+          {
+            "lat": 36.65341,
+            "lng": -121.63976,
+            "name": "Monterey County Home Charter",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "Orange County High School of the Arts Teachers Association",
+        "natlAff": "None confirmed",
+        "stateAff": "None confirmed (independent local)",
+        "schools": 1,
+        "enrollment": 2346,
+        "states": [
+          "CA"
+        ],
+        "centLat": 33.7539,
+        "centLng": -117.8679,
+        "pins": [
+          {
+            "lat": 33.753875,
+            "lng": -117.867918,
+            "name": "OCSA (Orange County School of the Arts)",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "Eleanor Roosevelt Teachers Association (ERTA)",
+        "natlAff": "None confirmed",
+        "stateAff": "None confirmed (independent local)",
+        "schools": 1,
+        "enrollment": 467,
+        "states": [
+          "CA"
+        ],
+        "centLat": 36.3555,
+        "centLng": -119.1717,
+        "pins": [
+          {
+            "lat": 36.355531,
+            "lng": -119.171722,
+            "name": "Eleanor Roosevelt Community Learning Center",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "Latino College Preparatory Academy Teachers Association (LCPATA)",
+        "natlAff": "None confirmed",
+        "stateAff": "None confirmed (independent local)",
+        "schools": 1,
+        "enrollment": 421,
+        "states": [
+          "CA"
+        ],
+        "centLat": 37.359,
+        "centLng": -121.8161,
+        "pins": [
+          {
+            "lat": 37.359028,
+            "lng": -121.816115,
+            "name": "Latino College Preparatory Academy",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "MAAC Community Charter School Educators Association (MCCSEA)",
+        "natlAff": "None confirmed",
+        "stateAff": "None confirmed (independent local)",
+        "schools": 1,
+        "enrollment": 171,
+        "states": [
+          "CA"
+        ],
+        "centLat": 32.6045,
+        "centLng": -117.0643,
+        "pins": [
+          {
+            "lat": 32.604521,
+            "lng": -117.064289,
+            "name": "MAAC Community Charter School",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "Santa Ynez Valley Charter School Teachers Association (SYVCSTA)",
+        "natlAff": "None confirmed",
+        "stateAff": "None confirmed (independent local)",
+        "schools": 1,
+        "enrollment": 189,
+        "states": [
+          "CA"
+        ],
+        "centLat": 34.6167,
+        "centLng": -120.083,
+        "pins": [
+          {
+            "lat": 34.61674,
+            "lng": -120.083,
+            "name": "Santa Ynez Valley Charter",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "Griffin Education Association (GEA)",
+        "natlAff": "None confirmed",
+        "stateAff": "None confirmed (independent local)",
+        "schools": 1,
+        "enrollment": 473,
+        "states": [
+          "CA"
+        ],
+        "centLat": 38.1496,
+        "centLng": -122.2432,
+        "pins": [
+          {
+            "lat": 38.149611,
+            "lng": -122.243224,
+            "name": "MIT Academy",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "Coalition of Oakland School for the Arts Educators (COSAE)",
+        "natlAff": "None confirmed",
+        "stateAff": "None confirmed (independent local)",
+        "schools": 1,
+        "enrollment": 828,
+        "states": [
+          "CA"
+        ],
+        "centLat": 37.8081,
+        "centLng": -122.2706,
+        "pins": [
+          {
+            "lat": 37.808105,
+            "lng": -122.270641,
+            "name": "Oakland School for the Arts",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "San Joaquin County Educators' Association (SJCEA)",
+        "natlAff": "None confirmed",
+        "stateAff": "None confirmed (county educators association)",
+        "schools": 1,
+        "enrollment": 1657,
+        "states": [
+          "CA"
+        ],
+        "centLat": 37.9082,
+        "centLng": -121.2306,
+        "pins": [
+          {
+            "lat": 37.908153,
+            "lng": -121.230624,
+            "name": "Venture Academy",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "United Teachers of Los Angeles (UTLA / AFT/CFT/AFL-CIO)",
+        "natlAff": "AFT (American Federation of Teachers)",
+        "stateAff": "CFT (California Federation of Teachers)",
+        "schools": 1,
+        "enrollment": 417,
+        "states": [
+          "CA"
+        ],
+        "centLat": 34.0591,
+        "centLng": -118.2667,
+        "pins": [
+          {
+            "lat": 34.05906,
+            "lng": -118.2667,
+            "name": "N.E.W. Academy of Science and Arts",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "United Teachers Los Angeles (UTLA / AFT/CFT/AFL-CIO)",
+        "natlAff": "AFT (American Federation of Teachers)",
+        "stateAff": "CFT (California Federation of Teachers)",
+        "schools": 1,
+        "enrollment": 484,
+        "states": [
+          "CA"
+        ],
+        "centLat": 34.0108,
+        "centLng": -118.2737,
+        "pins": [
+          {
+            "lat": 34.010811,
+            "lng": -118.273723,
+            "name": "Wallis Annenberg High",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "United Teachers of Los Angeles (UTLA — certificated) / SEIU Local 99 (classified)",
+        "natlAff": "AFT / SEIU",
+        "stateAff": "CFT / SEIU-California",
+        "schools": 1,
+        "enrollment": 526,
+        "states": [
+          "CA"
+        ],
+        "centLat": 34.0118,
+        "centLng": -118.2738,
+        "pins": [
+          {
+            "lat": 34.011763,
+            "lng": -118.273784,
+            "name": "Accelerated Charter Elementary (ACES)",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "Merced County Office Teachers' Association (MCOTA)",
+        "natlAff": "None confirmed",
+        "stateAff": "None confirmed (county office association)",
+        "schools": 1,
+        "enrollment": 334,
+        "states": [
+          "CA"
+        ],
+        "centLat": 37.2945,
+        "centLng": -120.5093,
+        "pins": [
+          {
+            "lat": 37.294539,
+            "lng": -120.509284,
+            "name": "Merced Scholars Charter",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "Orange County Education Arts Academy Teachers Association (OCEAATA)",
+        "natlAff": "None confirmed",
+        "stateAff": "None confirmed (independent local)",
+        "schools": 1,
+        "enrollment": 643,
+        "states": [
+          "CA"
+        ],
+        "centLat": 33.7526,
+        "centLng": -117.8692,
+        "pins": [
+          {
+            "lat": 33.752618,
+            "lng": -117.869165,
+            "name": "Orange County Educational Arts Academy (OCEAA)",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "Public Safety Academy Teachers Association (PSATA)",
+        "natlAff": "None confirmed",
+        "stateAff": "None confirmed (independent local)",
+        "schools": 1,
+        "enrollment": 396,
+        "states": [
+          "CA"
+        ],
+        "centLat": 34.0999,
+        "centLng": -117.2544,
+        "pins": [
+          {
+            "lat": 34.09993,
+            "lng": -117.25437,
+            "name": "Public Safety Academy",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "Steele Canyon Education Association (SCEA) / Steele Canyon ESP Association",
+        "natlAff": "None confirmed",
+        "stateAff": "None confirmed (independent locals)",
+        "schools": 1,
+        "enrollment": 2198,
+        "states": [
+          "CA"
+        ],
+        "centLat": 32.7301,
+        "centLng": -116.9252,
+        "pins": [
+          {
+            "lat": 32.730122,
+            "lng": -116.925152,
+            "name": "Steele Canyon High",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "California Federation of Teachers (CFT / AFT)",
+        "natlAff": "AFT (American Federation of Teachers)",
+        "stateAff": "CFT (California Federation of Teachers)",
+        "schools": 1,
+        "enrollment": 245,
+        "states": [
+          "CA"
+        ],
+        "centLat": 39.1467,
+        "centLng": -123.2009,
+        "pins": [
+          {
+            "lat": 39.146735,
+            "lng": -123.2009,
+            "name": "River Oak Charter",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "Bowman Ackerman Teachers Association (BATA)",
+        "natlAff": "None confirmed",
+        "stateAff": "None confirmed (independent local)",
+        "schools": 1,
+        "enrollment": 606,
+        "states": [
+          "CA"
+        ],
+        "centLat": 38.9353,
+        "centLng": -121.0555,
+        "pins": [
+          {
+            "lat": 38.935341,
+            "lng": -121.055526,
+            "name": "Bowman Charter",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "Ballington Educators Association (BEA)",
+        "natlAff": "None confirmed",
+        "stateAff": "None confirmed (independent local)",
+        "schools": 1,
+        "enrollment": 230,
+        "states": [
+          "CA"
+        ],
+        "centLat": 32.7909,
+        "centLng": -115.5712,
+        "pins": [
+          {
+            "lat": 32.790923,
+            "lng": -115.571178,
+            "name": "Ballington Academy for the Arts and Sciences",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "Yu Ming Educators Union (YMEU)",
+        "natlAff": "None confirmed",
+        "stateAff": "None confirmed (independent local)",
+        "schools": 1,
+        "enrollment": 959,
+        "states": [
+          "CA"
+        ],
+        "centLat": 37.818,
+        "centLng": -122.2821,
+        "pins": [
+          {
+            "lat": 37.818013,
+            "lng": -122.282138,
+            "name": "Yu Ming Charter",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "San Jose Phoenix Teachers Association / East Bay Educators United (TWO UNION SIGNALS — confirm active unit)",
+        "natlAff": "Unknown",
+        "stateAff": "Unknown — confirm active representative",
+        "schools": 1,
+        "enrollment": 173,
+        "states": [
+          "CA"
+        ],
+        "centLat": 37.7602,
+        "centLng": -122.1635,
+        "pins": [
+          {
+            "lat": 37.760231,
+            "lng": -122.163451,
+            "name": "LPS Oakland R&D Campus",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "Clayton Valley Education Association (CVEA)",
+        "natlAff": "None confirmed",
+        "stateAff": "None confirmed (independent local)",
+        "schools": 1,
+        "enrollment": 2373,
+        "states": [
+          "CA"
+        ],
+        "centLat": 37.9497,
+        "centLng": -121.969,
+        "pins": [
+          {
+            "lat": 37.949703,
+            "lng": -121.969046,
+            "name": "Clayton Valley Charter High",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "Oxnard Federation of Teachers & School Employees (OFTSE / CFT)",
+        "natlAff": "AFT (American Federation of Teachers)",
+        "stateAff": "CFT (California Federation of Teachers)",
+        "schools": 1,
+        "enrollment": 313,
+        "states": [
+          "CA"
+        ],
+        "centLat": 37.3668,
+        "centLng": -121.8579,
+        "pins": [
+          {
+            "lat": 37.366775,
+            "lng": -121.857906,
+            "name": "ACE Charter High",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "Riverside County Office Teachers Association (RCOTA)",
+        "natlAff": "None confirmed",
+        "stateAff": "None confirmed (county teachers association)",
+        "schools": 1,
+        "enrollment": 612,
+        "states": [
+          "CA"
+        ],
+        "centLat": 33.9789,
+        "centLng": -117.3805,
+        "pins": [
+          {
+            "lat": 33.9789,
+            "lng": -117.3805,
+            "name": "Come Back Kids (CBK Charter)",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "East Bay Innovation Academy Teachers Association (EBIATA)",
+        "natlAff": "None confirmed",
+        "stateAff": "None confirmed (independent local)",
+        "schools": 1,
+        "enrollment": 451,
+        "states": [
+          "CA"
+        ],
+        "centLat": 37.746,
+        "centLng": -122.1414,
+        "pins": [
+          {
+            "lat": 37.746032,
+            "lng": -122.141364,
+            "name": "East Bay Innovation Academy — Lower School",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "California School of the Arts Association (CSAA)",
+        "natlAff": "None confirmed",
+        "stateAff": "None confirmed (independent local)",
+        "schools": 1,
+        "enrollment": 974,
+        "states": [
+          "CA"
+        ],
+        "centLat": 34.1364,
+        "centLng": -117.9686,
+        "pins": [
+          {
+            "lat": 34.136385,
+            "lng": -117.968568,
+            "name": "California School of the Arts — San Gabriel Valley",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "Journey Teachers Association (JTA)",
+        "natlAff": "None confirmed",
+        "stateAff": "None confirmed (independent local)",
+        "schools": 1,
+        "enrollment": 570,
+        "states": [
+          "CA"
+        ],
+        "centLat": 33.9187,
+        "centLng": -117.2169,
+        "pins": [
+          {
+            "lat": 33.918667,
+            "lng": -117.216865,
+            "name": "The Journey School",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "Oxnard Federation of Teachers and Staff (OFTS / CFT)",
+        "natlAff": "AFT (American Federation of Teachers)",
+        "stateAff": "CFT (California Federation of Teachers)",
+        "schools": 1,
+        "enrollment": 266,
+        "states": [
+          "CA"
+        ],
+        "centLat": 34.2063,
+        "centLng": -119.0745,
+        "pins": [
+          {
+            "lat": 34.206266,
+            "lng": -119.07449,
+            "name": "Architecture, Construction & Engineering Charter",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "Hometech Charter – Aspire Teachers Association (HCATA)",
+        "natlAff": "None confirmed",
+        "stateAff": "None confirmed (independent local)",
+        "schools": 1,
+        "enrollment": 129,
+        "states": [
+          "CA"
+        ],
+        "centLat": 39.7565,
+        "centLng": -121.6263,
+        "pins": [
+          {
+            "lat": 39.756518,
+            "lng": -121.626318,
+            "name": "HomeTech Charter School",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "Darnall Charter Teachers Association (DCTA)",
+        "natlAff": "None confirmed",
+        "stateAff": "None confirmed (independent local)",
+        "schools": 1,
+        "enrollment": 442,
+        "states": [
+          "CA"
+        ],
+        "centLat": 32.747,
+        "centLng": -117.067,
+        "pins": [
+          {
+            "lat": 32.746997,
+            "lng": -117.066966,
+            "name": "Darnall Charter",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "Victor Valley Options for Youth Teachers Association (VVOFYTA)",
+        "natlAff": "None confirmed",
+        "stateAff": "None confirmed (independent local)",
+        "schools": 1,
+        "enrollment": 886,
+        "states": [
+          "CA"
+        ],
+        "centLat": 34.471,
+        "centLng": -117.355,
+        "pins": [
+          {
+            "lat": 34.471019,
+            "lng": -117.355012,
+            "name": "Options for Youth — Victor Valley Charter",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "Peabody Classified Association (PCA) / Peabody Charter Education Association (PCEA) — TWO UNITS",
+        "natlAff": "None confirmed",
+        "stateAff": "None confirmed (independent locals)",
+        "schools": 1,
+        "enrollment": 780,
+        "states": [
+          "CA"
+        ],
+        "centLat": 34.4417,
+        "centLng": -119.7286,
+        "pins": [
+          {
+            "lat": 34.441704,
+            "lng": -119.728625,
+            "name": "Peabody Charter",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "Mueller Charter School Teachers Association (MCSTA)",
+        "natlAff": "None confirmed",
+        "stateAff": "None confirmed (independent local)",
+        "schools": 1,
+        "enrollment": 1542,
+        "states": [
+          "CA"
+        ],
+        "centLat": 32.6269,
+        "centLng": -117.0938,
+        "pins": [
+          {
+            "lat": 32.626906,
+            "lng": -117.093812,
+            "name": "Mueller Charter (Robert L.)",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "San Carlos Teachers Association (SCTA)",
+        "natlAff": "None confirmed",
+        "stateAff": "None confirmed (independent local)",
+        "schools": 1,
+        "enrollment": 377,
+        "states": [
+          "CA"
+        ],
+        "centLat": 37.5097,
+        "centLng": -122.2855,
+        "pins": [
+          {
+            "lat": 37.509745,
+            "lng": -122.285493,
+            "name": "San Carlos Charter Learning Center",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "Yuba County Certificated Employees Association (YCCEA)",
+        "natlAff": "None confirmed",
+        "stateAff": "None confirmed (county certificated employees association)",
+        "schools": 1,
+        "enrollment": 250,
+        "states": [
+          "CA"
+        ],
+        "centLat": 39.1471,
+        "centLng": -121.592,
+        "pins": [
+          {
+            "lat": 39.147149,
+            "lng": -121.591962,
+            "name": "Yuba County Career Preparatory Charter",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "Orange Unified Education Association (OUEA)",
+        "natlAff": "None confirmed",
+        "stateAff": "None confirmed (unified district educators association)",
+        "schools": 1,
+        "enrollment": 1137,
+        "states": [
+          "CA"
+        ],
+        "centLat": 33.7954,
+        "centLng": -117.7977,
+        "pins": [
+          {
+            "lat": 33.795387,
+            "lng": -117.797717,
+            "name": "Santiago Charter Middle",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "Childrens Community Charter Teachers Association (CCCTA)",
+        "natlAff": "None confirmed",
+        "stateAff": "None confirmed (independent local)",
+        "schools": 1,
+        "enrollment": 220,
+        "states": [
+          "CA"
+        ],
+        "centLat": 39.7837,
+        "centLng": -121.5793,
+        "pins": [
+          {
+            "lat": 39.783741,
+            "lng": -121.579258,
+            "name": "Children's Community Charter",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "San Jacinto Valley Academy Teachers Association (SJVATA)",
+        "natlAff": "None confirmed",
+        "stateAff": "None confirmed (independent local)",
+        "schools": 1,
+        "enrollment": 1658,
+        "states": [
+          "CA"
+        ],
+        "centLat": 33.7941,
+        "centLng": -116.9604,
+        "pins": [
+          {
+            "lat": 33.794137,
+            "lng": -116.960404,
+            "name": "San Jacinto Valley Academy",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "Grizzly Education Association (GrzEA)",
+        "natlAff": "None confirmed",
+        "stateAff": "None confirmed (independent local)",
+        "schools": 1,
+        "enrollment": 241,
+        "states": [
+          "CA"
+        ],
+        "centLat": 35.3242,
+        "centLng": -120.7296,
+        "pins": [
+          {
+            "lat": 35.324192,
+            "lng": -120.729577,
+            "name": "Grizzly Challenge Charter",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "Helix Teachers Association / Helix Charter High School Association Chapter 852 / Helix Classified Association (CTA/NEA) — THREE SIGNALS — confirm active unit(s)",
+        "natlAff": "NEA",
+        "stateAff": "CTA",
+        "schools": 1,
+        "enrollment": 2554,
+        "states": [
+          "CA"
+        ],
+        "centLat": 32.7538,
+        "centLng": -117.0364,
+        "pins": [
+          {
+            "lat": 32.753825,
+            "lng": -117.036425,
+            "name": "Helix High",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "University Council — American Federation of Teachers (UC-AFT), Unit IX (Non-Senate Instructional)",
+        "natlAff": "AFT (American Federation of Teachers)",
+        "stateAff": "None (UC-AFT is a systemwide UC bargaining unit — not CTA or CFT)",
+        "schools": 1,
+        "enrollment": 825,
+        "states": [
+          "CA"
+        ],
+        "centLat": 32.883,
+        "centLng": -117.2222,
+        "pins": [
+          {
+            "lat": 32.882984,
+            "lng": -117.222249,
+            "name": "Preuss School UCSD",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "Fresno Teachers Association (FTA / CTA/NEA)",
+        "natlAff": "NEA (National Education Association)",
+        "stateAff": "CTA (California Teachers Association)",
+        "schools": 1,
+        "enrollment": 368,
+        "states": [
+          "CA"
+        ],
+        "centLat": 36.7264,
+        "centLng": -119.8185,
+        "pins": [
+          {
+            "lat": 36.726376,
+            "lng": -119.818457,
+            "name": "Edison-Bethune Charter Academy",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "Mare Island Technology Academy Teachers Association (MITATA)",
+        "natlAff": "None confirmed",
+        "stateAff": "None confirmed (independent local)",
+        "schools": 1,
+        "enrollment": 260,
+        "states": [
+          "CA"
+        ],
+        "centLat": 38.1496,
+        "centLng": -122.2432,
+        "pins": [
+          {
+            "lat": 38.149611,
+            "lng": -122.243224,
+            "name": "Mare Island Technology Academy Middle School",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "La Mesa-Spring Valley Teachers Association (CTA/NEA)",
+        "natlAff": "National Education Association (NEA)",
+        "stateAff": "California Teachers Association (CTA)",
+        "schools": 1,
+        "enrollment": 156,
+        "states": [
+          "CA"
+        ],
+        "centLat": 32.7729,
+        "centLng": -117.007,
+        "pins": [
+          {
+            "lat": 32.772921,
+            "lng": -117.006989,
+            "name": "Sparrow Academy",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "Environmental Educators United (CTA/NEA)",
+        "natlAff": "National Education Association (NEA)",
+        "stateAff": "California Teachers Association (CTA)",
+        "schools": 1,
+        "enrollment": 603,
+        "states": [
+          "CA"
+        ],
+        "centLat": 36.7945,
+        "centLng": -119.5983,
+        "pins": [
+          {
+            "lat": 36.794545,
+            "lng": -119.598285,
+            "name": "Quail Lake Environmental Charter",
+            "state": "CA"
+          }
+        ]
+      },
+      {
+        "union": "Arizona Alliance of Charter Teachers and Staff (AACTS), AFT Local 6627",
+        "natlAff": "American Federation of Teachers (AFT) / AFL-CIO",
+        "stateAff": "AZ-ACTS / AACTS",
+        "schools": 1,
+        "enrollment": 753,
+        "states": [
+          "AZ"
+        ],
+        "centLat": 32.2728,
+        "centLng": -110.871,
+        "pins": [
+          {
+            "lat": 32.2728,
+            "lng": -110.871,
+            "name": "BASIS Tucson North",
+            "state": "AZ"
+          }
+        ]
+      },
+      {
+        "union": "ISAAC Education Association",
+        "natlAff": "NEA",
+        "stateAff": "CEA (Connecticut Education Association)",
+        "schools": 1,
+        "enrollment": 328,
+        "states": [
+          "CT"
+        ],
+        "centLat": 41.3559,
+        "centLng": -72.0982,
+        "pins": [
+          {
+            "lat": 41.355875,
+            "lng": -72.098199,
+            "name": "INTERDISTRICT SCHOOL FOR ARTS AND COMMUNICATION (ISAAC)",
+            "state": "CT"
+          }
+        ]
+      },
+      {
+        "union": "New Beginnings Education Association",
+        "natlAff": "NEA",
+        "stateAff": "CEA (Connecticut Education Association)",
+        "schools": 1,
+        "enrollment": 431,
+        "states": [
+          "CT"
+        ],
+        "centLat": 41.1697,
+        "centLng": -73.1989,
+        "pins": [
+          {
+            "lat": 41.169724,
+            "lng": -73.198901,
+            "name": "NEW BEGINNINGS FAMILY ACADEMY",
+            "state": "CT"
+          }
+        ]
+      },
+      {
+        "union": "UAW Local 2110",
+        "natlAff": "UAW / AFL-CIO",
+        "stateAff": "UAW (International Union, United Automobile Workers)",
+        "schools": 1,
+        "enrollment": 221,
+        "states": [
+          "CT"
+        ],
+        "centLat": 41.3379,
+        "centLng": -72.9595,
+        "pins": [
+          {
+            "lat": 41.3379,
+            "lng": -72.9595,
+            "name": "COMMON GROUND HIGH SCHOOL",
+            "state": "CT"
+          }
+        ]
+      },
+      {
+        "union": "Norwich Integrated Education Association",
+        "natlAff": "NEA",
+        "stateAff": "CEA (Connecticut Education Association)",
+        "schools": 1,
+        "enrollment": 364,
+        "states": [
+          "CT"
+        ],
+        "centLat": 41.5113,
+        "centLng": -72.0776,
+        "pins": [
+          {
+            "lat": 41.5113,
+            "lng": -72.0776,
+            "name": "INTEGRATED DAY CHARTER SCHOOL",
+            "state": "CT"
+          }
+        ]
+      },
+      {
+        "union": "DCI Staff Union",
+        "natlAff": "AFT",
+        "stateAff": "WTU (sister AFT affiliate)",
+        "schools": 1,
+        "enrollment": 1654,
+        "states": [
+          "DC"
+        ],
+        "centLat": 38.9727,
+        "centLng": -77.0342,
+        "pins": [
+          {
+            "lat": 38.972736,
+            "lng": -77.034222,
+            "name": "DISTRICT OF COLUMBIA INTERNATIONAL SCHOOL (DCI)",
+            "state": "DC"
+          }
+        ]
+      },
+      {
+        "union": "Breakthrough Montessori Staff Union",
+        "natlAff": "AFT",
+        "stateAff": "WTU (sister AFT affiliate)",
+        "schools": 1,
+        "enrollment": 383,
+        "states": [
+          "DC"
+        ],
+        "centLat": 38.9734,
+        "centLng": -77.0144,
+        "pins": [
+          {
+            "lat": 38.973379,
+            "lng": -77.014427,
+            "name": "BREAKTHROUGH MONTESSORI PCS",
+            "state": "DC"
+          }
+        ]
+      },
+      {
+        "union": "Charter School of Wilmington Education Association (CSWEA)",
+        "natlAff": "National Education Association (NEA)",
+        "stateAff": "Delaware State Education Association (DSEA)",
+        "schools": 1,
+        "enrollment": 977,
+        "states": [
+          "DE"
+        ],
+        "centLat": 39.7536,
+        "centLng": -75.5875,
+        "pins": [
+          {
+            "lat": 39.753642,
+            "lng": -75.587488,
+            "name": "Charter School of Wilmington",
+            "state": "DE"
+          }
+        ]
+      },
+      {
+        "union": "Odyssey Charter School Education Association (OCSEA)",
+        "natlAff": "National Education Association (NEA)",
+        "stateAff": "Delaware State Education Association (DSEA)",
+        "schools": 1,
+        "enrollment": 2286,
+        "states": [
+          "DE"
+        ],
+        "centLat": 39.7594,
+        "centLng": -75.5988,
+        "pins": [
+          {
+            "lat": 39.759383,
+            "lng": -75.598801,
+            "name": "Odyssey Charter School",
+            "state": "DE"
+          }
+        ]
+      },
+      {
+        "union": "Sussex Academy of Arts and Sciences Education Association (SAASEA)",
+        "natlAff": "National Education Association (NEA)",
+        "stateAff": "Delaware State Education Association (DSEA)",
+        "schools": 1,
+        "enrollment": 1182,
+        "states": [
+          "DE"
+        ],
+        "centLat": 38.6972,
+        "centLng": -75.3681,
+        "pins": [
+          {
+            "lat": 38.697175,
+            "lng": -75.368097,
+            "name": "Sussex Academy of Arts and Sciences",
+            "state": "DE"
+          }
+        ]
+      },
+      {
+        "union": "Sussex Montessori Education Association (SMEA)",
+        "natlAff": "National Education Association (NEA)",
+        "stateAff": "Delaware State Education Association (DSEA)",
+        "schools": 1,
+        "enrollment": 383,
+        "states": [
+          "DE"
+        ],
+        "centLat": 38.6454,
+        "centLng": -75.6394,
+        "pins": [
+          {
+            "lat": 38.645386,
+            "lng": -75.639406,
+            "name": "Sussex Montessori School",
+            "state": "DE"
+          }
+        ]
+      },
+      {
+        "union": "Broward Teachers Union (BTU) / Florida Education Association (FEA) / AFT / NEA / AFL-CIO — BTU Charter School Professionals bargaining unit covers City of Pembroke Pines Charter School System employees",
+        "natlAff": "N/A",
+        "stateAff": "N/A",
+        "schools": 1,
+        "enrollment": 2168,
+        "states": [
+          "FL"
+        ],
+        "centLat": 26.0315,
+        "centLng": -80.3747,
+        "pins": [
+          {
+            "lat": 26.031479,
+            "lng": -80.374666,
+            "name": "Pembroke Pines FSU Charter Elementary School",
+            "state": "FL"
+          }
+        ]
+      },
+      {
+        "union": "Polk Education Association (PEA) / FEA — 3 separate certified units (instructional, classified, paraprofessional)",
+        "natlAff": "FEA / NEA",
+        "stateAff": "Florida Education Association (FEA)",
+        "schools": 1,
+        "enrollment": 168,
+        "states": [
+          "FL"
+        ],
+        "centLat": 27.8797,
+        "centLng": -81.8404,
+        "pins": [
+          {
+            "lat": 27.879723,
+            "lng": -81.840351,
+            "name": "Compass Middle Charter School",
+            "state": "FL"
+          }
+        ]
+      },
+      {
+        "union": "Prairie Crossing Federation of Teachers and Support Staff",
+        "natlAff": "AFT",
+        "stateAff": "Illinois Federation of Teachers (IFT)",
+        "schools": 1,
+        "enrollment": 433,
+        "states": [
+          "IL"
+        ],
+        "centLat": 42.3303,
+        "centLng": -88.0064,
+        "pins": [
+          {
+            "lat": 42.330277,
+            "lng": -88.006413,
+            "name": "PRAIRIE CROSSING CHARTER SCHOOL",
+            "state": "IL"
+          }
+        ]
+      },
+      {
+        "union": "Morris Jeff United Educators (MJUE) / UTNO",
+        "natlAff": "AFT / AFL-CIO (AFT Local 527)",
+        "stateAff": "United Teachers of New Orleans (UTNO) / Louisiana Federation of Teachers (LFT)",
+        "schools": 1,
+        "enrollment": 1442,
+        "states": [
+          "LA"
+        ],
+        "centLat": 29.9679,
+        "centLng": -90.0935,
+        "pins": [
+          {
+            "lat": 29.967943,
+            "lng": -90.0935,
+            "name": "Morris Jeff Community School",
+            "state": "LA"
+          }
+        ]
+      },
+      {
+        "union": "United Teachers of Franklin / UTNO",
+        "natlAff": "AFT / AFL-CIO (AFT Local 527)",
+        "stateAff": "United Teachers of New Orleans (UTNO) / Louisiana Federation of Teachers (LFT)",
+        "schools": 1,
+        "enrollment": 1056,
+        "states": [
+          "LA"
+        ],
+        "centLat": 30.0244,
+        "centLng": -90.0655,
+        "pins": [
+          {
+            "lat": 30.024374,
+            "lng": -90.065491,
+            "name": "Benjamin Franklin High School",
+            "state": "LA"
+          }
+        ]
+      },
+      {
+        "union": "Bricolage Academy Educators United (BAEU) / UTNO",
+        "natlAff": "AFT / AFL-CIO (AFT Local 527)",
+        "stateAff": "United Teachers of New Orleans (UTNO) / Louisiana Federation of Teachers (LFT)",
+        "schools": 1,
+        "enrollment": 965,
+        "states": [
+          "LA"
+        ],
+        "centLat": 29.9743,
+        "centLng": -90.0766,
+        "pins": [
+          {
+            "lat": 29.974268,
+            "lng": -90.076582,
+            "name": "Bricolage Academy",
+            "state": "LA"
+          }
+        ]
+      },
+      {
+        "union": "TRUST (The Rooted Union of Staff and Teachers)",
+        "natlAff": "AFT",
+        "stateAff": "United Teachers of New Orleans (UTNO), AFT Local 527",
+        "schools": 1,
+        "enrollment": 152,
+        "states": [
+          "LA"
+        ],
+        "centLat": 30.0305,
+        "centLng": -90.0442,
+        "pins": [
+          {
+            "lat": 30.030455,
+            "lng": -90.044186,
+            "name": "Rooted School New Orleans",
+            "state": "LA"
+          }
+        ]
+      },
+      {
+        "union": "Codman Academy Educators Union / Boston Teachers Union Local 66",
+        "natlAff": "AFT",
+        "stateAff": "AFT Massachusetts",
+        "schools": 1,
+        "enrollment": 344,
+        "states": [
+          "MA"
+        ],
+        "centLat": 42.2898,
+        "centLng": -71.0713,
+        "pins": [
+          {
+            "lat": 42.289796,
+            "lng": -71.071261,
+            "name": "CODMAN ACADEMY CHARTER PUBLIC SCHOOL",
+            "state": "MA"
+          }
+        ]
+      },
+      {
+        "union": "AMSA Educators Association / Teamsters Local 170",
+        "natlAff": "IBT / AFL-CIO",
+        "stateAff": "IBT (International Brotherhood of Teamsters)",
+        "schools": 1,
+        "enrollment": 970,
+        "states": [
+          "MA"
+        ],
+        "centLat": 42.3337,
+        "centLng": -71.5778,
+        "pins": [
+          {
+            "lat": 42.333658,
+            "lng": -71.577779,
+            "name": "ADVANCED MATH AND SCIENCE ACADEMY CHARTER SCHOOL",
+            "state": "MA"
+          }
+        ]
+      },
+      {
+        "union": "Community Charter School of Cambridge Educators Union / AFT Massachusetts",
+        "natlAff": "AFT",
+        "stateAff": "AFT Massachusetts",
+        "schools": 1,
+        "enrollment": 251,
+        "states": [
+          "MA"
+        ],
+        "centLat": 42.3677,
+        "centLng": -71.0852,
+        "pins": [
+          {
+            "lat": 42.367725,
+            "lng": -71.085231,
+            "name": "COMMUNITY CHARTER SCHOOL OF CAMBRIDGE",
+            "state": "MA"
+          }
+        ]
+      },
+      {
+        "union": "Neighborhood House Charter School Educators Union / Boston Teachers Union Local 66",
+        "natlAff": "AFT",
+        "stateAff": "AFT Massachusetts",
+        "schools": 1,
+        "enrollment": 786,
+        "states": [
+          "MA"
+        ],
+        "centLat": 42.2934,
+        "centLng": -71.0536,
+        "pins": [
+          {
+            "lat": 42.293365,
+            "lng": -71.053553,
+            "name": "NEIGHBORHOOD HOUSE CHARTER SCHOOL",
+            "state": "MA"
+          }
+        ]
+      },
+      {
+        "union": "Cape Cod Lighthouse Charter School Educators Association / AFT Massachusetts",
+        "natlAff": "AFT",
+        "stateAff": "AFT Massachusetts",
+        "schools": 1,
+        "enrollment": 251,
+        "states": [
+          "MA"
+        ],
+        "centLat": 41.7115,
+        "centLng": -70.0243,
+        "pins": [
+          {
+            "lat": 41.711505,
+            "lng": -70.024331,
+            "name": "CAPE COD LIGHTHOUSE CHARTER SCHOOL",
+            "state": "MA"
+          }
+        ]
+      },
+      {
+        "union": "City on a Hill Educators Association / Boston Teachers Union Local 66",
+        "natlAff": "AFT",
+        "stateAff": "AFT Massachusetts",
+        "schools": 1,
+        "enrollment": 78,
+        "states": [
+          "MA"
+        ],
+        "centLat": 42.3237,
+        "centLng": -71.0879,
+        "pins": [
+          {
+            "lat": 42.323741,
+            "lng": -71.0879,
+            "name": "CITY ON A HILL CHARTER PUBLIC SCHOOL",
+            "state": "MA"
+          }
+        ]
+      },
+      {
+        "union": "PVPA Staff Association / UAW Local 2322",
+        "natlAff": "UAW / AFL-CIO",
+        "stateAff": "UAW (United Auto Workers)",
+        "schools": 1,
+        "enrollment": 397,
+        "states": [
+          "MA"
+        ],
+        "centLat": 42.2413,
+        "centLng": -72.5994,
+        "pins": [
+          {
+            "lat": 42.24129,
+            "lng": -72.59941,
+            "name": "PIONEER VALLEY PERFORMING ARTS CHARTER PUBLIC SCHOOL",
+            "state": "MA"
+          }
+        ]
+      },
+      {
+        "union": "FRCSTA — Foxborough Regional Charter School Teachers Association",
+        "natlAff": "Independent (no national affiliation)",
+        "stateAff": "Independent (no state affiliate)",
+        "schools": 1,
+        "enrollment": 1459,
+        "states": [
+          "MA"
+        ],
+        "centLat": 42.0573,
+        "centLng": -71.2448,
+        "pins": [
+          {
+            "lat": 42.057287,
+            "lng": -71.244753,
+            "name": "FOXBOROUGH REGIONAL CHARTER SCHOOL",
+            "state": "MA"
+          }
+        ]
+      },
+      {
+        "union": "Baxter Academy Education Association",
+        "natlAff": "NEA",
+        "stateAff": "MEA (Maine Education Association)",
+        "schools": 1,
+        "enrollment": 384,
+        "states": [
+          "ME"
+        ],
+        "centLat": 43.6605,
+        "centLng": -70.262,
+        "pins": [
+          {
+            "lat": 43.660498,
+            "lng": -70.262019,
+            "name": "BAXTER ACADEMY FOR TECHNOLOGY AND SCIENCE",
+            "state": "ME"
+          }
+        ]
+      },
+      {
+        "union": "Arts Academy in the Woods Federation of Teachers (Michigan ACTS — Michigan Alliance of Charter Teachers and Staff)",
+        "natlAff": "AFT / AFL-CIO (AFT Local 6482)",
+        "stateAff": "AFT Michigan",
+        "schools": 1,
+        "enrollment": 327,
+        "states": [
+          "MI"
+        ],
+        "centLat": 42.5324,
+        "centLng": -82.9519,
+        "pins": [
+          {
+            "lat": 42.5324,
+            "lng": -82.9519,
+            "name": "Arts Academy in the Woods",
+            "state": "MI"
+          }
+        ]
+      },
+      {
+        "union": "Michigan Alliance of Charter Teachers and Staff (Michigan ACTS)",
+        "natlAff": "AFT / AFL-CIO (AFT Local 6482)",
+        "stateAff": "AFT Michigan",
+        "schools": 1,
+        "enrollment": 388,
+        "states": [
+          "MI"
+        ],
+        "centLat": 42.4228,
+        "centLng": -83.1917,
+        "pins": [
+          {
+            "lat": 42.4228,
+            "lng": -83.1917,
+            "name": "University Yes Academy",
+            "state": "MI"
+          }
+        ]
+      },
+      {
+        "union": "Unknown — bargaining agreement active per school transparency page; union name requires MERC FOIA",
+        "natlAff": "Unknown — MERC FOIA required",
+        "stateAff": "Unknown — MERC FOIA required",
+        "schools": 1,
+        "enrollment": 287,
+        "states": [
+          "MI"
+        ],
+        "centLat": 42.9553,
+        "centLng": -85.6622,
+        "pins": [
+          {
+            "lat": 42.95534,
+            "lng": -85.662225,
+            "name": "Grand Rapids Child Discovery Center",
+            "state": "MI"
+          }
+        ]
+      },
+      {
+        "union": "Michigan Education Association (MEA) / NEA — dual bargaining unit (teachers + job coaches/ESP)",
+        "natlAff": "National Education Association (NEA)",
+        "stateAff": "Michigan Education Association (MEA)",
+        "schools": 1,
+        "enrollment": 46,
+        "states": [
+          "MI"
+        ],
+        "centLat": 42.585,
+        "centLng": -82.9512,
+        "pins": [
+          {
+            "lat": 42.585045,
+            "lng": -82.951184,
+            "name": "Macomb Montessori Academy",
+            "state": "MI"
+          }
+        ]
+      },
+      {
+        "union": "TCGIS Staff Association",
+        "natlAff": "NEA / AFT",
+        "stateAff": "Education Minnesota (EdMN)",
+        "schools": 1,
+        "enrollment": 563,
+        "states": [
+          "MN"
+        ],
+        "centLat": 44.9759,
+        "centLng": -93.1441,
+        "pins": [
+          {
+            "lat": 44.975874,
+            "lng": -93.144072,
+            "name": "TWIN CITIES GERMAN IMMERSION SCHOOL (TCGIS)",
+            "state": "MN"
+          }
+        ]
+      },
+      {
+        "union": "CSE Staff Association",
+        "natlAff": "NEA / AFT",
+        "stateAff": "Education Minnesota (EdMN)",
+        "schools": 1,
+        "enrollment": 560,
+        "states": [
+          "MN"
+        ],
+        "centLat": 44.9911,
+        "centLng": -93.1117,
+        "pins": [
+          {
+            "lat": 44.991064,
+            "lng": -93.111703,
+            "name": "COMMUNITY SCHOOL OF EXCELLENCE (CSE)",
+            "state": "MN"
+          }
+        ]
+      },
+      {
+        "union": "ASA Staff Association",
+        "natlAff": "NEA / AFT",
+        "stateAff": "Education Minnesota (EdMN)",
+        "schools": 1,
+        "enrollment": 171,
+        "states": [
+          "MN"
+        ],
+        "centLat": 45.5029,
+        "centLng": -93.2341,
+        "pins": [
+          {
+            "lat": 45.502922,
+            "lng": -93.234055,
+            "name": "ART AND SCIENCE ACADEMY",
+            "state": "MN"
+          }
+        ]
+      },
+      {
+        "union": "Ubah Academy Staff Association",
+        "natlAff": "NEA / AFT",
+        "stateAff": "Education Minnesota (EdMN)",
+        "schools": 1,
+        "enrollment": 321,
+        "states": [
+          "MN"
+        ],
+        "centLat": 44.9237,
+        "centLng": -93.4212,
+        "pins": [
+          {
+            "lat": 44.923732,
+            "lng": -93.421238,
+            "name": "Ubah Medical Academy",
+            "state": "MN"
+          }
+        ]
+      },
+      {
+        "union": "Great River School Union",
+        "natlAff": "NEA / AFT",
+        "stateAff": "Education Minnesota (EdMN)",
+        "schools": 1,
+        "enrollment": 411,
+        "states": [
+          "MN"
+        ],
+        "centLat": 44.9704,
+        "centLng": -93.1555,
+        "pins": [
+          {
+            "lat": 44.970377,
+            "lng": -93.155464,
+            "name": "Great River School",
+            "state": "MN"
+          }
+        ]
+      },
+      {
+        "union": "Queen City Education Association",
+        "natlAff": "NEA",
+        "stateAff": "NJEA",
+        "schools": 1,
+        "enrollment": 378,
+        "states": [
+          "NJ"
+        ],
+        "centLat": 40.6038,
+        "centLng": -74.4294,
+        "pins": [
+          {
+            "lat": 40.60382,
+            "lng": -74.42944,
+            "name": "The Queen City Academy Charter School",
+            "state": "NJ"
+          }
+        ]
+      },
+      {
+        "union": "LEAP Academy Teachers Association",
+        "natlAff": "NEA",
+        "stateAff": "NJEA",
+        "schools": 1,
+        "enrollment": 1540,
+        "states": [
+          "NJ"
+        ],
+        "centLat": 39.9461,
+        "centLng": -75.1183,
+        "pins": [
+          {
+            "lat": 39.94608,
+            "lng": -75.118301,
+            "name": "LEAP Academy University Charter School",
+            "state": "NJ"
+          }
+        ]
+      },
+      {
+        "union": "New Horizons Employee Association",
+        "natlAff": "N/A",
+        "stateAff": "Independent",
+        "schools": 1,
+        "enrollment": 370,
+        "states": [
+          "NJ"
+        ],
+        "centLat": 40.7361,
+        "centLng": -74.1894,
+        "pins": [
+          {
+            "lat": 40.736069,
+            "lng": -74.18945,
+            "name": "New Horizons Community Charter School",
+            "state": "NJ"
+          }
+        ]
+      },
+      {
+        "union": "Paterson Charter Education Association",
+        "natlAff": "NEA",
+        "stateAff": "NJEA",
+        "schools": 1,
+        "enrollment": 1708,
+        "states": [
+          "NJ"
+        ],
+        "centLat": 40.896,
+        "centLng": -74.1552,
+        "pins": [
+          {
+            "lat": 40.896049,
+            "lng": -74.155175,
+            "name": "Paterson Charter School for Science and Technology",
+            "state": "NJ"
+          }
+        ]
+      },
+      {
+        "union": "Community Charter School of Paterson Education Association",
+        "natlAff": "NEA",
+        "stateAff": "NJEA",
+        "schools": 1,
+        "enrollment": 896,
+        "states": [
+          "NJ"
+        ],
+        "centLat": 40.9117,
+        "centLng": -74.1777,
+        "pins": [
+          {
+            "lat": 40.911659,
+            "lng": -74.177691,
+            "name": "Community Charter School of Paterson",
+            "state": "NJ"
+          }
+        ]
+      },
+      {
+        "union": "Dr. Lena Edwards Academic Charter School Education Association",
+        "natlAff": "NEA",
+        "stateAff": "NJEA",
+        "schools": 1,
+        "enrollment": 383,
+        "states": [
+          "NJ"
+        ],
+        "centLat": 40.7138,
+        "centLng": -74.0726,
+        "pins": [
+          {
+            "lat": 40.71379,
+            "lng": -74.072607,
+            "name": "Dr. Lena Edwards Academic Charter School",
+            "state": "NJ"
+          }
+        ]
+      },
+      {
+        "union": "Learning Community Charter School Education Association",
+        "natlAff": "NEA",
+        "stateAff": "NJEA",
+        "schools": 1,
+        "enrollment": 634,
+        "states": [
+          "NJ"
+        ],
+        "centLat": 40.7228,
+        "centLng": -74.0757,
+        "pins": [
+          {
+            "lat": 40.722834,
+            "lng": -74.075704,
+            "name": "Learning Community Charter School",
+            "state": "NJ"
+          }
+        ]
+      },
+      {
+        "union": "Soaring Heights Charter School Education Association (name inferred — pending OPRA)",
+        "natlAff": "NEA (inferred)",
+        "stateAff": "NJEA (inferred)",
+        "schools": 1,
+        "enrollment": 272,
+        "states": [
+          "NJ"
+        ],
+        "centLat": 40.6981,
+        "centLng": -74.1007,
+        "pins": [
+          {
+            "lat": 40.6981,
+            "lng": -74.1007,
+            "name": "Soaring Heights Charter School",
+            "state": "NJ"
+          }
+        ]
+      },
+      {
+        "union": "Sussex County Charter Education Association",
+        "natlAff": "NEA",
+        "stateAff": "NJEA",
+        "schools": 1,
+        "enrollment": 225,
+        "states": [
+          "NJ"
+        ],
+        "centLat": 41.1128,
+        "centLng": -74.6343,
+        "pins": [
+          {
+            "lat": 41.112773,
+            "lng": -74.634263,
+            "name": "Sussex County Charter School",
+            "state": "NJ"
+          }
+        ]
+      },
+      {
+        "union": "Classical Academy Charter School Association",
+        "natlAff": "N/A",
+        "stateAff": "Independent",
+        "schools": 1,
+        "enrollment": 185,
+        "states": [
+          "NJ"
+        ],
+        "centLat": 40.8782,
+        "centLng": -74.143,
+        "pins": [
+          {
+            "lat": 40.878244,
+            "lng": -74.143047,
+            "name": "Classical Academy Charter School",
+            "state": "NJ"
+          }
+        ]
+      },
+      {
+        "union": "East Orange Community Charter Education Association",
+        "natlAff": "NEA",
+        "stateAff": "NJEA",
+        "schools": 1,
+        "enrollment": 414,
+        "states": [
+          "NJ"
+        ],
+        "centLat": 40.7737,
+        "centLng": -74.2211,
+        "pins": [
+          {
+            "lat": 40.773692,
+            "lng": -74.221081,
+            "name": "East Orange Community Charter School",
+            "state": "NJ"
+          }
+        ]
+      },
+      {
+        "union": "Englewood on the Palisades Charter School Teachers Association",
+        "natlAff": "AFT",
+        "stateAff": "AFT-NJ",
+        "schools": 1,
+        "enrollment": 306,
+        "states": [
+          "NJ"
+        ],
+        "centLat": 40.8995,
+        "centLng": -73.9751,
+        "pins": [
+          {
+            "lat": 40.899531,
+            "lng": -73.975058,
+            "name": "Englewood on the Palisades Charter School",
+            "state": "NJ"
+          }
+        ]
+      },
+      {
+        "union": "Greater Brunswick Charter School Education Association",
+        "natlAff": "NEA",
+        "stateAff": "NJEA",
+        "schools": 1,
+        "enrollment": 397,
+        "states": [
+          "NJ"
+        ],
+        "centLat": 40.4799,
+        "centLng": -74.4621,
+        "pins": [
+          {
+            "lat": 40.4799,
+            "lng": -74.4621,
+            "name": "Greater Brunswick Charter School",
+            "state": "NJ"
+          }
+        ]
+      },
+      {
+        "union": "International Charter School of Trenton Education Association",
+        "natlAff": "NEA",
+        "stateAff": "NJEA",
+        "schools": 1,
+        "enrollment": 108,
+        "states": [
+          "NJ"
+        ],
+        "centLat": 40.2052,
+        "centLng": -74.7502,
+        "pins": [
+          {
+            "lat": 40.2052,
+            "lng": -74.7502,
+            "name": "International Charter School",
+            "state": "NJ"
+          }
+        ]
+      },
+      {
+        "union": "Golden Door Education Association",
+        "natlAff": "NEA",
+        "stateAff": "NJEA",
+        "schools": 1,
+        "enrollment": 662,
+        "states": [
+          "NJ"
+        ],
+        "centLat": 40.7372,
+        "centLng": -74.0624,
+        "pins": [
+          {
+            "lat": 40.737207,
+            "lng": -74.062417,
+            "name": "Golden Door Charter School",
+            "state": "NJ"
+          }
+        ]
+      },
+      {
+        "union": "Ethical Community CS Education Association (pending OPRA confirmation)",
+        "natlAff": "NEA (inferred)",
+        "stateAff": "NJEA (inferred)",
+        "schools": 1,
+        "enrollment": 357,
+        "states": [
+          "NJ"
+        ],
+        "centLat": 40.7359,
+        "centLng": -74.0724,
+        "pins": [
+          {
+            "lat": 40.7359,
+            "lng": -74.0724,
+            "name": "The Ethical Community Charter School",
+            "state": "NJ"
+          }
+        ]
+      },
+      {
+        "union": "BelovED CS Education Association (pending OPRA confirmation)",
+        "natlAff": "NEA (inferred)",
+        "stateAff": "NJEA (inferred)",
+        "schools": 1,
+        "enrollment": 1573,
+        "states": [
+          "NJ"
+        ],
+        "centLat": 40.7179,
+        "centLng": -74.0583,
+        "pins": [
+          {
+            "lat": 40.7179,
+            "lng": -74.0583,
+            "name": "BelovED Community Charter School",
+            "state": "NJ"
+          }
+        ]
+      },
+      {
+        "union": "NEA-New Mexico (National Education Association)",
+        "natlAff": "NEA",
+        "stateAff": "NEA-NM",
+        "schools": 1,
+        "enrollment": 370,
+        "states": [
+          "NM"
+        ],
+        "centLat": 35.6248,
+        "centLng": -106.0098,
+        "pins": [
+          {
+            "lat": 35.624821,
+            "lng": -106.009809,
+            "name": "Monte del Sol Charter School",
+            "state": "NM"
+          }
+        ]
+      },
+      {
+        "union": "National Education Association (NEA)",
+        "natlAff": "NEA",
+        "stateAff": "NEA-NM (via PELRB)",
+        "schools": 1,
+        "enrollment": 200,
+        "states": [
+          "NM"
+        ],
+        "centLat": 32.3125,
+        "centLng": -106.7845,
+        "pins": [
+          {
+            "lat": 32.312513,
+            "lng": -106.784468,
+            "name": "J Paul Taylor Academy",
+            "state": "NM"
+          }
+        ]
+      },
+      {
+        "union": "NEA-NM (local chapter name unknown — coordinator action required)",
+        "natlAff": "NEA",
+        "stateAff": "NEA-NM",
+        "schools": 1,
+        "enrollment": 622,
+        "states": [
+          "NM"
+        ],
+        "centLat": 35.5361,
+        "centLng": -106.053,
+        "pins": [
+          {
+            "lat": 35.536064,
+            "lng": -106.052978,
+            "name": "Turquoise Trail Charter School",
+            "state": "NM"
+          }
+        ]
+      },
+      {
+        "union": "King Center United Professionals / NYSUT / AFT / NEA / AFL-CIO",
+        "natlAff": "American Federation of Teachers (AFT) / NEA / AFL-CIO",
+        "stateAff": "New York State United Teachers (NYSUT)",
+        "schools": 1,
+        "enrollment": 419,
+        "states": [
+          "NY"
+        ],
+        "centLat": 42.9189,
+        "centLng": -78.8092,
+        "pins": [
+          {
+            "lat": 42.918918,
+            "lng": -78.809205,
+            "name": "King Center Charter School",
+            "state": "NY"
+          }
+        ]
+      },
+      {
+        "union": "NYSUT (local name not specified in case record)",
+        "natlAff": "NEA / AFT (NYSUT is dual-affiliated)",
+        "stateAff": "New York State United Teachers (NYSUT)",
+        "schools": 1,
+        "enrollment": 972,
+        "states": [
+          "NY"
+        ],
+        "centLat": 40.9253,
+        "centLng": -72.7445,
+        "pins": [
+          {
+            "lat": 40.925282,
+            "lng": -72.744546,
+            "name": "Riverhead Charter School",
+            "state": "NY"
+          }
+        ]
+      },
+      {
+        "union": "Global Concepts Charter School Union (INDEPENDENT — no national affiliation)",
+        "natlAff": "None — independent union",
+        "stateAff": "None — independent union",
+        "schools": 1,
+        "enrollment": 878,
+        "states": [
+          "NY"
+        ],
+        "centLat": 42.8265,
+        "centLng": -78.8145,
+        "pins": [
+          {
+            "lat": 42.8265,
+            "lng": -78.8145,
+            "name": "Global Concepts Charter School",
+            "state": "NY"
+          }
+        ]
+      },
+      {
+        "union": "Yonkers Federation of Teachers (YFT) / NYSUT / AFT",
+        "natlAff": "American Federation of Teachers (AFT) / AFL-CIO",
+        "stateAff": "New York State United Teachers (NYSUT)",
+        "schools": 1,
+        "enrollment": 1127,
+        "states": [
+          "NY"
+        ],
+        "centLat": 40.9442,
+        "centLng": -73.8968,
+        "pins": [
+          {
+            "lat": 40.9442,
+            "lng": -73.8968,
+            "name": "Charter School for Educational Excellence",
+            "state": "NY"
+          }
+        ]
+      },
+      {
+        "union": "United Federation of Teachers (UFT) / UFT ACTS",
+        "natlAff": "American Federation of Teachers (AFT) / NEA / AFL-CIO",
+        "stateAff": "New York State United Teachers (NYSUT)",
+        "schools": 1,
+        "enrollment": 492,
+        "states": [
+          "NY"
+        ],
+        "centLat": 40.8727,
+        "centLng": -73.8748,
+        "pins": [
+          {
+            "lat": 40.872746,
+            "lng": -73.87479,
+            "name": "Bronx Community Charter School",
+            "state": "NY"
+          }
+        ]
+      },
+      {
+        "union": "Charter School of Inquiry Union (independent — no national affiliation)",
+        "natlAff": "None — in-house independent union",
+        "stateAff": "None — in-house independent union",
+        "schools": 1,
+        "enrollment": 276,
+        "states": [
+          "NY"
+        ],
+        "centLat": 42.934,
+        "centLng": -78.8027,
+        "pins": [
+          {
+            "lat": 42.934025,
+            "lng": -78.802716,
+            "name": "Charter School of Inquiry (Williamsville, Erie County)",
+            "state": "NY"
+          }
+        ]
+      },
+      {
+        "union": "Gap: union name unknown — obtainable via NLRB ADS R29 or FOIA to Region 29",
+        "natlAff": "Gap: unknown pending FOIA resolution",
+        "stateAff": "Gap: unknown pending FOIA resolution",
+        "schools": 1,
+        "enrollment": 0,
+        "states": [
+          "NY"
+        ],
+        "centLat": 40.6695,
+        "centLng": -73.9392,
+        "pins": [
+          {
+            "lat": 40.669538,
+            "lng": -73.939177,
+            "name": "Uncommon Preparatory Charter High School (Brooklyn)",
+            "state": "NY"
+          }
+        ]
+      },
+      {
+        "union": "ACPA United",
+        "natlAff": "AFT",
+        "stateAff": "OFT",
+        "schools": 1,
+        "enrollment": 473,
+        "states": [
+          "OH"
+        ],
+        "centLat": 39.9341,
+        "centLng": -82.8743,
+        "pins": [
+          {
+            "lat": 39.934081,
+            "lng": -82.874345,
+            "name": "Arts and College Preparatory Academy (ACPA)",
+            "state": "OH"
+          }
+        ]
+      },
+      {
+        "union": "OFT (local designation pending NLRB records confirmation)",
+        "natlAff": "AFT",
+        "stateAff": "OFT",
+        "schools": 1,
+        "enrollment": 69,
+        "states": [
+          "OH"
+        ],
+        "centLat": 41.4718,
+        "centLng": -82.1624,
+        "pins": [
+          {
+            "lat": 41.471842,
+            "lng": -82.162357,
+            "name": "Summit Academy Community School for Alternative Learners of Lorain",
+            "state": "OH"
+          }
+        ]
+      },
+      {
+        "union": "KIPP Columbus Alliance for Charter Teachers and Staff (KIPP Columbus ACTS)",
+        "natlAff": "AFT",
+        "stateAff": "OFT",
+        "schools": 1,
+        "enrollment": 1945,
+        "states": [
+          "OH"
+        ],
+        "centLat": 40.0294,
+        "centLng": -82.9399,
+        "pins": [
+          {
+            "lat": 40.029374,
+            "lng": -82.939866,
+            "name": "KIPP Columbus",
+            "state": "OH"
+          }
+        ]
+      },
+      {
+        "union": "Summit Academy Youngstown Secondary Education Association / Youngstown Education Association",
+        "natlAff": "NEA",
+        "stateAff": "OEA",
+        "schools": 1,
+        "enrollment": 82,
+        "states": [
+          "OH"
+        ],
+        "centLat": 41.0712,
+        "centLng": -80.6347,
+        "pins": [
+          {
+            "lat": 41.071243,
+            "lng": -80.634743,
+            "name": "Summit Academy Secondary School-Youngstown",
+            "state": "OH"
+          }
+        ]
+      },
+      {
+        "union": "Ohio Education Association / Summit Academy Youngstown Staff Association",
+        "natlAff": "NEA",
+        "stateAff": "OEA",
+        "schools": 1,
+        "enrollment": 124,
+        "states": [
+          "OH"
+        ],
+        "centLat": 41.1059,
+        "centLng": -80.7005,
+        "pins": [
+          {
+            "lat": 41.105867,
+            "lng": -80.700451,
+            "name": "Summit Academy Youngstown",
+            "state": "OH"
+          }
+        ]
+      },
+      {
+        "union": "Oregon Education Association (OEA) — District 21 Education Association",
+        "natlAff": "NEA",
+        "stateAff": "OEA (Oregon Education Association)",
+        "schools": 1,
+        "enrollment": 161,
+        "states": [
+          "OR"
+        ],
+        "centLat": 45.6829,
+        "centLng": -121.4005,
+        "pins": [
+          {
+            "lat": 45.6829,
+            "lng": -121.4005,
+            "name": "MOSIER COMMUNITY SCHOOL",
+            "state": "OR"
+          }
+        ]
+      },
+      {
+        "union": "Oregon Virtual Academy Educators United, AFT-Oregon, AFT, AFL-CIO",
+        "natlAff": "AFT",
+        "stateAff": "AFT-Oregon",
+        "schools": 1,
+        "enrollment": 794,
+        "states": [
+          "OR"
+        ],
+        "centLat": 43.4069,
+        "centLng": -124.2215,
+        "pins": [
+          {
+            "lat": 43.406869,
+            "lng": -124.221451,
+            "name": "OREGON VIRTUAL ACADEMY (ORVA)",
+            "state": "OR"
+          }
+        ]
+      },
+      {
+        "union": "AFT Pennsylvania",
+        "natlAff": "AFT",
+        "stateAff": "AFT Pennsylvania",
+        "schools": 1,
+        "enrollment": 1529,
+        "states": [
+          "PA"
+        ],
+        "centLat": 40.0351,
+        "centLng": -75.0242,
+        "pins": [
+          {
+            "lat": 40.0351,
+            "lng": -75.0242,
+            "name": "NEW FOUNDATIONS CHARTER SCHOOL",
+            "state": "PA"
+          }
+        ]
+      },
+      {
+        "union": "21st Century Cyber Education Association / PSEA/NEA",
+        "natlAff": "NEA",
+        "stateAff": "PSEA (Pennsylvania State Education Association)",
+        "schools": 1,
+        "enrollment": 996,
+        "states": [
+          "PA"
+        ],
+        "centLat": 39.9883,
+        "centLng": -75.5744,
+        "pins": [
+          {
+            "lat": 39.98831,
+            "lng": -75.574369,
+            "name": "21ST CENTURY CYBER CHARTER SCHOOL",
+            "state": "PA"
+          }
+        ]
+      },
+      {
+        "union": "PA Virtual Charter Education Association / PSEA/NEA",
+        "natlAff": "NEA",
+        "stateAff": "PSEA",
+        "schools": 1,
+        "enrollment": 2772,
+        "states": [
+          "PA"
+        ],
+        "centLat": 40.0937,
+        "centLng": -75.4091,
+        "pins": [
+          {
+            "lat": 40.093685,
+            "lng": -75.409137,
+            "name": "PENNSYLVANIA VIRTUAL CHARTER SCHOOL",
+            "state": "PA"
+          }
+        ]
+      },
+      {
+        "union": "Propel Charter School Education Association (PCSEA) / PSEA/NEA",
+        "natlAff": "NEA",
+        "stateAff": "PSEA",
+        "schools": 1,
+        "enrollment": 476,
+        "states": [
+          "PA"
+        ],
+        "centLat": 40.4053,
+        "centLng": -79.9105,
+        "pins": [
+          {
+            "lat": 40.4053,
+            "lng": -79.9105,
+            "name": "PROPEL CHARTER SCHOOL - HOMESTEAD",
+            "state": "PA"
+          }
+        ]
+      },
+      {
+        "union": "Alliance of Charter School Employees / AFT Local 6056",
+        "natlAff": "AFT",
+        "stateAff": "AFT Pennsylvania",
+        "schools": 1,
+        "enrollment": 1073,
+        "states": [
+          "PA"
+        ],
+        "centLat": 40.4359,
+        "centLng": -79.8969,
+        "pins": [
+          {
+            "lat": 40.43595,
+            "lng": -79.896891,
+            "name": "ENVIRONMENTAL CHARTER SCHOOL AT FRICK PARK",
+            "state": "PA"
+          }
+        ]
+      },
+      {
+        "union": "Alliance for Charter School Employees / ACSE Local 6056 / AFT",
+        "natlAff": "AFT",
+        "stateAff": "AFT Pennsylvania",
+        "schools": 1,
+        "enrollment": 304,
+        "states": [
+          "PA"
+        ],
+        "centLat": 40.4442,
+        "centLng": -79.9971,
+        "pins": [
+          {
+            "lat": 40.444164,
+            "lng": -79.997136,
+            "name": "URBAN PATHWAYS K-5 COLLEGE CHARTER SCHOOL",
+            "state": "PA"
+          }
+        ]
+      },
+      {
+        "union": "Young Scholars of Western PA Education Association / PSEA/NEA",
+        "natlAff": "NEA",
+        "stateAff": "PSEA",
+        "schools": 1,
+        "enrollment": 297,
+        "states": [
+          "PA"
+        ],
+        "centLat": 40.3764,
+        "centLng": -80.019,
+        "pins": [
+          {
+            "lat": 40.376383,
+            "lng": -80.018995,
+            "name": "YOUNG SCHOLARS OF WESTERN PENNSYLVANIA CHARTER SCHOOL",
+            "state": "PA"
+          }
+        ]
+      },
+      {
+        "union": "Vida Education Association & Support Professionals / PSEA/NEA",
+        "natlAff": "NEA",
+        "stateAff": "PSEA",
+        "schools": 1,
+        "enrollment": 251,
+        "states": [
+          "PA"
+        ],
+        "centLat": 39.8386,
+        "centLng": -77.2261,
+        "pins": [
+          {
+            "lat": 39.838577,
+            "lng": -77.226101,
+            "name": "VIDA CHARTER SCHOOL",
+            "state": "PA"
+          }
+        ]
+      },
+      {
+        "union": "Agora Cyber Education Association / PSEA (teachers); Agora Counselors Association / PSEA (counselors); 21st Century Cyber EA / PSEA (student services)",
+        "natlAff": "NEA",
+        "stateAff": "PSEA",
+        "schools": 1,
+        "enrollment": 4156,
+        "states": [
+          "PA"
+        ],
+        "centLat": 40.1,
+        "centLng": -75.4146,
+        "pins": [
+          {
+            "lat": 40.100036,
+            "lng": -75.414557,
+            "name": "AGORA CYBER CHARTER SCHOOL",
+            "state": "PA"
+          }
+        ]
+      },
+      {
+        "union": "PA Cyber School Education Association / PSEA/NEA (teachers); PA Cyber Academic Advisors and School Counselors Education Association / PSEA/NEA (advisors)",
+        "natlAff": "NEA",
+        "stateAff": "PSEA",
+        "schools": 1,
+        "enrollment": 10178,
+        "states": [
+          "PA"
+        ],
+        "centLat": 40.6377,
+        "centLng": -80.4546,
+        "pins": [
+          {
+            "lat": 40.63772,
+            "lng": -80.454571,
+            "name": "PENNSYLVANIA CYBER CHARTER SCHOOL",
+            "state": "PA"
+          }
+        ]
+      },
+      {
+        "union": "Unknown — NLRB RC case closed, cert issued; union name requires NLRB R6 FOIA",
+        "natlAff": "Unknown — FOIA needed",
+        "stateAff": "Unknown — FOIA needed",
+        "schools": 1,
+        "enrollment": 626,
+        "states": [
+          "PA"
+        ],
+        "centLat": 42.1054,
+        "centLng": -80.1372,
+        "pins": [
+          {
+            "lat": 42.105442,
+            "lng": -80.137246,
+            "name": "MONTESSORI REGIONAL CHARTER SCHOOL",
+            "state": "PA"
+          }
+        ]
+      },
+      {
+        "union": "Alliance for Charter School Employees (ACSE) Local 6056, AFT Pennsylvania / AFT / AFL-CIO",
+        "natlAff": "American Federation of Teachers (AFT) / AFL-CIO",
+        "stateAff": "AFT Pennsylvania",
+        "schools": 1,
+        "enrollment": 955,
+        "states": [
+          "PA"
+        ],
+        "centLat": 40.0595,
+        "centLng": -75.1634,
+        "pins": [
+          {
+            "lat": 40.0595,
+            "lng": -75.1634,
+            "name": "WEST OAK LANE CHARTER SCHOOL",
+            "state": "PA"
+          }
+        ]
+      },
+      {
+        "union": "Esperanza High School Collective",
+        "natlAff": "AFT",
+        "stateAff": "AFT Pennsylvania",
+        "schools": 1,
+        "enrollment": 1637,
+        "states": [
+          "PA"
+        ],
+        "centLat": 40.0151,
+        "centLng": -75.1332,
+        "pins": [
+          {
+            "lat": 40.0151,
+            "lng": -75.1332,
+            "name": "ESPERANZA ACADEMY CHARTER SCHOOL",
+            "state": "PA"
+          }
+        ]
+      },
+      {
+        "union": "Alliance of Charter School Employees Local 6056 (ACSEA / PSEA / NEA)",
+        "natlAff": "National Education Association (NEA)",
+        "stateAff": "Pennsylvania State Education Association (PSEA)",
+        "schools": 1,
+        "enrollment": 282,
+        "states": [
+          "PA"
+        ],
+        "centLat": 40.3915,
+        "centLng": -79.8084,
+        "pins": [
+          {
+            "lat": 40.391472,
+            "lng": -79.808438,
+            "name": "WESTINGHOUSE ARTS ACADEMY CHARTER SCHOOL",
+            "state": "PA"
+          }
+        ]
+      },
+      {
+        "union": "International Brotherhood of Electrical Workers (IBEW) Local 2323",
+        "natlAff": "International Brotherhood of Electrical Workers (IBEW) / AFL-CIO",
+        "stateAff": "IBEW Local 2323",
+        "schools": 1,
+        "enrollment": 269,
+        "states": [
+          "RI"
+        ],
+        "centLat": 41.7995,
+        "centLng": -71.4173,
+        "pins": [
+          {
+            "lat": 41.799543,
+            "lng": -71.417336,
+            "name": "Highlander Charter School",
+            "state": "RI"
+          }
+        ]
+      },
+      {
+        "union": "Federated Collective of Washington Charter Teachers (AFT) — union name from NAPCS Feb 2026 baseline; pending Step 8 direct confirmation",
+        "natlAff": "AFT",
+        "stateAff": "AFT Washington (inferred from NAPCS baseline)",
+        "schools": 1,
+        "enrollment": 107,
+        "states": [
+          "WA"
+        ],
+        "centLat": 48.7858,
+        "centLng": -122.4909,
+        "pins": [
+          {
+            "lat": 48.785841,
+            "lng": -122.490864,
+            "name": "Whatcom Intergenerational High School",
+            "state": "WA"
+          }
+        ]
+      }
+    ],
+    "byAffiliate": [
+      {
+        "natlAff": "AFT",
+        "unions": 27,
+        "schools": 65,
+        "enrollment": 28209
+      },
+      {
+        "natlAff": "National Education Association (NEA)",
+        "unions": 17,
+        "schools": 48,
+        "enrollment": 40410
+      },
+      {
+        "natlAff": "None confirmed",
+        "unions": 40,
+        "schools": 48,
+        "enrollment": 31513
+      },
+      {
+        "natlAff": "AFT / NEA (UTLA is dual-affiliated)",
+        "unions": 3,
+        "schools": 39,
+        "enrollment": 25104
+      },
+      {
+        "natlAff": "NEA",
+        "unions": 31,
+        "schools": 38,
+        "enrollment": 37747
+      },
+      {
+        "natlAff": "American Federation of Teachers (AFT) / AFL-CIO",
+        "unions": 8,
+        "schools": 27,
+        "enrollment": 12430
+      },
+      {
+        "natlAff": "Independent (no national affiliate)",
+        "unions": 6,
+        "schools": 21,
+        "enrollment": 12097
+      },
+      {
+        "natlAff": "NEA (National Education Association)",
+        "unions": 6,
+        "schools": 16,
+        "enrollment": 6897
+      },
+      {
+        "natlAff": "NEA / AFT",
+        "unions": 6,
+        "schools": 8,
+        "enrollment": 3612
+      },
+      {
+        "natlAff": "AFT (American Federation of Teachers)",
+        "unions": 6,
+        "schools": 6,
+        "enrollment": 2550
+      },
+      {
+        "natlAff": "American Federation of Teachers (AFT) / NEA / AFL-CIO",
+        "unions": 3,
+        "schools": 5,
+        "enrollment": 1932
+      },
+      {
+        "natlAff": "AFT / NEA / AFL-CIO (FEA is dual-affiliated)",
+        "unions": 1,
+        "schools": 3,
+        "enrollment": 6504
+      },
+      {
+        "natlAff": "Not confirmed — PERB records request required",
+        "unions": 2,
+        "schools": 3,
+        "enrollment": 2527
+      },
+      {
+        "natlAff": "N/A",
+        "unions": 3,
+        "schools": 3,
+        "enrollment": 2723
+      },
+      {
+        "natlAff": "AFT / AFL-CIO (AFT Local 527)",
+        "unions": 3,
+        "schools": 3,
+        "enrollment": 3463
+      },
+      {
+        "natlAff": "NEA (inferred)",
+        "unions": 3,
+        "schools": 3,
+        "enrollment": 2202
+      },
+      {
+        "natlAff": "Industrial Workers of the World (IWW)",
+        "unions": 1,
+        "schools": 2,
+        "enrollment": 1946
+      },
+      {
+        "natlAff": "AFT (American Federation of Teachers) / NEA (National Education Association)",
+        "unions": 1,
+        "schools": 2,
+        "enrollment": 3648
+      },
+      {
+        "natlAff": "None confirmed (CTA is NEA-affiliated)",
+        "unions": 1,
+        "schools": 2,
+        "enrollment": 486
+      },
+      {
+        "natlAff": "CTA/NEA",
+        "unions": 2,
+        "schools": 2,
+        "enrollment": 2050
+      },
+      {
+        "natlAff": "Unknown",
+        "unions": 2,
+        "schools": 2,
+        "enrollment": 2626
+      },
+      {
+        "natlAff": "UAW / AFL-CIO",
+        "unions": 2,
+        "schools": 2,
+        "enrollment": 618
+      },
+      {
+        "natlAff": "AFT / AFL-CIO (AFT Local 6482)",
+        "unions": 2,
+        "schools": 2,
+        "enrollment": 715
+      },
+      {
+        "natlAff": "Not confirmed for either unit — PERB records request required",
+        "unions": 1,
+        "schools": 1,
+        "enrollment": 2259
+      },
+      {
+        "natlAff": "AFT/AFL-CIO",
+        "unions": 1,
+        "schools": 1,
+        "enrollment": 440
+      },
+      {
+        "natlAff": "AFT / SEIU",
+        "unions": 1,
+        "schools": 1,
+        "enrollment": 526
+      },
+      {
+        "natlAff": "FEA / NEA",
+        "unions": 1,
+        "schools": 1,
+        "enrollment": 168
+      },
+      {
+        "natlAff": "IBT / AFL-CIO",
+        "unions": 1,
+        "schools": 1,
+        "enrollment": 970
+      },
+      {
+        "natlAff": "Independent (no national affiliation)",
+        "unions": 1,
+        "schools": 1,
+        "enrollment": 1459
+      },
+      {
+        "natlAff": "Unknown — MERC FOIA required",
+        "unions": 1,
+        "schools": 1,
+        "enrollment": 287
+      },
+      {
+        "natlAff": "NEA / AFT (NYSUT is dual-affiliated)",
+        "unions": 1,
+        "schools": 1,
+        "enrollment": 972
+      },
+      {
+        "natlAff": "None — independent union",
+        "unions": 1,
+        "schools": 1,
+        "enrollment": 878
+      },
+      {
+        "natlAff": "None — in-house independent union",
+        "unions": 1,
+        "schools": 1,
+        "enrollment": 276
+      },
+      {
+        "natlAff": "Gap: unknown pending FOIA resolution",
+        "unions": 1,
+        "schools": 1,
+        "enrollment": 0
+      },
+      {
+        "natlAff": "Unknown — FOIA needed",
+        "unions": 1,
+        "schools": 1,
+        "enrollment": 626
+      },
+      {
+        "natlAff": "International Brotherhood of Electrical Workers (IBEW) / AFL-CIO",
+        "unions": 1,
+        "schools": 1,
+        "enrollment": 269
+      }
+    ]
   }
 };
 
