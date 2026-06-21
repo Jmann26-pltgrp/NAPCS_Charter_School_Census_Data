@@ -308,7 +308,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
         <label class="fitem" title="12 states where research was deferred by Executive Sponsor direction. No organized charter schools known to exist. Sector assumed unorganized as of June 2026."><input type="checkbox" data-status="DEFERRED"><span class="fdot" style="background:#4A7A9B;border:1px solid #2A5A7B"></span><span style="color:#8BA0B4">No Known Organizing Activity (<span id="fc-6">0</span>)</span></label>
         <div style="border-top:1px solid #1E2D40;margin-top:6px;padding-top:5px;font-size:8px;color:#4A6A80;line-height:1.4"><strong style="color:#888">Decertified — School Open</strong> = cert removed<br><strong style="color:#E07A4A">Closed — Was Organized</strong> = closed while organized</div>
         <div style="border-top:1px solid #1E2D40;margin-top:6px;padding-top:5px">
-          <button id="uf-toggle-btn" onclick="toggleUnionFootprint()" style="width:100%;background:#1A2535;border:1px solid #2E75B6;color:#4A9FE0;font-size:9px;font-weight:700;letter-spacing:.4px;padding:5px 8px;border-radius:3px;cursor:pointer;text-transform:uppercase">&#9670; Union Footprint View</button>
+          <button id="uf-toggle-btn" onclick="toggleUnionFootprint()" style="width:100%;background:#1A2535;border:1px solid #2E75B6;color:#4A9FE0;font-size:9px;font-weight:700;letter-spacing:.4px;padding:5px 8px;border-radius:3px;cursor:pointer;text-transform:uppercase">&#9670; Organized Presence View</button>
         </div>
       </div>
     </div>
@@ -323,7 +323,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
         <button class="ftab active" data-tab="overview">Overview</button>
         <button class="ftab" data-tab="density">Census Table</button>
         <button class="ftab" data-tab="jurisdiction">Jurisdiction</button>
-        <button class="ftab" data-tab="unionfootprint">Union Footprint</button>
+        <button class="ftab" data-tab="unionfootprint">Organized Presence</button>
       </div>
       <div class="tab-row-label">&#9632; PROJECT</div>
       <div class="tab-row">
@@ -1089,6 +1089,8 @@ document.getElementById('tab-folders').addEventListener('click',function(e){
 function switchTab(tab){
   _curTab=tab;
   document.querySelectorAll('.ftab').forEach(function(b){ b.classList.toggle('active',b.getAttribute('data-tab')===tab); });
+  // Clicking off Organized Presence tab deactivates mode
+  if(tab !== 'unionfootprint') deactivateOrganizedPresence();
   if(tab==='overview'){ if(_curState) showStatePanel(_curState); else showNationalPanel(); }
   else if(tab==='density') buildDensityTable();
   else if(tab==='jurisdiction') buildJurisdictionPanel();
@@ -1096,47 +1098,86 @@ function switchTab(tab){
   else if(tab==='associations') buildAssociationsPanel();
   else if(tab==='verification') buildVerificationPanel();
   else if(tab==='dataquality') buildDataQualityPanel();
-  else if(tab==='unionfootprint') buildUnionFootprintPanel();
+  else if(tab==='unionfootprint'){ activateOrganizedPresence(); buildUnionFootprintPanel(); }
 }
 
-// ── UNION FOOTPRINT MODE ──────────────────────────────────────────────────────
-var _ufActive = false;
-var _ufLayer  = null;
+// ── ORGANIZED PRESENCE MODE ───────────────────────────────────────────────────
+var _ufActive     = false;
+var _ufLayer      = null;
+var _ufSavedState = null;
 
-// Normalize messy natlAff strings to clean AFT / NEA / Independent / Unknown
+var DEFAULT_CENTER = [38, -96];
+var DEFAULT_ZOOM   = 4;
+
+function _saveFilterState(){
+  var cbs = {};
+  document.querySelectorAll('#filter-bar input[data-status]').forEach(function(cb){
+    cbs[cb.getAttribute('data-status')] = cb.checked;
+  });
+  var slCb = document.getElementById('toggle-state-labels');
+  return { checkboxes: cbs, stateLabels: slCb ? slCb.checked : true };
+}
+
+function _restoreFilterState(saved){
+  if(!saved) return;
+  document.querySelectorAll('#filter-bar input[data-status]').forEach(function(cb){
+    var st = cb.getAttribute('data-status');
+    if(saved.checkboxes[st] !== undefined){ cb.checked = saved.checkboxes[st]; cb.dispatchEvent(new Event('change')); }
+  });
+  var slCb = document.getElementById('toggle-state-labels');
+  if(slCb && saved.stateLabels !== undefined){ slCb.checked = saved.stateLabels; slCb.dispatchEvent(new Event('change')); }
+}
+
+function _setOrganizedPresenceFilters(){
+  document.querySelectorAll('#filter-bar input[data-status]').forEach(function(cb){
+    var st = cb.getAttribute('data-status');
+    cb.checked = (st === 'CONFIRMED' || st === 'DEPENDENT');
+    cb.dispatchEvent(new Event('change'));
+  });
+  var slCb = document.getElementById('toggle-state-labels');
+  if(slCb){ slCb.checked = false; slCb.dispatchEvent(new Event('change')); }
+}
+
+function activateOrganizedPresence(){
+  if(_ufActive) return;
+  _ufActive = true;
+  _ufSavedState = _saveFilterState();
+  _setOrganizedPresenceFilters();
+  renderUnionFootprintPins();
+  map.setView(DEFAULT_CENTER, DEFAULT_ZOOM, {animate:true});
+  var btn = document.getElementById('uf-toggle-btn');
+  if(btn){ btn.style.background='#2E75B6'; btn.style.color='#fff'; btn.textContent='\u25c6 Exit Organized Presence View'; }
+}
+
+function deactivateOrganizedPresence(){
+  if(!_ufActive) return;
+  _ufActive = false;
+  if(_ufLayer){ map.removeLayer(_ufLayer); _ufLayer=null; }
+  _restoreFilterState(_ufSavedState);
+  _ufSavedState = null;
+  map.setView(DEFAULT_CENTER, DEFAULT_ZOOM, {animate:true});
+  var btn = document.getElementById('uf-toggle-btn');
+  if(btn){ btn.style.background='#1A2535'; btn.style.color='#4A9FE0'; btn.textContent='\u25c6 Organized Presence View'; }
+}
+
+function toggleUnionFootprint(){
+  if(_ufActive){ deactivateOrganizedPresence(); switchTab('overview'); }
+  else { switchTab('unionfootprint'); }
+}
+
+// Normalize messy natlAff strings → clean AFT / NEA / AFT / NEA / Independent / Unknown
 function normAff(raw){
   if(!raw) return 'Unknown';
   var r = raw.toUpperCase();
-  if(r.includes('IWW')) return 'Independent';
-  if(r.includes('IBEW')) return 'Independent';
-  if(r.includes('IBT')) return 'Independent';
-  if(r.includes('UAW')) return 'Independent';
-  if(r.includes('SEIU')) return 'Independent';
+  if(r.includes('IWW')||r.includes('IBEW')||r.includes('IBT')||r.includes('UAW')||r.includes('SEIU')) return 'Independent';
   if(r.includes('INDEPENDENT')||r==='NONE CONFIRMED'||r.includes('IN-HOUSE')||r.includes('NO NATIONAL')) return 'Independent';
   if((r.includes('AFT')&&r.includes('NEA'))||r.includes('DUAL')) return 'AFT / NEA';
   if(r.includes('AFT')) return 'AFT';
   if(r.includes('NEA')||r.includes('CTA')||r.includes('FEA')||r.includes('NYSUT')||r.includes('PCSEA')||r.includes('SEEA')) return 'NEA';
-  if(r.includes('UNKNOWN')||r.includes('FOIA')||r.includes('GAP')||r.includes('NOT CONFIRMED')||r.includes('INFERRED')) return 'Unknown';
   return 'Unknown';
 }
 
 var AFF_COLOR = { 'AFT':'#4A9FE0', 'NEA':'#6CC04A', 'AFT / NEA':'#F5A623', 'Independent':'#C084FC', 'Unknown':'#8BA0B4' };
-
-function toggleUnionFootprint(){
-  _ufActive = !_ufActive;
-  var btn = document.getElementById('uf-toggle-btn');
-  if(_ufActive){
-    btn.style.background='#2E75B6'; btn.style.color='#fff';
-    btn.textContent='\u25c6 Exit Union Footprint View';
-    renderUnionFootprintPins();
-    switchTab('unionfootprint');
-  } else {
-    btn.style.background='#1A2535'; btn.style.color='#4A9FE0';
-    btn.textContent='\u25c6 Union Footprint View';
-    if(_ufLayer){ map.removeLayer(_ufLayer); _ufLayer=null; }
-    switchTab('overview');
-  }
-}
 
 function renderUnionFootprintPins(){
   if(_ufLayer){ map.removeLayer(_ufLayer); }
@@ -1155,7 +1196,7 @@ function renderUnionFootprintPins(){
 }
 
 function buildUnionFootprintPanel(){
-  setPanelHdr('Union Footprint Analysis','Independently organized schools \u2014 by national affiliate');
+  setPanelHdr('Organized Presence','Independently organized schools \u2014 by national affiliate');
   var UF = (NAPCS_CONFIG && NAPCS_CONFIG.unionFootprint) ? NAPCS_CONFIG.unionFootprint : null;
   var h='';
 
@@ -1206,7 +1247,7 @@ function buildUnionFootprintPanel(){
     if(UF.byUnion.length>15) h+='<div style="font-size:8px;color:#4A6A80;padding:4px 0">+ '+(UF.byUnion.length-15)+' additional unions with 1 school each</div>';
   }
 
-  if(!UF) h+='<div class="no-state">Union footprint data not available in this build.</div>';
+  if(!UF) h+='<div class="no-state">Organized presence data not available in this build.</div>';
   setPanelBody(h);
 }
 
