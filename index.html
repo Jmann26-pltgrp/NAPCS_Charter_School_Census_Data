@@ -503,9 +503,9 @@ function unionUrl(u){
   if(s.includes('CTU')||s.includes('CHICAGO TEACHERS UNION')) return 'https://www.ctulocal1.com';
   if(s.includes('CHIACTS')) return 'https://www.ctulocal1.org/union/charter/'; // ChiACTS merged into CTU 2018
   if(s.includes('DC ACTS')) return 'https://www.aft.org/press-release/second-dc-public-charter-school-week-votes-unionize-dc-acts'; // dcacts.org defunct
-  if(s.includes('MICHIGAN ACTS')||s.includes('MICHIGAN ALLIANCE')) return 'https://www.michiganacts.org';
-  if(s.includes('AZ-ACTS')||s.includes('AACTS')||s.includes('ARIZONA ALLIANCE')) return 'https://www.az-acts.org';
-  if(s.includes('UTNO')) return 'https://www.utno.org';
+  if(s.includes('MICHIGAN ACTS')||s.includes('MICHIGAN ALLIANCE')) return 'https://aftmichigan.org/aft-constituencies/';
+  if(s.includes('AZ-ACTS')||s.includes('AACTS')||s.includes('ARIZONA ALLIANCE')) return 'https://acts.az.aft.org/';
+  if(s.includes('UTNO')) return 'https://utno.la.aft.org/';
   if(s.includes('RIFT')||s.includes('RHODE ISLAND FEDERATION')) return 'https://www.rifthp.org';
   if(s.includes('IBEW LOCAL 2323')) return 'https://www.ibewlocal2323.org';
   if(s.includes('IBEW')) return 'https://www.ibew.org';
@@ -524,7 +524,7 @@ function unionUrl(u){
   if(s.includes('OEA')||s.includes('OREGON EDUCATION ASSOCIATION')) return 'https://www.oregoned.org';
   if(s.includes('WTU')||s.includes('WASHINGTON TEACHERS UNION')) return 'https://www.wtulocal6.net';
   if(s.includes('EDUCATION MINNESOTA')) return 'https://www.educationminnesota.org';
-  if(s.includes('OFT')||s.includes('OHIO FEDERATION')) return 'https://www.ohiofederation.org';
+  if(s.includes('OFT')||s.includes('OHIO FEDERATION')) return 'https://www.oft.org/';
   if(s.includes('CTA')||s.includes('CALIFORNIA TEACHERS ASSOCIATION')) return 'https://www.cta.org';
   if(s.includes('CFT')||s.includes('CALIFORNIA FEDERATION')) return 'https://www.cft.org';
   if(s.includes('FEA')||s.includes('FLORIDA EDUCATION')) return 'https://feaweb.org';
@@ -739,6 +739,12 @@ function openSchoolDetail(napcsId, name, state, lat, lng){
       // Show in side panel
       setPanelHdr(school.name, stLbl);
       setPanelBody(popup + '<div class="pu-warn" style="margin-top:8px">&#128506; No geographic coordinates available for this school. Map location cannot be displayed.</div>');
+      if(_returnToOrgPresence){
+        _returnToOrgPresence=false;
+        // Add a return link at top of panel body
+        var retBtn='<div style="padding:4px 0 8px"><span style="font-size:9px;color:#4A9FE0;cursor:pointer;text-decoration:underline" onclick="switchTab(\'unionfootprint\')">&#8592; Back to Organized Presence</span></div>';
+        setPanelBody(retBtn + popup + '<div class="pu-warn" style="margin-top:8px">&#128506; No geographic coordinates available for this school. Map location cannot be displayed.</div>');
+      }
       switchTab('overview');
     } else {
       openStateSlideout(state, null);
@@ -1052,7 +1058,7 @@ function spoRow(l,v,cls){
 }
 
 // ── STATE ZOOM ───────────────────────────────────────────────────────────────
-var _curState=null, _curTab='overview';
+var _curState=null, _curTab='overview', _returnToOrgPresence=false;
 function zoomToState(code){
   var schs=SCHOOLS.filter(function(s){ return s.state===code&&s.lat; });
   if(!schs.length) return;
@@ -1263,11 +1269,12 @@ function buildUnionFootprintPanel(){
     });
     Object.entries(rollup).sort(function(a,b){return b[1].schools-a[1].schools;}).forEach(function(e){
       var col = AFF_COLOR[e[0]]||'#8BA0B4';
+      var affKey = e[0].replace(/'/g,"\\'");
       h+='<div style="display:flex;align-items:center;gap:6px;padding:3px 0;border-bottom:1px solid #1E2D40">';
       h+='<span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:'+col+';flex-shrink:0"></span>';
       h+='<span style="font-size:9px;color:#C8D8E8;flex:1">'+e[0]+'</span>';
-      h+='<span style="font-size:9px;color:#6CC04A;font-weight:700">'+e[1].schools+' schools</span>';
-      h+='<span style="font-size:9px;color:#4A6A80;margin-left:6px">'+e[1].unions+' unions</span>';
+      h+='<span style="font-size:9px;color:#6CC04A;font-weight:700;cursor:pointer;text-decoration:underline;text-decoration-color:#3A6A3A" onclick="showAffSchoolsModal(\''+affKey+'\')">'+e[1].schools+' schools</span>';
+      h+='<span style="font-size:9px;color:#4A9FE0;margin-left:6px;cursor:pointer;text-decoration:underline;text-decoration-color:#2A4A6A" onclick="showAffUnionsModal(\''+affKey+'\')">'+e[1].unions+' unions</span>';
       h+='</div>';
     });
   }
@@ -1293,6 +1300,75 @@ function buildUnionFootprintPanel(){
 
   if(!UF) h+='<div class="no-state">Organized presence data not available in this build.</div>';
   setPanelBody(h);
+}
+
+// ── Organized Presence modals ─────────────────────────────────────────────────
+
+// Schools modal: list all CONFIRMED/INDEPENDENT schools for a given affiliate
+function showAffSchoolsModal(aff){
+  var schools = SCHOOLS.filter(function(s){
+    return s.status==='CONFIRMED' && normAff(s.natlAff)===aff;
+  }).sort(function(a,b){
+    var sa=(a.state||'').localeCompare(b.state||'');
+    return sa!==0?sa:(a.name||'').localeCompare(b.name||'');
+  });
+  var col = AFF_COLOR[aff]||'#8BA0B4';
+  document.getElementById('modal-title').innerHTML=
+    '<span style="display:inline-block;width:9px;height:9px;border-radius:50%;background:'+col+';margin-right:6px;vertical-align:middle"></span>'+
+    esc(aff)+' \u2014 <span style="color:#6CC04A">'+schools.length+' Schools</span>';
+  var h='<div style="font-size:9px;color:#4A6A80;padding:0 0 8px">Click a school name to view its card. Use \u00d7 to return to Organized Presence.</div>';
+  var curState='';
+  schools.forEach(function(s){
+    if(s.state!==curState){
+      curState=s.state;
+      h+='<div style="font-size:9px;font-weight:700;color:#4A9FE0;padding:6px 0 2px;text-transform:uppercase;letter-spacing:.5px;border-top:'+(h.length>200?'1px solid #1E2D40':'none')+'">'+esc(STATE_NAMES[s.state]||s.state)+'</div>';
+    }
+    var unionLbl = s.union ? ' <span style="color:#4A6A80">\u00b7 '+esc(s.union)+'</span>' : '';
+    h+='<div style="padding:3px 0;border-bottom:1px solid #131F2E">';
+    h+='<span style="color:#4A9FE0;cursor:pointer;font-size:10px;text-decoration:underline;text-decoration-color:#2A4060" '+
+       'onclick="openSchoolFromModal(\''+esc(s.napcsId||'')+'\',\''+esc(s.name||'')+'\',\''+esc(s.state||'')+'\','+(s.lat||null)+','+(s.lng||null)+')">'+esc(s.name)+'</span>';
+    h+='<span style="font-size:9px;color:#4A6A80;margin-left:4px">'+esc(s.state||'')+'</span>';
+    if(s.union) h+='<div style="font-size:8px;color:#3A5A70;padding-left:0;margin-top:1px">'+esc(s.union)+'</div>';
+    h+='</div>';
+  });
+  document.getElementById('modal-body').innerHTML=h;
+  document.getElementById('modal-overlay').classList.add('open');
+}
+
+// Unions modal: list all union locals for a given affiliate
+function showAffUnionsModal(aff){
+  var UF = (NAPCS_CONFIG && NAPCS_CONFIG.unionFootprint) ? NAPCS_CONFIG.unionFootprint : null;
+  if(!UF) return;
+  var unions = UF.byUnion.filter(function(u){ return normAff(u.natlAff)===aff; })
+    .sort(function(a,b){ return b.schools-a.schools || (a.union||'').localeCompare(b.union||''); });
+  var col = AFF_COLOR[aff]||'#8BA0B4';
+  document.getElementById('modal-title').innerHTML=
+    '<span style="display:inline-block;width:9px;height:9px;border-radius:50%;background:'+col+';margin-right:6px;vertical-align:middle"></span>'+
+    esc(aff)+' \u2014 <span style="color:#4A9FE0">'+unions.length+' Unions</span>';
+  var h='<div style="font-size:9px;color:#4A6A80;padding:0 0 8px">Click a union name to visit its website. Use \u00d7 to return to Organized Presence.</div>';
+  unions.forEach(function(u){
+    var uurl = unionUrl(u.union);
+    var nameHtml = uurl
+      ? '<a href="'+uurl+'" target="_blank" rel="noopener" style="color:#4A9FE0;text-decoration:underline;text-decoration-color:#2A4060;font-size:10px">'+esc(u.union)+'</a>'
+      : '<span style="color:#8BA0B4;font-size:10px">'+esc(u.union)+'</span>';
+    var noUrl = uurl ? '' : ' <span style="font-size:8px;color:#3A4A5A">(no website on file)</span>';
+    h+='<div style="padding:4px 0;border-bottom:1px solid #131F2E">';
+    h+=nameHtml+noUrl;
+    h+='<div style="font-size:8px;color:#4A6A80;margin-top:1px">';
+    h+='<span style="color:#6CC04A;font-weight:700">'+u.schools+' school'+(u.schools!==1?'s':'')+'</span>';
+    if(u.states&&u.states.length) h+=' \u00b7 '+esc(u.states.join(', '));
+    if(u.enrollment) h+=' \u00b7 ~'+u.enrollment.toLocaleString()+' students';
+    h+='</div></div>';
+  });
+  document.getElementById('modal-body').innerHTML=h;
+  document.getElementById('modal-overlay').classList.add('open');
+}
+
+// Open school card from modal — closes modal first, then restores Organized Presence after card closes
+function openSchoolFromModal(napcsId, name, state, lat, lng){
+  document.getElementById('modal-overlay').classList.remove('open');
+  _returnToOrgPresence = true;
+  openSchoolDetail(napcsId, name, state, lat, lng);
 }
 
 function setPanelHdr(t,s){ document.getElementById('panel-title').textContent=t; document.getElementById('panel-sub').textContent=s||''; }
@@ -1587,7 +1663,7 @@ function buildCaseLink(s, color, label, structuralNote){
 
   // PERB(CA) — ePERB portal (user enters school name and searches)
   if(isPERB){
-    var perbPortal = 'https://eperb.perb.ca.gov/ords/f?p=EPERBPublic:1';
+    var perbPortal = 'https://eperb-portal.ecourt.com/public-portal/?q=node/427';
     return '<a href="'+esc(perbPortal)+'" target="_blank" rel="noopener" style="color:'+color+';font-weight:700" title="Search ePERB — enter school name: '+esc(s.name)+'">'+
       esc(label)+' <span style="font-size:9px;font-weight:normal">(search ePERB — enter school name)</span> &#8599;</a>';
   }
@@ -1607,7 +1683,7 @@ function buildCaseLink(s, color, label, structuralNote){
 
   // Final fallback — use state to determine board and link to pre-populated search
   if(s.state==='CA'){
-    var perbFallback='https://eperb.perb.ca.gov/ords/f?p=EPERBPublic:1';
+    var perbFallback='https://eperb-portal.ecourt.com/public-portal/?q=node/427';
     return '<a href="'+esc(perbFallback)+'" target="_blank" rel="noopener" style="color:'+color+';font-weight:700" title="Search ePERB — enter school name: '+esc(s.name)+'">'+
       esc(label)+' <span style="font-size:9px;font-weight:normal">(search ePERB — enter school name)</span> &#8599;</a>';
   }
@@ -2310,8 +2386,25 @@ function handleModalClick(el){
   if(!s) return;
   openSchoolDetail(s.napcsId||'', s.name||'', s.state||'', s.lat||null, s.lng||null);
 }
-document.getElementById('modal-close').onclick=function(){ document.getElementById('modal-overlay').classList.remove('open'); };
-document.getElementById('modal-overlay').addEventListener('click',function(e){ if(e.target===this) this.classList.remove('open'); });
+document.getElementById('modal-close').onclick=function(){
+  document.getElementById('modal-overlay').classList.remove('open');
+  if(_returnToOrgPresence){ _returnToOrgPresence=false; switchTab('unionfootprint'); }
+};
+document.getElementById('modal-overlay').addEventListener('click',function(e){
+  if(e.target===this){
+    this.classList.remove('open');
+    if(_returnToOrgPresence){ _returnToOrgPresence=false; switchTab('unionfootprint'); }
+  }
+});
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape'){
+    var ov=document.getElementById('modal-overlay');
+    if(ov.classList.contains('open')){
+      ov.classList.remove('open');
+      if(_returnToOrgPresence){ _returnToOrgPresence=false; switchTab('unionfootprint'); }
+    }
+  }
+});
 
 // ── UTILITY ───────────────────────────────────────────────────────────────────
 function esc(s){ if(!s) return ''; return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
