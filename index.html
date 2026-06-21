@@ -794,6 +794,11 @@ document.querySelectorAll('#filter-bar input[type=checkbox]').forEach(function(c
     }
     var st=this.getAttribute('data-status');
     if(!st) return;
+    // In Organized Presence mode — control UF layer pins, not status layers
+    if(window._ufActive){
+      ufFilterByStatus(st, this.checked);
+      return;
+    }
     if(this.checked) map.addLayer(layers[st]); else map.removeLayer(layers[st]);
   });
 });
@@ -1137,10 +1142,17 @@ function activateOrganizedPresence(){
   if(_ufActive) return;
   _ufActive = true;
   _ufSavedState = _saveFilterState();
-  // Hide ALL existing status layers so affiliate pins render cleanly
+  // Hide all existing status layers — UF layer takes over
   Object.keys(layers).forEach(function(st){ if(map.hasLayer(layers[st])) map.removeLayer(layers[st]); });
-  // Uncheck all filter boxes + state labels (visual sync only — layers already hidden)
-  _setOrganizedPresenceFilters();
+  // Set checkbox state visually (CONFIRMED + DEPENDENT checked, rest unchecked)
+  // Do NOT dispatch change events — we don't want layers[] re-added
+  document.querySelectorAll('#filter-bar input[data-status]').forEach(function(cb){
+    var st = cb.getAttribute('data-status');
+    cb.checked = (st === 'CONFIRMED' || st === 'DEPENDENT');
+  });
+  // State labels off
+  var slCb = document.getElementById('toggle-state-labels');
+  if(slCb){ slCb.checked = false; slCb.dispatchEvent(new Event('change')); }
   renderUnionFootprintPins();
   map.setView(DEFAULT_CENTER, DEFAULT_ZOOM, {animate:true});
   var btn = document.getElementById('uf-toggle-btn');
@@ -1151,7 +1163,6 @@ function deactivateOrganizedPresence(){
   if(!_ufActive) return;
   _ufActive = false;
   if(_ufLayer){ map.removeLayer(_ufLayer); _ufLayer=null; }
-  // Restore saved filter state — this re-adds the correct layers
   _restoreFilterState(_ufSavedState);
   _ufSavedState = null;
   map.setView(DEFAULT_CENTER, DEFAULT_ZOOM, {animate:true});
@@ -1169,15 +1180,63 @@ function normAff(raw){
   if(!raw) return 'Unknown';
   var r = raw.toUpperCase();
   if(r.includes('IWW')||r.includes('IBEW')||r.includes('IBT')||r.includes('UAW')||r.includes('SEIU')) return 'Independent';
-  if(r.includes('INDEPENDENT')||r==='NONE CONFIRMED'||r.includes('IN-HOUSE')||r.includes('NO NATIONAL')) return 'Independent';
+  if(r.includes('INDEPENDENT')||r==='NONE CONFIRMED'||r.includes('IN-HOUSE')||r.includes('NO NATIONAL')||r.includes('NONE — INDEPENDENT')||r.includes('NO NATIONAL AFFIL')) return 'Independent';
   if((r.includes('AFT')&&r.includes('NEA'))||r.includes('DUAL')) return 'AFT / NEA';
   if(r.includes('AFT')) return 'AFT';
   if(r.includes('NEA')||r.includes('CTA')||r.includes('FEA')||r.includes('NYSUT')||r.includes('PCSEA')||r.includes('SEEA')) return 'NEA';
   return 'Unknown';
 }
 
-var AFF_COLOR = { 'AFT':'#4A9FE0', 'NEA':'#6CC04A', 'AFT / NEA':'#F5A623', 'Independent':'#C084FC', 'Unknown':'#8BA0B4' };
+// Affiliate OUTLINE colors — chosen to contrast against green + teal fills
+var AFF_COLOR = {
+  'AFT':        '#4A9FE0',  // blue
+  'NEA':        '#FFFFFF',  // white — avoids clash with green CONFIRMED fill
+  'AFT / NEA':  '#F5A623',  // gold
+  'Independent':'#C084FC',  // purple
+  'Unknown':    '#8BA0B4',  // gray
+};
 
+// Status FILL colors — same as normal dashboard
+var STATUS_FILL = {
+  'CONFIRMED': '#6CC04A',   // green
+  'DEPENDENT': '#4ABFBF',   // teal
+};
+
+// Map of individual UF markers keyed by status for checkbox toggling
+var _ufMarkersByStatus = {};
+
+function renderUnionFootprintPins(){
+  if(_ufLayer){ map.removeLayer(_ufLayer); }
+  _ufLayer = L.layerGroup().addTo(map);
+  _ufMarkersByStatus = { CONFIRMED: [], DEPENDENT: [] };
+
+  SCHOOLS.forEach(function(s){
+    if(s.status !== 'CONFIRMED' && s.status !== 'DEPENDENT') return;
+    if(!s.lat || !s.lng) return;
+    var aff      = normAff(s.natlAff);
+    var outline  = AFF_COLOR[aff] || '#8BA0B4';
+    var fill     = STATUS_FILL[s.status] || '#6CC04A';
+    var mk = L.circleMarker([s.lat, s.lng], {
+      radius:      6,
+      fillColor:   fill,
+      fillOpacity: 0.88,
+      color:       outline,
+      weight:      2.5,
+    });
+    mk.bindPopup(buildPopup(s), {maxWidth:300});
+    mk.addTo(_ufLayer);
+    if(_ufMarkersByStatus[s.status]) _ufMarkersByStatus[s.status].push(mk);
+  });
+}
+
+// Allow filter checkboxes to show/hide UF pins by status while in OP mode
+function ufFilterByStatus(st, visible){
+  if(!_ufActive || !_ufMarkersByStatus[st]) return;
+  _ufMarkersByStatus[st].forEach(function(mk){
+    if(visible){ if(!_ufLayer.hasLayer(mk)) _ufLayer.addLayer(mk); }
+    else { _ufLayer.removeLayer(mk); }
+  });
+}
 function renderUnionFootprintPins(){
   if(_ufLayer){ map.removeLayer(_ufLayer); }
   _ufLayer = L.layerGroup().addTo(map);
