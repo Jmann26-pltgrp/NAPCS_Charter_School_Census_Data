@@ -1099,6 +1099,7 @@ function switchTab(tab){
   else if(tab==='verification') buildVerificationPanel();
   else if(tab==='dataquality') buildDataQualityPanel();
   else if(tab==='unionfootprint'){ activateOrganizedPresence(); buildUnionFootprintPanel(); }
+  else if(isIntelTab(tab)) renderIntelTab(tab, _curState);
 }
 
 // ── ORGANIZED PRESENCE MODE ───────────────────────────────────────────────────
