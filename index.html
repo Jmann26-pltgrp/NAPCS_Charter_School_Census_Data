@@ -294,7 +294,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
         <div class="drag-dots"><span></span><span></span><span></span></div>
         &#8801; Filter by Status
         <span style="font-size:8px;color:#4A9FE0;margin-left:auto;font-weight:700;letter-spacing:.3px;padding-left:8px">DRAG &#8597;</span>
-        <button id="fb-minimize-btn" title="Minimize filter panel" onclick="toggleFilterMinimize(event)" style="background:none;border:none;color:#4A9FE0;font-size:12px;cursor:pointer;padding:0 0 0 8px;line-height:1;flex-shrink:0">&#8963;</button>
+        <button id="fb-minimize-btn" title="Minimize filter panel" onclick="toggleFilterMinimize(event)" onmousedown="event.stopPropagation()" style="background:none;border:none;color:#4A9FE0;font-size:12px;cursor:pointer;padding:0 0 0 8px;line-height:1;flex-shrink:0">&#8963;</button>
       </div>
       <div id="fb-collapsible">
         <label class="fitem" style="border-bottom:1px solid #1E2D40;margin-bottom:5px;padding-bottom:5px" title="Toggle state label icons on/off. Reset to All States will restore them."><input type="checkbox" checked id="toggle-state-labels"><span class="fdot" style="background:#2E75B6;border-radius:2px"></span><span>State Label Icons</span></label>
@@ -1764,14 +1764,16 @@ function renderDensityTable(){
 
   var maxPct=Math.max.apply(null,researched.map(function(r){return parseFloat(r.density)||0;}));
 
-  // Build state-level charter enrollment lookup from SCHOOLS array
-  var stEnroll={};
-  SCHOOLS.forEach(function(s){
-    var e=Number(s.enrollment_2425);
-    if(e&&e>0&&!isNaN(e)){
-      stEnroll[s.state]=(stEnroll[s.state]||0)+e;
-    }
-  });
+  // State-level charter enrollment — sourced from NCES ELSI 2024-25 (authoritative)
+  // These figures replace the prior SCHOOLS-array sum which undercounted due to Tier 2 ncesId gaps
+  var stEnroll={
+    AK:7266,AL:8356,AR:44904,AZ:231660,CA:725796,CO:131641,CT:10811,DC:41833,
+    DE:19032,FL:405354,GA:64079,HI:13094,IA:804,ID:41137,IL:58679,IN:55577,
+    KS:2347,LA:96820,MA:48192,MD:25351,ME:2717,MI:154500,MN:72096,MO:25751,
+    MS:3977,NC:153008,NH:6037,NJ:63821,NM:32906,NV:73202,NY:186762,OH:123080,
+    OK:55021,OR:44718,PA:168356,RI:13465,SC:61994,TN:45165,TX:489326,UT:81879,
+    VA:1270,WA:4818,WI:48473,WV:3366,WY:1294
+  };
 
   function thArrow(col, label){
     var active = dtSortCol===col;
@@ -1824,7 +1826,7 @@ function renderDensityTable(){
     '</div>';
 
   setPanelBody(dlBar+'<table id="dtable"><thead><tr>'+
-    thArrow('name','State')+thArrow('universe','Census Total')+
+    thArrow('name','State')+thArrow('universe','Operating Charter Schools')+
     thArrow('confirmed','Indep. Org.')+thArrow('dependent','Structural Coverage')+
     thArrow('density','Combined %')+
     '<th style="font-size:9px">Charter Enrollment</th>'+
