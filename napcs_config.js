@@ -6588,8 +6588,8 @@ var NAPCS_CONFIG = {
       },
       {
         "union": "Camino Nuevo Teachers Association (CNTA)",
-        "natlAff": "None confirmed",
-        "stateAff": "None confirmed (independent local)",
+        "natlAff": "National Education Association (NEA)",
+        "stateAff": "California Teachers Association (CTA/NEA)",
         "schools": 5,
         "enrollment": 3044,
         "states": [
@@ -7246,8 +7246,8 @@ var NAPCS_CONFIG = {
       },
       {
         "union": "Discovery Teachers Association (DTA)",
-        "natlAff": "None confirmed",
-        "stateAff": "None confirmed (independent local)",
+        "natlAff": "National Education Association (NEA)",
+        "stateAff": "California Teachers Association (CTA/NEA)",
         "schools": 2,
         "enrollment": 1031,
         "states": [
@@ -7272,8 +7272,8 @@ var NAPCS_CONFIG = {
       },
       {
         "union": "Union of Foundation Educators (UFE / CTA)",
-        "natlAff": "None confirmed (CTA is NEA-affiliated)",
-        "stateAff": "CTA (California Teachers Association)",
+        "natlAff": "National Education Association (NEA)",
+        "stateAff": "California Teachers Association (CTA/NEA)",
         "schools": 2,
         "enrollment": 486,
         "states": [
@@ -7298,8 +7298,8 @@ var NAPCS_CONFIG = {
       },
       {
         "union": "Antioch Education Association (AEA)",
-        "natlAff": "None confirmed",
-        "stateAff": "None confirmed (independent local)",
+        "natlAff": "National Education Association (NEA)",
+        "stateAff": "California Teachers Association (CTA/NEA)",
         "schools": 2,
         "enrollment": 406,
         "states": [
@@ -7350,8 +7350,8 @@ var NAPCS_CONFIG = {
       },
       {
         "union": "Tulare County Office of Education Teachers' Association (TCOETA)",
-        "natlAff": "None confirmed",
-        "stateAff": "None confirmed (county office association — likely CTA)",
+        "natlAff": "National Education Association (NEA)",
+        "stateAff": "California Teachers Association (CTA/NEA)",
         "schools": 2,
         "enrollment": 444,
         "states": [
@@ -7376,8 +7376,8 @@ var NAPCS_CONFIG = {
       },
       {
         "union": "La Leadership Academy Community United (LLACU)",
-        "natlAff": "None confirmed",
-        "stateAff": "None confirmed (independent local)",
+        "natlAff": "National Education Association (NEA)",
+        "stateAff": "California Teachers Association (CTA/NEA)",
         "schools": 2,
         "enrollment": 587,
         "states": [
@@ -7812,8 +7812,8 @@ var NAPCS_CONFIG = {
       },
       {
         "union": "Association of Cornerstone Teachers (ACT)",
-        "natlAff": "None confirmed",
-        "stateAff": "None confirmed (independent local)",
+        "natlAff": "National Education Association (NEA)",
+        "stateAff": "California Teachers Association (CTA/NEA)",
         "schools": 1,
         "enrollment": 554,
         "states": [
@@ -7832,8 +7832,8 @@ var NAPCS_CONFIG = {
       },
       {
         "union": "Family Partnership Charter Teachers Association (FPCTA)",
-        "natlAff": "None confirmed",
-        "stateAff": "None confirmed (independent local)",
+        "natlAff": "National Education Association (NEA)",
+        "stateAff": "California Teachers Association (CTA/NEA)",
         "schools": 1,
         "enrollment": 372,
         "states": [
@@ -7852,8 +7852,8 @@ var NAPCS_CONFIG = {
       },
       {
         "union": "Monterey County Office of Education Teachers' Association (MCOETA)",
-        "natlAff": "None confirmed",
-        "stateAff": "None confirmed (likely CTA)",
+        "natlAff": "National Education Association (NEA)",
+        "stateAff": "California Teachers Association (CTA/NEA)",
         "schools": 1,
         "enrollment": 255,
         "states": [
@@ -7872,8 +7872,8 @@ var NAPCS_CONFIG = {
       },
       {
         "union": "Orange County High School of the Arts Teachers Association",
-        "natlAff": "None confirmed",
-        "stateAff": "None confirmed (independent local)",
+        "natlAff": "National Education Association (NEA)",
+        "stateAff": "California Teachers Association (CTA/NEA)",
         "schools": 1,
         "enrollment": 2346,
         "states": [
@@ -7892,8 +7892,8 @@ var NAPCS_CONFIG = {
       },
       {
         "union": "Eleanor Roosevelt Teachers Association (ERTA)",
-        "natlAff": "None confirmed",
-        "stateAff": "None confirmed (independent local)",
+        "natlAff": "National Education Association (NEA)",
+        "stateAff": "California Teachers Association (CTA/NEA)",
         "schools": 1,
         "enrollment": 467,
         "states": [
@@ -7912,8 +7912,8 @@ var NAPCS_CONFIG = {
       },
       {
         "union": "Latino College Preparatory Academy Teachers Association (LCPATA)",
-        "natlAff": "None confirmed",
-        "stateAff": "None confirmed (independent local)",
+        "natlAff": "National Education Association (NEA)",
+        "stateAff": "California Teachers Association (CTA/NEA)",
         "schools": 1,
         "enrollment": 421,
         "states": [
@@ -7932,8 +7932,8 @@ var NAPCS_CONFIG = {
       },
       {
         "union": "MAAC Community Charter School Educators Association (MCCSEA)",
-        "natlAff": "None confirmed",
-        "stateAff": "None confirmed (independent local)",
+        "natlAff": "National Education Association (NEA)",
+        "stateAff": "California Teachers Association (CTA/NEA)",
         "schools": 1,
         "enrollment": 171,
         "states": [
@@ -7952,8 +7952,8 @@ var NAPCS_CONFIG = {
       },
       {
         "union": "Santa Ynez Valley Charter School Teachers Association (SYVCSTA)",
-        "natlAff": "None confirmed",
-        "stateAff": "None confirmed (independent local)",
+        "natlAff": "National Education Association (NEA)",
+        "stateAff": "California Teachers Association (CTA/NEA)",
         "schools": 1,
         "enrollment": 189,
         "states": [
@@ -7972,8 +7972,8 @@ var NAPCS_CONFIG = {
       },
       {
         "union": "Griffin Education Association (GEA)",
-        "natlAff": "None confirmed",
-        "stateAff": "None confirmed (independent local)",
+        "natlAff": "National Education Association (NEA)",
+        "stateAff": "California Teachers Association (CTA/NEA)",
         "schools": 1,
         "enrollment": 473,
         "states": [
@@ -7992,8 +7992,8 @@ var NAPCS_CONFIG = {
       },
       {
         "union": "Coalition of Oakland School for the Arts Educators (COSAE)",
-        "natlAff": "None confirmed",
-        "stateAff": "None confirmed (independent local)",
+        "natlAff": "National Education Association (NEA)",
+        "stateAff": "California Teachers Association (CTA/NEA)",
         "schools": 1,
         "enrollment": 828,
         "states": [
@@ -8092,8 +8092,8 @@ var NAPCS_CONFIG = {
       },
       {
         "union": "Merced County Office Teachers' Association (MCOTA)",
-        "natlAff": "None confirmed",
-        "stateAff": "None confirmed (county office association)",
+        "natlAff": "National Education Association (NEA)",
+        "stateAff": "California Teachers Association (CTA/NEA)",
         "schools": 1,
         "enrollment": 334,
         "states": [
@@ -8112,8 +8112,8 @@ var NAPCS_CONFIG = {
       },
       {
         "union": "Orange County Education Arts Academy Teachers Association (OCEAATA)",
-        "natlAff": "None confirmed",
-        "stateAff": "None confirmed (independent local)",
+        "natlAff": "National Education Association (NEA)",
+        "stateAff": "California Teachers Association (CTA/NEA)",
         "schools": 1,
         "enrollment": 643,
         "states": [
@@ -8132,8 +8132,8 @@ var NAPCS_CONFIG = {
       },
       {
         "union": "Public Safety Academy Teachers Association (PSATA)",
-        "natlAff": "None confirmed",
-        "stateAff": "None confirmed (independent local)",
+        "natlAff": "National Education Association (NEA)",
+        "stateAff": "California Teachers Association (CTA/NEA)",
         "schools": 1,
         "enrollment": 396,
         "states": [
@@ -8192,8 +8192,8 @@ var NAPCS_CONFIG = {
       },
       {
         "union": "Bowman Ackerman Teachers Association (BATA)",
-        "natlAff": "None confirmed",
-        "stateAff": "None confirmed (independent local)",
+        "natlAff": "National Education Association (NEA)",
+        "stateAff": "California Teachers Association (CTA/NEA)",
         "schools": 1,
         "enrollment": 606,
         "states": [
@@ -8212,8 +8212,8 @@ var NAPCS_CONFIG = {
       },
       {
         "union": "Ballington Educators Association (BEA)",
-        "natlAff": "None confirmed",
-        "stateAff": "None confirmed (independent local)",
+        "natlAff": "National Education Association (NEA)",
+        "stateAff": "California Teachers Association (CTA/NEA)",
         "schools": 1,
         "enrollment": 230,
         "states": [
@@ -8232,8 +8232,8 @@ var NAPCS_CONFIG = {
       },
       {
         "union": "Yu Ming Educators Union (YMEU)",
-        "natlAff": "None confirmed",
-        "stateAff": "None confirmed (independent local)",
+        "natlAff": "National Education Association (NEA)",
+        "stateAff": "California Teachers Association (CTA/NEA)",
         "schools": 1,
         "enrollment": 959,
         "states": [
@@ -8272,8 +8272,8 @@ var NAPCS_CONFIG = {
       },
       {
         "union": "Clayton Valley Education Association (CVEA)",
-        "natlAff": "None confirmed",
-        "stateAff": "None confirmed (independent local)",
+        "natlAff": "National Education Association (NEA)",
+        "stateAff": "California Teachers Association (CTA/NEA)",
         "schools": 1,
         "enrollment": 2373,
         "states": [
@@ -8312,8 +8312,8 @@ var NAPCS_CONFIG = {
       },
       {
         "union": "Riverside County Office Teachers Association (RCOTA)",
-        "natlAff": "None confirmed",
-        "stateAff": "None confirmed (county teachers association)",
+        "natlAff": "National Education Association (NEA)",
+        "stateAff": "California Teachers Association (CTA/NEA)",
         "schools": 1,
         "enrollment": 612,
         "states": [
@@ -8332,8 +8332,8 @@ var NAPCS_CONFIG = {
       },
       {
         "union": "East Bay Innovation Academy Teachers Association (EBIATA)",
-        "natlAff": "None confirmed",
-        "stateAff": "None confirmed (independent local)",
+        "natlAff": "National Education Association (NEA)",
+        "stateAff": "California Teachers Association (CTA/NEA)",
         "schools": 1,
         "enrollment": 451,
         "states": [
@@ -8352,8 +8352,8 @@ var NAPCS_CONFIG = {
       },
       {
         "union": "California School of the Arts Association (CSAA)",
-        "natlAff": "None confirmed",
-        "stateAff": "None confirmed (independent local)",
+        "natlAff": "National Education Association (NEA)",
+        "stateAff": "California Teachers Association (CTA/NEA)",
         "schools": 1,
         "enrollment": 974,
         "states": [
@@ -8372,8 +8372,8 @@ var NAPCS_CONFIG = {
       },
       {
         "union": "Journey Teachers Association (JTA)",
-        "natlAff": "None confirmed",
-        "stateAff": "None confirmed (independent local)",
+        "natlAff": "National Education Association (NEA)",
+        "stateAff": "California Teachers Association (CTA/NEA)",
         "schools": 1,
         "enrollment": 570,
         "states": [
@@ -8412,8 +8412,8 @@ var NAPCS_CONFIG = {
       },
       {
         "union": "Hometech Charter – Aspire Teachers Association (HCATA)",
-        "natlAff": "None confirmed",
-        "stateAff": "None confirmed (independent local)",
+        "natlAff": "National Education Association (NEA)",
+        "stateAff": "California Teachers Association (CTA/NEA)",
         "schools": 1,
         "enrollment": 129,
         "states": [
@@ -8432,8 +8432,8 @@ var NAPCS_CONFIG = {
       },
       {
         "union": "Darnall Charter Teachers Association (DCTA)",
-        "natlAff": "None confirmed",
-        "stateAff": "None confirmed (independent local)",
+        "natlAff": "National Education Association (NEA)",
+        "stateAff": "California Teachers Association (CTA/NEA)",
         "schools": 1,
         "enrollment": 442,
         "states": [
@@ -8452,8 +8452,8 @@ var NAPCS_CONFIG = {
       },
       {
         "union": "Victor Valley Options for Youth Teachers Association (VVOFYTA)",
-        "natlAff": "None confirmed",
-        "stateAff": "None confirmed (independent local)",
+        "natlAff": "National Education Association (NEA)",
+        "stateAff": "California Teachers Association (CTA/NEA)",
         "schools": 1,
         "enrollment": 886,
         "states": [
@@ -8492,8 +8492,8 @@ var NAPCS_CONFIG = {
       },
       {
         "union": "Mueller Charter School Teachers Association (MCSTA)",
-        "natlAff": "None confirmed",
-        "stateAff": "None confirmed (independent local)",
+        "natlAff": "National Education Association (NEA)",
+        "stateAff": "California Teachers Association (CTA/NEA)",
         "schools": 1,
         "enrollment": 1542,
         "states": [
@@ -8512,8 +8512,8 @@ var NAPCS_CONFIG = {
       },
       {
         "union": "San Carlos Teachers Association (SCTA)",
-        "natlAff": "None confirmed",
-        "stateAff": "None confirmed (independent local)",
+        "natlAff": "National Education Association (NEA)",
+        "stateAff": "California Teachers Association (CTA/NEA)",
         "schools": 1,
         "enrollment": 377,
         "states": [
@@ -8572,8 +8572,8 @@ var NAPCS_CONFIG = {
       },
       {
         "union": "Childrens Community Charter Teachers Association (CCCTA)",
-        "natlAff": "None confirmed",
-        "stateAff": "None confirmed (independent local)",
+        "natlAff": "National Education Association (NEA)",
+        "stateAff": "California Teachers Association (CTA/NEA)",
         "schools": 1,
         "enrollment": 220,
         "states": [
@@ -8592,8 +8592,8 @@ var NAPCS_CONFIG = {
       },
       {
         "union": "San Jacinto Valley Academy Teachers Association (SJVATA)",
-        "natlAff": "None confirmed",
-        "stateAff": "None confirmed (independent local)",
+        "natlAff": "National Education Association (NEA)",
+        "stateAff": "California Teachers Association (CTA/NEA)",
         "schools": 1,
         "enrollment": 1658,
         "states": [
@@ -8612,8 +8612,8 @@ var NAPCS_CONFIG = {
       },
       {
         "union": "Grizzly Education Association (GrzEA)",
-        "natlAff": "None confirmed",
-        "stateAff": "None confirmed (independent local)",
+        "natlAff": "National Education Association (NEA)",
+        "stateAff": "California Teachers Association (CTA/NEA)",
         "schools": 1,
         "enrollment": 241,
         "states": [
@@ -8692,8 +8692,8 @@ var NAPCS_CONFIG = {
       },
       {
         "union": "Mare Island Technology Academy Teachers Association (MITATA)",
-        "natlAff": "None confirmed",
-        "stateAff": "None confirmed (independent local)",
+        "natlAff": "National Education Association (NEA)",
+        "stateAff": "California Teachers Association (CTA/NEA)",
         "schools": 1,
         "enrollment": 260,
         "states": [
@@ -10473,22 +10473,16 @@ var NAPCS_CONFIG = {
     ],
     "byAffiliate": [
       {
+        "natlAff": "National Education Association (NEA)",
+        "unions": 53,
+        "schools": 93,
+        "enrollment": 66387
+      },
+      {
         "natlAff": "AFT",
         "unions": 27,
         "schools": 65,
         "enrollment": 28209
-      },
-      {
-        "natlAff": "National Education Association (NEA)",
-        "unions": 17,
-        "schools": 48,
-        "enrollment": 40410
-      },
-      {
-        "natlAff": "None confirmed",
-        "unions": 40,
-        "schools": 48,
-        "enrollment": 31513
       },
       {
         "natlAff": "AFT / NEA (UTLA is dual-affiliated)",
@@ -10539,6 +10533,12 @@ var NAPCS_CONFIG = {
         "enrollment": 1932
       },
       {
+        "natlAff": "None confirmed",
+        "unions": 5,
+        "schools": 5,
+        "enrollment": 6022
+      },
+      {
         "natlAff": "AFT / NEA / AFL-CIO (FEA is dual-affiliated)",
         "unions": 1,
         "schools": 3,
@@ -10579,12 +10579,6 @@ var NAPCS_CONFIG = {
         "unions": 1,
         "schools": 2,
         "enrollment": 3648
-      },
-      {
-        "natlAff": "None confirmed (CTA is NEA-affiliated)",
-        "unions": 1,
-        "schools": 2,
-        "enrollment": 486
       },
       {
         "natlAff": "CTA/NEA",
