@@ -1124,13 +1124,13 @@ function _restoreFilterState(saved){
 }
 
 function _setOrganizedPresenceFilters(){
+  // Set checkbox visual state only — do NOT dispatch change events (would re-add layers)
   document.querySelectorAll('#filter-bar input[data-status]').forEach(function(cb){
     var st = cb.getAttribute('data-status');
     cb.checked = (st === 'CONFIRMED' || st === 'DEPENDENT');
-    cb.dispatchEvent(new Event('change'));
   });
   var slCb = document.getElementById('toggle-state-labels');
-  if(slCb){ slCb.checked = false; slCb.dispatchEvent(new Event('change')); }
+  if(slCb){ slCb.checked = false; slCb.dispatchEvent(new Event('change')); } // state labels safe to dispatch
 }
 
 function activateOrganizedPresence(){
