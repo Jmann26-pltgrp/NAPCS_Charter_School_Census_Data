@@ -1305,30 +1305,41 @@ function buildUnionFootprintPanel(){
 // ── Organized Presence modals ─────────────────────────────────────────────────
 
 // Schools modal: list all CONFIRMED/INDEPENDENT schools for a given affiliate
+// Schools modal — driven from byUnion.pins so counts match the side panel exactly
 function showAffSchoolsModal(aff){
-  var schools = SCHOOLS.filter(function(s){
-    return s.status==='CONFIRMED' && normAff(s.natlAff)===aff;
-  }).sort(function(a,b){
-    var sa=(a.state||'').localeCompare(b.state||'');
-    return sa!==0?sa:(a.name||'').localeCompare(b.name||'');
+  var UF = (NAPCS_CONFIG && NAPCS_CONFIG.unionFootprint) ? NAPCS_CONFIG.unionFootprint : null;
+  if(!UF) return;
+  // Collect pins from all byUnion entries matching this affiliate
+  var pinList = [];
+  UF.byUnion.filter(function(u){ return normAff(u.natlAff)===aff; }).forEach(function(u){
+    (u.pins||[]).forEach(function(p){
+      pinList.push({ name: p.name, state: p.state||'', union: u.union });
+    });
+  });
+  // Sort by state then name
+  pinList.sort(function(a,b){
+    var ss=a.state.localeCompare(b.state);
+    return ss!==0?ss:a.name.localeCompare(b.name);
   });
   var col = AFF_COLOR[aff]||'#8BA0B4';
   document.getElementById('modal-title').innerHTML=
     '<span style="display:inline-block;width:9px;height:9px;border-radius:50%;background:'+col+';margin-right:6px;vertical-align:middle"></span>'+
-    esc(aff)+' \u2014 <span style="color:#6CC04A">'+schools.length+' Schools</span>';
+    esc(aff)+' \u2014 <span style="color:#6CC04A">'+pinList.length+' Schools</span>';
   var h='<div style="font-size:9px;color:#4A6A80;padding:0 0 8px">Click a school name to view its card. Use \u00d7 to return to Organized Presence.</div>';
   var curState='';
-  schools.forEach(function(s){
-    if(s.state!==curState){
-      curState=s.state;
-      h+='<div style="font-size:9px;font-weight:700;color:#4A9FE0;padding:6px 0 2px;text-transform:uppercase;letter-spacing:.5px;border-top:'+(h.length>200?'1px solid #1E2D40':'none')+'">'+esc(STATE_NAMES[s.state]||s.state)+'</div>';
+  pinList.forEach(function(p){
+    if(p.state!==curState){
+      curState=p.state;
+      h+='<div style="font-size:9px;font-weight:700;color:#4A9FE0;padding:6px 0 2px;text-transform:uppercase;letter-spacing:.5px;border-top:'+(h.length>200?'1px solid #1E2D40':'none')+'">'+esc(STATE_NAMES[p.state]||p.state)+'</div>';
     }
-    var unionLbl = s.union ? ' <span style="color:#4A6A80">\u00b7 '+esc(s.union)+'</span>' : '';
+    // Look up the full SCHOOLS record to get napcsId + coords
+    var sr = SCHOOLS.find(function(s){ return s.name===p.name && (s.state||'')===(p.state||''); });
+    var lat = sr?sr.lat:null, lng = sr?sr.lng:null, nid = sr?(sr.napcsId||''):'';
     h+='<div style="padding:3px 0;border-bottom:1px solid #131F2E">';
     h+='<span style="color:#4A9FE0;cursor:pointer;font-size:10px;text-decoration:underline;text-decoration-color:#2A4060" '+
-       'onclick="openSchoolFromModal(\''+esc(s.napcsId||'')+'\',\''+esc(s.name||'')+'\',\''+esc(s.state||'')+'\','+(s.lat||null)+','+(s.lng||null)+')">'+esc(s.name)+'</span>';
-    h+='<span style="font-size:9px;color:#4A6A80;margin-left:4px">'+esc(s.state||'')+'</span>';
-    if(s.union) h+='<div style="font-size:8px;color:#3A5A70;padding-left:0;margin-top:1px">'+esc(s.union)+'</div>';
+       'onclick="openSchoolFromModal(\''+nid.replace(/'/g,"\\'")+'\''+',\''+p.name.replace(/'/g,"\\'")+'\''+',\''+p.state+'\''+','+lat+','+lng+')">'+esc(p.name)+'</span>';
+    h+='<span style="font-size:9px;color:#4A6A80;margin-left:4px">'+esc(p.state)+'</span>';
+    h+='<div style="font-size:8px;color:#3A5A70;margin-top:1px">'+esc(p.union)+'</div>';
     h+='</div>';
   });
   document.getElementById('modal-body').innerHTML=h;
@@ -1364,10 +1375,20 @@ function showAffUnionsModal(aff){
   document.getElementById('modal-overlay').classList.add('open');
 }
 
-// Open school card from modal — closes modal first, then restores Organized Presence after card closes
+// Open school card from modal — saves map state, closes modal, sets restore flag
+var _preModalMapState = null;
 function openSchoolFromModal(napcsId, name, state, lat, lng){
   document.getElementById('modal-overlay').classList.remove('open');
   _returnToOrgPresence = true;
+  // Save map zoom/center so we can restore after popup closes
+  _preModalMapState = { zoom: map.getZoom(), center: map.getCenter() };
+  // Wire one-time popupclose to restore map state
+  map.once('popupclose', function(){
+    if(_preModalMapState){
+      map.setView(_preModalMapState.center, _preModalMapState.zoom, {animate:true});
+      _preModalMapState = null;
+    }
+  });
   openSchoolDetail(napcsId, name, state, lat, lng);
 }
 
