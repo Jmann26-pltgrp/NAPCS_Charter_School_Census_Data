@@ -1187,7 +1187,7 @@ function normAff(raw){
   return 'Unknown';
 }
 
-// Affiliate OUTLINE colors — chosen to contrast against green + teal fills
+
 var AFF_COLOR = {
   'AFT':        '#4A9FE0',  // blue
   'NEA':        '#FFFFFF',  // white — avoids clash with green CONFIRMED fill
@@ -1235,21 +1235,6 @@ function ufFilterByStatus(st, visible){
   _ufMarkersByStatus[st].forEach(function(mk){
     if(visible){ if(!_ufLayer.hasLayer(mk)) _ufLayer.addLayer(mk); }
     else { _ufLayer.removeLayer(mk); }
-  });
-}
-function renderUnionFootprintPins(){
-  if(_ufLayer){ map.removeLayer(_ufLayer); }
-  _ufLayer = L.layerGroup().addTo(map);
-  SCHOOLS.forEach(function(s){
-    if(s.status!=='CONFIRMED') return;
-    if(!s.lat||!s.lng) return;
-    var aff = normAff(s.natlAff);
-    var col = AFF_COLOR[aff] || '#8BA0B4';
-    var mk = L.circleMarker([s.lat,s.lng],{
-      radius:6, fillColor:col, color:'rgba(0,0,0,0.4)', weight:1, fillOpacity:0.92
-    });
-    mk.bindPopup(buildPopup(s),{maxWidth:300});
-    mk.addTo(_ufLayer);
   });
 }
 
