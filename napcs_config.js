@@ -8012,8 +8012,8 @@ var NAPCS_CONFIG = {
       },
       {
         "union": "San Joaquin County Educators' Association (SJCEA)",
-        "natlAff": "None confirmed",
-        "stateAff": "None confirmed (county educators association)",
+        "natlAff": "National Education Association (NEA)",
+        "stateAff": "California Teachers Association (CTA/NEA)",
         "schools": 1,
         "enrollment": 1657,
         "states": [
@@ -8532,8 +8532,8 @@ var NAPCS_CONFIG = {
       },
       {
         "union": "Yuba County Certificated Employees Association (YCCEA)",
-        "natlAff": "None confirmed",
-        "stateAff": "None confirmed (county certificated employees association)",
+        "natlAff": "National Education Association (NEA)",
+        "stateAff": "California Teachers Association (CTA/NEA)",
         "schools": 1,
         "enrollment": 250,
         "states": [
@@ -8552,8 +8552,8 @@ var NAPCS_CONFIG = {
       },
       {
         "union": "Orange Unified Education Association (OUEA)",
-        "natlAff": "None confirmed",
-        "stateAff": "None confirmed (unified district educators association)",
+        "natlAff": "National Education Association (NEA)",
+        "stateAff": "California Teachers Association (CTA/NEA)",
         "schools": 1,
         "enrollment": 1137,
         "states": [
@@ -10474,9 +10474,9 @@ var NAPCS_CONFIG = {
     "byAffiliate": [
       {
         "natlAff": "National Education Association (NEA)",
-        "unions": 53,
-        "schools": 93,
-        "enrollment": 66387
+        "unions": 56,
+        "schools": 96,
+        "enrollment": 69431
       },
       {
         "natlAff": "AFT",
@@ -10533,12 +10533,6 @@ var NAPCS_CONFIG = {
         "enrollment": 1932
       },
       {
-        "natlAff": "None confirmed",
-        "unions": 5,
-        "schools": 5,
-        "enrollment": 6022
-      },
-      {
         "natlAff": "AFT / NEA / AFL-CIO (FEA is dual-affiliated)",
         "unions": 1,
         "schools": 3,
@@ -10591,6 +10585,12 @@ var NAPCS_CONFIG = {
         "unions": 2,
         "schools": 2,
         "enrollment": 2626
+      },
+      {
+        "natlAff": "None confirmed",
+        "unions": 2,
+        "schools": 2,
+        "enrollment": 2978
       },
       {
         "natlAff": "UAW / AFL-CIO",
