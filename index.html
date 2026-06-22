@@ -1217,10 +1217,19 @@ function renderUnionFootprintPins(){
   _ufLayer = L.layerGroup().addTo(map);
   _ufMarkersByStatus = { CONFIRMED: [], DEPENDENT: [] };
 
+  // Build union name → natlAff lookup from config (built files don't carry natlAff field)
+  var _unionAffMap = {};
+  var UF = (NAPCS_CONFIG && NAPCS_CONFIG.unionFootprint) ? NAPCS_CONFIG.unionFootprint : null;
+  if(UF && UF.byUnion) UF.byUnion.forEach(function(u){
+    if(u.union) _unionAffMap[u.union.trim().toUpperCase()] = u.natlAff || '';
+  });
+
   SCHOOLS.forEach(function(s){
     if(s.status !== 'CONFIRMED' && s.status !== 'DEPENDENT') return;
     if(!s.lat || !s.lng) return;
-    var aff      = normAff(s.natlAff);
+    // Use natlAff if present; otherwise look up from union name via config
+    var rawAff = s.natlAff || _unionAffMap[(s.union||'').trim().toUpperCase()] || '';
+    var aff      = normAff(rawAff);
     var outline  = AFF_COLOR[aff] || '#8BA0B4';
     var fill     = STATUS_FILL[s.status] || '#6CC04A';
     var mk = L.circleMarker([s.lat, s.lng], {
