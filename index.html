@@ -480,7 +480,7 @@ document.getElementById('stat-clo').onclick=function(){ openModal('CLOSED'); };
 
 // ── MAP ─────────────────────────────────────────────────────────────────────
 var map = L.map('map',{center:[38,-96],zoom:4,zoomControl:true,preferCanvas:true});
-L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{
+L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png?key=cb1_2oeo_1_779364dd14b823d3abed11b9',{
   attribution:'&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com">CartoDB</a>',
   subdomains:'abcd',maxZoom:19
 }).addTo(map);
